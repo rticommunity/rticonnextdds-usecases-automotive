@@ -1,0 +1,1 @@
+# -rticonnextdds-usecases-automotive
