@@ -1,0 +1,38 @@
+######################################################################
+# (c) Copyright, Real-Time Innovations, 2017.  All rights reserved.
+# No duplications, whole or partial, manual or electronic, may be made
+# without express written permission.  Any such copies, or
+# revisions thereof, must display this notice unaltered.
+# This code contains trade secrets of Real-Time Innovations, Inc.
+#
+#
+
+# Note:
+# - To use this Makefile, you must have the 'NDDSHOME' environment variable
+#   set to the location of RTI Connext.
+# 
+# - You need to invoke the make command from the root directory of this example.
+#
+# - To enable debugging information, set the Makefile variable 'DEBUG' to '1'.
+# Example:
+#   make -f make/Makefile.i86Linux2.6gcc4.4.5 DEBUG=1
+
+
+# Defines required Make variables. They will be used in the Makefile.common
+# to define the rules to define the build process for this application.
+ARCH = x64Linux3gcc4.8.2
+
+ifndef COMPILER
+COMPILER = g++
+endif
+COMPILER_FLAGS = -m64 -Wall -std=c++11
+ifndef LINKER
+LINKER = g++
+endif
+LINKER_FLAGS = -m64 -static-libgcc -Wl,--no-as-needed
+SYSLIBS = -ldl -lnsl -lm -lpthread -lrt
+DEFINES = -DRTI_UNIX -DRTI_LINUX -DRTI_64BIT 
+
+# The rest of the rules are in the 'Makefile.common'
+include make/Makefile.common
+

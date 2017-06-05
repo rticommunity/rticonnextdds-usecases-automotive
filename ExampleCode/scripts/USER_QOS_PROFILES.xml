@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<!-- 
+Description
+XML QoS Profile for Automotive Example
+
+The QoS configuration of the DDS entities in the generated example is loaded 
+from this file.
+
+This file is used only when it is in the current working directory or when the
+environment variable NDDS_QOS_PROFILES is defined and points to this file.
+
+The profile in this file inherits from the builtin QoS profile 
+BuiltinQosLib::Generic.StrictReliable. That profile, along with all of the 
+other built-in QoS profiles can be found in the 
+BuiltinProfiles.documentationONLY.xml file located in the 
+$NDDSHOME/resource/xml/ directory.
+
+You may use any of these QoS configurations in your application simply by 
+referring to them by the name shown in the 
+BuiltinProfiles.documentationONLY.xml file and listed below: 
+
+* In library "BuiltinQosLib":
+** Baseline
+** Baseline.5.0.0
+** Baseline.5.1.0
+** Baseline.5.2.0
+** Generic.Common
+** Generic.510TransportCompatibility
+** Generic.Monitoring.Common
+** Generic.ConnextMicroCompatibility
+** Generic.OtherDDSVendorCompatibility
+
+* In library "BuiltinQosLibExp":
+** Generic.StrictReliable
+** Generic.KeepLastReliable
+** Generic.BestEffort
+** Generic.StrictReliable.HighThroughput
+** Generic.StrictReliable.LowLatency
+** Generic.Participant.LargeData
+** Generic.Participant.LargeData.Monitoring
+** Generic.StrictReliable.LargeData
+** Generic.KeepLastReliable.LargeData
+** Generic.StrictReliable.LargeData.FastFlow
+** Generic.StrictReliable.LargeData.MediumFlow
+** Generic.StrictReliable.LargeData.SlowFlow
+** Generic.KeepLastReliable.LargeData.FastFlow
+** Generic.KeepLastReliable.LargeData.MediumFlow
+** Generic.KeepLastReliable.LargeData.SlowFlow
+** Generic.KeepLastReliable.TransientLocal
+** Generic.KeepLastReliable.Transient
+** Generic.KeepLastReliable.Persistent
+** Generic.AutoTuning
+** Pattern.PeriodicData
+** Pattern.Streaming
+** Pattern.ReliableStreaming
+** Pattern.Event
+** Pattern.AlarmEvent
+** Pattern.Status
+** Pattern.AlarmStatus
+** Pattern.LastValueCache
+
+You should not edit the file BuiltinProfiles.documentationONLY.xml directly.
+However, if you wish to modify any of the values in a built-in profile, the
+recommendation is to create a profile of your own and inherit from the built-in
+profile you wish to modify. The NDDS_QOS_PROFILES.example.xml file (contained in 
+the same directory as the BuiltinProfiles.documentationONLY.xml file) shows how
+to inherit from the built-in profiles. 
+
+For more information about XML QoS Profiles see Chapter 17 in the 
+RTI Connext user manual.
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/5.2.3/rti_dds_qos_profiles.xsd"
+     version="5.2.3">
+  <!-- QoS Library containing the QoS profile used in the generated example.
+
+       A QoS library is a named set of QoS profiles.
+   -->
+  <qos_library name="Demo_Library">
+
+     <!-- QoS profile used to configure reliable communication between the DataWriter 
+          and DataReader created in the example code.
+
+          A QoS profile groups a set of related QoS.
+      -->
+    <qos_profile name="Lidar_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+      <!-- QoS used to configure the data writer created in the example code -->                
+      <datawriter_qos>
+        <publication_name>
+          <name>Lidar Data Writer</name>
+        </publication_name>
+        <publish_mode>
+          <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+        </publish_mode>
+        <deadline>
+          <period>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </period>
+        </deadline>
+      </datawriter_qos>
+
+      <datareader_qos>
+        <subscription_name>
+          <name>LidarDataReader</name>
+        </subscription_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>2</sec>
+          </period>
+        </deadline>
+      </datareader_qos>
+      <participant_qos>
+        <!--
+          The participant name, if it is set, will be displayed in the
+          RTI tools, making it easier for you to tell one
+          application from another when you're debugging.
+        -->
+        <participant_name>
+          <name>Lidar</name>
+        </participant_name>
+        <discovery>
+          <initial_peers>
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Insert addresses here of machines you want     -->
+            <!-- to contact                                     -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <element>127.0.0.1</element>
+            <!-- <element>192.168.1.2</element>-->
+          </initial_peers>
+        </discovery>
+      </participant_qos>
+    </qos_profile>
+
+    <qos_profile name="HMI_Profile" base_name="BuiltinQosLibExp::Generic.StrictReliable" is_default_qos="false">
+      <participant_qos>
+        <!--
+          The participant name, if it is set, will be displayed in the
+          RTI tools, making it easier for you to tell one
+          application from another when you're debugging.
+        -->
+        <participant_name>
+          <name>HMI</name>
+        </participant_name>
+        <discovery>
+          <initial_peers>
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Insert addresses here of machines you want     -->
+            <!-- to contact                                     -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <element>127.0.0.1</element>
+            <!-- <element>192.168.1.2</element>-->
+          </initial_peers>
+        </discovery>
+      </participant_qos>
+      <datareader_qos>
+        <subscription_name>
+          <name>HMI Alert Reader</name>
+        </subscription_name>
+        <durability>
+          <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+        </durability>
+        <history>
+          <depth>1</depth>
+        </history>
+        <liveliness>
+          <lease_duration>
+            <sec>60</sec>
+            <nanosec>0</nanosec>
+          </lease_duration>
+          <assertions_per_lease_duration>10</assertions_per_lease_duration>
+          <kind>AUTOMATIC_LIVELINESS_QOS</kind>
+        </liveliness>
+      </datareader_qos>
+      <datawriter_qos>
+        <publication_name>
+          <name>Alert Publisher</name>
+        </publication_name>
+        <durability>
+          <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+        </durability>
+        <liveliness>
+          <lease_duration>
+            <sec>60</sec>
+            <nanosec>0</nanosec>
+          </lease_duration>
+          <assertions_per_lease_duration>10</assertions_per_lease_duration>
+          <kind>AUTOMATIC_LIVELINESS_QOS</kind>
+        </liveliness>        
+      </datawriter_qos>
+    </qos_profile>
+             
+    <qos_profile name="Vision_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+      <participant_qos>
+        <!--
+          The participant name, if it is set, will be displayed in the
+          RTI tools, making it easier for you to tell one
+          application from another when you're debugging.
+        -->
+        <participant_name>
+          <name>Vision Sensor</name>
+        </participant_name>
+        <discovery>
+          <initial_peers>
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Insert addresses here of machines you want     -->
+            <!-- to contact                                     -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <element>127.0.0.1</element>
+            <!-- <element>192.168.1.2</element>-->
+          </initial_peers>
+        </discovery>      </participant_qos>
+      <datareader_qos>
+        <subscription_name>
+          <name>Vision Data Reader</name>
+        </subscription_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>11</sec>
+          </period>
+        </deadline>
+        <history>
+          <depth>100</depth>
+        </history>
+      </datareader_qos>
+      <datawriter_qos>
+        <publication_name>
+          <name>Vision Data Publisher</name>
+        </publication_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>10</sec>
+          </period>
+        </deadline>
+      </datawriter_qos>
+    </qos_profile>        
+    
+    <qos_profile name="Vehicle_Platform_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+      <participant_qos>
+        <!--
+          The participant name, if it is set, will be displayed in the
+          RTI tools, making it easier for you to tell one
+          application from another when you're debugging.
+        -->
+        <participant_name>
+          <name>Vehicle Platform</name>
+        </participant_name>
+        <discovery>
+          <initial_peers>
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Insert addresses here of machines you want     -->
+            <!-- to contact                                     -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <element>127.0.0.1</element>
+            <!-- <element>192.168.1.2</element>-->
+          </initial_peers>
+        </discovery>
+      </participant_qos>
+      <datareader_qos>
+        <subscription_name>
+          <name>Vehicle Platform Status Reader</name>
+        </subscription_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>11</sec>
+          </period>
+        </deadline>
+        <history>
+          <depth>100</depth>
+        </history>
+      </datareader_qos>
+      <datawriter_qos>
+        <publication_name>
+          <name>Vehicle Platform Status Publisher</name>
+        </publication_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>10</sec>
+          </period>
+        </deadline>
+      </datawriter_qos>
+    </qos_profile>      
+      
+    <qos_profile name="Collision_Avoidance_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+      <participant_qos>
+        <!--
+          The participant name, if it is set, will be displayed in the
+          RTI tools, making it easier for you to tell one
+          application from another when you're debugging.
+        -->
+        <participant_name>
+          <name>Collision Avoidance</name>
+        </participant_name>
+        <discovery>
+          <initial_peers>
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Insert addresses here of machines you want     -->
+            <!-- to contact                                     -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <element>127.0.0.1</element>
+            <!-- <element>192.168.1.2</element>-->
+          </initial_peers>
+        </discovery>      
+      </participant_qos>
+      <datareader_qos>
+        <subscription_name>
+          <name>Platform Control Reader</name>
+        </subscription_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>11</sec>
+          </period>
+        </deadline>
+        <history>
+          <depth>100</depth>
+        </history>
+      </datareader_qos>
+      <datawriter_qos>
+        <publication_name>
+          <name>Platforn Control Publisher</name>
+        </publication_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>10</sec>
+          </period>
+        </deadline>
+      </datawriter_qos>
+    </qos_profile>
+
+    <qos_profile name="Sensor_Fusion_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+     <participant_qos>
+       <!--
+         The participant name, if it is set, will be displayed in the
+         RTI tools, making it easier for you to tell one
+         application from another when you're debugging.
+       -->
+       <participant_name>
+         <name>Sensor Fusion</name>
+       </participant_name>
+        <discovery>
+          <initial_peers>
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Insert addresses here of machines you want     -->
+            <!-- to contact                                     -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <element>127.0.0.1</element>
+            <!-- <element>192.168.1.2</element>-->
+          </initial_peers>
+        </discovery>
+      </participant_qos>
+      <datareader_qos>
+        <subscription_name>
+          <name>Sensor Object Reader</name>
+        </subscription_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>11</sec>
+          </period>
+        </deadline>
+        <history>
+          <depth>100</depth>
+        </history>
+      </datareader_qos>
+      <datawriter_qos>
+        <publication_name>
+          <name>Sensor Object Publisher</name>
+        </publication_name>
+        <deadline>
+          <period>
+            <nanosec>0</nanosec>
+            <sec>10</sec>
+          </period>
+        </deadline>
+      </datawriter_qos>
+    </qos_profile>
+
+  </qos_library>
+</dds>

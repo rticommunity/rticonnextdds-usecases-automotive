@@ -1,0 +1,194 @@
+/****************************************************************************
+(c) 2005-2017 Copyright, Real-Time Innovations, Inc.  All rights reserved.    	                             
+RTI grants Licensee a license to use, modify, compile, and create derivative 
+works of the Software.  Licensee has the right to distribute object form 
+only for use with RTI products.  The Software is provided 'as is', with no
+arranty of any type, including any warranty for fitness for any purpose. RTI
+is under no obligation to maintain or support the Software.  RTI shall not
+be liable for any incidental or consequential damages arising out of the 
+use or inability to use the software.
+*****************************************************************************/
+
+struct POSIXTimestamp {
+  long s;
+  long ns;
+};
+
+enum IndicatorStatus {
+  INDICATOR_OFF = 0,
+  INDICATOR_LEFT = 1,
+  INDICATOR_RIGHT = 2,
+  INDICATOR_HAZARD = 3
+};
+
+enum classificationEnum
+{
+    Classification_Unknown = 0,
+    Classification_UnknownSmall = 1,
+    Classification_UnknownBig = 2, 
+    Classification_Pedestrian = 3,
+    Classification_Bike = 4,
+    Classification_Car = 5,
+    Classification_Truck = 6,
+    Classification_Barrier = 7
+};
+
+
+module Alerts {
+
+    struct DriverAlerts {
+        boolean BlindSpotDriver;
+        boolean BlindSpotPassenger;
+        boolean FrontCollision;
+        boolean BackCollision;
+        boolean ParkingCollision;
+        boolean DriverAttention;
+    };
+
+};
+
+
+module Lane {
+
+    enum confidenceEnum
+    {
+        Confidence_None = 0,
+        Confidence_Low = 1,
+        Confidence_Med = 2,
+        Confidence_High = 3
+    };
+
+
+    enum laneBoundaryEnum
+    {
+        Boundry_None = 0,
+        Boundry_Invalid = 1,
+        Boundry_Solid = 2,
+        Boundry_Dashed = 3,
+        Boundry_Virtual = 4,
+        Boundry_Dots = 5,
+        Boundry_RoadEdge = 6,
+        Boundry_Undecided = 7,
+        Boundry_DoubleMarker = 8
+    };
+
+
+    struct LaneObject {
+        octet isValid;
+        confidenceEnum confidence;
+        laneBoundaryEnum boundaryType;
+        float offset;
+        float headingAngle;
+        float curvature;
+    };
+
+    struct LaneSensor {
+        LaneObject left;
+        LaneObject right;
+    };
+
+};
+
+module Lidar {
+
+    const long MAX_POINTS = 30000;
+
+    struct Point {
+        float point[3];
+    };
+
+    struct PCloud {
+        sequence <Point, MAX_POINTS> Location; 
+        octet Color;
+        float Normal;
+        float Intensity;
+        double Count;
+        float XLimits[2];
+        float YLimits[2];
+        float ZLimits[2];
+    };
+
+    struct LidarSensor {
+        POSIXTimestamp timestamp;
+        PCloud ptCloud;
+    };
+
+};
+
+module Platform {
+
+
+    struct PlatformControl {
+        // sample ID : counter that represents the instance of the data sent.
+        long sample_id;
+        POSIXTimestamp timestamp;
+        float vehicle_steer_angle;
+        float speed;
+
+        IndicatorStatus blinker_status;
+    };
+
+    struct PlatformStatus {
+        POSIXTimestamp timestamp;       /* recording time stamp */
+        float vehSpd;                   /* vehicle speed [m/s] */
+        IndicatorStatus blinkerStatus;  /* blinker status */
+        float posGasPedal;              /* position of gas pedal [0,100][%] */
+        float velocity;
+        float yawRate;
+        float vehicle_steer_angle;
+    };
+
+};
+
+module Sensor {
+
+    const long SENSOR_OBJECT_LIST_MAX_SIZE = 128; 
+
+    enum rangeModeEnum 
+    {
+        None = 0,
+        Short = 1,
+        Medium = 2,
+        Long = 3
+    };
+
+
+    struct SensorObject {
+        classificationEnum classification; 
+        float position[3];
+        float velocity[3];
+        float size[3];
+        float amplitude;
+        rangeModeEnum rangeMode;
+        float rangeRate;
+    };
+
+
+    struct SensorObjectList {
+        POSIXTimestamp timestamp;
+        sequence<SensorObject, SENSOR_OBJECT_LIST_MAX_SIZE> objects;
+    };
+
+};
+
+module Vision {
+
+    const long VISION_OBJECT_LIST_MAX_SIZE = 10;
+
+
+    struct VisionObject {
+        classificationEnum classification;
+        float position[3];
+        float velocity[3];
+        float size[3];
+    };
+
+    struct VisionSensor {
+        long id; //@key
+        POSIXTimestamp timestamp;
+        sequence <VisionObject, VISION_OBJECT_LIST_MAX_SIZE> objects;
+    };
+
+};
+
+

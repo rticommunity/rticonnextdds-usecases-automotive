@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\Collision_Avoidance\collision_avoidance.cxx" />
+    <ClCompile Include="..\src\common\dataObject.cxx" />
+    <ClCompile Include="..\src\common\propertyUtil.cxx" />
+    <ClCompile Include="..\src\Generated\automotive.cxx" />
+    <ClCompile Include="..\src\Generated\automotivePlugin.cxx" />
+    <ClCompile Include="..\src\Generated\automotiveSupport.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\common\dataObject.h" />
+    <ClInclude Include="..\src\common\propertyUtil.h" />
+    <ClInclude Include="..\src\Generated\automotive.h" />
+    <ClInclude Include="..\src\Generated\automotivePlugin.h" />
+    <ClInclude Include="..\src\Generated\automotiveSupport.h" />
+  </ItemGroup>
+</Project>
