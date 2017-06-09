@@ -193,16 +193,16 @@ extern "C" int publisher_main(int sample_count)
         }
 #endif
         /* create random data */
-        instance->ptCloud.Color = count % 255;
-        instance->ptCloud.Count = Lidar_MAX_POINTS;
-        instance->ptCloud.Intensity = (float) rand() / 1000;
-        instance->ptCloud.Normal = (float) rand() / 1000;
-        instance->ptCloud.XLimits[0] = (float) rand();
-        instance->ptCloud.XLimits[1] = (float) rand();
-        instance->ptCloud.YLimits[0] = (float) rand();
-        instance->ptCloud.YLimits[1] = (float) rand();
-        instance->ptCloud.ZLimits[0] = (float) rand();
-        instance->ptCloud.ZLimits[1] = (float) rand();
+        instance->ptCloud.color = count % 255;
+        instance->ptCloud.count = Lidar_MAX_POINTS;
+        instance->ptCloud.intensity = (float) rand() / 1000;
+        instance->ptCloud.normal = (float) rand() / 1000;
+        instance->ptCloud.xLimits[0] = (float) rand();
+        instance->ptCloud.xLimits[1] = (float) rand();
+        instance->ptCloud.yLimits[0] = (float) rand();
+        instance->ptCloud.yLimits[1] = (float) rand();
+        instance->ptCloud.zLimits[0] = (float) rand();
+        instance->ptCloud.zLimits[1] = (float) rand();
 
         /* And send it */
         retcode = Lidar_LidarSensor_writer->write(*instance, instance_handle);

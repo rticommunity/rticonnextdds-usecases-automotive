@@ -26,7 +26,7 @@ use or inability to use the software.
    the status message
  */
 static float _vehicle_steer_angle = 0;
-static IndicatorStatus _blinker_status = INDICATOR_OFF;
+static IndicatorStatusEnum _blinker_status = INDICATOR_OFF;
 
 /* Listener */
 class Platform_PlatformControlListener : public DDSDataReaderListener {
@@ -102,8 +102,8 @@ void Platform_PlatformControlListener::on_data_available(DDSDataReader* reader)
         if (info_seq[i].valid_data) {
             /* Print the data and store some data for use in the status message*/
             Platform_PlatformControlTypeSupport::print_data(&data_seq[i]);
-            _vehicle_steer_angle = data_seq[i].vehicle_steer_angle;
-            _blinker_status = data_seq[i].blinker_status;
+            _vehicle_steer_angle = data_seq[i].vehicleSteerAngle;
+            _blinker_status = data_seq[i].blinkerStatus;
         }
     }
 
@@ -352,7 +352,7 @@ extern "C" int publisher_main(int sample_count)
            set back to the beginning 
          */
         instance->blinkerStatus = _blinker_status;
-        instance->vehicle_steer_angle = _vehicle_steer_angle;
+        instance->vehicleSteerAngle = _vehicle_steer_angle;
         data->get(2, instance->velocity);
         data->get(3, instance->yawRate);
         data->get(4, instance->vehSpd);

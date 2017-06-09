@@ -451,7 +451,7 @@ extern "C" int subscriber_main(int sample_count)
 
 
     /* Main loop */
-    bool alert_sent = FALSE; /* Flag if alert has been sent or not*/
+    bool alert_sent = false; /* Flag if alert has been sent or not*/
 
     for (count=0; (sample_count == 0) || (count < sample_count); ++count) {
 
@@ -553,34 +553,34 @@ extern "C" int subscriber_main(int sample_count)
                             /* As an example if size[1] of an object is gerater than 
                                2 we issue a driver alert*/
                             if (sensor_data_seq[i].objects[j].size[1] > 2.0) {
-                                alerts_instance->BackCollision = 0;
-                                alerts_instance->BlindSpotDriver = 0;
-                                alerts_instance->BlindSpotPassenger = 0;
-                                alerts_instance->DriverAttention = 1;
-                                alerts_instance->FrontCollision = 0;
-                                alerts_instance->ParkingCollision = 0;
+                                alerts_instance->backCollision = 0;
+                                alerts_instance->blindSpotDriver = 0;
+                                alerts_instance->blindSpotPassenger = 0;
+                                alerts_instance->driverAttention = 1;
+                                alerts_instance->frontCollision = 0;
+                                alerts_instance->parkingCollision = 0;
                                 /* Write the alert and set the flag to true */
                                 retcode = alerts_writer->write(*alerts_instance, instance_handle);
                                 if (retcode != DDS_RETCODE_OK) {
                                     printf("write error %d\n", retcode);
                                 }
-                                alert_sent = TRUE;
+                                alert_sent = true;
                             }
-                            else if (alert_sent == TRUE) {
+                            else if (alert_sent == true) {
                                 /* if we issued an alert and the size value is less than 2
                                    clear the alert */
-                                alerts_instance->BackCollision = 0;
-                                alerts_instance->BlindSpotDriver = 0;
-                                alerts_instance->BlindSpotPassenger = 0;
-                                alerts_instance->DriverAttention = 0;
-                                alerts_instance->FrontCollision = 0;
-                                alerts_instance->ParkingCollision = 0;
+                                alerts_instance->backCollision = 0;
+                                alerts_instance->blindSpotDriver = 0;
+                                alerts_instance->blindSpotPassenger = 0;
+                                alerts_instance->driverAttention = 0;
+                                alerts_instance->frontCollision = 0;
+                                alerts_instance->parkingCollision = 0;
 
                                 retcode = alerts_writer->write(*alerts_instance, instance_handle);
                                 if (retcode != DDS_RETCODE_OK) {
                                     printf("write error %d\n", retcode);
                                 }
-                                alert_sent = FALSE;
+                                alert_sent = false;
                             }
                         }
                         /* Some random data copy into the platform control. No real algorithm 
@@ -588,9 +588,9 @@ extern "C" int subscriber_main(int sample_count)
                          */
                         control_instance->sample_id = seq++;
                         if (sensor_data_seq[i].objects.length() > 0) {
-                        control_instance->blinker_status = IndicatorStatus(sensor_data_seq[i].objects[0].classification % 4);
+                        control_instance->blinkerStatus = IndicatorStatusEnum(sensor_data_seq[i].objects[0].classification % 4);
                             control_instance->speed = sensor_data_seq[i].objects[0].velocity[0];
-                            control_instance->vehicle_steer_angle = sensor_data_seq[i].objects[0].position[0];
+                            control_instance->vehicleSteerAngle = sensor_data_seq[i].objects[0].position[0];
                         }
                         /* Send the platform control */
                         retcode = platformControl_writer->write(*control_instance, instance_handle);

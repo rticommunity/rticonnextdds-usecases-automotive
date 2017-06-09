@@ -987,9 +987,9 @@ POSIXTimestampPlugin_delete(struct PRESTypePlugin *plugin)
 * ------------------------------------------------------------------------- */
 
 RTIBool 
-IndicatorStatusPlugin_serialize(
+IndicatorStatusEnumPlugin_serialize(
     PRESTypePluginEndpointData endpoint_data,
-    const IndicatorStatus *sample, 
+    const IndicatorStatusEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -1026,9 +1026,9 @@ IndicatorStatusPlugin_serialize(
 }
 
 RTIBool 
-IndicatorStatusPlugin_deserialize_sample(
+IndicatorStatusEnumPlugin_deserialize_sample(
     PRESTypePluginEndpointData endpoint_data,
-    IndicatorStatus *sample,
+    IndicatorStatusEnum *sample,
     struct RTICdrStream *stream,   
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_sample, 
@@ -1081,7 +1081,7 @@ IndicatorStatusPlugin_deserialize_sample(
     return RTI_TRUE;
 }
 
-RTIBool IndicatorStatusPlugin_skip(
+RTIBool IndicatorStatusEnumPlugin_skip(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream,   
     RTIBool skip_encapsulation,
@@ -1116,7 +1116,7 @@ RTIBool IndicatorStatusPlugin_skip(
 }
 
 unsigned int 
-IndicatorStatusPlugin_get_serialized_sample_max_size_ex(
+IndicatorStatusEnumPlugin_get_serialized_sample_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -1151,7 +1151,7 @@ IndicatorStatusPlugin_get_serialized_sample_max_size_ex(
 }
 
 unsigned int 
-IndicatorStatusPlugin_get_serialized_sample_max_size(
+IndicatorStatusEnumPlugin_get_serialized_sample_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -1159,7 +1159,7 @@ IndicatorStatusPlugin_get_serialized_sample_max_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += IndicatorStatusPlugin_get_serialized_sample_max_size_ex(
+    current_alignment += IndicatorStatusEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data,
         NULL,
         include_encapsulation,
@@ -1168,7 +1168,7 @@ IndicatorStatusPlugin_get_serialized_sample_max_size(
     return current_alignment - initial_alignment;
 }
 
-unsigned int IndicatorStatusPlugin_get_serialized_sample_min_size(
+unsigned int IndicatorStatusEnumPlugin_get_serialized_sample_min_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -1176,7 +1176,7 @@ unsigned int IndicatorStatusPlugin_get_serialized_sample_min_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += IndicatorStatusPlugin_get_serialized_sample_max_size(
+    current_alignment += IndicatorStatusEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -1190,12 +1190,12 @@ unsigned int IndicatorStatusPlugin_get_serialized_sample_min_size(
 * encapsulation flags.
 */
 unsigned int
-IndicatorStatusPlugin_get_serialized_sample_size(
+IndicatorStatusEnumPlugin_get_serialized_sample_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
     unsigned int current_alignment,
-    const IndicatorStatus * sample) 
+    const IndicatorStatusEnum * sample) 
 {
 
     unsigned int initial_alignment = current_alignment;
@@ -1204,7 +1204,7 @@ IndicatorStatusPlugin_get_serialized_sample_size(
         return 0;
     }
 
-    current_alignment += IndicatorStatusPlugin_get_serialized_sample_max_size(
+    current_alignment += IndicatorStatusEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -1216,37 +1216,37 @@ Key Management functions:
 * -------------------------------------------------------------------------------------- */
 
 RTIBool 
-IndicatorStatusPlugin_serialize_key(
+IndicatorStatusEnumPlugin_serialize_key(
     PRESTypePluginEndpointData endpoint_data,
-    const IndicatorStatus *sample, 
+    const IndicatorStatusEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
     RTIBool serialize_key,
     void *endpoint_plugin_qos)
 {
-    return  IndicatorStatusPlugin_serialize(
+    return  IndicatorStatusEnumPlugin_serialize(
         endpoint_data, sample, stream, 
         serialize_encapsulation, encapsulation_id, 
         serialize_key, endpoint_plugin_qos);
 
 }
 
-RTIBool IndicatorStatusPlugin_deserialize_key_sample(
+RTIBool IndicatorStatusEnumPlugin_deserialize_key_sample(
     PRESTypePluginEndpointData endpoint_data,
-    IndicatorStatus *sample, 
+    IndicatorStatusEnum *sample, 
     struct RTICdrStream *stream,
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_key,
     void *endpoint_plugin_qos)
 {
-    return  IndicatorStatusPlugin_deserialize_sample(
+    return  IndicatorStatusEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 }
 
 unsigned int
-IndicatorStatusPlugin_get_serialized_key_max_size_ex(
+IndicatorStatusEnumPlugin_get_serialized_key_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -1256,7 +1256,7 @@ IndicatorStatusPlugin_get_serialized_key_max_size_ex(
 
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment +=  IndicatorStatusPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=  IndicatorStatusEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -1264,16 +1264,16 @@ IndicatorStatusPlugin_get_serialized_key_max_size_ex(
 }
 
 RTIBool 
-IndicatorStatusPlugin_serialized_sample_to_key(
+IndicatorStatusEnumPlugin_serialized_sample_to_key(
     PRESTypePluginEndpointData endpoint_data,
-    IndicatorStatus *sample,
+    IndicatorStatusEnum *sample,
     struct RTICdrStream *stream, 
     RTIBool deserialize_encapsulation,  
     RTIBool deserialize_key, 
     void *endpoint_plugin_qos)
 {
 
-    return  IndicatorStatusPlugin_deserialize_sample(
+    return  IndicatorStatusEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 
@@ -1283,8 +1283,8 @@ IndicatorStatusPlugin_serialized_sample_to_key(
 Support functions:
 * ---------------------------------------------------------------------------- */
 
-void IndicatorStatusPluginSupport_print_data(
-    const IndicatorStatus *sample,
+void IndicatorStatusEnumPluginSupport_print_data(
+    const IndicatorStatusEnum *sample,
     const char *description, int indent_level)
 {
     if (description != NULL) {
@@ -1298,7 +1298,7 @@ void IndicatorStatusPluginSupport_print_data(
         return;
     }
 
-    RTICdrType_printEnum((RTICdrEnum *)sample, "IndicatorStatus", indent_level + 1);
+    RTICdrType_printEnum((RTICdrEnum *)sample, "IndicatorStatusEnum", indent_level + 1);
 }
 
 /* ------------------------------------------------------------------------
@@ -1310,9 +1310,9 @@ void IndicatorStatusPluginSupport_print_data(
 * ------------------------------------------------------------------------- */
 
 RTIBool 
-classificationEnumPlugin_serialize(
+ClassificationEnumPlugin_serialize(
     PRESTypePluginEndpointData endpoint_data,
-    const classificationEnum *sample, 
+    const ClassificationEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -1349,9 +1349,9 @@ classificationEnumPlugin_serialize(
 }
 
 RTIBool 
-classificationEnumPlugin_deserialize_sample(
+ClassificationEnumPlugin_deserialize_sample(
     PRESTypePluginEndpointData endpoint_data,
-    classificationEnum *sample,
+    ClassificationEnum *sample,
     struct RTICdrStream *stream,   
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_sample, 
@@ -1378,29 +1378,29 @@ classificationEnumPlugin_deserialize_sample(
             return RTI_FALSE;
         }
         switch (enum_tmp) {
-            case Classification_Unknown:
-            *sample=Classification_Unknown;
+            case CLASSIFICATION_UNKNOWN:
+            *sample=CLASSIFICATION_UNKNOWN;
             break;
-            case Classification_UnknownSmall:
-            *sample=Classification_UnknownSmall;
+            case CLASSIFICATION_UNKNOWNSMALL:
+            *sample=CLASSIFICATION_UNKNOWNSMALL;
             break;
-            case Classification_UnknownBig:
-            *sample=Classification_UnknownBig;
+            case CLASSIFICATION_UNKNOWNBIG:
+            *sample=CLASSIFICATION_UNKNOWNBIG;
             break;
-            case Classification_Pedestrian:
-            *sample=Classification_Pedestrian;
+            case CLASSIFICATION_PEDESTRIAN:
+            *sample=CLASSIFICATION_PEDESTRIAN;
             break;
-            case Classification_Bike:
-            *sample=Classification_Bike;
+            case CLASSIFICATION_BIKE:
+            *sample=CLASSIFICATION_BIKE;
             break;
-            case Classification_Car:
-            *sample=Classification_Car;
+            case CLASSIFICATION_CAR:
+            *sample=CLASSIFICATION_CAR;
             break;
-            case Classification_Truck:
-            *sample=Classification_Truck;
+            case CLASSIFICATION_TRUCK:
+            *sample=CLASSIFICATION_TRUCK;
             break;
-            case Classification_Barrier:
-            *sample=Classification_Barrier;
+            case CLASSIFICATION_BARRIER:
+            *sample=CLASSIFICATION_BARRIER;
             break;
             default:
             stream->_xTypesState.unassignable = RTI_TRUE;
@@ -1416,7 +1416,7 @@ classificationEnumPlugin_deserialize_sample(
     return RTI_TRUE;
 }
 
-RTIBool classificationEnumPlugin_skip(
+RTIBool ClassificationEnumPlugin_skip(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream,   
     RTIBool skip_encapsulation,
@@ -1451,7 +1451,7 @@ RTIBool classificationEnumPlugin_skip(
 }
 
 unsigned int 
-classificationEnumPlugin_get_serialized_sample_max_size_ex(
+ClassificationEnumPlugin_get_serialized_sample_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -1486,7 +1486,7 @@ classificationEnumPlugin_get_serialized_sample_max_size_ex(
 }
 
 unsigned int 
-classificationEnumPlugin_get_serialized_sample_max_size(
+ClassificationEnumPlugin_get_serialized_sample_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -1494,7 +1494,7 @@ classificationEnumPlugin_get_serialized_sample_max_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += classificationEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment += ClassificationEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data,
         NULL,
         include_encapsulation,
@@ -1503,7 +1503,7 @@ classificationEnumPlugin_get_serialized_sample_max_size(
     return current_alignment - initial_alignment;
 }
 
-unsigned int classificationEnumPlugin_get_serialized_sample_min_size(
+unsigned int ClassificationEnumPlugin_get_serialized_sample_min_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -1511,7 +1511,7 @@ unsigned int classificationEnumPlugin_get_serialized_sample_min_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += classificationEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += ClassificationEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -1525,12 +1525,12 @@ unsigned int classificationEnumPlugin_get_serialized_sample_min_size(
 * encapsulation flags.
 */
 unsigned int
-classificationEnumPlugin_get_serialized_sample_size(
+ClassificationEnumPlugin_get_serialized_sample_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
     unsigned int current_alignment,
-    const classificationEnum * sample) 
+    const ClassificationEnum * sample) 
 {
 
     unsigned int initial_alignment = current_alignment;
@@ -1539,7 +1539,7 @@ classificationEnumPlugin_get_serialized_sample_size(
         return 0;
     }
 
-    current_alignment += classificationEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += ClassificationEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -1551,37 +1551,37 @@ Key Management functions:
 * -------------------------------------------------------------------------------------- */
 
 RTIBool 
-classificationEnumPlugin_serialize_key(
+ClassificationEnumPlugin_serialize_key(
     PRESTypePluginEndpointData endpoint_data,
-    const classificationEnum *sample, 
+    const ClassificationEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
     RTIBool serialize_key,
     void *endpoint_plugin_qos)
 {
-    return  classificationEnumPlugin_serialize(
+    return  ClassificationEnumPlugin_serialize(
         endpoint_data, sample, stream, 
         serialize_encapsulation, encapsulation_id, 
         serialize_key, endpoint_plugin_qos);
 
 }
 
-RTIBool classificationEnumPlugin_deserialize_key_sample(
+RTIBool ClassificationEnumPlugin_deserialize_key_sample(
     PRESTypePluginEndpointData endpoint_data,
-    classificationEnum *sample, 
+    ClassificationEnum *sample, 
     struct RTICdrStream *stream,
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_key,
     void *endpoint_plugin_qos)
 {
-    return  classificationEnumPlugin_deserialize_sample(
+    return  ClassificationEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 }
 
 unsigned int
-classificationEnumPlugin_get_serialized_key_max_size_ex(
+ClassificationEnumPlugin_get_serialized_key_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -1591,7 +1591,7 @@ classificationEnumPlugin_get_serialized_key_max_size_ex(
 
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment +=  classificationEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=  ClassificationEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -1599,16 +1599,16 @@ classificationEnumPlugin_get_serialized_key_max_size_ex(
 }
 
 RTIBool 
-classificationEnumPlugin_serialized_sample_to_key(
+ClassificationEnumPlugin_serialized_sample_to_key(
     PRESTypePluginEndpointData endpoint_data,
-    classificationEnum *sample,
+    ClassificationEnum *sample,
     struct RTICdrStream *stream, 
     RTIBool deserialize_encapsulation,  
     RTIBool deserialize_key, 
     void *endpoint_plugin_qos)
 {
 
-    return  classificationEnumPlugin_deserialize_sample(
+    return  ClassificationEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 
@@ -1618,8 +1618,8 @@ classificationEnumPlugin_serialized_sample_to_key(
 Support functions:
 * ---------------------------------------------------------------------------- */
 
-void classificationEnumPluginSupport_print_data(
-    const classificationEnum *sample,
+void ClassificationEnumPluginSupport_print_data(
+    const ClassificationEnum *sample,
     const char *description, int indent_level)
 {
     if (description != NULL) {
@@ -1633,7 +1633,7 @@ void classificationEnumPluginSupport_print_data(
         return;
     }
 
-    RTICdrType_printEnum((RTICdrEnum *)sample, "classificationEnum", indent_level + 1);
+    RTICdrType_printEnum((RTICdrEnum *)sample, "ClassificationEnum", indent_level + 1);
 }
 
 /* ------------------------------------------------------------------------
@@ -1743,22 +1743,22 @@ Alerts_DriverAlertsPluginSupport_print_data(
     }
 
     RTICdrType_printBoolean(
-        &sample->BlindSpotDriver, "BlindSpotDriver", indent_level + 1);    
+        &sample->blindSpotDriver, "blindSpotDriver", indent_level + 1);    
 
     RTICdrType_printBoolean(
-        &sample->BlindSpotPassenger, "BlindSpotPassenger", indent_level + 1);    
+        &sample->blindSpotPassenger, "blindSpotPassenger", indent_level + 1);    
 
     RTICdrType_printBoolean(
-        &sample->FrontCollision, "FrontCollision", indent_level + 1);    
+        &sample->frontCollision, "frontCollision", indent_level + 1);    
 
     RTICdrType_printBoolean(
-        &sample->BackCollision, "BackCollision", indent_level + 1);    
+        &sample->backCollision, "backCollision", indent_level + 1);    
 
     RTICdrType_printBoolean(
-        &sample->ParkingCollision, "ParkingCollision", indent_level + 1);    
+        &sample->parkingCollision, "parkingCollision", indent_level + 1);    
 
     RTICdrType_printBoolean(
-        &sample->DriverAttention, "DriverAttention", indent_level + 1);    
+        &sample->driverAttention, "driverAttention", indent_level + 1);    
 
 }
 
@@ -1909,32 +1909,32 @@ Alerts_DriverAlertsPlugin_serialize(
     if(serialize_sample) {
 
         if (!RTICdrStream_serializeBoolean(
-            stream, &sample->BlindSpotDriver)) {
+            stream, &sample->blindSpotDriver)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializeBoolean(
-            stream, &sample->BlindSpotPassenger)) {
+            stream, &sample->blindSpotPassenger)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializeBoolean(
-            stream, &sample->FrontCollision)) {
+            stream, &sample->frontCollision)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializeBoolean(
-            stream, &sample->BackCollision)) {
+            stream, &sample->backCollision)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializeBoolean(
-            stream, &sample->ParkingCollision)) {
+            stream, &sample->parkingCollision)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializeBoolean(
-            stream, &sample->DriverAttention)) {
+            stream, &sample->driverAttention)) {
             return RTI_FALSE;
         }
 
@@ -1976,27 +1976,27 @@ Alerts_DriverAlertsPlugin_deserialize_sample(
         Alerts_DriverAlerts_initialize_ex(sample, RTI_FALSE, RTI_FALSE);
 
         if (!RTICdrStream_deserializeBoolean(
-            stream, &sample->BlindSpotDriver)) {
+            stream, &sample->blindSpotDriver)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeBoolean(
-            stream, &sample->BlindSpotPassenger)) {
+            stream, &sample->blindSpotPassenger)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeBoolean(
-            stream, &sample->FrontCollision)) {
+            stream, &sample->frontCollision)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeBoolean(
-            stream, &sample->BackCollision)) {
+            stream, &sample->backCollision)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeBoolean(
-            stream, &sample->ParkingCollision)) {
+            stream, &sample->parkingCollision)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeBoolean(
-            stream, &sample->DriverAttention)) {
+            stream, &sample->driverAttention)) {
             goto fin; 
         }
     }
@@ -2667,9 +2667,9 @@ Alerts_DriverAlertsPlugin_delete(struct PRESTypePlugin *plugin)
 * ------------------------------------------------------------------------- */
 
 RTIBool 
-Lane_confidenceEnumPlugin_serialize(
+Lane_ConfidenceEnumPlugin_serialize(
     PRESTypePluginEndpointData endpoint_data,
-    const Lane_confidenceEnum *sample, 
+    const Lane_ConfidenceEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -2706,9 +2706,9 @@ Lane_confidenceEnumPlugin_serialize(
 }
 
 RTIBool 
-Lane_confidenceEnumPlugin_deserialize_sample(
+Lane_ConfidenceEnumPlugin_deserialize_sample(
     PRESTypePluginEndpointData endpoint_data,
-    Lane_confidenceEnum *sample,
+    Lane_ConfidenceEnum *sample,
     struct RTICdrStream *stream,   
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_sample, 
@@ -2735,17 +2735,17 @@ Lane_confidenceEnumPlugin_deserialize_sample(
             return RTI_FALSE;
         }
         switch (enum_tmp) {
-            case Confidence_None:
-            *sample=Confidence_None;
+            case CONFIDENCE_NONE:
+            *sample=CONFIDENCE_NONE;
             break;
-            case Confidence_Low:
-            *sample=Confidence_Low;
+            case CONFIDENCE_LOW:
+            *sample=CONFIDENCE_LOW;
             break;
-            case Confidence_Med:
-            *sample=Confidence_Med;
+            case CONFIDENCE_MED:
+            *sample=CONFIDENCE_MED;
             break;
-            case Confidence_High:
-            *sample=Confidence_High;
+            case CONFIDENCE_HIGH:
+            *sample=CONFIDENCE_HIGH;
             break;
             default:
             stream->_xTypesState.unassignable = RTI_TRUE;
@@ -2761,7 +2761,7 @@ Lane_confidenceEnumPlugin_deserialize_sample(
     return RTI_TRUE;
 }
 
-RTIBool Lane_confidenceEnumPlugin_skip(
+RTIBool Lane_ConfidenceEnumPlugin_skip(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream,   
     RTIBool skip_encapsulation,
@@ -2796,7 +2796,7 @@ RTIBool Lane_confidenceEnumPlugin_skip(
 }
 
 unsigned int 
-Lane_confidenceEnumPlugin_get_serialized_sample_max_size_ex(
+Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -2831,7 +2831,7 @@ Lane_confidenceEnumPlugin_get_serialized_sample_max_size_ex(
 }
 
 unsigned int 
-Lane_confidenceEnumPlugin_get_serialized_sample_max_size(
+Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -2839,7 +2839,7 @@ Lane_confidenceEnumPlugin_get_serialized_sample_max_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += Lane_confidenceEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment += Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data,
         NULL,
         include_encapsulation,
@@ -2848,7 +2848,7 @@ Lane_confidenceEnumPlugin_get_serialized_sample_max_size(
     return current_alignment - initial_alignment;
 }
 
-unsigned int Lane_confidenceEnumPlugin_get_serialized_sample_min_size(
+unsigned int Lane_ConfidenceEnumPlugin_get_serialized_sample_min_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -2856,7 +2856,7 @@ unsigned int Lane_confidenceEnumPlugin_get_serialized_sample_min_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += Lane_confidenceEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -2870,12 +2870,12 @@ unsigned int Lane_confidenceEnumPlugin_get_serialized_sample_min_size(
 * encapsulation flags.
 */
 unsigned int
-Lane_confidenceEnumPlugin_get_serialized_sample_size(
+Lane_ConfidenceEnumPlugin_get_serialized_sample_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
     unsigned int current_alignment,
-    const Lane_confidenceEnum * sample) 
+    const Lane_ConfidenceEnum * sample) 
 {
 
     unsigned int initial_alignment = current_alignment;
@@ -2884,7 +2884,7 @@ Lane_confidenceEnumPlugin_get_serialized_sample_size(
         return 0;
     }
 
-    current_alignment += Lane_confidenceEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -2896,37 +2896,37 @@ Key Management functions:
 * -------------------------------------------------------------------------------------- */
 
 RTIBool 
-Lane_confidenceEnumPlugin_serialize_key(
+Lane_ConfidenceEnumPlugin_serialize_key(
     PRESTypePluginEndpointData endpoint_data,
-    const Lane_confidenceEnum *sample, 
+    const Lane_ConfidenceEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
     RTIBool serialize_key,
     void *endpoint_plugin_qos)
 {
-    return  Lane_confidenceEnumPlugin_serialize(
+    return  Lane_ConfidenceEnumPlugin_serialize(
         endpoint_data, sample, stream, 
         serialize_encapsulation, encapsulation_id, 
         serialize_key, endpoint_plugin_qos);
 
 }
 
-RTIBool Lane_confidenceEnumPlugin_deserialize_key_sample(
+RTIBool Lane_ConfidenceEnumPlugin_deserialize_key_sample(
     PRESTypePluginEndpointData endpoint_data,
-    Lane_confidenceEnum *sample, 
+    Lane_ConfidenceEnum *sample, 
     struct RTICdrStream *stream,
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_key,
     void *endpoint_plugin_qos)
 {
-    return  Lane_confidenceEnumPlugin_deserialize_sample(
+    return  Lane_ConfidenceEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 }
 
 unsigned int
-Lane_confidenceEnumPlugin_get_serialized_key_max_size_ex(
+Lane_ConfidenceEnumPlugin_get_serialized_key_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -2936,7 +2936,7 @@ Lane_confidenceEnumPlugin_get_serialized_key_max_size_ex(
 
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment +=  Lane_confidenceEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=  Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -2944,16 +2944,16 @@ Lane_confidenceEnumPlugin_get_serialized_key_max_size_ex(
 }
 
 RTIBool 
-Lane_confidenceEnumPlugin_serialized_sample_to_key(
+Lane_ConfidenceEnumPlugin_serialized_sample_to_key(
     PRESTypePluginEndpointData endpoint_data,
-    Lane_confidenceEnum *sample,
+    Lane_ConfidenceEnum *sample,
     struct RTICdrStream *stream, 
     RTIBool deserialize_encapsulation,  
     RTIBool deserialize_key, 
     void *endpoint_plugin_qos)
 {
 
-    return  Lane_confidenceEnumPlugin_deserialize_sample(
+    return  Lane_ConfidenceEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 
@@ -2963,8 +2963,8 @@ Lane_confidenceEnumPlugin_serialized_sample_to_key(
 Support functions:
 * ---------------------------------------------------------------------------- */
 
-void Lane_confidenceEnumPluginSupport_print_data(
-    const Lane_confidenceEnum *sample,
+void Lane_ConfidenceEnumPluginSupport_print_data(
+    const Lane_ConfidenceEnum *sample,
     const char *description, int indent_level)
 {
     if (description != NULL) {
@@ -2978,7 +2978,7 @@ void Lane_confidenceEnumPluginSupport_print_data(
         return;
     }
 
-    RTICdrType_printEnum((RTICdrEnum *)sample, "Lane_confidenceEnum", indent_level + 1);
+    RTICdrType_printEnum((RTICdrEnum *)sample, "Lane_ConfidenceEnum", indent_level + 1);
 }
 
 /* ------------------------------------------------------------------------
@@ -2990,9 +2990,9 @@ void Lane_confidenceEnumPluginSupport_print_data(
 * ------------------------------------------------------------------------- */
 
 RTIBool 
-Lane_laneBoundaryEnumPlugin_serialize(
+Lane_LaneBoundaryEnumPlugin_serialize(
     PRESTypePluginEndpointData endpoint_data,
-    const Lane_laneBoundaryEnum *sample, 
+    const Lane_LaneBoundaryEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -3029,9 +3029,9 @@ Lane_laneBoundaryEnumPlugin_serialize(
 }
 
 RTIBool 
-Lane_laneBoundaryEnumPlugin_deserialize_sample(
+Lane_LaneBoundaryEnumPlugin_deserialize_sample(
     PRESTypePluginEndpointData endpoint_data,
-    Lane_laneBoundaryEnum *sample,
+    Lane_LaneBoundaryEnum *sample,
     struct RTICdrStream *stream,   
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_sample, 
@@ -3058,32 +3058,32 @@ Lane_laneBoundaryEnumPlugin_deserialize_sample(
             return RTI_FALSE;
         }
         switch (enum_tmp) {
-            case Boundry_None:
-            *sample=Boundry_None;
+            case BOUNDRY_NONE:
+            *sample=BOUNDRY_NONE;
             break;
-            case Boundry_Invalid:
-            *sample=Boundry_Invalid;
+            case BOUNDRY_INVALID:
+            *sample=BOUNDRY_INVALID;
             break;
-            case Boundry_Solid:
-            *sample=Boundry_Solid;
+            case BOUNDRY_SOLID:
+            *sample=BOUNDRY_SOLID;
             break;
-            case Boundry_Dashed:
-            *sample=Boundry_Dashed;
+            case BOUNDRY_DASHED:
+            *sample=BOUNDRY_DASHED;
             break;
-            case Boundry_Virtual:
-            *sample=Boundry_Virtual;
+            case BOUNDRY_VIRTUAL:
+            *sample=BOUNDRY_VIRTUAL;
             break;
-            case Boundry_Dots:
-            *sample=Boundry_Dots;
+            case BOUNDRY_DOTS:
+            *sample=BOUNDRY_DOTS;
             break;
-            case Boundry_RoadEdge:
-            *sample=Boundry_RoadEdge;
+            case BOUNDRY_ROADEDGE:
+            *sample=BOUNDRY_ROADEDGE;
             break;
-            case Boundry_Undecided:
-            *sample=Boundry_Undecided;
+            case BOUNDRY_UNDECIDED:
+            *sample=BOUNDRY_UNDECIDED;
             break;
-            case Boundry_DoubleMarker:
-            *sample=Boundry_DoubleMarker;
+            case BOUNDRY_DOUBLEMARKER:
+            *sample=BOUNDRY_DOUBLEMARKER;
             break;
             default:
             stream->_xTypesState.unassignable = RTI_TRUE;
@@ -3099,7 +3099,7 @@ Lane_laneBoundaryEnumPlugin_deserialize_sample(
     return RTI_TRUE;
 }
 
-RTIBool Lane_laneBoundaryEnumPlugin_skip(
+RTIBool Lane_LaneBoundaryEnumPlugin_skip(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream,   
     RTIBool skip_encapsulation,
@@ -3134,7 +3134,7 @@ RTIBool Lane_laneBoundaryEnumPlugin_skip(
 }
 
 unsigned int 
-Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
+Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -3169,7 +3169,7 @@ Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
 }
 
 unsigned int 
-Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size(
+Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -3177,7 +3177,7 @@ Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment += Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data,
         NULL,
         include_encapsulation,
@@ -3186,7 +3186,7 @@ Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size(
     return current_alignment - initial_alignment;
 }
 
-unsigned int Lane_laneBoundaryEnumPlugin_get_serialized_sample_min_size(
+unsigned int Lane_LaneBoundaryEnumPlugin_get_serialized_sample_min_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -3194,7 +3194,7 @@ unsigned int Lane_laneBoundaryEnumPlugin_get_serialized_sample_min_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -3208,12 +3208,12 @@ unsigned int Lane_laneBoundaryEnumPlugin_get_serialized_sample_min_size(
 * encapsulation flags.
 */
 unsigned int
-Lane_laneBoundaryEnumPlugin_get_serialized_sample_size(
+Lane_LaneBoundaryEnumPlugin_get_serialized_sample_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
     unsigned int current_alignment,
-    const Lane_laneBoundaryEnum * sample) 
+    const Lane_LaneBoundaryEnum * sample) 
 {
 
     unsigned int initial_alignment = current_alignment;
@@ -3222,7 +3222,7 @@ Lane_laneBoundaryEnumPlugin_get_serialized_sample_size(
         return 0;
     }
 
-    current_alignment += Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -3234,37 +3234,37 @@ Key Management functions:
 * -------------------------------------------------------------------------------------- */
 
 RTIBool 
-Lane_laneBoundaryEnumPlugin_serialize_key(
+Lane_LaneBoundaryEnumPlugin_serialize_key(
     PRESTypePluginEndpointData endpoint_data,
-    const Lane_laneBoundaryEnum *sample, 
+    const Lane_LaneBoundaryEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
     RTIBool serialize_key,
     void *endpoint_plugin_qos)
 {
-    return  Lane_laneBoundaryEnumPlugin_serialize(
+    return  Lane_LaneBoundaryEnumPlugin_serialize(
         endpoint_data, sample, stream, 
         serialize_encapsulation, encapsulation_id, 
         serialize_key, endpoint_plugin_qos);
 
 }
 
-RTIBool Lane_laneBoundaryEnumPlugin_deserialize_key_sample(
+RTIBool Lane_LaneBoundaryEnumPlugin_deserialize_key_sample(
     PRESTypePluginEndpointData endpoint_data,
-    Lane_laneBoundaryEnum *sample, 
+    Lane_LaneBoundaryEnum *sample, 
     struct RTICdrStream *stream,
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_key,
     void *endpoint_plugin_qos)
 {
-    return  Lane_laneBoundaryEnumPlugin_deserialize_sample(
+    return  Lane_LaneBoundaryEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 }
 
 unsigned int
-Lane_laneBoundaryEnumPlugin_get_serialized_key_max_size_ex(
+Lane_LaneBoundaryEnumPlugin_get_serialized_key_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -3274,7 +3274,7 @@ Lane_laneBoundaryEnumPlugin_get_serialized_key_max_size_ex(
 
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment +=  Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=  Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -3282,16 +3282,16 @@ Lane_laneBoundaryEnumPlugin_get_serialized_key_max_size_ex(
 }
 
 RTIBool 
-Lane_laneBoundaryEnumPlugin_serialized_sample_to_key(
+Lane_LaneBoundaryEnumPlugin_serialized_sample_to_key(
     PRESTypePluginEndpointData endpoint_data,
-    Lane_laneBoundaryEnum *sample,
+    Lane_LaneBoundaryEnum *sample,
     struct RTICdrStream *stream, 
     RTIBool deserialize_encapsulation,  
     RTIBool deserialize_key, 
     void *endpoint_plugin_qos)
 {
 
-    return  Lane_laneBoundaryEnumPlugin_deserialize_sample(
+    return  Lane_LaneBoundaryEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 
@@ -3301,8 +3301,8 @@ Lane_laneBoundaryEnumPlugin_serialized_sample_to_key(
 Support functions:
 * ---------------------------------------------------------------------------- */
 
-void Lane_laneBoundaryEnumPluginSupport_print_data(
-    const Lane_laneBoundaryEnum *sample,
+void Lane_LaneBoundaryEnumPluginSupport_print_data(
+    const Lane_LaneBoundaryEnum *sample,
     const char *description, int indent_level)
 {
     if (description != NULL) {
@@ -3316,7 +3316,7 @@ void Lane_laneBoundaryEnumPluginSupport_print_data(
         return;
     }
 
-    RTICdrType_printEnum((RTICdrEnum *)sample, "Lane_laneBoundaryEnum", indent_level + 1);
+    RTICdrType_printEnum((RTICdrEnum *)sample, "Lane_LaneBoundaryEnum", indent_level + 1);
 }
 
 /* ------------------------------------------------------------------------
@@ -3425,13 +3425,13 @@ Lane_LaneObjectPluginSupport_print_data(
         return;
     }
 
-    RTICdrType_printOctet(
+    RTICdrType_printBoolean(
         &sample->isValid, "isValid", indent_level + 1);    
 
-    Lane_confidenceEnumPluginSupport_print_data(
+    Lane_ConfidenceEnumPluginSupport_print_data(
         &sample->confidence, "confidence", indent_level + 1);
 
-    Lane_laneBoundaryEnumPluginSupport_print_data(
+    Lane_LaneBoundaryEnumPluginSupport_print_data(
         &sample->boundaryType, "boundaryType", indent_level + 1);
 
     RTICdrType_printFloat(
@@ -3591,12 +3591,12 @@ Lane_LaneObjectPlugin_serialize(
 
     if(serialize_sample) {
 
-        if (!RTICdrStream_serializeOctet(
+        if (!RTICdrStream_serializeBoolean(
             stream, &sample->isValid)) {
             return RTI_FALSE;
         }
 
-        if(!Lane_confidenceEnumPlugin_serialize(
+        if(!Lane_ConfidenceEnumPlugin_serialize(
             endpoint_data,
             &sample->confidence,
             stream,
@@ -3606,7 +3606,7 @@ Lane_LaneObjectPlugin_serialize(
             return RTI_FALSE;
         }
 
-        if(!Lane_laneBoundaryEnumPlugin_serialize(
+        if(!Lane_LaneBoundaryEnumPlugin_serialize(
             endpoint_data,
             &sample->boundaryType,
             stream,
@@ -3668,11 +3668,11 @@ Lane_LaneObjectPlugin_deserialize_sample(
 
         Lane_LaneObject_initialize_ex(sample, RTI_FALSE, RTI_FALSE);
 
-        if (!RTICdrStream_deserializeOctet(
+        if (!RTICdrStream_deserializeBoolean(
             stream, &sample->isValid)) {
             goto fin; 
         }
-        if(!Lane_confidenceEnumPlugin_deserialize_sample(
+        if(!Lane_ConfidenceEnumPlugin_deserialize_sample(
             endpoint_data,
             &sample->confidence,
             stream,
@@ -3680,7 +3680,7 @@ Lane_LaneObjectPlugin_deserialize_sample(
             endpoint_plugin_qos)) {
             goto fin; 
         }
-        if(!Lane_laneBoundaryEnumPlugin_deserialize_sample(
+        if(!Lane_LaneBoundaryEnumPlugin_deserialize_sample(
             endpoint_data,
             &sample->boundaryType,
             stream,
@@ -3832,17 +3832,17 @@ RTIBool Lane_LaneObjectPlugin_skip(
 
     if (skip_sample) {
 
-        if (!RTICdrStream_skipOctet (stream)) {
+        if (!RTICdrStream_skipBoolean (stream)) {
             goto fin; 
         }
-        if (!Lane_confidenceEnumPlugin_skip(
+        if (!Lane_ConfidenceEnumPlugin_skip(
             endpoint_data,
             stream, 
             RTI_FALSE, RTI_TRUE, 
             endpoint_plugin_qos)) {
             goto fin; 
         }
-        if (!Lane_laneBoundaryEnumPlugin_skip(
+        if (!Lane_LaneBoundaryEnumPlugin_skip(
             endpoint_data,
             stream, 
             RTI_FALSE, RTI_TRUE, 
@@ -3898,13 +3898,13 @@ Lane_LaneObjectPlugin_get_serialized_sample_max_size_ex(
         initial_alignment = 0;
     }
 
-    current_alignment +=RTICdrType_getOctetMaxSizeSerialized(
+    current_alignment +=RTICdrType_getBooleanMaxSizeSerialized(
         current_alignment);
 
-    current_alignment +=Lane_confidenceEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, RTI_FALSE,encapsulation_id,current_alignment);
 
-    current_alignment +=Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, RTI_FALSE,encapsulation_id,current_alignment);
 
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
@@ -3967,11 +3967,11 @@ Lane_LaneObjectPlugin_get_serialized_sample_min_size(
         initial_alignment = 0;
     }
 
-    current_alignment +=RTICdrType_getOctetMaxSizeSerialized(
+    current_alignment +=RTICdrType_getBooleanMaxSizeSerialized(
         current_alignment);
-    current_alignment +=Lane_confidenceEnumPlugin_get_serialized_sample_min_size(
+    current_alignment +=Lane_ConfidenceEnumPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
-    current_alignment +=Lane_laneBoundaryEnumPlugin_get_serialized_sample_min_size(
+    current_alignment +=Lane_LaneBoundaryEnumPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
@@ -4021,12 +4021,12 @@ Lane_LaneObjectPlugin_get_serialized_sample_size(
         initial_alignment = 0;
     }
 
-    current_alignment += RTICdrType_getOctetMaxSizeSerialized(
+    current_alignment += RTICdrType_getBooleanMaxSizeSerialized(
         current_alignment);
-    current_alignment += Lane_confidenceEnumPlugin_get_serialized_sample_size(
+    current_alignment += Lane_ConfidenceEnumPlugin_get_serialized_sample_size(
         endpoint_data,RTI_FALSE, encapsulation_id,
         current_alignment, &sample->confidence);
-    current_alignment += Lane_laneBoundaryEnumPlugin_get_serialized_sample_size(
+    current_alignment += Lane_LaneBoundaryEnumPlugin_get_serialized_sample_size(
         endpoint_data,RTI_FALSE, encapsulation_id,
         current_alignment, &sample->boundaryType);
     current_alignment += RTICdrType_getFloatMaxSizeSerialized(
@@ -6362,31 +6362,31 @@ Lidar_PCloudPluginSupport_print_data(
     }
 
     RTICdrType_printOctet(
-        &sample->Color, "Color", indent_level + 1);    
+        &sample->color, "color", indent_level + 1);    
 
     RTICdrType_printFloat(
-        &sample->Normal, "Normal", indent_level + 1);    
+        &sample->normal, "normal", indent_level + 1);    
 
     RTICdrType_printFloat(
-        &sample->Intensity, "Intensity", indent_level + 1);    
+        &sample->intensity, "intensity", indent_level + 1);    
 
-    RTICdrType_printDouble(
-        &sample->Count, "Count", indent_level + 1);    
-
-    RTICdrType_printArray(
-        sample->XLimits, (2), RTI_CDR_FLOAT_SIZE,
-        (RTICdrTypePrintFunction)RTICdrType_printFloat, 
-        "XLimits", indent_level + 1);        
+    RTICdrType_printLong(
+        &sample->count, "count", indent_level + 1);    
 
     RTICdrType_printArray(
-        sample->YLimits, (2), RTI_CDR_FLOAT_SIZE,
+        sample->xLimits, (2), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
-        "YLimits", indent_level + 1);        
+        "xLimits", indent_level + 1);        
 
     RTICdrType_printArray(
-        sample->ZLimits, (2), RTI_CDR_FLOAT_SIZE,
+        sample->yLimits, (2), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
-        "ZLimits", indent_level + 1);        
+        "yLimits", indent_level + 1);        
+
+    RTICdrType_printArray(
+        sample->zLimits, (2), RTI_CDR_FLOAT_SIZE,
+        (RTICdrTypePrintFunction)RTICdrType_printFloat, 
+        "zLimits", indent_level + 1);        
 
 }
 
@@ -6563,37 +6563,37 @@ Lidar_PCloudPlugin_serialize(
         } 
 
         if (!RTICdrStream_serializeOctet(
-            stream, &sample->Color)) {
+            stream, &sample->color)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializeFloat(
-            stream, &sample->Normal)) {
+            stream, &sample->normal)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializeFloat(
-            stream, &sample->Intensity)) {
+            stream, &sample->intensity)) {
             return RTI_FALSE;
         }
 
-        if (!RTICdrStream_serializeDouble(
-            stream, &sample->Count)) {
-            return RTI_FALSE;
-        }
-
-        if (!RTICdrStream_serializePrimitiveArray(
-            stream, (void*) sample->XLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+        if (!RTICdrStream_serializeLong(
+            stream, &sample->count)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializePrimitiveArray(
-            stream, (void*) sample->YLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+            stream, (void*) sample->xLimits, (2), RTI_CDR_FLOAT_TYPE)) {
             return RTI_FALSE;
         }
 
         if (!RTICdrStream_serializePrimitiveArray(
-            stream, (void*) sample->ZLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+            stream, (void*) sample->yLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+            return RTI_FALSE;
+        }
+
+        if (!RTICdrStream_serializePrimitiveArray(
+            stream, (void*) sample->zLimits, (2), RTI_CDR_FLOAT_TYPE)) {
             return RTI_FALSE;
         }
 
@@ -6667,31 +6667,31 @@ Lidar_PCloudPlugin_deserialize_sample(
 
         }
         if (!RTICdrStream_deserializeOctet(
-            stream, &sample->Color)) {
+            stream, &sample->color)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeFloat(
-            stream, &sample->Normal)) {
+            stream, &sample->normal)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeFloat(
-            stream, &sample->Intensity)) {
+            stream, &sample->intensity)) {
             goto fin; 
         }
-        if (!RTICdrStream_deserializeDouble(
-            stream, &sample->Count)) {
-            goto fin; 
-        }
-        if (!RTICdrStream_deserializePrimitiveArray(
-            stream, (void*) sample->XLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+        if (!RTICdrStream_deserializeLong(
+            stream, &sample->count)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializePrimitiveArray(
-            stream, (void*) sample->YLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+            stream, (void*) sample->xLimits, (2), RTI_CDR_FLOAT_TYPE)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializePrimitiveArray(
-            stream, (void*) sample->ZLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+            stream, (void*) sample->yLimits, (2), RTI_CDR_FLOAT_TYPE)) {
+            goto fin; 
+        }
+        if (!RTICdrStream_deserializePrimitiveArray(
+            stream, (void*) sample->zLimits, (2), RTI_CDR_FLOAT_TYPE)) {
             goto fin; 
         }
     }
@@ -6847,7 +6847,7 @@ RTIBool Lidar_PCloudPlugin_skip(
         if (!RTICdrStream_skipFloat (stream)) {
             goto fin; 
         }
-        if (!RTICdrStream_skipDouble (stream)) {
+        if (!RTICdrStream_skipLong (stream)) {
             goto fin; 
         }
         if (!RTICdrStream_skipPrimitiveArray(
@@ -6917,7 +6917,7 @@ Lidar_PCloudPlugin_get_serialized_sample_max_size_ex(
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
 
-    current_alignment +=RTICdrType_getDoubleMaxSizeSerialized(
+    current_alignment +=RTICdrType_getLongMaxSizeSerialized(
         current_alignment);
 
     current_alignment +=RTICdrType_getPrimitiveArrayMaxSizeSerialized(
@@ -6990,7 +6990,7 @@ Lidar_PCloudPlugin_get_serialized_sample_min_size(
         current_alignment);
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment +=RTICdrType_getDoubleMaxSizeSerialized(
+    current_alignment +=RTICdrType_getLongMaxSizeSerialized(
         current_alignment);
     current_alignment +=RTICdrType_getPrimitiveArrayMaxSizeSerialized(
         current_alignment, (2), RTI_CDR_FLOAT_TYPE);
@@ -7064,7 +7064,7 @@ Lidar_PCloudPlugin_get_serialized_sample_size(
         current_alignment);
     current_alignment += RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment += RTICdrType_getDoubleMaxSizeSerialized(
+    current_alignment += RTICdrType_getLongMaxSizeSerialized(
         current_alignment);
     current_alignment += RTICdrType_getPrimitiveArrayMaxSizeSerialized(
         current_alignment, (2),  RTI_CDR_FLOAT_TYPE);
@@ -8475,13 +8475,13 @@ Platform_PlatformControlPluginSupport_print_data(
         &sample->timestamp, "timestamp", indent_level + 1);
 
     RTICdrType_printFloat(
-        &sample->vehicle_steer_angle, "vehicle_steer_angle", indent_level + 1);    
+        &sample->vehicleSteerAngle, "vehicleSteerAngle", indent_level + 1);    
 
     RTICdrType_printFloat(
         &sample->speed, "speed", indent_level + 1);    
 
-    IndicatorStatusPluginSupport_print_data(
-        &sample->blinker_status, "blinker_status", indent_level + 1);
+    IndicatorStatusEnumPluginSupport_print_data(
+        &sample->blinkerStatus, "blinkerStatus", indent_level + 1);
 
 }
 
@@ -8647,7 +8647,7 @@ Platform_PlatformControlPlugin_serialize(
         }
 
         if (!RTICdrStream_serializeFloat(
-            stream, &sample->vehicle_steer_angle)) {
+            stream, &sample->vehicleSteerAngle)) {
             return RTI_FALSE;
         }
 
@@ -8656,9 +8656,9 @@ Platform_PlatformControlPlugin_serialize(
             return RTI_FALSE;
         }
 
-        if(!IndicatorStatusPlugin_serialize(
+        if(!IndicatorStatusEnumPlugin_serialize(
             endpoint_data,
-            &sample->blinker_status,
+            &sample->blinkerStatus,
             stream,
             RTI_FALSE, encapsulation_id,
             RTI_TRUE,
@@ -8716,16 +8716,16 @@ Platform_PlatformControlPlugin_deserialize_sample(
             goto fin; 
         }
         if (!RTICdrStream_deserializeFloat(
-            stream, &sample->vehicle_steer_angle)) {
+            stream, &sample->vehicleSteerAngle)) {
             goto fin; 
         }
         if (!RTICdrStream_deserializeFloat(
             stream, &sample->speed)) {
             goto fin; 
         }
-        if(!IndicatorStatusPlugin_deserialize_sample(
+        if(!IndicatorStatusEnumPlugin_deserialize_sample(
             endpoint_data,
-            &sample->blinker_status,
+            &sample->blinkerStatus,
             stream,
             RTI_FALSE, RTI_TRUE,
             endpoint_plugin_qos)) {
@@ -8879,7 +8879,7 @@ RTIBool Platform_PlatformControlPlugin_skip(
         if (!RTICdrStream_skipFloat (stream)) {
             goto fin; 
         }
-        if (!IndicatorStatusPlugin_skip(
+        if (!IndicatorStatusEnumPlugin_skip(
             endpoint_data,
             stream, 
             RTI_FALSE, RTI_TRUE, 
@@ -8938,7 +8938,7 @@ Platform_PlatformControlPlugin_get_serialized_sample_max_size_ex(
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
 
-    current_alignment +=IndicatorStatusPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=IndicatorStatusEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, RTI_FALSE,encapsulation_id,current_alignment);
 
     if (include_encapsulation) {
@@ -9000,7 +9000,7 @@ Platform_PlatformControlPlugin_get_serialized_sample_min_size(
         current_alignment);
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment +=IndicatorStatusPlugin_get_serialized_sample_min_size(
+    current_alignment +=IndicatorStatusEnumPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
 
     if (include_encapsulation) {
@@ -9053,9 +9053,9 @@ Platform_PlatformControlPlugin_get_serialized_sample_size(
         current_alignment);
     current_alignment += RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment += IndicatorStatusPlugin_get_serialized_sample_size(
+    current_alignment += IndicatorStatusEnumPlugin_get_serialized_sample_size(
         endpoint_data,RTI_FALSE, encapsulation_id,
-        current_alignment, &sample->blinker_status);
+        current_alignment, &sample->blinkerStatus);
 
     if (include_encapsulation) {
         current_alignment += encapsulation_size;
@@ -9499,7 +9499,7 @@ Platform_PlatformStatusPluginSupport_print_data(
     RTICdrType_printFloat(
         &sample->vehSpd, "vehSpd", indent_level + 1);    
 
-    IndicatorStatusPluginSupport_print_data(
+    IndicatorStatusEnumPluginSupport_print_data(
         &sample->blinkerStatus, "blinkerStatus", indent_level + 1);
 
     RTICdrType_printFloat(
@@ -9512,7 +9512,7 @@ Platform_PlatformStatusPluginSupport_print_data(
         &sample->yawRate, "yawRate", indent_level + 1);    
 
     RTICdrType_printFloat(
-        &sample->vehicle_steer_angle, "vehicle_steer_angle", indent_level + 1);    
+        &sample->vehicleSteerAngle, "vehicleSteerAngle", indent_level + 1);    
 
 }
 
@@ -9677,7 +9677,7 @@ Platform_PlatformStatusPlugin_serialize(
             return RTI_FALSE;
         }
 
-        if(!IndicatorStatusPlugin_serialize(
+        if(!IndicatorStatusEnumPlugin_serialize(
             endpoint_data,
             &sample->blinkerStatus,
             stream,
@@ -9703,7 +9703,7 @@ Platform_PlatformStatusPlugin_serialize(
         }
 
         if (!RTICdrStream_serializeFloat(
-            stream, &sample->vehicle_steer_angle)) {
+            stream, &sample->vehicleSteerAngle)) {
             return RTI_FALSE;
         }
 
@@ -9756,7 +9756,7 @@ Platform_PlatformStatusPlugin_deserialize_sample(
             stream, &sample->vehSpd)) {
             goto fin; 
         }
-        if(!IndicatorStatusPlugin_deserialize_sample(
+        if(!IndicatorStatusEnumPlugin_deserialize_sample(
             endpoint_data,
             &sample->blinkerStatus,
             stream,
@@ -9777,7 +9777,7 @@ Platform_PlatformStatusPlugin_deserialize_sample(
             goto fin; 
         }
         if (!RTICdrStream_deserializeFloat(
-            stream, &sample->vehicle_steer_angle)) {
+            stream, &sample->vehicleSteerAngle)) {
             goto fin; 
         }
     }
@@ -9922,7 +9922,7 @@ RTIBool Platform_PlatformStatusPlugin_skip(
         if (!RTICdrStream_skipFloat (stream)) {
             goto fin; 
         }
-        if (!IndicatorStatusPlugin_skip(
+        if (!IndicatorStatusEnumPlugin_skip(
             endpoint_data,
             stream, 
             RTI_FALSE, RTI_TRUE, 
@@ -9987,7 +9987,7 @@ Platform_PlatformStatusPlugin_get_serialized_sample_max_size_ex(
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
 
-    current_alignment +=IndicatorStatusPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=IndicatorStatusEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, RTI_FALSE,encapsulation_id,current_alignment);
 
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
@@ -10057,7 +10057,7 @@ Platform_PlatformStatusPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment +=IndicatorStatusPlugin_get_serialized_sample_min_size(
+    current_alignment +=IndicatorStatusEnumPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
@@ -10114,7 +10114,7 @@ Platform_PlatformStatusPlugin_get_serialized_sample_size(
         current_alignment, &sample->timestamp);
     current_alignment += RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment += IndicatorStatusPlugin_get_serialized_sample_size(
+    current_alignment += IndicatorStatusEnumPlugin_get_serialized_sample_size(
         endpoint_data,RTI_FALSE, encapsulation_id,
         current_alignment, &sample->blinkerStatus);
     current_alignment += RTICdrType_getFloatMaxSizeSerialized(
@@ -10465,9 +10465,9 @@ Platform_PlatformStatusPlugin_delete(struct PRESTypePlugin *plugin)
 * ------------------------------------------------------------------------- */
 
 RTIBool 
-Sensor_rangeModeEnumPlugin_serialize(
+Sensor_RangeModeEnumPlugin_serialize(
     PRESTypePluginEndpointData endpoint_data,
-    const Sensor_rangeModeEnum *sample, 
+    const Sensor_RangeModeEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -10504,9 +10504,9 @@ Sensor_rangeModeEnumPlugin_serialize(
 }
 
 RTIBool 
-Sensor_rangeModeEnumPlugin_deserialize_sample(
+Sensor_RangeModeEnumPlugin_deserialize_sample(
     PRESTypePluginEndpointData endpoint_data,
-    Sensor_rangeModeEnum *sample,
+    Sensor_RangeModeEnum *sample,
     struct RTICdrStream *stream,   
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_sample, 
@@ -10533,17 +10533,17 @@ Sensor_rangeModeEnumPlugin_deserialize_sample(
             return RTI_FALSE;
         }
         switch (enum_tmp) {
-            case None:
-            *sample=None;
+            case RANGE_NONE:
+            *sample=RANGE_NONE;
             break;
-            case Short:
-            *sample=Short;
+            case RANGE_SHORT:
+            *sample=RANGE_SHORT;
             break;
-            case Medium:
-            *sample=Medium;
+            case RANGE_MEDIUM:
+            *sample=RANGE_MEDIUM;
             break;
-            case Long:
-            *sample=Long;
+            case RANGE_LONG:
+            *sample=RANGE_LONG;
             break;
             default:
             stream->_xTypesState.unassignable = RTI_TRUE;
@@ -10559,7 +10559,7 @@ Sensor_rangeModeEnumPlugin_deserialize_sample(
     return RTI_TRUE;
 }
 
-RTIBool Sensor_rangeModeEnumPlugin_skip(
+RTIBool Sensor_RangeModeEnumPlugin_skip(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream,   
     RTIBool skip_encapsulation,
@@ -10594,7 +10594,7 @@ RTIBool Sensor_rangeModeEnumPlugin_skip(
 }
 
 unsigned int 
-Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size_ex(
+Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -10629,7 +10629,7 @@ Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size_ex(
 }
 
 unsigned int 
-Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size(
+Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -10637,7 +10637,7 @@ Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment += Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data,
         NULL,
         include_encapsulation,
@@ -10646,7 +10646,7 @@ Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size(
     return current_alignment - initial_alignment;
 }
 
-unsigned int Sensor_rangeModeEnumPlugin_get_serialized_sample_min_size(
+unsigned int Sensor_RangeModeEnumPlugin_get_serialized_sample_min_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
@@ -10654,7 +10654,7 @@ unsigned int Sensor_rangeModeEnumPlugin_get_serialized_sample_min_size(
 {
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment += Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -10668,12 +10668,12 @@ unsigned int Sensor_rangeModeEnumPlugin_get_serialized_sample_min_size(
 * encapsulation flags.
 */
 unsigned int
-Sensor_rangeModeEnumPlugin_get_serialized_sample_size(
+Sensor_RangeModeEnumPlugin_get_serialized_sample_size(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool include_encapsulation,
     RTIEncapsulationId encapsulation_id,
     unsigned int current_alignment,
-    const Sensor_rangeModeEnum * sample) 
+    const Sensor_RangeModeEnum * sample) 
 {
 
     unsigned int initial_alignment = current_alignment;
@@ -10682,7 +10682,7 @@ Sensor_rangeModeEnumPlugin_get_serialized_sample_size(
         return 0;
     }
 
-    current_alignment += Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size(
+    current_alignment += Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size(
         endpoint_data,include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -10694,37 +10694,37 @@ Key Management functions:
 * -------------------------------------------------------------------------------------- */
 
 RTIBool 
-Sensor_rangeModeEnumPlugin_serialize_key(
+Sensor_RangeModeEnumPlugin_serialize_key(
     PRESTypePluginEndpointData endpoint_data,
-    const Sensor_rangeModeEnum *sample, 
+    const Sensor_RangeModeEnum *sample, 
     struct RTICdrStream *stream,    
     RTIBool serialize_encapsulation,
     RTIEncapsulationId encapsulation_id,
     RTIBool serialize_key,
     void *endpoint_plugin_qos)
 {
-    return  Sensor_rangeModeEnumPlugin_serialize(
+    return  Sensor_RangeModeEnumPlugin_serialize(
         endpoint_data, sample, stream, 
         serialize_encapsulation, encapsulation_id, 
         serialize_key, endpoint_plugin_qos);
 
 }
 
-RTIBool Sensor_rangeModeEnumPlugin_deserialize_key_sample(
+RTIBool Sensor_RangeModeEnumPlugin_deserialize_key_sample(
     PRESTypePluginEndpointData endpoint_data,
-    Sensor_rangeModeEnum *sample, 
+    Sensor_RangeModeEnum *sample, 
     struct RTICdrStream *stream,
     RTIBool deserialize_encapsulation,
     RTIBool deserialize_key,
     void *endpoint_plugin_qos)
 {
-    return  Sensor_rangeModeEnumPlugin_deserialize_sample(
+    return  Sensor_RangeModeEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 }
 
 unsigned int
-Sensor_rangeModeEnumPlugin_get_serialized_key_max_size_ex(
+Sensor_RangeModeEnumPlugin_get_serialized_key_max_size_ex(
     PRESTypePluginEndpointData endpoint_data,
     RTIBool * overflow,
     RTIBool include_encapsulation,
@@ -10734,7 +10734,7 @@ Sensor_rangeModeEnumPlugin_get_serialized_key_max_size_ex(
 
     unsigned int initial_alignment = current_alignment;
 
-    current_alignment +=  Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=  Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, include_encapsulation,
         encapsulation_id, current_alignment);
 
@@ -10742,16 +10742,16 @@ Sensor_rangeModeEnumPlugin_get_serialized_key_max_size_ex(
 }
 
 RTIBool 
-Sensor_rangeModeEnumPlugin_serialized_sample_to_key(
+Sensor_RangeModeEnumPlugin_serialized_sample_to_key(
     PRESTypePluginEndpointData endpoint_data,
-    Sensor_rangeModeEnum *sample,
+    Sensor_RangeModeEnum *sample,
     struct RTICdrStream *stream, 
     RTIBool deserialize_encapsulation,  
     RTIBool deserialize_key, 
     void *endpoint_plugin_qos)
 {
 
-    return  Sensor_rangeModeEnumPlugin_deserialize_sample(
+    return  Sensor_RangeModeEnumPlugin_deserialize_sample(
         endpoint_data, sample, stream, deserialize_encapsulation, 
         deserialize_key, endpoint_plugin_qos);
 
@@ -10761,8 +10761,8 @@ Sensor_rangeModeEnumPlugin_serialized_sample_to_key(
 Support functions:
 * ---------------------------------------------------------------------------- */
 
-void Sensor_rangeModeEnumPluginSupport_print_data(
-    const Sensor_rangeModeEnum *sample,
+void Sensor_RangeModeEnumPluginSupport_print_data(
+    const Sensor_RangeModeEnum *sample,
     const char *description, int indent_level)
 {
     if (description != NULL) {
@@ -10776,7 +10776,7 @@ void Sensor_rangeModeEnumPluginSupport_print_data(
         return;
     }
 
-    RTICdrType_printEnum((RTICdrEnum *)sample, "Sensor_rangeModeEnum", indent_level + 1);
+    RTICdrType_printEnum((RTICdrEnum *)sample, "Sensor_RangeModeEnum", indent_level + 1);
 }
 
 /* ------------------------------------------------------------------------
@@ -10885,7 +10885,7 @@ Sensor_SensorObjectPluginSupport_print_data(
         return;
     }
 
-    classificationEnumPluginSupport_print_data(
+    ClassificationEnumPluginSupport_print_data(
         &sample->classification, "classification", indent_level + 1);
 
     RTICdrType_printArray(
@@ -10906,7 +10906,7 @@ Sensor_SensorObjectPluginSupport_print_data(
     RTICdrType_printFloat(
         &sample->amplitude, "amplitude", indent_level + 1);    
 
-    Sensor_rangeModeEnumPluginSupport_print_data(
+    Sensor_RangeModeEnumPluginSupport_print_data(
         &sample->rangeMode, "rangeMode", indent_level + 1);
 
     RTICdrType_printFloat(
@@ -11060,7 +11060,7 @@ Sensor_SensorObjectPlugin_serialize(
 
     if(serialize_sample) {
 
-        if(!classificationEnumPlugin_serialize(
+        if(!ClassificationEnumPlugin_serialize(
             endpoint_data,
             &sample->classification,
             stream,
@@ -11090,7 +11090,7 @@ Sensor_SensorObjectPlugin_serialize(
             return RTI_FALSE;
         }
 
-        if(!Sensor_rangeModeEnumPlugin_serialize(
+        if(!Sensor_RangeModeEnumPlugin_serialize(
             endpoint_data,
             &sample->rangeMode,
             stream,
@@ -11142,7 +11142,7 @@ Sensor_SensorObjectPlugin_deserialize_sample(
 
         Sensor_SensorObject_initialize_ex(sample, RTI_FALSE, RTI_FALSE);
 
-        if(!classificationEnumPlugin_deserialize_sample(
+        if(!ClassificationEnumPlugin_deserialize_sample(
             endpoint_data,
             &sample->classification,
             stream,
@@ -11166,7 +11166,7 @@ Sensor_SensorObjectPlugin_deserialize_sample(
             stream, &sample->amplitude)) {
             goto fin; 
         }
-        if(!Sensor_rangeModeEnumPlugin_deserialize_sample(
+        if(!Sensor_RangeModeEnumPlugin_deserialize_sample(
             endpoint_data,
             &sample->rangeMode,
             stream,
@@ -11310,7 +11310,7 @@ RTIBool Sensor_SensorObjectPlugin_skip(
 
     if (skip_sample) {
 
-        if (!classificationEnumPlugin_skip(
+        if (!ClassificationEnumPlugin_skip(
             endpoint_data,
             stream, 
             RTI_FALSE, RTI_TRUE, 
@@ -11332,7 +11332,7 @@ RTIBool Sensor_SensorObjectPlugin_skip(
         if (!RTICdrStream_skipFloat (stream)) {
             goto fin; 
         }
-        if (!Sensor_rangeModeEnumPlugin_skip(
+        if (!Sensor_RangeModeEnumPlugin_skip(
             endpoint_data,
             stream, 
             RTI_FALSE, RTI_TRUE, 
@@ -11382,7 +11382,7 @@ Sensor_SensorObjectPlugin_get_serialized_sample_max_size_ex(
         initial_alignment = 0;
     }
 
-    current_alignment +=classificationEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=ClassificationEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, RTI_FALSE,encapsulation_id,current_alignment);
 
     current_alignment +=RTICdrType_getPrimitiveArrayMaxSizeSerialized(
@@ -11397,7 +11397,7 @@ Sensor_SensorObjectPlugin_get_serialized_sample_max_size_ex(
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
 
-    current_alignment +=Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, RTI_FALSE,encapsulation_id,current_alignment);
 
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
@@ -11454,7 +11454,7 @@ Sensor_SensorObjectPlugin_get_serialized_sample_min_size(
         initial_alignment = 0;
     }
 
-    current_alignment +=classificationEnumPlugin_get_serialized_sample_min_size(
+    current_alignment +=ClassificationEnumPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
     current_alignment +=RTICdrType_getPrimitiveArrayMaxSizeSerialized(
         current_alignment, (3), RTI_CDR_FLOAT_TYPE);
@@ -11464,7 +11464,7 @@ Sensor_SensorObjectPlugin_get_serialized_sample_min_size(
         current_alignment, (3), RTI_CDR_FLOAT_TYPE);
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment +=Sensor_rangeModeEnumPlugin_get_serialized_sample_min_size(
+    current_alignment +=Sensor_RangeModeEnumPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
     current_alignment +=RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
@@ -11510,7 +11510,7 @@ Sensor_SensorObjectPlugin_get_serialized_sample_size(
         initial_alignment = 0;
     }
 
-    current_alignment += classificationEnumPlugin_get_serialized_sample_size(
+    current_alignment += ClassificationEnumPlugin_get_serialized_sample_size(
         endpoint_data,RTI_FALSE, encapsulation_id,
         current_alignment, &sample->classification);
     current_alignment += RTICdrType_getPrimitiveArrayMaxSizeSerialized(
@@ -11521,7 +11521,7 @@ Sensor_SensorObjectPlugin_get_serialized_sample_size(
         current_alignment, (3),  RTI_CDR_FLOAT_TYPE);
     current_alignment += RTICdrType_getFloatMaxSizeSerialized(
         current_alignment);
-    current_alignment += Sensor_rangeModeEnumPlugin_get_serialized_sample_size(
+    current_alignment += Sensor_RangeModeEnumPlugin_get_serialized_sample_size(
         endpoint_data,RTI_FALSE, encapsulation_id,
         current_alignment, &sample->rangeMode);
     current_alignment += RTICdrType_getFloatMaxSizeSerialized(
@@ -12999,7 +12999,7 @@ Vision_VisionObjectPluginSupport_print_data(
         return;
     }
 
-    classificationEnumPluginSupport_print_data(
+    ClassificationEnumPluginSupport_print_data(
         &sample->classification, "classification", indent_level + 1);
 
     RTICdrType_printArray(
@@ -13165,7 +13165,7 @@ Vision_VisionObjectPlugin_serialize(
 
     if(serialize_sample) {
 
-        if(!classificationEnumPlugin_serialize(
+        if(!ClassificationEnumPlugin_serialize(
             endpoint_data,
             &sample->classification,
             stream,
@@ -13227,7 +13227,7 @@ Vision_VisionObjectPlugin_deserialize_sample(
 
         Vision_VisionObject_initialize_ex(sample, RTI_FALSE, RTI_FALSE);
 
-        if(!classificationEnumPlugin_deserialize_sample(
+        if(!ClassificationEnumPlugin_deserialize_sample(
             endpoint_data,
             &sample->classification,
             stream,
@@ -13379,7 +13379,7 @@ RTIBool Vision_VisionObjectPlugin_skip(
 
     if (skip_sample) {
 
-        if (!classificationEnumPlugin_skip(
+        if (!ClassificationEnumPlugin_skip(
             endpoint_data,
             stream, 
             RTI_FALSE, RTI_TRUE, 
@@ -13438,7 +13438,7 @@ Vision_VisionObjectPlugin_get_serialized_sample_max_size_ex(
         initial_alignment = 0;
     }
 
-    current_alignment +=classificationEnumPlugin_get_serialized_sample_max_size_ex(
+    current_alignment +=ClassificationEnumPlugin_get_serialized_sample_max_size_ex(
         endpoint_data, overflow, RTI_FALSE,encapsulation_id,current_alignment);
 
     current_alignment +=RTICdrType_getPrimitiveArrayMaxSizeSerialized(
@@ -13501,7 +13501,7 @@ Vision_VisionObjectPlugin_get_serialized_sample_min_size(
         initial_alignment = 0;
     }
 
-    current_alignment +=classificationEnumPlugin_get_serialized_sample_min_size(
+    current_alignment +=ClassificationEnumPlugin_get_serialized_sample_min_size(
         endpoint_data,RTI_FALSE,encapsulation_id,current_alignment);
     current_alignment +=RTICdrType_getPrimitiveArrayMaxSizeSerialized(
         current_alignment, (3), RTI_CDR_FLOAT_TYPE);
@@ -13551,7 +13551,7 @@ Vision_VisionObjectPlugin_get_serialized_sample_size(
         initial_alignment = 0;
     }
 
-    current_alignment += classificationEnumPlugin_get_serialized_sample_size(
+    current_alignment += ClassificationEnumPlugin_get_serialized_sample_size(
         endpoint_data,RTI_FALSE, encapsulation_id,
         current_alignment, &sample->classification);
     current_alignment += RTICdrType_getPrimitiveArrayMaxSizeSerialized(

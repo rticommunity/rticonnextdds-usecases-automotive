@@ -231,7 +231,7 @@ extern "C" int publisher_main(int sample_count)
             idx = i * 11;
             int enum_val = 0;
             data->get(idx + 3, enum_val);
-            instance->objects[i].classification = classificationEnum(enum_val);
+            instance->objects[i].classification = ClassificationEnum(enum_val);
             data->get(idx + 4, instance->objects[i].position[0]);
             data->get(idx + 5, instance->objects[i].position[1]);
             data->get(idx + 6, instance->objects[i].position[2]);

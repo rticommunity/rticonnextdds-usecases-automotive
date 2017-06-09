@@ -9,8 +9,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef automotivePlugin_2097329537_h
-#define automotivePlugin_2097329537_h
+#ifndef automotivePlugin_2097329646_h
+#define automotivePlugin_2097329646_h
 
 #include "automotive.h"
 
@@ -267,9 +267,9 @@ extern "C" {
     * ------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern RTIBool 
-    IndicatorStatusPlugin_serialize(
+    IndicatorStatusEnumPlugin_serialize(
         PRESTypePluginEndpointData endpoint_data,
-        const IndicatorStatus *sample,
+        const IndicatorStatusEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -277,16 +277,16 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    IndicatorStatusPlugin_deserialize_sample(
+    IndicatorStatusEnumPlugin_deserialize_sample(
         PRESTypePluginEndpointData endpoint_data,
-        IndicatorStatus *sample, 
+        IndicatorStatusEnum *sample, 
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_sample, 
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    IndicatorStatusPlugin_skip(
+    IndicatorStatusEnumPlugin_skip(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
         RTIBool skip_encapsulation,  
@@ -294,7 +294,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern unsigned int 
-    IndicatorStatusPlugin_get_serialized_sample_max_size_ex(
+    IndicatorStatusEnumPlugin_get_serialized_sample_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -302,33 +302,33 @@ extern "C" {
         unsigned int current_alignment);    
 
     NDDSUSERDllExport extern unsigned int 
-    IndicatorStatusPlugin_get_serialized_sample_max_size(
+    IndicatorStatusEnumPlugin_get_serialized_sample_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    IndicatorStatusPlugin_get_serialized_sample_min_size(
+    IndicatorStatusEnumPlugin_get_serialized_sample_min_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int
-    IndicatorStatusPlugin_get_serialized_sample_size(
+    IndicatorStatusEnumPlugin_get_serialized_sample_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment,
-        const IndicatorStatus * sample);
+        const IndicatorStatusEnum * sample);
 
     /* --------------------------------------------------------------------------------------
     Key Management functions:
     * -------------------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern unsigned int 
-    IndicatorStatusPlugin_get_serialized_key_max_size_ex(
+    IndicatorStatusEnumPlugin_get_serialized_key_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -336,16 +336,16 @@ extern "C" {
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    IndicatorStatusPlugin_get_serialized_key_max_size(
+    IndicatorStatusEnumPlugin_get_serialized_key_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern RTIBool 
-    IndicatorStatusPlugin_serialize_key(
+    IndicatorStatusEnumPlugin_serialize_key(
         PRESTypePluginEndpointData endpoint_data,
-        const IndicatorStatus *sample,
+        const IndicatorStatusEnum *sample,
         struct RTICdrStream *stream,
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -353,18 +353,18 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    IndicatorStatusPlugin_deserialize_key_sample(
+    IndicatorStatusEnumPlugin_deserialize_key_sample(
         PRESTypePluginEndpointData endpoint_data,
-        IndicatorStatus * sample,
+        IndicatorStatusEnum * sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_key,
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    IndicatorStatusPlugin_serialized_sample_to_key(
+    IndicatorStatusEnumPlugin_serialized_sample_to_key(
         PRESTypePluginEndpointData endpoint_data,
-        IndicatorStatus *sample,
+        IndicatorStatusEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool deserialize_encapsulation,  
         RTIBool deserialize_key, 
@@ -375,17 +375,17 @@ extern "C" {
     * ---------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern void
-    IndicatorStatusPluginSupport_print_data(
-        const IndicatorStatus *sample, const char *desc, int indent_level);
+    IndicatorStatusEnumPluginSupport_print_data(
+        const IndicatorStatusEnum *sample, const char *desc, int indent_level);
 
     /* ----------------------------------------------------------------------------
     (De)Serialize functions:
     * ------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern RTIBool 
-    classificationEnumPlugin_serialize(
+    ClassificationEnumPlugin_serialize(
         PRESTypePluginEndpointData endpoint_data,
-        const classificationEnum *sample,
+        const ClassificationEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -393,16 +393,16 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    classificationEnumPlugin_deserialize_sample(
+    ClassificationEnumPlugin_deserialize_sample(
         PRESTypePluginEndpointData endpoint_data,
-        classificationEnum *sample, 
+        ClassificationEnum *sample, 
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_sample, 
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    classificationEnumPlugin_skip(
+    ClassificationEnumPlugin_skip(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
         RTIBool skip_encapsulation,  
@@ -410,7 +410,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern unsigned int 
-    classificationEnumPlugin_get_serialized_sample_max_size_ex(
+    ClassificationEnumPlugin_get_serialized_sample_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -418,33 +418,33 @@ extern "C" {
         unsigned int current_alignment);    
 
     NDDSUSERDllExport extern unsigned int 
-    classificationEnumPlugin_get_serialized_sample_max_size(
+    ClassificationEnumPlugin_get_serialized_sample_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    classificationEnumPlugin_get_serialized_sample_min_size(
+    ClassificationEnumPlugin_get_serialized_sample_min_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int
-    classificationEnumPlugin_get_serialized_sample_size(
+    ClassificationEnumPlugin_get_serialized_sample_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment,
-        const classificationEnum * sample);
+        const ClassificationEnum * sample);
 
     /* --------------------------------------------------------------------------------------
     Key Management functions:
     * -------------------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern unsigned int 
-    classificationEnumPlugin_get_serialized_key_max_size_ex(
+    ClassificationEnumPlugin_get_serialized_key_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -452,16 +452,16 @@ extern "C" {
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    classificationEnumPlugin_get_serialized_key_max_size(
+    ClassificationEnumPlugin_get_serialized_key_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern RTIBool 
-    classificationEnumPlugin_serialize_key(
+    ClassificationEnumPlugin_serialize_key(
         PRESTypePluginEndpointData endpoint_data,
-        const classificationEnum *sample,
+        const ClassificationEnum *sample,
         struct RTICdrStream *stream,
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -469,18 +469,18 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    classificationEnumPlugin_deserialize_key_sample(
+    ClassificationEnumPlugin_deserialize_key_sample(
         PRESTypePluginEndpointData endpoint_data,
-        classificationEnum * sample,
+        ClassificationEnum * sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_key,
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    classificationEnumPlugin_serialized_sample_to_key(
+    ClassificationEnumPlugin_serialized_sample_to_key(
         PRESTypePluginEndpointData endpoint_data,
-        classificationEnum *sample,
+        ClassificationEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool deserialize_encapsulation,  
         RTIBool deserialize_key, 
@@ -491,8 +491,8 @@ extern "C" {
     * ---------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern void
-    classificationEnumPluginSupport_print_data(
-        const classificationEnum *sample, const char *desc, int indent_level);
+    ClassificationEnumPluginSupport_print_data(
+        const ClassificationEnum *sample, const char *desc, int indent_level);
 
     #define Alerts_DriverAlertsPlugin_get_sample PRESTypePluginDefaultEndpointData_getSample 
     #define Alerts_DriverAlertsPlugin_get_buffer PRESTypePluginDefaultEndpointData_getBuffer 
@@ -732,9 +732,9 @@ extern "C" {
     * ------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_confidenceEnumPlugin_serialize(
+    Lane_ConfidenceEnumPlugin_serialize(
         PRESTypePluginEndpointData endpoint_data,
-        const Lane_confidenceEnum *sample,
+        const Lane_ConfidenceEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -742,16 +742,16 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_confidenceEnumPlugin_deserialize_sample(
+    Lane_ConfidenceEnumPlugin_deserialize_sample(
         PRESTypePluginEndpointData endpoint_data,
-        Lane_confidenceEnum *sample, 
+        Lane_ConfidenceEnum *sample, 
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_sample, 
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    Lane_confidenceEnumPlugin_skip(
+    Lane_ConfidenceEnumPlugin_skip(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
         RTIBool skip_encapsulation,  
@@ -759,7 +759,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_confidenceEnumPlugin_get_serialized_sample_max_size_ex(
+    Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -767,33 +767,33 @@ extern "C" {
         unsigned int current_alignment);    
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_confidenceEnumPlugin_get_serialized_sample_max_size(
+    Lane_ConfidenceEnumPlugin_get_serialized_sample_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_confidenceEnumPlugin_get_serialized_sample_min_size(
+    Lane_ConfidenceEnumPlugin_get_serialized_sample_min_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int
-    Lane_confidenceEnumPlugin_get_serialized_sample_size(
+    Lane_ConfidenceEnumPlugin_get_serialized_sample_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment,
-        const Lane_confidenceEnum * sample);
+        const Lane_ConfidenceEnum * sample);
 
     /* --------------------------------------------------------------------------------------
     Key Management functions:
     * -------------------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_confidenceEnumPlugin_get_serialized_key_max_size_ex(
+    Lane_ConfidenceEnumPlugin_get_serialized_key_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -801,16 +801,16 @@ extern "C" {
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_confidenceEnumPlugin_get_serialized_key_max_size(
+    Lane_ConfidenceEnumPlugin_get_serialized_key_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_confidenceEnumPlugin_serialize_key(
+    Lane_ConfidenceEnumPlugin_serialize_key(
         PRESTypePluginEndpointData endpoint_data,
-        const Lane_confidenceEnum *sample,
+        const Lane_ConfidenceEnum *sample,
         struct RTICdrStream *stream,
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -818,18 +818,18 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_confidenceEnumPlugin_deserialize_key_sample(
+    Lane_ConfidenceEnumPlugin_deserialize_key_sample(
         PRESTypePluginEndpointData endpoint_data,
-        Lane_confidenceEnum * sample,
+        Lane_ConfidenceEnum * sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_key,
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    Lane_confidenceEnumPlugin_serialized_sample_to_key(
+    Lane_ConfidenceEnumPlugin_serialized_sample_to_key(
         PRESTypePluginEndpointData endpoint_data,
-        Lane_confidenceEnum *sample,
+        Lane_ConfidenceEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool deserialize_encapsulation,  
         RTIBool deserialize_key, 
@@ -840,17 +840,17 @@ extern "C" {
     * ---------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern void
-    Lane_confidenceEnumPluginSupport_print_data(
-        const Lane_confidenceEnum *sample, const char *desc, int indent_level);
+    Lane_ConfidenceEnumPluginSupport_print_data(
+        const Lane_ConfidenceEnum *sample, const char *desc, int indent_level);
 
     /* ----------------------------------------------------------------------------
     (De)Serialize functions:
     * ------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_laneBoundaryEnumPlugin_serialize(
+    Lane_LaneBoundaryEnumPlugin_serialize(
         PRESTypePluginEndpointData endpoint_data,
-        const Lane_laneBoundaryEnum *sample,
+        const Lane_LaneBoundaryEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -858,16 +858,16 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_laneBoundaryEnumPlugin_deserialize_sample(
+    Lane_LaneBoundaryEnumPlugin_deserialize_sample(
         PRESTypePluginEndpointData endpoint_data,
-        Lane_laneBoundaryEnum *sample, 
+        Lane_LaneBoundaryEnum *sample, 
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_sample, 
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    Lane_laneBoundaryEnumPlugin_skip(
+    Lane_LaneBoundaryEnumPlugin_skip(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
         RTIBool skip_encapsulation,  
@@ -875,7 +875,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
+    Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -883,33 +883,33 @@ extern "C" {
         unsigned int current_alignment);    
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_laneBoundaryEnumPlugin_get_serialized_sample_max_size(
+    Lane_LaneBoundaryEnumPlugin_get_serialized_sample_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_laneBoundaryEnumPlugin_get_serialized_sample_min_size(
+    Lane_LaneBoundaryEnumPlugin_get_serialized_sample_min_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int
-    Lane_laneBoundaryEnumPlugin_get_serialized_sample_size(
+    Lane_LaneBoundaryEnumPlugin_get_serialized_sample_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment,
-        const Lane_laneBoundaryEnum * sample);
+        const Lane_LaneBoundaryEnum * sample);
 
     /* --------------------------------------------------------------------------------------
     Key Management functions:
     * -------------------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_laneBoundaryEnumPlugin_get_serialized_key_max_size_ex(
+    Lane_LaneBoundaryEnumPlugin_get_serialized_key_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -917,16 +917,16 @@ extern "C" {
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    Lane_laneBoundaryEnumPlugin_get_serialized_key_max_size(
+    Lane_LaneBoundaryEnumPlugin_get_serialized_key_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_laneBoundaryEnumPlugin_serialize_key(
+    Lane_LaneBoundaryEnumPlugin_serialize_key(
         PRESTypePluginEndpointData endpoint_data,
-        const Lane_laneBoundaryEnum *sample,
+        const Lane_LaneBoundaryEnum *sample,
         struct RTICdrStream *stream,
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -934,18 +934,18 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    Lane_laneBoundaryEnumPlugin_deserialize_key_sample(
+    Lane_LaneBoundaryEnumPlugin_deserialize_key_sample(
         PRESTypePluginEndpointData endpoint_data,
-        Lane_laneBoundaryEnum * sample,
+        Lane_LaneBoundaryEnum * sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_key,
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    Lane_laneBoundaryEnumPlugin_serialized_sample_to_key(
+    Lane_LaneBoundaryEnumPlugin_serialized_sample_to_key(
         PRESTypePluginEndpointData endpoint_data,
-        Lane_laneBoundaryEnum *sample,
+        Lane_LaneBoundaryEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool deserialize_encapsulation,  
         RTIBool deserialize_key, 
@@ -956,8 +956,8 @@ extern "C" {
     * ---------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern void
-    Lane_laneBoundaryEnumPluginSupport_print_data(
-        const Lane_laneBoundaryEnum *sample, const char *desc, int indent_level);
+    Lane_LaneBoundaryEnumPluginSupport_print_data(
+        const Lane_LaneBoundaryEnum *sample, const char *desc, int indent_level);
 
     #define Lane_LaneObjectPlugin_get_sample PRESTypePluginDefaultEndpointData_getSample 
     #define Lane_LaneObjectPlugin_get_buffer PRESTypePluginDefaultEndpointData_getBuffer 
@@ -2595,9 +2595,9 @@ extern "C" {
     * ------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern RTIBool 
-    Sensor_rangeModeEnumPlugin_serialize(
+    Sensor_RangeModeEnumPlugin_serialize(
         PRESTypePluginEndpointData endpoint_data,
-        const Sensor_rangeModeEnum *sample,
+        const Sensor_RangeModeEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -2605,16 +2605,16 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    Sensor_rangeModeEnumPlugin_deserialize_sample(
+    Sensor_RangeModeEnumPlugin_deserialize_sample(
         PRESTypePluginEndpointData endpoint_data,
-        Sensor_rangeModeEnum *sample, 
+        Sensor_RangeModeEnum *sample, 
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_sample, 
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    Sensor_rangeModeEnumPlugin_skip(
+    Sensor_RangeModeEnumPlugin_skip(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
         RTIBool skip_encapsulation,  
@@ -2622,7 +2622,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern unsigned int 
-    Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size_ex(
+    Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -2630,33 +2630,33 @@ extern "C" {
         unsigned int current_alignment);    
 
     NDDSUSERDllExport extern unsigned int 
-    Sensor_rangeModeEnumPlugin_get_serialized_sample_max_size(
+    Sensor_RangeModeEnumPlugin_get_serialized_sample_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    Sensor_rangeModeEnumPlugin_get_serialized_sample_min_size(
+    Sensor_RangeModeEnumPlugin_get_serialized_sample_min_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int
-    Sensor_rangeModeEnumPlugin_get_serialized_sample_size(
+    Sensor_RangeModeEnumPlugin_get_serialized_sample_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment,
-        const Sensor_rangeModeEnum * sample);
+        const Sensor_RangeModeEnum * sample);
 
     /* --------------------------------------------------------------------------------------
     Key Management functions:
     * -------------------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern unsigned int 
-    Sensor_rangeModeEnumPlugin_get_serialized_key_max_size_ex(
+    Sensor_RangeModeEnumPlugin_get_serialized_key_max_size_ex(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool * overflow,
         RTIBool include_encapsulation,
@@ -2664,16 +2664,16 @@ extern "C" {
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern unsigned int 
-    Sensor_rangeModeEnumPlugin_get_serialized_key_max_size(
+    Sensor_RangeModeEnumPlugin_get_serialized_key_max_size(
         PRESTypePluginEndpointData endpoint_data,
         RTIBool include_encapsulation,
         RTIEncapsulationId encapsulation_id,
         unsigned int current_alignment);
 
     NDDSUSERDllExport extern RTIBool 
-    Sensor_rangeModeEnumPlugin_serialize_key(
+    Sensor_RangeModeEnumPlugin_serialize_key(
         PRESTypePluginEndpointData endpoint_data,
-        const Sensor_rangeModeEnum *sample,
+        const Sensor_RangeModeEnum *sample,
         struct RTICdrStream *stream,
         RTIBool serialize_encapsulation,
         RTIEncapsulationId encapsulation_id,
@@ -2681,18 +2681,18 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool 
-    Sensor_rangeModeEnumPlugin_deserialize_key_sample(
+    Sensor_RangeModeEnumPlugin_deserialize_key_sample(
         PRESTypePluginEndpointData endpoint_data,
-        Sensor_rangeModeEnum * sample,
+        Sensor_RangeModeEnum * sample,
         struct RTICdrStream *stream,
         RTIBool deserialize_encapsulation,
         RTIBool deserialize_key,
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern RTIBool
-    Sensor_rangeModeEnumPlugin_serialized_sample_to_key(
+    Sensor_RangeModeEnumPlugin_serialized_sample_to_key(
         PRESTypePluginEndpointData endpoint_data,
-        Sensor_rangeModeEnum *sample,
+        Sensor_RangeModeEnum *sample,
         struct RTICdrStream *stream, 
         RTIBool deserialize_encapsulation,  
         RTIBool deserialize_key, 
@@ -2703,8 +2703,8 @@ extern "C" {
     * ---------------------------------------------------------------------------- */
 
     NDDSUSERDllExport extern void
-    Sensor_rangeModeEnumPluginSupport_print_data(
-        const Sensor_rangeModeEnum *sample, const char *desc, int indent_level);
+    Sensor_RangeModeEnumPluginSupport_print_data(
+        const Sensor_RangeModeEnum *sample, const char *desc, int indent_level);
 
     #define Sensor_SensorObjectPlugin_get_sample PRESTypePluginDefaultEndpointData_getSample 
     #define Sensor_SensorObjectPlugin_get_buffer PRESTypePluginDefaultEndpointData_getBuffer 
@@ -3706,5 +3706,5 @@ extern "C" {
 #define NDDSUSERDllExport
 #endif
 
-#endif /* automotivePlugin_2097329537_h */
+#endif /* automotivePlugin_2097329646_h */
 

@@ -9,8 +9,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef automotive_2097329537_h
-#define automotive_2097329537_h
+#ifndef automotive_2097329646_h
+#define automotive_2097329646_h
 
 #ifndef NDDS_STANDALONE_TYPE
 #ifndef ndds_cpp_h
@@ -99,13 +99,13 @@ RTIBool POSIXTimestamp_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
-typedef enum IndicatorStatus
+typedef enum IndicatorStatusEnum
 {
     INDICATOR_OFF  = 0,      
     INDICATOR_LEFT  = 1,      
     INDICATOR_RIGHT  = 2,      
     INDICATOR_HAZARD  = 3     
-} IndicatorStatus;
+} IndicatorStatusEnum;
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, start exporting symbols.
 */
@@ -113,44 +113,44 @@ typedef enum IndicatorStatus
 #define NDDSUSERDllExport __declspec(dllexport)
 #endif
 
-NDDSUSERDllExport DDS_TypeCode* IndicatorStatus_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode* IndicatorStatusEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(IndicatorStatusSeq, IndicatorStatus);                                        
-
-NDDSUSERDllExport
-RTIBool IndicatorStatus_initialize(
-    IndicatorStatus* self);
+DDS_SEQUENCE(IndicatorStatusEnumSeq, IndicatorStatusEnum);                                        
 
 NDDSUSERDllExport
-RTIBool IndicatorStatus_initialize_ex(
-    IndicatorStatus* self,RTIBool allocatePointers,RTIBool allocateMemory);
+RTIBool IndicatorStatusEnum_initialize(
+    IndicatorStatusEnum* self);
 
 NDDSUSERDllExport
-RTIBool IndicatorStatus_initialize_w_params(
-    IndicatorStatus* self,
+RTIBool IndicatorStatusEnum_initialize_ex(
+    IndicatorStatusEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool IndicatorStatusEnum_initialize_w_params(
+    IndicatorStatusEnum* self,
     const struct DDS_TypeAllocationParams_t * allocParams);        
 
 NDDSUSERDllExport
-void IndicatorStatus_finalize(
-    IndicatorStatus* self);
+void IndicatorStatusEnum_finalize(
+    IndicatorStatusEnum* self);
 
 NDDSUSERDllExport
-void IndicatorStatus_finalize_ex(
-    IndicatorStatus* self,RTIBool deletePointers);
+void IndicatorStatusEnum_finalize_ex(
+    IndicatorStatusEnum* self,RTIBool deletePointers);
 
 NDDSUSERDllExport
-void IndicatorStatus_finalize_w_params(
-    IndicatorStatus* self,
+void IndicatorStatusEnum_finalize_w_params(
+    IndicatorStatusEnum* self,
     const struct DDS_TypeDeallocationParams_t * deallocParams);
 
 NDDSUSERDllExport
-void IndicatorStatus_finalize_optional_members(
-    IndicatorStatus* self, RTIBool deletePointers);  
+void IndicatorStatusEnum_finalize_optional_members(
+    IndicatorStatusEnum* self, RTIBool deletePointers);  
 
 NDDSUSERDllExport
-RTIBool IndicatorStatus_copy(
-    IndicatorStatus* dst,
-    const IndicatorStatus* src);
+RTIBool IndicatorStatusEnum_copy(
+    IndicatorStatusEnum* dst,
+    const IndicatorStatusEnum* src);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.
@@ -158,17 +158,17 @@ RTIBool IndicatorStatus_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
-typedef enum classificationEnum
+typedef enum ClassificationEnum
 {
-    Classification_Unknown  = 0,      
-    Classification_UnknownSmall  = 1,      
-    Classification_UnknownBig  = 2,      
-    Classification_Pedestrian  = 3,      
-    Classification_Bike  = 4,      
-    Classification_Car  = 5,      
-    Classification_Truck  = 6,      
-    Classification_Barrier  = 7     
-} classificationEnum;
+    CLASSIFICATION_UNKNOWN  = 0,      
+    CLASSIFICATION_UNKNOWNSMALL  = 1,      
+    CLASSIFICATION_UNKNOWNBIG  = 2,      
+    CLASSIFICATION_PEDESTRIAN  = 3,      
+    CLASSIFICATION_BIKE  = 4,      
+    CLASSIFICATION_CAR  = 5,      
+    CLASSIFICATION_TRUCK  = 6,      
+    CLASSIFICATION_BARRIER  = 7     
+} ClassificationEnum;
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, start exporting symbols.
 */
@@ -176,44 +176,44 @@ typedef enum classificationEnum
 #define NDDSUSERDllExport __declspec(dllexport)
 #endif
 
-NDDSUSERDllExport DDS_TypeCode* classificationEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode* ClassificationEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(classificationEnumSeq, classificationEnum);                                        
-
-NDDSUSERDllExport
-RTIBool classificationEnum_initialize(
-    classificationEnum* self);
+DDS_SEQUENCE(ClassificationEnumSeq, ClassificationEnum);                                        
 
 NDDSUSERDllExport
-RTIBool classificationEnum_initialize_ex(
-    classificationEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+RTIBool ClassificationEnum_initialize(
+    ClassificationEnum* self);
 
 NDDSUSERDllExport
-RTIBool classificationEnum_initialize_w_params(
-    classificationEnum* self,
+RTIBool ClassificationEnum_initialize_ex(
+    ClassificationEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool ClassificationEnum_initialize_w_params(
+    ClassificationEnum* self,
     const struct DDS_TypeAllocationParams_t * allocParams);        
 
 NDDSUSERDllExport
-void classificationEnum_finalize(
-    classificationEnum* self);
+void ClassificationEnum_finalize(
+    ClassificationEnum* self);
 
 NDDSUSERDllExport
-void classificationEnum_finalize_ex(
-    classificationEnum* self,RTIBool deletePointers);
+void ClassificationEnum_finalize_ex(
+    ClassificationEnum* self,RTIBool deletePointers);
 
 NDDSUSERDllExport
-void classificationEnum_finalize_w_params(
-    classificationEnum* self,
+void ClassificationEnum_finalize_w_params(
+    ClassificationEnum* self,
     const struct DDS_TypeDeallocationParams_t * deallocParams);
 
 NDDSUSERDllExport
-void classificationEnum_finalize_optional_members(
-    classificationEnum* self, RTIBool deletePointers);  
+void ClassificationEnum_finalize_optional_members(
+    ClassificationEnum* self, RTIBool deletePointers);  
 
 NDDSUSERDllExport
-RTIBool classificationEnum_copy(
-    classificationEnum* dst,
-    const classificationEnum* src);
+RTIBool ClassificationEnum_copy(
+    ClassificationEnum* dst,
+    const ClassificationEnum* src);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.
@@ -244,12 +244,12 @@ class Alerts_DriverAlerts
     typedef Alerts_DriverAlertsDataReader DataReader;
     #endif
 
-    DDS_Boolean   BlindSpotDriver ;
-    DDS_Boolean   BlindSpotPassenger ;
-    DDS_Boolean   FrontCollision ;
-    DDS_Boolean   BackCollision ;
-    DDS_Boolean   ParkingCollision ;
-    DDS_Boolean   DriverAttention ;
+    DDS_Boolean   blindSpotDriver ;
+    DDS_Boolean   blindSpotPassenger ;
+    DDS_Boolean   frontCollision ;
+    DDS_Boolean   backCollision ;
+    DDS_Boolean   parkingCollision ;
+    DDS_Boolean   driverAttention ;
 
 };
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
@@ -304,13 +304,13 @@ RTIBool Alerts_DriverAlerts_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
-typedef enum Lane_confidenceEnum
+typedef enum Lane_ConfidenceEnum
 {
-    Confidence_None  = 0,      
-    Confidence_Low  = 1,      
-    Confidence_Med  = 2,      
-    Confidence_High  = 3     
-} Lane_confidenceEnum;
+    CONFIDENCE_NONE  = 0,      
+    CONFIDENCE_LOW  = 1,      
+    CONFIDENCE_MED  = 2,      
+    CONFIDENCE_HIGH  = 3     
+} Lane_ConfidenceEnum;
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, start exporting symbols.
 */
@@ -318,44 +318,44 @@ typedef enum Lane_confidenceEnum
 #define NDDSUSERDllExport __declspec(dllexport)
 #endif
 
-NDDSUSERDllExport DDS_TypeCode* Lane_confidenceEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode* Lane_ConfidenceEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lane_confidenceEnumSeq, Lane_confidenceEnum);                                        
-
-NDDSUSERDllExport
-RTIBool Lane_confidenceEnum_initialize(
-    Lane_confidenceEnum* self);
+DDS_SEQUENCE(Lane_ConfidenceEnumSeq, Lane_ConfidenceEnum);                                        
 
 NDDSUSERDllExport
-RTIBool Lane_confidenceEnum_initialize_ex(
-    Lane_confidenceEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+RTIBool Lane_ConfidenceEnum_initialize(
+    Lane_ConfidenceEnum* self);
 
 NDDSUSERDllExport
-RTIBool Lane_confidenceEnum_initialize_w_params(
-    Lane_confidenceEnum* self,
+RTIBool Lane_ConfidenceEnum_initialize_ex(
+    Lane_ConfidenceEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool Lane_ConfidenceEnum_initialize_w_params(
+    Lane_ConfidenceEnum* self,
     const struct DDS_TypeAllocationParams_t * allocParams);        
 
 NDDSUSERDllExport
-void Lane_confidenceEnum_finalize(
-    Lane_confidenceEnum* self);
+void Lane_ConfidenceEnum_finalize(
+    Lane_ConfidenceEnum* self);
 
 NDDSUSERDllExport
-void Lane_confidenceEnum_finalize_ex(
-    Lane_confidenceEnum* self,RTIBool deletePointers);
+void Lane_ConfidenceEnum_finalize_ex(
+    Lane_ConfidenceEnum* self,RTIBool deletePointers);
 
 NDDSUSERDllExport
-void Lane_confidenceEnum_finalize_w_params(
-    Lane_confidenceEnum* self,
+void Lane_ConfidenceEnum_finalize_w_params(
+    Lane_ConfidenceEnum* self,
     const struct DDS_TypeDeallocationParams_t * deallocParams);
 
 NDDSUSERDllExport
-void Lane_confidenceEnum_finalize_optional_members(
-    Lane_confidenceEnum* self, RTIBool deletePointers);  
+void Lane_ConfidenceEnum_finalize_optional_members(
+    Lane_ConfidenceEnum* self, RTIBool deletePointers);  
 
 NDDSUSERDllExport
-RTIBool Lane_confidenceEnum_copy(
-    Lane_confidenceEnum* dst,
-    const Lane_confidenceEnum* src);
+RTIBool Lane_ConfidenceEnum_copy(
+    Lane_ConfidenceEnum* dst,
+    const Lane_ConfidenceEnum* src);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.
@@ -363,18 +363,18 @@ RTIBool Lane_confidenceEnum_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
-typedef enum Lane_laneBoundaryEnum
+typedef enum Lane_LaneBoundaryEnum
 {
-    Boundry_None  = 0,      
-    Boundry_Invalid  = 1,      
-    Boundry_Solid  = 2,      
-    Boundry_Dashed  = 3,      
-    Boundry_Virtual  = 4,      
-    Boundry_Dots  = 5,      
-    Boundry_RoadEdge  = 6,      
-    Boundry_Undecided  = 7,      
-    Boundry_DoubleMarker  = 8     
-} Lane_laneBoundaryEnum;
+    BOUNDRY_NONE  = 0,      
+    BOUNDRY_INVALID  = 1,      
+    BOUNDRY_SOLID  = 2,      
+    BOUNDRY_DASHED  = 3,      
+    BOUNDRY_VIRTUAL  = 4,      
+    BOUNDRY_DOTS  = 5,      
+    BOUNDRY_ROADEDGE  = 6,      
+    BOUNDRY_UNDECIDED  = 7,      
+    BOUNDRY_DOUBLEMARKER  = 8     
+} Lane_LaneBoundaryEnum;
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, start exporting symbols.
 */
@@ -382,44 +382,44 @@ typedef enum Lane_laneBoundaryEnum
 #define NDDSUSERDllExport __declspec(dllexport)
 #endif
 
-NDDSUSERDllExport DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode* Lane_LaneBoundaryEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lane_laneBoundaryEnumSeq, Lane_laneBoundaryEnum);                                        
-
-NDDSUSERDllExport
-RTIBool Lane_laneBoundaryEnum_initialize(
-    Lane_laneBoundaryEnum* self);
+DDS_SEQUENCE(Lane_LaneBoundaryEnumSeq, Lane_LaneBoundaryEnum);                                        
 
 NDDSUSERDllExport
-RTIBool Lane_laneBoundaryEnum_initialize_ex(
-    Lane_laneBoundaryEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+RTIBool Lane_LaneBoundaryEnum_initialize(
+    Lane_LaneBoundaryEnum* self);
 
 NDDSUSERDllExport
-RTIBool Lane_laneBoundaryEnum_initialize_w_params(
-    Lane_laneBoundaryEnum* self,
+RTIBool Lane_LaneBoundaryEnum_initialize_ex(
+    Lane_LaneBoundaryEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool Lane_LaneBoundaryEnum_initialize_w_params(
+    Lane_LaneBoundaryEnum* self,
     const struct DDS_TypeAllocationParams_t * allocParams);        
 
 NDDSUSERDllExport
-void Lane_laneBoundaryEnum_finalize(
-    Lane_laneBoundaryEnum* self);
+void Lane_LaneBoundaryEnum_finalize(
+    Lane_LaneBoundaryEnum* self);
 
 NDDSUSERDllExport
-void Lane_laneBoundaryEnum_finalize_ex(
-    Lane_laneBoundaryEnum* self,RTIBool deletePointers);
+void Lane_LaneBoundaryEnum_finalize_ex(
+    Lane_LaneBoundaryEnum* self,RTIBool deletePointers);
 
 NDDSUSERDllExport
-void Lane_laneBoundaryEnum_finalize_w_params(
-    Lane_laneBoundaryEnum* self,
+void Lane_LaneBoundaryEnum_finalize_w_params(
+    Lane_LaneBoundaryEnum* self,
     const struct DDS_TypeDeallocationParams_t * deallocParams);
 
 NDDSUSERDllExport
-void Lane_laneBoundaryEnum_finalize_optional_members(
-    Lane_laneBoundaryEnum* self, RTIBool deletePointers);  
+void Lane_LaneBoundaryEnum_finalize_optional_members(
+    Lane_LaneBoundaryEnum* self, RTIBool deletePointers);  
 
 NDDSUSERDllExport
-RTIBool Lane_laneBoundaryEnum_copy(
-    Lane_laneBoundaryEnum* dst,
-    const Lane_laneBoundaryEnum* src);
+RTIBool Lane_LaneBoundaryEnum_copy(
+    Lane_LaneBoundaryEnum* dst,
+    const Lane_LaneBoundaryEnum* src);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.
@@ -450,9 +450,9 @@ class Lane_LaneObject
     typedef Lane_LaneObjectDataReader DataReader;
     #endif
 
-    DDS_Octet   isValid ;
-    Lane_confidenceEnum   confidence ;
-    Lane_laneBoundaryEnum   boundaryType ;
+    DDS_Boolean   isValid ;
+    Lane_ConfidenceEnum   confidence ;
+    Lane_LaneBoundaryEnum   boundaryType ;
     DDS_Float   offset ;
     DDS_Float   headingAngle ;
     DDS_Float   curvature ;
@@ -692,13 +692,13 @@ class Lidar_PCloud
     #endif
 
     Lidar_PointSeq  Location ;
-    DDS_Octet   Color ;
-    DDS_Float   Normal ;
-    DDS_Float   Intensity ;
-    DDS_Double   Count ;
-    DDS_Float   XLimits [2];
-    DDS_Float   YLimits [2];
-    DDS_Float   ZLimits [2];
+    DDS_Octet   color ;
+    DDS_Float   normal ;
+    DDS_Float   intensity ;
+    DDS_Long   count ;
+    DDS_Float   xLimits [2];
+    DDS_Float   yLimits [2];
+    DDS_Float   zLimits [2];
 
 };
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
@@ -857,9 +857,9 @@ class Platform_PlatformControl
 
     DDS_Long   sample_id ;
     POSIXTimestamp   timestamp ;
-    DDS_Float   vehicle_steer_angle ;
+    DDS_Float   vehicleSteerAngle ;
     DDS_Float   speed ;
-    IndicatorStatus   blinker_status ;
+    IndicatorStatusEnum   blinkerStatus ;
 
 };
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
@@ -939,11 +939,11 @@ class Platform_PlatformStatus
 
     POSIXTimestamp   timestamp ;
     DDS_Float   vehSpd ;
-    IndicatorStatus   blinkerStatus ;
+    IndicatorStatusEnum   blinkerStatus ;
     DDS_Float   posGasPedal ;
     DDS_Float   velocity ;
     DDS_Float   yawRate ;
-    DDS_Float   vehicle_steer_angle ;
+    DDS_Float   vehicleSteerAngle ;
 
 };
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
@@ -999,13 +999,13 @@ RTIBool Platform_PlatformStatus_copy(
 #define NDDSUSERDllExport
 #endif
 static const DDS_Long Sensor_SENSOR_OBJECT_LIST_MAX_SIZE= 128;
-typedef enum Sensor_rangeModeEnum
+typedef enum Sensor_RangeModeEnum
 {
-    None  = 0,      
-    Short  = 1,      
-    Medium  = 2,      
-    Long  = 3     
-} Sensor_rangeModeEnum;
+    RANGE_NONE  = 0,      
+    RANGE_SHORT  = 1,      
+    RANGE_MEDIUM  = 2,      
+    RANGE_LONG  = 3     
+} Sensor_RangeModeEnum;
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, start exporting symbols.
 */
@@ -1013,44 +1013,44 @@ typedef enum Sensor_rangeModeEnum
 #define NDDSUSERDllExport __declspec(dllexport)
 #endif
 
-NDDSUSERDllExport DDS_TypeCode* Sensor_rangeModeEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode* Sensor_RangeModeEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Sensor_rangeModeEnumSeq, Sensor_rangeModeEnum);                                        
-
-NDDSUSERDllExport
-RTIBool Sensor_rangeModeEnum_initialize(
-    Sensor_rangeModeEnum* self);
+DDS_SEQUENCE(Sensor_RangeModeEnumSeq, Sensor_RangeModeEnum);                                        
 
 NDDSUSERDllExport
-RTIBool Sensor_rangeModeEnum_initialize_ex(
-    Sensor_rangeModeEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+RTIBool Sensor_RangeModeEnum_initialize(
+    Sensor_RangeModeEnum* self);
 
 NDDSUSERDllExport
-RTIBool Sensor_rangeModeEnum_initialize_w_params(
-    Sensor_rangeModeEnum* self,
+RTIBool Sensor_RangeModeEnum_initialize_ex(
+    Sensor_RangeModeEnum* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool Sensor_RangeModeEnum_initialize_w_params(
+    Sensor_RangeModeEnum* self,
     const struct DDS_TypeAllocationParams_t * allocParams);        
 
 NDDSUSERDllExport
-void Sensor_rangeModeEnum_finalize(
-    Sensor_rangeModeEnum* self);
+void Sensor_RangeModeEnum_finalize(
+    Sensor_RangeModeEnum* self);
 
 NDDSUSERDllExport
-void Sensor_rangeModeEnum_finalize_ex(
-    Sensor_rangeModeEnum* self,RTIBool deletePointers);
+void Sensor_RangeModeEnum_finalize_ex(
+    Sensor_RangeModeEnum* self,RTIBool deletePointers);
 
 NDDSUSERDllExport
-void Sensor_rangeModeEnum_finalize_w_params(
-    Sensor_rangeModeEnum* self,
+void Sensor_RangeModeEnum_finalize_w_params(
+    Sensor_RangeModeEnum* self,
     const struct DDS_TypeDeallocationParams_t * deallocParams);
 
 NDDSUSERDllExport
-void Sensor_rangeModeEnum_finalize_optional_members(
-    Sensor_rangeModeEnum* self, RTIBool deletePointers);  
+void Sensor_RangeModeEnum_finalize_optional_members(
+    Sensor_RangeModeEnum* self, RTIBool deletePointers);  
 
 NDDSUSERDllExport
-RTIBool Sensor_rangeModeEnum_copy(
-    Sensor_rangeModeEnum* dst,
-    const Sensor_rangeModeEnum* src);
+RTIBool Sensor_RangeModeEnum_copy(
+    Sensor_RangeModeEnum* dst,
+    const Sensor_RangeModeEnum* src);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.
@@ -1081,12 +1081,12 @@ class Sensor_SensorObject
     typedef Sensor_SensorObjectDataReader DataReader;
     #endif
 
-    classificationEnum   classification ;
+    ClassificationEnum   classification ;
     DDS_Float   position [3];
     DDS_Float   velocity [3];
     DDS_Float   size [3];
     DDS_Float   amplitude ;
-    Sensor_rangeModeEnum   rangeMode ;
+    Sensor_RangeModeEnum   rangeMode ;
     DDS_Float   rangeRate ;
 
 };
@@ -1245,7 +1245,7 @@ class Vision_VisionObject
     typedef Vision_VisionObjectDataReader DataReader;
     #endif
 
-    classificationEnum   classification ;
+    ClassificationEnum   classification ;
     DDS_Float   position [3];
     DDS_Float   velocity [3];
     DDS_Float   size [3];

@@ -115,11 +115,11 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppzd.lib;nddsczd.lib;nddscorezd.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\collision_avoidance.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\collisionAvoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\collision_avoidance.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\collisionAvoidance.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>

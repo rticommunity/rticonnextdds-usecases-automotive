@@ -238,13 +238,13 @@ RTIBool POSIXTimestamp_copy(
 #undef T
 
 /* ========================================================================= */
-const char *IndicatorStatusTYPENAME = "IndicatorStatus";
+const char *IndicatorStatusEnumTYPENAME = "IndicatorStatusEnum";
 
-DDS_TypeCode* IndicatorStatus_get_typecode()
+DDS_TypeCode* IndicatorStatusEnum_get_typecode()
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode_Member IndicatorStatus_g_tc_members[4]=
+    static DDS_TypeCode_Member IndicatorStatusEnum_g_tc_members[4]=
     {
 
         {
@@ -321,38 +321,38 @@ DDS_TypeCode* IndicatorStatus_get_typecode()
         }
     };
 
-    static DDS_TypeCode IndicatorStatus_g_tc =
+    static DDS_TypeCode IndicatorStatusEnum_g_tc =
     {{
             DDS_TK_ENUM,/* Kind */
             DDS_BOOLEAN_FALSE, /* Ignored */
             -1, /*Ignored*/
-            (char *)"IndicatorStatus", /* Name */
+            (char *)"IndicatorStatusEnum", /* Name */
             NULL,     /* Base class type code is assigned later */      
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
             4, /* Number of members */
-            IndicatorStatus_g_tc_members, /* Members */
+            IndicatorStatusEnum_g_tc_members, /* Members */
             DDS_VM_NONE   /* Type Modifier */        
-        }}; /* Type code for IndicatorStatus*/
+        }}; /* Type code for IndicatorStatusEnum*/
 
     if (is_initialized) {
-        return &IndicatorStatus_g_tc;
+        return &IndicatorStatusEnum_g_tc;
     }
 
     is_initialized = RTI_TRUE;
 
-    return &IndicatorStatus_g_tc;
+    return &IndicatorStatusEnum_g_tc;
 }
 
-RTIBool IndicatorStatus_initialize(
-    IndicatorStatus* sample) {
+RTIBool IndicatorStatusEnum_initialize(
+    IndicatorStatusEnum* sample) {
     *sample = INDICATOR_OFF;
     return RTI_TRUE;
 }
 
-RTIBool IndicatorStatus_initialize_ex(
-    IndicatorStatus* sample,RTIBool allocatePointers, RTIBool allocateMemory)
+RTIBool IndicatorStatusEnum_initialize_ex(
+    IndicatorStatusEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
 {
 
     struct DDS_TypeAllocationParams_t allocParams =
@@ -361,13 +361,13 @@ RTIBool IndicatorStatus_initialize_ex(
     allocParams.allocate_pointers =  (DDS_Boolean)allocatePointers;
     allocParams.allocate_memory = (DDS_Boolean)allocateMemory;
 
-    return IndicatorStatus_initialize_w_params(
+    return IndicatorStatusEnum_initialize_w_params(
         sample,&allocParams);
 
 }
 
-RTIBool IndicatorStatus_initialize_w_params(
-    IndicatorStatus* sample, const struct DDS_TypeAllocationParams_t * allocParams)
+RTIBool IndicatorStatusEnum_initialize_w_params(
+    IndicatorStatusEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
 {
 
     if (allocParams) {} /* To avoid warnings */
@@ -375,8 +375,8 @@ RTIBool IndicatorStatus_initialize_w_params(
     return RTI_TRUE;
 }
 
-void IndicatorStatus_finalize(
-    IndicatorStatus* sample)
+void IndicatorStatusEnum_finalize(
+    IndicatorStatusEnum* sample)
 {
 
     if (sample==NULL) {
@@ -384,8 +384,8 @@ void IndicatorStatus_finalize(
     }
 }
 
-void IndicatorStatus_finalize_ex(
-    IndicatorStatus* sample,RTIBool deletePointers)
+void IndicatorStatusEnum_finalize_ex(
+    IndicatorStatusEnum* sample,RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParams =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -396,12 +396,12 @@ void IndicatorStatus_finalize_ex(
 
     deallocParams.delete_pointers = (DDS_Boolean)deletePointers;
 
-    IndicatorStatus_finalize_w_params(
+    IndicatorStatusEnum_finalize_w_params(
         sample,&deallocParams);
 }
 
-void IndicatorStatus_finalize_w_params(
-    IndicatorStatus* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
+void IndicatorStatusEnum_finalize_w_params(
+    IndicatorStatusEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
 {
 
     if (sample==NULL) {
@@ -411,8 +411,8 @@ void IndicatorStatus_finalize_w_params(
 
 }
 
-void IndicatorStatus_finalize_optional_members(
-    IndicatorStatus* sample, RTIBool deletePointers)
+void IndicatorStatusEnum_finalize_optional_members(
+    IndicatorStatusEnum* sample, RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParamsTmp =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -429,9 +429,9 @@ void IndicatorStatus_finalize_optional_members(
 
 }
 
-RTIBool IndicatorStatus_copy(
-    IndicatorStatus* dst,
-    const IndicatorStatus* src)
+RTIBool IndicatorStatusEnum_copy(
+    IndicatorStatusEnum* dst,
+    const IndicatorStatusEnum* src)
 {
 
     return RTICdrType_copyEnum((RTICdrEnum *)dst, (RTICdrEnum *)src);
@@ -443,13 +443,13 @@ RTIBool IndicatorStatus_copy(
 *
 * Defines:  TSeq, T
 *
-* Configure and implement 'IndicatorStatus' sequence class.
+* Configure and implement 'IndicatorStatusEnum' sequence class.
 */
-#define T IndicatorStatus
-#define TSeq IndicatorStatusSeq
-#define T_initialize_w_params IndicatorStatus_initialize_w_params
-#define T_finalize_w_params   IndicatorStatus_finalize_w_params
-#define T_copy       IndicatorStatus_copy
+#define T IndicatorStatusEnum
+#define TSeq IndicatorStatusEnumSeq
+#define T_initialize_w_params IndicatorStatusEnum_initialize_w_params
+#define T_finalize_w_params   IndicatorStatusEnum_finalize_w_params
+#define T_copy       IndicatorStatusEnum_copy
 
 #ifndef NDDS_STANDALONE_TYPE
 #include "dds_c/generic/dds_c_sequence_TSeq.gen"
@@ -466,24 +466,24 @@ RTIBool IndicatorStatus_copy(
 #undef T
 
 /* ========================================================================= */
-const char *classificationEnumTYPENAME = "classificationEnum";
+const char *ClassificationEnumTYPENAME = "ClassificationEnum";
 
-DDS_TypeCode* classificationEnum_get_typecode()
+DDS_TypeCode* ClassificationEnum_get_typecode()
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode_Member classificationEnum_g_tc_members[8]=
+    static DDS_TypeCode_Member ClassificationEnum_g_tc_members[8]=
     {
 
         {
-            (char *)"Classification_Unknown",/* Member name */
+            (char *)"CLASSIFICATION_UNKNOWN",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_Unknown, /* Enumerator ordinal */
+            CLASSIFICATION_UNKNOWN, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -494,14 +494,14 @@ DDS_TypeCode* classificationEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Classification_UnknownSmall",/* Member name */
+            (char *)"CLASSIFICATION_UNKNOWNSMALL",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_UnknownSmall, /* Enumerator ordinal */
+            CLASSIFICATION_UNKNOWNSMALL, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -512,14 +512,14 @@ DDS_TypeCode* classificationEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Classification_UnknownBig",/* Member name */
+            (char *)"CLASSIFICATION_UNKNOWNBIG",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_UnknownBig, /* Enumerator ordinal */
+            CLASSIFICATION_UNKNOWNBIG, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -530,14 +530,14 @@ DDS_TypeCode* classificationEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Classification_Pedestrian",/* Member name */
+            (char *)"CLASSIFICATION_PEDESTRIAN",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_Pedestrian, /* Enumerator ordinal */
+            CLASSIFICATION_PEDESTRIAN, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -548,14 +548,14 @@ DDS_TypeCode* classificationEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Classification_Bike",/* Member name */
+            (char *)"CLASSIFICATION_BIKE",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_Bike, /* Enumerator ordinal */
+            CLASSIFICATION_BIKE, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -566,14 +566,14 @@ DDS_TypeCode* classificationEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Classification_Car",/* Member name */
+            (char *)"CLASSIFICATION_CAR",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_Car, /* Enumerator ordinal */
+            CLASSIFICATION_CAR, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -584,14 +584,14 @@ DDS_TypeCode* classificationEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Classification_Truck",/* Member name */
+            (char *)"CLASSIFICATION_TRUCK",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_Truck, /* Enumerator ordinal */
+            CLASSIFICATION_TRUCK, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -602,14 +602,14 @@ DDS_TypeCode* classificationEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Classification_Barrier",/* Member name */
+            (char *)"CLASSIFICATION_BARRIER",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Classification_Barrier, /* Enumerator ordinal */
+            CLASSIFICATION_BARRIER, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -621,38 +621,38 @@ DDS_TypeCode* classificationEnum_get_typecode()
         }
     };
 
-    static DDS_TypeCode classificationEnum_g_tc =
+    static DDS_TypeCode ClassificationEnum_g_tc =
     {{
             DDS_TK_ENUM,/* Kind */
             DDS_BOOLEAN_FALSE, /* Ignored */
             -1, /*Ignored*/
-            (char *)"classificationEnum", /* Name */
+            (char *)"ClassificationEnum", /* Name */
             NULL,     /* Base class type code is assigned later */      
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
             8, /* Number of members */
-            classificationEnum_g_tc_members, /* Members */
+            ClassificationEnum_g_tc_members, /* Members */
             DDS_VM_NONE   /* Type Modifier */        
-        }}; /* Type code for classificationEnum*/
+        }}; /* Type code for ClassificationEnum*/
 
     if (is_initialized) {
-        return &classificationEnum_g_tc;
+        return &ClassificationEnum_g_tc;
     }
 
     is_initialized = RTI_TRUE;
 
-    return &classificationEnum_g_tc;
+    return &ClassificationEnum_g_tc;
 }
 
-RTIBool classificationEnum_initialize(
-    classificationEnum* sample) {
-    *sample = Classification_Unknown;
+RTIBool ClassificationEnum_initialize(
+    ClassificationEnum* sample) {
+    *sample = CLASSIFICATION_UNKNOWN;
     return RTI_TRUE;
 }
 
-RTIBool classificationEnum_initialize_ex(
-    classificationEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
+RTIBool ClassificationEnum_initialize_ex(
+    ClassificationEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
 {
 
     struct DDS_TypeAllocationParams_t allocParams =
@@ -661,22 +661,22 @@ RTIBool classificationEnum_initialize_ex(
     allocParams.allocate_pointers =  (DDS_Boolean)allocatePointers;
     allocParams.allocate_memory = (DDS_Boolean)allocateMemory;
 
-    return classificationEnum_initialize_w_params(
+    return ClassificationEnum_initialize_w_params(
         sample,&allocParams);
 
 }
 
-RTIBool classificationEnum_initialize_w_params(
-    classificationEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
+RTIBool ClassificationEnum_initialize_w_params(
+    ClassificationEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
 {
 
     if (allocParams) {} /* To avoid warnings */
-    *sample = Classification_Unknown;
+    *sample = CLASSIFICATION_UNKNOWN;
     return RTI_TRUE;
 }
 
-void classificationEnum_finalize(
-    classificationEnum* sample)
+void ClassificationEnum_finalize(
+    ClassificationEnum* sample)
 {
 
     if (sample==NULL) {
@@ -684,8 +684,8 @@ void classificationEnum_finalize(
     }
 }
 
-void classificationEnum_finalize_ex(
-    classificationEnum* sample,RTIBool deletePointers)
+void ClassificationEnum_finalize_ex(
+    ClassificationEnum* sample,RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParams =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -696,12 +696,12 @@ void classificationEnum_finalize_ex(
 
     deallocParams.delete_pointers = (DDS_Boolean)deletePointers;
 
-    classificationEnum_finalize_w_params(
+    ClassificationEnum_finalize_w_params(
         sample,&deallocParams);
 }
 
-void classificationEnum_finalize_w_params(
-    classificationEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
+void ClassificationEnum_finalize_w_params(
+    ClassificationEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
 {
 
     if (sample==NULL) {
@@ -711,8 +711,8 @@ void classificationEnum_finalize_w_params(
 
 }
 
-void classificationEnum_finalize_optional_members(
-    classificationEnum* sample, RTIBool deletePointers)
+void ClassificationEnum_finalize_optional_members(
+    ClassificationEnum* sample, RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParamsTmp =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -729,9 +729,9 @@ void classificationEnum_finalize_optional_members(
 
 }
 
-RTIBool classificationEnum_copy(
-    classificationEnum* dst,
-    const classificationEnum* src)
+RTIBool ClassificationEnum_copy(
+    ClassificationEnum* dst,
+    const ClassificationEnum* src)
 {
 
     return RTICdrType_copyEnum((RTICdrEnum *)dst, (RTICdrEnum *)src);
@@ -743,13 +743,13 @@ RTIBool classificationEnum_copy(
 *
 * Defines:  TSeq, T
 *
-* Configure and implement 'classificationEnum' sequence class.
+* Configure and implement 'ClassificationEnum' sequence class.
 */
-#define T classificationEnum
-#define TSeq classificationEnumSeq
-#define T_initialize_w_params classificationEnum_initialize_w_params
-#define T_finalize_w_params   classificationEnum_finalize_w_params
-#define T_copy       classificationEnum_copy
+#define T ClassificationEnum
+#define TSeq ClassificationEnumSeq
+#define T_initialize_w_params ClassificationEnum_initialize_w_params
+#define T_finalize_w_params   ClassificationEnum_finalize_w_params
+#define T_copy       ClassificationEnum_copy
 
 #ifndef NDDS_STANDALONE_TYPE
 #include "dds_c/generic/dds_c_sequence_TSeq.gen"
@@ -776,7 +776,7 @@ DDS_TypeCode* Alerts_DriverAlerts_get_typecode()
     {
 
         {
-            (char *)"BlindSpotDriver",/* Member name */
+            (char *)"blindSpotDriver",/* Member name */
             {
                 0,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -793,7 +793,7 @@ DDS_TypeCode* Alerts_DriverAlerts_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"BlindSpotPassenger",/* Member name */
+            (char *)"blindSpotPassenger",/* Member name */
             {
                 1,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -810,7 +810,7 @@ DDS_TypeCode* Alerts_DriverAlerts_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"FrontCollision",/* Member name */
+            (char *)"frontCollision",/* Member name */
             {
                 2,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -827,7 +827,7 @@ DDS_TypeCode* Alerts_DriverAlerts_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"BackCollision",/* Member name */
+            (char *)"backCollision",/* Member name */
             {
                 3,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -844,7 +844,7 @@ DDS_TypeCode* Alerts_DriverAlerts_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"ParkingCollision",/* Member name */
+            (char *)"parkingCollision",/* Member name */
             {
                 4,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -861,7 +861,7 @@ DDS_TypeCode* Alerts_DriverAlerts_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"DriverAttention",/* Member name */
+            (char *)"driverAttention",/* Member name */
             {
                 5,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -941,27 +941,27 @@ RTIBool Alerts_DriverAlerts_initialize_w_params(
 
     if (allocParams) {} /* To avoid warnings */
 
-    if (!RTICdrType_initBoolean(&sample->BlindSpotDriver)) {
+    if (!RTICdrType_initBoolean(&sample->blindSpotDriver)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initBoolean(&sample->BlindSpotPassenger)) {
+    if (!RTICdrType_initBoolean(&sample->blindSpotPassenger)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initBoolean(&sample->FrontCollision)) {
+    if (!RTICdrType_initBoolean(&sample->frontCollision)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initBoolean(&sample->BackCollision)) {
+    if (!RTICdrType_initBoolean(&sample->backCollision)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initBoolean(&sample->ParkingCollision)) {
+    if (!RTICdrType_initBoolean(&sample->parkingCollision)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initBoolean(&sample->DriverAttention)) {
+    if (!RTICdrType_initBoolean(&sample->driverAttention)) {
         return RTI_FALSE;
     }     
 
@@ -1026,27 +1026,27 @@ RTIBool Alerts_DriverAlerts_copy(
 {
 
     if (!RTICdrType_copyBoolean (
-        &dst->BlindSpotDriver, &src->BlindSpotDriver)) { 
+        &dst->blindSpotDriver, &src->blindSpotDriver)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyBoolean (
-        &dst->BlindSpotPassenger, &src->BlindSpotPassenger)) { 
+        &dst->blindSpotPassenger, &src->blindSpotPassenger)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyBoolean (
-        &dst->FrontCollision, &src->FrontCollision)) { 
+        &dst->frontCollision, &src->frontCollision)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyBoolean (
-        &dst->BackCollision, &src->BackCollision)) { 
+        &dst->backCollision, &src->backCollision)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyBoolean (
-        &dst->ParkingCollision, &src->ParkingCollision)) { 
+        &dst->parkingCollision, &src->parkingCollision)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyBoolean (
-        &dst->DriverAttention, &src->DriverAttention)) { 
+        &dst->driverAttention, &src->driverAttention)) { 
         return RTI_FALSE;
     }
 
@@ -1081,24 +1081,24 @@ RTIBool Alerts_DriverAlerts_copy(
 #undef T
 
 /* ========================================================================= */
-const char *Lane_confidenceEnumTYPENAME = "Lane::confidenceEnum";
+const char *Lane_ConfidenceEnumTYPENAME = "Lane::ConfidenceEnum";
 
-DDS_TypeCode* Lane_confidenceEnum_get_typecode()
+DDS_TypeCode* Lane_ConfidenceEnum_get_typecode()
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode_Member Lane_confidenceEnum_g_tc_members[4]=
+    static DDS_TypeCode_Member Lane_ConfidenceEnum_g_tc_members[4]=
     {
 
         {
-            (char *)"Confidence_None",/* Member name */
+            (char *)"CONFIDENCE_NONE",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Confidence_None, /* Enumerator ordinal */
+            CONFIDENCE_NONE, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1109,14 +1109,14 @@ DDS_TypeCode* Lane_confidenceEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Confidence_Low",/* Member name */
+            (char *)"CONFIDENCE_LOW",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Confidence_Low, /* Enumerator ordinal */
+            CONFIDENCE_LOW, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1127,14 +1127,14 @@ DDS_TypeCode* Lane_confidenceEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Confidence_Med",/* Member name */
+            (char *)"CONFIDENCE_MED",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Confidence_Med, /* Enumerator ordinal */
+            CONFIDENCE_MED, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1145,14 +1145,14 @@ DDS_TypeCode* Lane_confidenceEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Confidence_High",/* Member name */
+            (char *)"CONFIDENCE_HIGH",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Confidence_High, /* Enumerator ordinal */
+            CONFIDENCE_HIGH, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1164,38 +1164,38 @@ DDS_TypeCode* Lane_confidenceEnum_get_typecode()
         }
     };
 
-    static DDS_TypeCode Lane_confidenceEnum_g_tc =
+    static DDS_TypeCode Lane_ConfidenceEnum_g_tc =
     {{
             DDS_TK_ENUM,/* Kind */
             DDS_BOOLEAN_FALSE, /* Ignored */
             -1, /*Ignored*/
-            (char *)"Lane::confidenceEnum", /* Name */
+            (char *)"Lane::ConfidenceEnum", /* Name */
             NULL,     /* Base class type code is assigned later */      
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
             4, /* Number of members */
-            Lane_confidenceEnum_g_tc_members, /* Members */
+            Lane_ConfidenceEnum_g_tc_members, /* Members */
             DDS_VM_NONE   /* Type Modifier */        
-        }}; /* Type code for Lane_confidenceEnum*/
+        }}; /* Type code for Lane_ConfidenceEnum*/
 
     if (is_initialized) {
-        return &Lane_confidenceEnum_g_tc;
+        return &Lane_ConfidenceEnum_g_tc;
     }
 
     is_initialized = RTI_TRUE;
 
-    return &Lane_confidenceEnum_g_tc;
+    return &Lane_ConfidenceEnum_g_tc;
 }
 
-RTIBool Lane_confidenceEnum_initialize(
-    Lane_confidenceEnum* sample) {
-    *sample = Confidence_None;
+RTIBool Lane_ConfidenceEnum_initialize(
+    Lane_ConfidenceEnum* sample) {
+    *sample = CONFIDENCE_NONE;
     return RTI_TRUE;
 }
 
-RTIBool Lane_confidenceEnum_initialize_ex(
-    Lane_confidenceEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
+RTIBool Lane_ConfidenceEnum_initialize_ex(
+    Lane_ConfidenceEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
 {
 
     struct DDS_TypeAllocationParams_t allocParams =
@@ -1204,22 +1204,22 @@ RTIBool Lane_confidenceEnum_initialize_ex(
     allocParams.allocate_pointers =  (DDS_Boolean)allocatePointers;
     allocParams.allocate_memory = (DDS_Boolean)allocateMemory;
 
-    return Lane_confidenceEnum_initialize_w_params(
+    return Lane_ConfidenceEnum_initialize_w_params(
         sample,&allocParams);
 
 }
 
-RTIBool Lane_confidenceEnum_initialize_w_params(
-    Lane_confidenceEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
+RTIBool Lane_ConfidenceEnum_initialize_w_params(
+    Lane_ConfidenceEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
 {
 
     if (allocParams) {} /* To avoid warnings */
-    *sample = Confidence_None;
+    *sample = CONFIDENCE_NONE;
     return RTI_TRUE;
 }
 
-void Lane_confidenceEnum_finalize(
-    Lane_confidenceEnum* sample)
+void Lane_ConfidenceEnum_finalize(
+    Lane_ConfidenceEnum* sample)
 {
 
     if (sample==NULL) {
@@ -1227,8 +1227,8 @@ void Lane_confidenceEnum_finalize(
     }
 }
 
-void Lane_confidenceEnum_finalize_ex(
-    Lane_confidenceEnum* sample,RTIBool deletePointers)
+void Lane_ConfidenceEnum_finalize_ex(
+    Lane_ConfidenceEnum* sample,RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParams =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -1239,12 +1239,12 @@ void Lane_confidenceEnum_finalize_ex(
 
     deallocParams.delete_pointers = (DDS_Boolean)deletePointers;
 
-    Lane_confidenceEnum_finalize_w_params(
+    Lane_ConfidenceEnum_finalize_w_params(
         sample,&deallocParams);
 }
 
-void Lane_confidenceEnum_finalize_w_params(
-    Lane_confidenceEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
+void Lane_ConfidenceEnum_finalize_w_params(
+    Lane_ConfidenceEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
 {
 
     if (sample==NULL) {
@@ -1254,8 +1254,8 @@ void Lane_confidenceEnum_finalize_w_params(
 
 }
 
-void Lane_confidenceEnum_finalize_optional_members(
-    Lane_confidenceEnum* sample, RTIBool deletePointers)
+void Lane_ConfidenceEnum_finalize_optional_members(
+    Lane_ConfidenceEnum* sample, RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParamsTmp =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -1272,9 +1272,9 @@ void Lane_confidenceEnum_finalize_optional_members(
 
 }
 
-RTIBool Lane_confidenceEnum_copy(
-    Lane_confidenceEnum* dst,
-    const Lane_confidenceEnum* src)
+RTIBool Lane_ConfidenceEnum_copy(
+    Lane_ConfidenceEnum* dst,
+    const Lane_ConfidenceEnum* src)
 {
 
     return RTICdrType_copyEnum((RTICdrEnum *)dst, (RTICdrEnum *)src);
@@ -1286,13 +1286,13 @@ RTIBool Lane_confidenceEnum_copy(
 *
 * Defines:  TSeq, T
 *
-* Configure and implement 'Lane_confidenceEnum' sequence class.
+* Configure and implement 'Lane_ConfidenceEnum' sequence class.
 */
-#define T Lane_confidenceEnum
-#define TSeq Lane_confidenceEnumSeq
-#define T_initialize_w_params Lane_confidenceEnum_initialize_w_params
-#define T_finalize_w_params   Lane_confidenceEnum_finalize_w_params
-#define T_copy       Lane_confidenceEnum_copy
+#define T Lane_ConfidenceEnum
+#define TSeq Lane_ConfidenceEnumSeq
+#define T_initialize_w_params Lane_ConfidenceEnum_initialize_w_params
+#define T_finalize_w_params   Lane_ConfidenceEnum_finalize_w_params
+#define T_copy       Lane_ConfidenceEnum_copy
 
 #ifndef NDDS_STANDALONE_TYPE
 #include "dds_c/generic/dds_c_sequence_TSeq.gen"
@@ -1309,24 +1309,24 @@ RTIBool Lane_confidenceEnum_copy(
 #undef T
 
 /* ========================================================================= */
-const char *Lane_laneBoundaryEnumTYPENAME = "Lane::laneBoundaryEnum";
+const char *Lane_LaneBoundaryEnumTYPENAME = "Lane::LaneBoundaryEnum";
 
-DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
+DDS_TypeCode* Lane_LaneBoundaryEnum_get_typecode()
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode_Member Lane_laneBoundaryEnum_g_tc_members[9]=
+    static DDS_TypeCode_Member Lane_LaneBoundaryEnum_g_tc_members[9]=
     {
 
         {
-            (char *)"Boundry_None",/* Member name */
+            (char *)"BOUNDRY_NONE",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_None, /* Enumerator ordinal */
+            BOUNDRY_NONE, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1337,14 +1337,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_Invalid",/* Member name */
+            (char *)"BOUNDRY_INVALID",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_Invalid, /* Enumerator ordinal */
+            BOUNDRY_INVALID, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1355,14 +1355,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_Solid",/* Member name */
+            (char *)"BOUNDRY_SOLID",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_Solid, /* Enumerator ordinal */
+            BOUNDRY_SOLID, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1373,14 +1373,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_Dashed",/* Member name */
+            (char *)"BOUNDRY_DASHED",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_Dashed, /* Enumerator ordinal */
+            BOUNDRY_DASHED, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1391,14 +1391,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_Virtual",/* Member name */
+            (char *)"BOUNDRY_VIRTUAL",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_Virtual, /* Enumerator ordinal */
+            BOUNDRY_VIRTUAL, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1409,14 +1409,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_Dots",/* Member name */
+            (char *)"BOUNDRY_DOTS",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_Dots, /* Enumerator ordinal */
+            BOUNDRY_DOTS, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1427,14 +1427,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_RoadEdge",/* Member name */
+            (char *)"BOUNDRY_ROADEDGE",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_RoadEdge, /* Enumerator ordinal */
+            BOUNDRY_ROADEDGE, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1445,14 +1445,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_Undecided",/* Member name */
+            (char *)"BOUNDRY_UNDECIDED",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_Undecided, /* Enumerator ordinal */
+            BOUNDRY_UNDECIDED, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1463,14 +1463,14 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Boundry_DoubleMarker",/* Member name */
+            (char *)"BOUNDRY_DOUBLEMARKER",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Boundry_DoubleMarker, /* Enumerator ordinal */
+            BOUNDRY_DOUBLEMARKER, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -1482,38 +1482,38 @@ DDS_TypeCode* Lane_laneBoundaryEnum_get_typecode()
         }
     };
 
-    static DDS_TypeCode Lane_laneBoundaryEnum_g_tc =
+    static DDS_TypeCode Lane_LaneBoundaryEnum_g_tc =
     {{
             DDS_TK_ENUM,/* Kind */
             DDS_BOOLEAN_FALSE, /* Ignored */
             -1, /*Ignored*/
-            (char *)"Lane::laneBoundaryEnum", /* Name */
+            (char *)"Lane::LaneBoundaryEnum", /* Name */
             NULL,     /* Base class type code is assigned later */      
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
             9, /* Number of members */
-            Lane_laneBoundaryEnum_g_tc_members, /* Members */
+            Lane_LaneBoundaryEnum_g_tc_members, /* Members */
             DDS_VM_NONE   /* Type Modifier */        
-        }}; /* Type code for Lane_laneBoundaryEnum*/
+        }}; /* Type code for Lane_LaneBoundaryEnum*/
 
     if (is_initialized) {
-        return &Lane_laneBoundaryEnum_g_tc;
+        return &Lane_LaneBoundaryEnum_g_tc;
     }
 
     is_initialized = RTI_TRUE;
 
-    return &Lane_laneBoundaryEnum_g_tc;
+    return &Lane_LaneBoundaryEnum_g_tc;
 }
 
-RTIBool Lane_laneBoundaryEnum_initialize(
-    Lane_laneBoundaryEnum* sample) {
-    *sample = Boundry_None;
+RTIBool Lane_LaneBoundaryEnum_initialize(
+    Lane_LaneBoundaryEnum* sample) {
+    *sample = BOUNDRY_NONE;
     return RTI_TRUE;
 }
 
-RTIBool Lane_laneBoundaryEnum_initialize_ex(
-    Lane_laneBoundaryEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
+RTIBool Lane_LaneBoundaryEnum_initialize_ex(
+    Lane_LaneBoundaryEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
 {
 
     struct DDS_TypeAllocationParams_t allocParams =
@@ -1522,22 +1522,22 @@ RTIBool Lane_laneBoundaryEnum_initialize_ex(
     allocParams.allocate_pointers =  (DDS_Boolean)allocatePointers;
     allocParams.allocate_memory = (DDS_Boolean)allocateMemory;
 
-    return Lane_laneBoundaryEnum_initialize_w_params(
+    return Lane_LaneBoundaryEnum_initialize_w_params(
         sample,&allocParams);
 
 }
 
-RTIBool Lane_laneBoundaryEnum_initialize_w_params(
-    Lane_laneBoundaryEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
+RTIBool Lane_LaneBoundaryEnum_initialize_w_params(
+    Lane_LaneBoundaryEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
 {
 
     if (allocParams) {} /* To avoid warnings */
-    *sample = Boundry_None;
+    *sample = BOUNDRY_NONE;
     return RTI_TRUE;
 }
 
-void Lane_laneBoundaryEnum_finalize(
-    Lane_laneBoundaryEnum* sample)
+void Lane_LaneBoundaryEnum_finalize(
+    Lane_LaneBoundaryEnum* sample)
 {
 
     if (sample==NULL) {
@@ -1545,8 +1545,8 @@ void Lane_laneBoundaryEnum_finalize(
     }
 }
 
-void Lane_laneBoundaryEnum_finalize_ex(
-    Lane_laneBoundaryEnum* sample,RTIBool deletePointers)
+void Lane_LaneBoundaryEnum_finalize_ex(
+    Lane_LaneBoundaryEnum* sample,RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParams =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -1557,12 +1557,12 @@ void Lane_laneBoundaryEnum_finalize_ex(
 
     deallocParams.delete_pointers = (DDS_Boolean)deletePointers;
 
-    Lane_laneBoundaryEnum_finalize_w_params(
+    Lane_LaneBoundaryEnum_finalize_w_params(
         sample,&deallocParams);
 }
 
-void Lane_laneBoundaryEnum_finalize_w_params(
-    Lane_laneBoundaryEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
+void Lane_LaneBoundaryEnum_finalize_w_params(
+    Lane_LaneBoundaryEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
 {
 
     if (sample==NULL) {
@@ -1572,8 +1572,8 @@ void Lane_laneBoundaryEnum_finalize_w_params(
 
 }
 
-void Lane_laneBoundaryEnum_finalize_optional_members(
-    Lane_laneBoundaryEnum* sample, RTIBool deletePointers)
+void Lane_LaneBoundaryEnum_finalize_optional_members(
+    Lane_LaneBoundaryEnum* sample, RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParamsTmp =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -1590,9 +1590,9 @@ void Lane_laneBoundaryEnum_finalize_optional_members(
 
 }
 
-RTIBool Lane_laneBoundaryEnum_copy(
-    Lane_laneBoundaryEnum* dst,
-    const Lane_laneBoundaryEnum* src)
+RTIBool Lane_LaneBoundaryEnum_copy(
+    Lane_LaneBoundaryEnum* dst,
+    const Lane_LaneBoundaryEnum* src)
 {
 
     return RTICdrType_copyEnum((RTICdrEnum *)dst, (RTICdrEnum *)src);
@@ -1604,13 +1604,13 @@ RTIBool Lane_laneBoundaryEnum_copy(
 *
 * Defines:  TSeq, T
 *
-* Configure and implement 'Lane_laneBoundaryEnum' sequence class.
+* Configure and implement 'Lane_LaneBoundaryEnum' sequence class.
 */
-#define T Lane_laneBoundaryEnum
-#define TSeq Lane_laneBoundaryEnumSeq
-#define T_initialize_w_params Lane_laneBoundaryEnum_initialize_w_params
-#define T_finalize_w_params   Lane_laneBoundaryEnum_finalize_w_params
-#define T_copy       Lane_laneBoundaryEnum_copy
+#define T Lane_LaneBoundaryEnum
+#define TSeq Lane_LaneBoundaryEnumSeq
+#define T_initialize_w_params Lane_LaneBoundaryEnum_initialize_w_params
+#define T_finalize_w_params   Lane_LaneBoundaryEnum_finalize_w_params
+#define T_copy       Lane_LaneBoundaryEnum_copy
 
 #ifndef NDDS_STANDALONE_TYPE
 #include "dds_c/generic/dds_c_sequence_TSeq.gen"
@@ -1759,11 +1759,11 @@ DDS_TypeCode* Lane_LaneObject_get_typecode()
         return &Lane_LaneObject_g_tc;
     }
 
-    Lane_LaneObject_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_octet;
+    Lane_LaneObject_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_boolean;
 
-    Lane_LaneObject_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)Lane_confidenceEnum_get_typecode();
+    Lane_LaneObject_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)Lane_ConfidenceEnum_get_typecode();
 
-    Lane_LaneObject_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)Lane_laneBoundaryEnum_get_typecode();
+    Lane_LaneObject_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)Lane_LaneBoundaryEnum_get_typecode();
 
     Lane_LaneObject_g_tc_members[3]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_float;
 
@@ -1802,15 +1802,15 @@ RTIBool Lane_LaneObject_initialize_w_params(
 
     if (allocParams) {} /* To avoid warnings */
 
-    if (!RTICdrType_initOctet(&sample->isValid)) {
+    if (!RTICdrType_initBoolean(&sample->isValid)) {
         return RTI_FALSE;
     }     
 
-    if (!Lane_confidenceEnum_initialize_w_params(&sample->confidence,
+    if (!Lane_ConfidenceEnum_initialize_w_params(&sample->confidence,
     allocParams)) {
         return RTI_FALSE;
     }
-    if (!Lane_laneBoundaryEnum_initialize_w_params(&sample->boundaryType,
+    if (!Lane_LaneBoundaryEnum_initialize_w_params(&sample->boundaryType,
     allocParams)) {
         return RTI_FALSE;
     }
@@ -1862,9 +1862,9 @@ void Lane_LaneObject_finalize_w_params(
     }
     if (deallocParams) {} /* To avoid warnings */
 
-    Lane_confidenceEnum_finalize_w_params(&sample->confidence,deallocParams);
+    Lane_ConfidenceEnum_finalize_w_params(&sample->confidence,deallocParams);
 
-    Lane_laneBoundaryEnum_finalize_w_params(&sample->boundaryType,deallocParams);
+    Lane_LaneBoundaryEnum_finalize_w_params(&sample->boundaryType,deallocParams);
 
 }
 
@@ -1884,8 +1884,8 @@ void Lane_LaneObject_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    Lane_confidenceEnum_finalize_optional_members(&sample->confidence, deallocParams->delete_pointers);
-    Lane_laneBoundaryEnum_finalize_optional_members(&sample->boundaryType, deallocParams->delete_pointers);
+    Lane_ConfidenceEnum_finalize_optional_members(&sample->confidence, deallocParams->delete_pointers);
+    Lane_LaneBoundaryEnum_finalize_optional_members(&sample->boundaryType, deallocParams->delete_pointers);
 }
 
 RTIBool Lane_LaneObject_copy(
@@ -1893,15 +1893,15 @@ RTIBool Lane_LaneObject_copy(
     const Lane_LaneObject* src)
 {
 
-    if (!RTICdrType_copyOctet (
+    if (!RTICdrType_copyBoolean (
         &dst->isValid, &src->isValid)) { 
         return RTI_FALSE;
     }
-    if (!Lane_confidenceEnum_copy(
+    if (!Lane_ConfidenceEnum_copy(
         &dst->confidence, &src->confidence)) {
         return RTI_FALSE;
     } 
-    if (!Lane_laneBoundaryEnum_copy(
+    if (!Lane_LaneBoundaryEnum_copy(
         &dst->boundaryType, &src->boundaryType)) {
         return RTI_FALSE;
     } 
@@ -2352,9 +2352,9 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
     static RTIBool is_initialized = RTI_FALSE;
 
     static DDS_TypeCode Lidar_PCloud_g_tc_Location_sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE(((Lidar_MAX_POINTS)),NULL);
-    static DDS_TypeCode Lidar_PCloud_g_tc_XLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
-    static DDS_TypeCode Lidar_PCloud_g_tc_YLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
-    static DDS_TypeCode Lidar_PCloud_g_tc_ZLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
+    static DDS_TypeCode Lidar_PCloud_g_tc_xLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
+    static DDS_TypeCode Lidar_PCloud_g_tc_yLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
+    static DDS_TypeCode Lidar_PCloud_g_tc_zLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
     static DDS_TypeCode_Member Lidar_PCloud_g_tc_members[8]=
     {
 
@@ -2376,7 +2376,7 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Color",/* Member name */
+            (char *)"color",/* Member name */
             {
                 1,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -2393,7 +2393,7 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Normal",/* Member name */
+            (char *)"normal",/* Member name */
             {
                 2,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -2410,7 +2410,7 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Intensity",/* Member name */
+            (char *)"intensity",/* Member name */
             {
                 3,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -2427,7 +2427,7 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Count",/* Member name */
+            (char *)"count",/* Member name */
             {
                 4,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -2444,7 +2444,7 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"XLimits",/* Member name */
+            (char *)"xLimits",/* Member name */
             {
                 5,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -2461,7 +2461,7 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"YLimits",/* Member name */
+            (char *)"yLimits",/* Member name */
             {
                 6,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -2478,7 +2478,7 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"ZLimits",/* Member name */
+            (char *)"zLimits",/* Member name */
             {
                 7,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -2517,11 +2517,11 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
 
     Lidar_PCloud_g_tc_Location_sequence._data._typeCode = (RTICdrTypeCode *)Lidar_Point_get_typecode();
 
-    Lidar_PCloud_g_tc_XLimits_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
+    Lidar_PCloud_g_tc_xLimits_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Lidar_PCloud_g_tc_YLimits_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
+    Lidar_PCloud_g_tc_yLimits_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Lidar_PCloud_g_tc_ZLimits_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
+    Lidar_PCloud_g_tc_zLimits_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
 
     Lidar_PCloud_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)& Lidar_PCloud_g_tc_Location_sequence;
     Lidar_PCloud_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_octet;
@@ -2530,11 +2530,11 @@ DDS_TypeCode* Lidar_PCloud_get_typecode()
 
     Lidar_PCloud_g_tc_members[3]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Lidar_PCloud_g_tc_members[4]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_double;
+    Lidar_PCloud_g_tc_members[4]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_long;
 
-    Lidar_PCloud_g_tc_members[5]._representation._typeCode = (RTICdrTypeCode *)& Lidar_PCloud_g_tc_XLimits_array;
-    Lidar_PCloud_g_tc_members[6]._representation._typeCode = (RTICdrTypeCode *)& Lidar_PCloud_g_tc_YLimits_array;
-    Lidar_PCloud_g_tc_members[7]._representation._typeCode = (RTICdrTypeCode *)& Lidar_PCloud_g_tc_ZLimits_array;
+    Lidar_PCloud_g_tc_members[5]._representation._typeCode = (RTICdrTypeCode *)& Lidar_PCloud_g_tc_xLimits_array;
+    Lidar_PCloud_g_tc_members[6]._representation._typeCode = (RTICdrTypeCode *)& Lidar_PCloud_g_tc_yLimits_array;
+    Lidar_PCloud_g_tc_members[7]._representation._typeCode = (RTICdrTypeCode *)& Lidar_PCloud_g_tc_zLimits_array;
 
     is_initialized = RTI_TRUE;
 
@@ -2580,32 +2580,32 @@ RTIBool Lidar_PCloud_initialize_w_params(
         Lidar_PointSeq_set_length(&sample->Location, 0);
     }
 
-    if (!RTICdrType_initOctet(&sample->Color)) {
+    if (!RTICdrType_initOctet(&sample->color)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initFloat(&sample->Normal)) {
+    if (!RTICdrType_initFloat(&sample->normal)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initFloat(&sample->Intensity)) {
+    if (!RTICdrType_initFloat(&sample->intensity)) {
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initDouble(&sample->Count)) {
+    if (!RTICdrType_initLong(&sample->count)) {
         return RTI_FALSE;
     }     
 
     if (!RTICdrType_initArray(
-        sample->XLimits, (2), RTI_CDR_FLOAT_SIZE)) {
+        sample->xLimits, (2), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->YLimits, (2), RTI_CDR_FLOAT_SIZE)) {
+        sample->yLimits, (2), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->ZLimits, (2), RTI_CDR_FLOAT_SIZE)) {
+        sample->zLimits, (2), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     return RTI_TRUE;
@@ -2689,31 +2689,31 @@ RTIBool Lidar_PCloud_copy(
         return RTI_FALSE;
     }
     if (!RTICdrType_copyOctet (
-        &dst->Color, &src->Color)) { 
+        &dst->color, &src->color)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyFloat (
-        &dst->Normal, &src->Normal)) { 
+        &dst->normal, &src->normal)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyFloat (
-        &dst->Intensity, &src->Intensity)) { 
+        &dst->intensity, &src->intensity)) { 
         return RTI_FALSE;
     }
-    if (!RTICdrType_copyDouble (
-        &dst->Count, &src->Count)) { 
-        return RTI_FALSE;
-    }
-    if (!RTICdrType_copyArray(
-        dst->XLimits ,src->XLimits,(2), RTI_CDR_FLOAT_SIZE)) {
+    if (!RTICdrType_copyLong (
+        &dst->count, &src->count)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyArray(
-        dst->YLimits ,src->YLimits,(2), RTI_CDR_FLOAT_SIZE)) {
+        dst->xLimits ,src->xLimits,(2), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_copyArray(
-        dst->ZLimits ,src->ZLimits,(2), RTI_CDR_FLOAT_SIZE)) {
+        dst->yLimits ,src->yLimits,(2), RTI_CDR_FLOAT_SIZE)) {
+        return RTI_FALSE;
+    }
+    if (!RTICdrType_copyArray(
+        dst->zLimits ,src->zLimits,(2), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
 
@@ -3005,7 +3005,7 @@ DDS_TypeCode* Platform_PlatformControl_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"vehicle_steer_angle",/* Member name */
+            (char *)"vehicleSteerAngle",/* Member name */
             {
                 2,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -3039,7 +3039,7 @@ DDS_TypeCode* Platform_PlatformControl_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"blinker_status",/* Member name */
+            (char *)"blinkerStatus",/* Member name */
             {
                 4,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -3084,7 +3084,7 @@ DDS_TypeCode* Platform_PlatformControl_get_typecode()
 
     Platform_PlatformControl_g_tc_members[3]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Platform_PlatformControl_g_tc_members[4]._representation._typeCode = (RTICdrTypeCode *)IndicatorStatus_get_typecode();
+    Platform_PlatformControl_g_tc_members[4]._representation._typeCode = (RTICdrTypeCode *)IndicatorStatusEnum_get_typecode();
 
     is_initialized = RTI_TRUE;
 
@@ -3126,7 +3126,7 @@ RTIBool Platform_PlatformControl_initialize_w_params(
         return RTI_FALSE;
     }
 
-    if (!RTICdrType_initFloat(&sample->vehicle_steer_angle)) {
+    if (!RTICdrType_initFloat(&sample->vehicleSteerAngle)) {
         return RTI_FALSE;
     }     
 
@@ -3134,7 +3134,7 @@ RTIBool Platform_PlatformControl_initialize_w_params(
         return RTI_FALSE;
     }     
 
-    if (!IndicatorStatus_initialize_w_params(&sample->blinker_status,
+    if (!IndicatorStatusEnum_initialize_w_params(&sample->blinkerStatus,
     allocParams)) {
         return RTI_FALSE;
     }
@@ -3175,7 +3175,7 @@ void Platform_PlatformControl_finalize_w_params(
 
     POSIXTimestamp_finalize_w_params(&sample->timestamp,deallocParams);
 
-    IndicatorStatus_finalize_w_params(&sample->blinker_status,deallocParams);
+    IndicatorStatusEnum_finalize_w_params(&sample->blinkerStatus,deallocParams);
 
 }
 
@@ -3196,7 +3196,7 @@ void Platform_PlatformControl_finalize_optional_members(
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
     POSIXTimestamp_finalize_optional_members(&sample->timestamp, deallocParams->delete_pointers);
-    IndicatorStatus_finalize_optional_members(&sample->blinker_status, deallocParams->delete_pointers);
+    IndicatorStatusEnum_finalize_optional_members(&sample->blinkerStatus, deallocParams->delete_pointers);
 }
 
 RTIBool Platform_PlatformControl_copy(
@@ -3213,15 +3213,15 @@ RTIBool Platform_PlatformControl_copy(
         return RTI_FALSE;
     } 
     if (!RTICdrType_copyFloat (
-        &dst->vehicle_steer_angle, &src->vehicle_steer_angle)) { 
+        &dst->vehicleSteerAngle, &src->vehicleSteerAngle)) { 
         return RTI_FALSE;
     }
     if (!RTICdrType_copyFloat (
         &dst->speed, &src->speed)) { 
         return RTI_FALSE;
     }
-    if (!IndicatorStatus_copy(
-        &dst->blinker_status, &src->blinker_status)) {
+    if (!IndicatorStatusEnum_copy(
+        &dst->blinkerStatus, &src->blinkerStatus)) {
         return RTI_FALSE;
     } 
 
@@ -3368,7 +3368,7 @@ DDS_TypeCode* Platform_PlatformStatus_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"vehicle_steer_angle",/* Member name */
+            (char *)"vehicleSteerAngle",/* Member name */
             {
                 6,/* Representation ID */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -3409,7 +3409,7 @@ DDS_TypeCode* Platform_PlatformStatus_get_typecode()
 
     Platform_PlatformStatus_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Platform_PlatformStatus_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)IndicatorStatus_get_typecode();
+    Platform_PlatformStatus_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)IndicatorStatusEnum_get_typecode();
 
     Platform_PlatformStatus_g_tc_members[3]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_float;
 
@@ -3459,7 +3459,7 @@ RTIBool Platform_PlatformStatus_initialize_w_params(
         return RTI_FALSE;
     }     
 
-    if (!IndicatorStatus_initialize_w_params(&sample->blinkerStatus,
+    if (!IndicatorStatusEnum_initialize_w_params(&sample->blinkerStatus,
     allocParams)) {
         return RTI_FALSE;
     }
@@ -3476,7 +3476,7 @@ RTIBool Platform_PlatformStatus_initialize_w_params(
         return RTI_FALSE;
     }     
 
-    if (!RTICdrType_initFloat(&sample->vehicle_steer_angle)) {
+    if (!RTICdrType_initFloat(&sample->vehicleSteerAngle)) {
         return RTI_FALSE;
     }     
 
@@ -3517,7 +3517,7 @@ void Platform_PlatformStatus_finalize_w_params(
 
     POSIXTimestamp_finalize_w_params(&sample->timestamp,deallocParams);
 
-    IndicatorStatus_finalize_w_params(&sample->blinkerStatus,deallocParams);
+    IndicatorStatusEnum_finalize_w_params(&sample->blinkerStatus,deallocParams);
 
 }
 
@@ -3538,7 +3538,7 @@ void Platform_PlatformStatus_finalize_optional_members(
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
     POSIXTimestamp_finalize_optional_members(&sample->timestamp, deallocParams->delete_pointers);
-    IndicatorStatus_finalize_optional_members(&sample->blinkerStatus, deallocParams->delete_pointers);
+    IndicatorStatusEnum_finalize_optional_members(&sample->blinkerStatus, deallocParams->delete_pointers);
 }
 
 RTIBool Platform_PlatformStatus_copy(
@@ -3554,7 +3554,7 @@ RTIBool Platform_PlatformStatus_copy(
         &dst->vehSpd, &src->vehSpd)) { 
         return RTI_FALSE;
     }
-    if (!IndicatorStatus_copy(
+    if (!IndicatorStatusEnum_copy(
         &dst->blinkerStatus, &src->blinkerStatus)) {
         return RTI_FALSE;
     } 
@@ -3571,7 +3571,7 @@ RTIBool Platform_PlatformStatus_copy(
         return RTI_FALSE;
     }
     if (!RTICdrType_copyFloat (
-        &dst->vehicle_steer_angle, &src->vehicle_steer_angle)) { 
+        &dst->vehicleSteerAngle, &src->vehicleSteerAngle)) { 
         return RTI_FALSE;
     }
 
@@ -3606,24 +3606,24 @@ RTIBool Platform_PlatformStatus_copy(
 #undef T
 
 /* ========================================================================= */
-const char *Sensor_rangeModeEnumTYPENAME = "Sensor::rangeModeEnum";
+const char *Sensor_RangeModeEnumTYPENAME = "Sensor::RangeModeEnum";
 
-DDS_TypeCode* Sensor_rangeModeEnum_get_typecode()
+DDS_TypeCode* Sensor_RangeModeEnum_get_typecode()
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode_Member Sensor_rangeModeEnum_g_tc_members[4]=
+    static DDS_TypeCode_Member Sensor_RangeModeEnum_g_tc_members[4]=
     {
 
         {
-            (char *)"None",/* Member name */
+            (char *)"RANGE_NONE",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            None, /* Enumerator ordinal */
+            RANGE_NONE, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -3634,14 +3634,14 @@ DDS_TypeCode* Sensor_rangeModeEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Short",/* Member name */
+            (char *)"RANGE_SHORT",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Short, /* Enumerator ordinal */
+            RANGE_SHORT, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -3652,14 +3652,14 @@ DDS_TypeCode* Sensor_rangeModeEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Medium",/* Member name */
+            (char *)"RANGE_MEDIUM",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Medium, /* Enumerator ordinal */
+            RANGE_MEDIUM, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -3670,14 +3670,14 @@ DDS_TypeCode* Sensor_rangeModeEnum_get_typecode()
             NULL/* Ignored */
         }, 
         {
-            (char *)"Long",/* Member name */
+            (char *)"RANGE_LONG",/* Member name */
             {
                 0, /* Ignored */          
                 DDS_BOOLEAN_FALSE,/* Is a pointer? */
                 -1, /* Bitfield bits */
                 NULL/* Member type code is assigned later */
             },
-            Long, /* Enumerator ordinal */
+            RANGE_LONG, /* Enumerator ordinal */
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
@@ -3689,38 +3689,38 @@ DDS_TypeCode* Sensor_rangeModeEnum_get_typecode()
         }
     };
 
-    static DDS_TypeCode Sensor_rangeModeEnum_g_tc =
+    static DDS_TypeCode Sensor_RangeModeEnum_g_tc =
     {{
             DDS_TK_ENUM,/* Kind */
             DDS_BOOLEAN_FALSE, /* Ignored */
             -1, /*Ignored*/
-            (char *)"Sensor::rangeModeEnum", /* Name */
+            (char *)"Sensor::RangeModeEnum", /* Name */
             NULL,     /* Base class type code is assigned later */      
             0, /* Ignored */
             0, /* Ignored */
             NULL, /* Ignored */
             4, /* Number of members */
-            Sensor_rangeModeEnum_g_tc_members, /* Members */
+            Sensor_RangeModeEnum_g_tc_members, /* Members */
             DDS_VM_NONE   /* Type Modifier */        
-        }}; /* Type code for Sensor_rangeModeEnum*/
+        }}; /* Type code for Sensor_RangeModeEnum*/
 
     if (is_initialized) {
-        return &Sensor_rangeModeEnum_g_tc;
+        return &Sensor_RangeModeEnum_g_tc;
     }
 
     is_initialized = RTI_TRUE;
 
-    return &Sensor_rangeModeEnum_g_tc;
+    return &Sensor_RangeModeEnum_g_tc;
 }
 
-RTIBool Sensor_rangeModeEnum_initialize(
-    Sensor_rangeModeEnum* sample) {
-    *sample = None;
+RTIBool Sensor_RangeModeEnum_initialize(
+    Sensor_RangeModeEnum* sample) {
+    *sample = RANGE_NONE;
     return RTI_TRUE;
 }
 
-RTIBool Sensor_rangeModeEnum_initialize_ex(
-    Sensor_rangeModeEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
+RTIBool Sensor_RangeModeEnum_initialize_ex(
+    Sensor_RangeModeEnum* sample,RTIBool allocatePointers, RTIBool allocateMemory)
 {
 
     struct DDS_TypeAllocationParams_t allocParams =
@@ -3729,22 +3729,22 @@ RTIBool Sensor_rangeModeEnum_initialize_ex(
     allocParams.allocate_pointers =  (DDS_Boolean)allocatePointers;
     allocParams.allocate_memory = (DDS_Boolean)allocateMemory;
 
-    return Sensor_rangeModeEnum_initialize_w_params(
+    return Sensor_RangeModeEnum_initialize_w_params(
         sample,&allocParams);
 
 }
 
-RTIBool Sensor_rangeModeEnum_initialize_w_params(
-    Sensor_rangeModeEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
+RTIBool Sensor_RangeModeEnum_initialize_w_params(
+    Sensor_RangeModeEnum* sample, const struct DDS_TypeAllocationParams_t * allocParams)
 {
 
     if (allocParams) {} /* To avoid warnings */
-    *sample = None;
+    *sample = RANGE_NONE;
     return RTI_TRUE;
 }
 
-void Sensor_rangeModeEnum_finalize(
-    Sensor_rangeModeEnum* sample)
+void Sensor_RangeModeEnum_finalize(
+    Sensor_RangeModeEnum* sample)
 {
 
     if (sample==NULL) {
@@ -3752,8 +3752,8 @@ void Sensor_rangeModeEnum_finalize(
     }
 }
 
-void Sensor_rangeModeEnum_finalize_ex(
-    Sensor_rangeModeEnum* sample,RTIBool deletePointers)
+void Sensor_RangeModeEnum_finalize_ex(
+    Sensor_RangeModeEnum* sample,RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParams =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -3764,12 +3764,12 @@ void Sensor_rangeModeEnum_finalize_ex(
 
     deallocParams.delete_pointers = (DDS_Boolean)deletePointers;
 
-    Sensor_rangeModeEnum_finalize_w_params(
+    Sensor_RangeModeEnum_finalize_w_params(
         sample,&deallocParams);
 }
 
-void Sensor_rangeModeEnum_finalize_w_params(
-    Sensor_rangeModeEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
+void Sensor_RangeModeEnum_finalize_w_params(
+    Sensor_RangeModeEnum* sample,const struct DDS_TypeDeallocationParams_t * deallocParams)
 {
 
     if (sample==NULL) {
@@ -3779,8 +3779,8 @@ void Sensor_rangeModeEnum_finalize_w_params(
 
 }
 
-void Sensor_rangeModeEnum_finalize_optional_members(
-    Sensor_rangeModeEnum* sample, RTIBool deletePointers)
+void Sensor_RangeModeEnum_finalize_optional_members(
+    Sensor_RangeModeEnum* sample, RTIBool deletePointers)
 {
     struct DDS_TypeDeallocationParams_t deallocParamsTmp =
     DDS_TYPE_DEALLOCATION_PARAMS_DEFAULT;
@@ -3797,9 +3797,9 @@ void Sensor_rangeModeEnum_finalize_optional_members(
 
 }
 
-RTIBool Sensor_rangeModeEnum_copy(
-    Sensor_rangeModeEnum* dst,
-    const Sensor_rangeModeEnum* src)
+RTIBool Sensor_RangeModeEnum_copy(
+    Sensor_RangeModeEnum* dst,
+    const Sensor_RangeModeEnum* src)
 {
 
     return RTICdrType_copyEnum((RTICdrEnum *)dst, (RTICdrEnum *)src);
@@ -3811,13 +3811,13 @@ RTIBool Sensor_rangeModeEnum_copy(
 *
 * Defines:  TSeq, T
 *
-* Configure and implement 'Sensor_rangeModeEnum' sequence class.
+* Configure and implement 'Sensor_RangeModeEnum' sequence class.
 */
-#define T Sensor_rangeModeEnum
-#define TSeq Sensor_rangeModeEnumSeq
-#define T_initialize_w_params Sensor_rangeModeEnum_initialize_w_params
-#define T_finalize_w_params   Sensor_rangeModeEnum_finalize_w_params
-#define T_copy       Sensor_rangeModeEnum_copy
+#define T Sensor_RangeModeEnum
+#define TSeq Sensor_RangeModeEnumSeq
+#define T_initialize_w_params Sensor_RangeModeEnum_initialize_w_params
+#define T_finalize_w_params   Sensor_RangeModeEnum_finalize_w_params
+#define T_copy       Sensor_RangeModeEnum_copy
 
 #ifndef NDDS_STANDALONE_TYPE
 #include "dds_c/generic/dds_c_sequence_TSeq.gen"
@@ -3992,14 +3992,14 @@ DDS_TypeCode* Sensor_SensorObject_get_typecode()
 
     Sensor_SensorObject_g_tc_size_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Sensor_SensorObject_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)classificationEnum_get_typecode();
+    Sensor_SensorObject_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)ClassificationEnum_get_typecode();
 
     Sensor_SensorObject_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)& Sensor_SensorObject_g_tc_position_array;
     Sensor_SensorObject_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)& Sensor_SensorObject_g_tc_velocity_array;
     Sensor_SensorObject_g_tc_members[3]._representation._typeCode = (RTICdrTypeCode *)& Sensor_SensorObject_g_tc_size_array;
     Sensor_SensorObject_g_tc_members[4]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Sensor_SensorObject_g_tc_members[5]._representation._typeCode = (RTICdrTypeCode *)Sensor_rangeModeEnum_get_typecode();
+    Sensor_SensorObject_g_tc_members[5]._representation._typeCode = (RTICdrTypeCode *)Sensor_RangeModeEnum_get_typecode();
 
     Sensor_SensorObject_g_tc_members[6]._representation._typeCode = (RTICdrTypeCode *)&DDS_g_tc_float;
 
@@ -4034,7 +4034,7 @@ RTIBool Sensor_SensorObject_initialize_w_params(
 
     if (allocParams) {} /* To avoid warnings */
 
-    if (!classificationEnum_initialize_w_params(&sample->classification,
+    if (!ClassificationEnum_initialize_w_params(&sample->classification,
     allocParams)) {
         return RTI_FALSE;
     }
@@ -4055,7 +4055,7 @@ RTIBool Sensor_SensorObject_initialize_w_params(
         return RTI_FALSE;
     }     
 
-    if (!Sensor_rangeModeEnum_initialize_w_params(&sample->rangeMode,
+    if (!Sensor_RangeModeEnum_initialize_w_params(&sample->rangeMode,
     allocParams)) {
         return RTI_FALSE;
     }
@@ -4099,9 +4099,9 @@ void Sensor_SensorObject_finalize_w_params(
     }
     if (deallocParams) {} /* To avoid warnings */
 
-    classificationEnum_finalize_w_params(&sample->classification,deallocParams);
+    ClassificationEnum_finalize_w_params(&sample->classification,deallocParams);
 
-    Sensor_rangeModeEnum_finalize_w_params(&sample->rangeMode,deallocParams);
+    Sensor_RangeModeEnum_finalize_w_params(&sample->rangeMode,deallocParams);
 
 }
 
@@ -4121,8 +4121,8 @@ void Sensor_SensorObject_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    classificationEnum_finalize_optional_members(&sample->classification, deallocParams->delete_pointers);
-    Sensor_rangeModeEnum_finalize_optional_members(&sample->rangeMode, deallocParams->delete_pointers);
+    ClassificationEnum_finalize_optional_members(&sample->classification, deallocParams->delete_pointers);
+    Sensor_RangeModeEnum_finalize_optional_members(&sample->rangeMode, deallocParams->delete_pointers);
 }
 
 RTIBool Sensor_SensorObject_copy(
@@ -4130,7 +4130,7 @@ RTIBool Sensor_SensorObject_copy(
     const Sensor_SensorObject* src)
 {
 
-    if (!classificationEnum_copy(
+    if (!ClassificationEnum_copy(
         &dst->classification, &src->classification)) {
         return RTI_FALSE;
     } 
@@ -4150,7 +4150,7 @@ RTIBool Sensor_SensorObject_copy(
         &dst->amplitude, &src->amplitude)) { 
         return RTI_FALSE;
     }
-    if (!Sensor_rangeModeEnum_copy(
+    if (!Sensor_RangeModeEnum_copy(
         &dst->rangeMode, &src->rangeMode)) {
         return RTI_FALSE;
     } 
@@ -4534,7 +4534,7 @@ DDS_TypeCode* Vision_VisionObject_get_typecode()
 
     Vision_VisionObject_g_tc_size_array._data._typeCode =(RTICdrTypeCode *)&DDS_g_tc_float;
 
-    Vision_VisionObject_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)classificationEnum_get_typecode();
+    Vision_VisionObject_g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)ClassificationEnum_get_typecode();
 
     Vision_VisionObject_g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)& Vision_VisionObject_g_tc_position_array;
     Vision_VisionObject_g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)& Vision_VisionObject_g_tc_velocity_array;
@@ -4571,7 +4571,7 @@ RTIBool Vision_VisionObject_initialize_w_params(
 
     if (allocParams) {} /* To avoid warnings */
 
-    if (!classificationEnum_initialize_w_params(&sample->classification,
+    if (!ClassificationEnum_initialize_w_params(&sample->classification,
     allocParams)) {
         return RTI_FALSE;
     }
@@ -4622,7 +4622,7 @@ void Vision_VisionObject_finalize_w_params(
     }
     if (deallocParams) {} /* To avoid warnings */
 
-    classificationEnum_finalize_w_params(&sample->classification,deallocParams);
+    ClassificationEnum_finalize_w_params(&sample->classification,deallocParams);
 
 }
 
@@ -4642,7 +4642,7 @@ void Vision_VisionObject_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    classificationEnum_finalize_optional_members(&sample->classification, deallocParams->delete_pointers);
+    ClassificationEnum_finalize_optional_members(&sample->classification, deallocParams->delete_pointers);
 }
 
 RTIBool Vision_VisionObject_copy(
@@ -4650,7 +4650,7 @@ RTIBool Vision_VisionObject_copy(
     const Vision_VisionObject* src)
 {
 
-    if (!classificationEnum_copy(
+    if (!ClassificationEnum_copy(
         &dst->classification, &src->classification)) {
         return RTI_FALSE;
     } 

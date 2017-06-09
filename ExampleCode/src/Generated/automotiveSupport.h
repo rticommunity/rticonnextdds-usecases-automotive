@@ -8,8 +8,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef automotiveSupport_2097329537_h
-#define automotiveSupport_2097329537_h
+#ifndef automotiveSupport_2097329646_h
+#define automotiveSupport_2097329646_h
 
 /* Uses */
 #include "automotive.h"
@@ -404,5 +404,5 @@ DDS_DATAREADER_CPP(Vision_VisionSensorDataReader, Vision_VisionSensorSeq, Vision
 #define NDDSUSERDllExport
 #endif
 
-#endif  /* automotiveSupport_2097329537_h */
+#endif  /* automotiveSupport_2097329646_h */
 

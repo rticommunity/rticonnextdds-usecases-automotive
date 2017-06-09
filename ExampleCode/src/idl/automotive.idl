@@ -14,35 +14,35 @@ struct POSIXTimestamp {
   long ns;
 };
 
-enum IndicatorStatus {
-  INDICATOR_OFF = 0,
-  INDICATOR_LEFT = 1,
-  INDICATOR_RIGHT = 2,
-  INDICATOR_HAZARD = 3
+enum IndicatorStatusEnum {
+  INDICATOR_OFF     = 0,
+  INDICATOR_LEFT    = 1,
+  INDICATOR_RIGHT   = 2,
+  INDICATOR_HAZARD  = 3
 };
 
-enum classificationEnum
+enum ClassificationEnum
 {
-    Classification_Unknown = 0,
-    Classification_UnknownSmall = 1,
-    Classification_UnknownBig = 2, 
-    Classification_Pedestrian = 3,
-    Classification_Bike = 4,
-    Classification_Car = 5,
-    Classification_Truck = 6,
-    Classification_Barrier = 7
+    CLASSIFICATION_UNKNOWN      = 0,
+    CLASSIFICATION_UNKNOWNSMALL = 1,
+    CLASSIFICATION_UNKNOWNBIG   = 2, 
+    CLASSIFICATION_PEDESTRIAN   = 3,
+    CLASSIFICATION_BIKE         = 4,
+    CLASSIFICATION_CAR          = 5,
+    CLASSIFICATION_TRUCK        = 6,
+    CLASSIFICATION_BARRIER      = 7
 };
 
 
 module Alerts {
 
     struct DriverAlerts {
-        boolean BlindSpotDriver;
-        boolean BlindSpotPassenger;
-        boolean FrontCollision;
-        boolean BackCollision;
-        boolean ParkingCollision;
-        boolean DriverAttention;
+        boolean blindSpotDriver;
+        boolean blindSpotPassenger;
+        boolean frontCollision;
+        boolean backCollision;
+        boolean parkingCollision;
+        boolean driverAttention;
     };
 
 };
@@ -50,33 +50,33 @@ module Alerts {
 
 module Lane {
 
-    enum confidenceEnum
+    enum ConfidenceEnum
     {
-        Confidence_None = 0,
-        Confidence_Low = 1,
-        Confidence_Med = 2,
-        Confidence_High = 3
+        CONFIDENCE_NONE = 0,
+        CONFIDENCE_LOW  = 1,
+        CONFIDENCE_MED  = 2,
+        CONFIDENCE_HIGH = 3
     };
 
 
-    enum laneBoundaryEnum
+    enum LaneBoundaryEnum
     {
-        Boundry_None = 0,
-        Boundry_Invalid = 1,
-        Boundry_Solid = 2,
-        Boundry_Dashed = 3,
-        Boundry_Virtual = 4,
-        Boundry_Dots = 5,
-        Boundry_RoadEdge = 6,
-        Boundry_Undecided = 7,
-        Boundry_DoubleMarker = 8
+        BOUNDRY_NONE         = 0,
+        BOUNDRY_INVALID      = 1,
+        BOUNDRY_SOLID        = 2,
+        BOUNDRY_DASHED       = 3,
+        BOUNDRY_VIRTUAL      = 4,
+        BOUNDRY_DOTS         = 5,
+        BOUNDRY_ROADEDGE     = 6,
+        BOUNDRY_UNDECIDED    = 7,
+        BOUNDRY_DOUBLEMARKER = 8
     };
 
 
     struct LaneObject {
-        octet isValid;
-        confidenceEnum confidence;
-        laneBoundaryEnum boundaryType;
+        boolean isValid;
+        ConfidenceEnum confidence;
+        LaneBoundaryEnum boundaryType;
         float offset;
         float headingAngle;
         float curvature;
@@ -99,13 +99,13 @@ module Lidar {
 
     struct PCloud {
         sequence <Point, MAX_POINTS> Location; 
-        octet Color;
-        float Normal;
-        float Intensity;
-        double Count;
-        float XLimits[2];
-        float YLimits[2];
-        float ZLimits[2];
+        octet color;
+        float normal;
+        float intensity;
+        long  count;
+        float xLimits[2];
+        float yLimits[2];
+        float zLimits[2];
     };
 
     struct LidarSensor {
@@ -122,20 +122,20 @@ module Platform {
         // sample ID : counter that represents the instance of the data sent.
         long sample_id;
         POSIXTimestamp timestamp;
-        float vehicle_steer_angle;
+        float vehicleSteerAngle;
         float speed;
 
-        IndicatorStatus blinker_status;
+        IndicatorStatusEnum blinkerStatus;
     };
 
     struct PlatformStatus {
-        POSIXTimestamp timestamp;       /* recording time stamp */
-        float vehSpd;                   /* vehicle speed [m/s] */
-        IndicatorStatus blinkerStatus;  /* blinker status */
-        float posGasPedal;              /* position of gas pedal [0,100][%] */
+        POSIXTimestamp timestamp;           /* recording time stamp */
+        float vehSpd;                       /* vehicle speed [m/s] */
+        IndicatorStatusEnum blinkerStatus;  /* blinker status */
+        float posGasPedal;                  /* position of gas pedal [0,100][%] */
         float velocity;
         float yawRate;
-        float vehicle_steer_angle;
+        float vehicleSteerAngle;
     };
 
 };
@@ -144,22 +144,22 @@ module Sensor {
 
     const long SENSOR_OBJECT_LIST_MAX_SIZE = 128; 
 
-    enum rangeModeEnum 
+    enum RangeModeEnum 
     {
-        None = 0,
-        Short = 1,
-        Medium = 2,
-        Long = 3
+        RANGE_NONE   = 0,
+        RANGE_SHORT  = 1,
+        RANGE_MEDIUM = 2,
+        RANGE_LONG   = 3
     };
 
 
     struct SensorObject {
-        classificationEnum classification; 
+        ClassificationEnum classification; 
         float position[3];
         float velocity[3];
         float size[3];
         float amplitude;
-        rangeModeEnum rangeMode;
+        RangeModeEnum rangeMode;
         float rangeRate;
     };
 
@@ -177,7 +177,7 @@ module Vision {
 
 
     struct VisionObject {
-        classificationEnum classification;
+        ClassificationEnum classification;
         float position[3];
         float velocity[3];
         float size[3];

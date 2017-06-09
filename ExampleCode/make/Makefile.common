@@ -59,7 +59,7 @@ SOURCES_CA        = src/Collision_Avoidance/collision_avoidance.cxx
 
 SOURCES_CA_NODIR  = $(notdir $(SOURCES_CA))
 CA_OBJS           = $(SOURCES_CA_NODIR:%.cxx=objs/$(ARCH)/%.o)
-CA_EXE            = objs/$(ARCH)/collision_avoidance
+CA_EXE            = objs/$(ARCH)/collisionAvoidance
 
 ###############################################################################
 # HMI
@@ -89,7 +89,7 @@ SOURCES_SF        = src/Sensor_Fusion/sensor_fusion.cxx
 
 SOURCES_SF_NODIR  = $(notdir $(SOURCES_SF))
 SF_OBJS           = $(SOURCES_SF_NODIR:%.cxx=objs/$(ARCH)/%.o)
-SF_EXE            = objs/$(ARCH)/sensor_fusion
+SF_EXE            = objs/$(ARCH)/sensorFusion
 
 ###############################################################################
 # Vehicle Platform
