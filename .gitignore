@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+ExampleCode/win32/Debug/IDL.Build.CppClean.log
+README.md~
