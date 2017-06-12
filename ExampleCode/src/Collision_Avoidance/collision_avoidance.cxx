@@ -11,11 +11,9 @@ use or inability to use the software.
 
 #include <stdio.h>
 #include <stdlib.h>
-#ifdef RTI_LINUX
-#include <sys/time.h>
-#endif
 
-#include "propertyUtil.h"
+
+#include "Utils.h"
 
 
 #include "automotive.h"
@@ -478,30 +476,9 @@ extern "C" int subscriber_main(int sample_count)
         int active_conditions = active_conditions_seq.length();
 
         /* Set the timestamp */
-#ifdef WIN32
-        {
-            static const uint64_t EPOCH = ((uint64_t)116444736000000000ULL);
+		TimestampUtil::getTimestamp(&(control_instance->timestamp.s), &(control_instance->timestamp.ns));
 
-            SYSTEMTIME  system_time;
-            FILETIME    file_time;
-            uint64_t    time;
-            GetSystemTime(&system_time);
-            SystemTimeToFileTime(&system_time, &file_time);
-            time = ((uint64_t)file_time.dwLowDateTime);
-            time += ((uint64_t)file_time.dwHighDateTime) << 32;
 
-            control_instance->timestamp.s = (long)((time - EPOCH) / 10000000L);
-            control_instance->timestamp.ns = (long)(system_time.wMilliseconds * 1000);
-        }
-#endif
-#ifdef RTI_LINUX
-        {
-            struct timeval tp;
-            gettimeofday(&tp, NULL);
-            control_instance->timestamp.s  = tp.tv_sec;
-            control_instance->timestamp.ns = tp.tv_usec * 1000;
-        }
-#endif
         /* Process the active conditions */
         for (int i = 0; i < active_conditions; i++) {
             /* We received an on data available for the platform status */
@@ -618,7 +595,6 @@ extern "C" int subscriber_main(int sample_count)
 int main(int argc, char *argv[])
 {
     int sample_count = 0; /* infinite loop */
-
  
     if (argc >= 2) {
         sample_count = atoi(argv[1]);

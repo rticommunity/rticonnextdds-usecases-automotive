@@ -11,8 +11,17 @@ use or inability to use the software.
 
 #include <string>
 #include <map>
+#include "ndds/ndds_cpp.h"
+
 
 typedef std::map<const std::string, std::string> CfgMap;
+
+typedef enum {
+    MSGBOX_WARNING,
+    MSGBOX_INFO,
+    MSGBOX_ATTENTION
+} MessageBoxUtilMBType;
+
 
 class PropertyUtil {
 
@@ -30,3 +39,15 @@ public:
     float getFloatProperty(std::string property);
 
 };
+
+class TimestampUtil {
+
+public:
+    static void getTimestamp(DDS_Long* sec, DDS_Long* nsec);
+};    
+
+class MessageBoxUtil {
+
+public:
+    static void PopUp(char* text, MessageBoxUtilMBType type);
+};    

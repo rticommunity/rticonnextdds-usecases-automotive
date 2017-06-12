@@ -2,6 +2,7 @@
 
 set arch=i86Win32VS2015
 set obj_dir=..\objs\%arch%
+cd ../resource
 
 if exist "%obj_dir%" (
    start ..\objs\i86Win32VS2015\VisionSensor.exe
@@ -13,4 +14,5 @@ if exist "%obj_dir%" (
    ) else (
    echo Object directory %obj_dir% not found. Check if the Visual Studio solution has been built
 )
+cd ../scripts
 

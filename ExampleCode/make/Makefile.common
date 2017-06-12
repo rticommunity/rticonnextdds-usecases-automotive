@@ -23,10 +23,10 @@ IDL_OBJS          = $(SOURCES_IDL_NODIR:%.cxx=objs/$(ARCH)/%.o)
 
 
 ###############################################################################
-# Property Utility files 
+# Common Utility files 
 ###############################################################################
 
-SOURCES_PROP_UTIL   = src/common/propertyUtil.cxx
+SOURCES_PROP_UTIL   = src/common/Utils.cxx
 
 SOURCES_PROP_NODIR  = $(notdir $(SOURCES_PROP_UTIL))
 PROP_OBJS           = $(SOURCES_PROP_NODIR:%.cxx=objs/$(ARCH)/%.o)
@@ -110,7 +110,7 @@ VP_EXE            = objs/$(ARCH)/Platform
 INCLUDES = -Isrc -Isrc/common -I$(NDDSHOME)/include -I$(NDDSHOME)/include/ndds 
        
 LIBS = -L$(NDDSHOME)/lib/$(ARCH) \
-        -lnddscppz -lnddscz -lnddscorez $(SYSLIBS)
+        -lnddscppz -lnddscz -lnddscorez $(SYSLIBS) -lSDL2
 
 DIRECTORIES = objs.dir objs/$(ARCH).dir 
 
@@ -133,7 +133,7 @@ Collision_Avoidance:	$(DIRECTORIES) $(IDL_OBJS) $(PROP_OBJS) \
 HMI:			$(DIRECTORIES) $(IDL_OBJS) $(PROP_OBJS) \
 			$(HMI_OBJS) 
 			$(LINKER) $(LINKER_FLAGS)   -o $(HMI_EXE) $(IDL_OBJS) \
-			$(PROP_OBJS) $(HMI_OBJS) $(LIBS) -lSDL2
+			$(PROP_OBJS) $(HMI_OBJS) $(LIBS)
 
 Lidar:			$(DIRECTORIES) $(IDL_OBJS) $(PROP_OBJS) \
 			$(LIDAR_OBJS) 

@@ -50,6 +50,8 @@ do
   fi
 done
 
+cd ../resource
+
 ### Launch all component programs
 for exe in ${PROGRAMS}
 do
@@ -75,5 +77,7 @@ for exe in ${PROGRAMS}
 do
   pkill -9 ${TERM}
 done
+
+cd ../scripts
 
 exit 0

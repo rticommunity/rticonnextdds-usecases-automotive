@@ -11,10 +11,7 @@ use or inability to use the software.
 
 #include <stdio.h>
 #include <stdlib.h>
-#ifdef RTI_LINUX
-#include <SDL2/SDL.h>
-#endif
-#include "propertyUtil.h"
+#include "Utils.h"
 
 #include "automotive.h"
 #include "automotiveSupport.h"
@@ -273,55 +270,26 @@ extern "C" int subscriber_main(int sample_count)
                         /* Print the sample for information purpose*/
                         Alerts_DriverAlertsTypeSupport::print_data(&data_seq[i]);
 
-                        /* Pop-up the right message box. On Linux we use SDL2 */
-                        if (data_seq[i].backCollision) {
-#ifdef WIN32
-                            MessageBox(0, "Back Collision Warning", "WARNING", MB_ICONEXCLAMATION | MB_OK);
-#endif
-#ifdef RTI_LINUX
-                            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "WARNING", "Back Collision Warning", NULL);
-#endif
-                        }
-                        if (data_seq[i].blindSpotDriver) {
-#ifdef WIN32
-                            MessageBox(0, "Car in blind spot on driver side", "INFO", MB_ICONINFORMATION | MB_OK);
-#endif
-#ifdef RTI_LINUX
-                            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "INFO", "Car in blind spot on driver side", NULL);
-#endif
-                        }
-                        if (data_seq[i].blindSpotPassenger) {
-#ifdef WIN32
-                            MessageBox(0, "Car in blind spot on passanger side", "INFO", MB_ICONINFORMATION | MB_OK);
-#endif
-#ifdef RTI_LINUX
-                            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "INFO", "Car in blind spot on passenger side", NULL);
-#endif
-                        }
-                        if (data_seq[i].driverAttention) {
-#ifdef WIN32
-                            MessageBox(0, "Driver Attention", "ATTENTION", MB_ICONINFORMATION | MB_OK);
-#endif
-#ifdef RTI_LINUX
-                            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "ATTENTION", "Driver Attention", NULL);
-#endif
-                        }
-                        if (data_seq[i].frontCollision) {
-#ifdef WIN32
-                            MessageBox(0, "Front Collision Warning", "ATTENTION", MB_ICONEXCLAMATION | MB_OK);
-#endif
-#ifdef RTI_LINUX
-                            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "ATTENTION", "Front Collision Warning", NULL);
-#endif
-                        }
-                        if (data_seq[i].parkingCollision) {
-#ifdef WIN32
-                            MessageBox(0, "Parking Collision Warning", "WARNING", MB_ICONINFORMATION | MB_OK);
-#endif
-#ifdef RTI_LINUX
-                            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "WARNING", "Parking Collision Warning", NULL);
-#endif
-                        }
+
+						/* Pop-up the right message box. On Linux we use SDL2 */
+						if (data_seq[i].backCollision) {
+							MessageBoxUtil::PopUp("Back Collision Warning", MSGBOX_WARNING);
+						}
+						if (data_seq[i].blindSpotDriver) {
+							MessageBoxUtil::PopUp("Car in blind spot on driver side", MSGBOX_INFO);
+						}
+						if (data_seq[i].blindSpotPassenger) {
+							MessageBoxUtil::PopUp("Car in blind spot on passanger side", MSGBOX_INFO);
+						}
+						if (data_seq[i].driverAttention) {
+							MessageBoxUtil::PopUp("Driver Attention", MSGBOX_ATTENTION);
+						}
+						if (data_seq[i].frontCollision) {
+							MessageBoxUtil::PopUp("Front Collision Warning", MSGBOX_ATTENTION);
+						}
+						if (data_seq[i].parkingCollision) {
+							MessageBoxUtil::PopUp("Parking Collision Warning", MSGBOX_WARNING);
+						}
                     }
                 }
             }

@@ -19,14 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\common\propertyUtil.cxx" />
+    <ClCompile Include="..\src\common\Utils.cxx" />
     <ClCompile Include="..\src\Generated\automotive.cxx" />
     <ClCompile Include="..\src\Generated\automotivePlugin.cxx" />
     <ClCompile Include="..\src\Generated\automotiveSupport.cxx" />
     <ClCompile Include="..\src\Lidar\Lidar_publisher.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\common\propertyUtil.h" />
+    <ClInclude Include="..\src\common\Utils.h" />
     <ClInclude Include="..\src\Generated\automotive.h" />
     <ClInclude Include="..\src\Generated\automotivePlugin.h" />
     <ClInclude Include="..\src\Generated\automotiveSupport.h" />
