@@ -40,7 +40,7 @@
     <LocalDebuggerEnvironment>PATH=$(NDDSHOME)\lib\i86Win32VS2015</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Vehicle_Platform</ProjectName>
+    <ProjectName>VehiclePlatform</ProjectName>
     <RootNamespace>vehicle_platform</RootNamespace>
     <ProjectGuid>{009DDD13-88E1-4390-86C1-B937CCEEDCBE}</ProjectGuid>
   </PropertyGroup>
@@ -111,7 +111,7 @@
       <AdditionalIncludeDirectories>$(NDDSHOME)\include;$(NDDSHOME)\include\ndds;..\src\common;..\src\Generated;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;RTI_WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
@@ -190,7 +190,7 @@
       <AdditionalIncludeDirectories>$(NDDSHOME)\include;$(NDDSHOME)\include\ndds;..\src\common;..\src\Generated;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;RTI_WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -209,7 +209,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppz.lib;nddscz.lib;nddscorez.lib; netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\vehicle_platform.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\vehiclePlatform.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>..\objs\i86Win32VS2015\vehicle_platform.pdb</ProgramDatabaseFile>

@@ -1,5 +1,5 @@
 /****************************************************************************
-(c) 2005-2017 Copyright, Real-Time Innovations, Inc.  All rights reserved.    	                             
+(c) 2005-2017 Copyright, Real-Time Innovations, Inc.  All rights reserved.                                     
 RTI grants Licensee a license to use, modify, compile, and create derivative 
 works of the Software.  Licensee has the right to distribute object form 
 only for use with RTI products.  The Software is provided 'as is', with no
@@ -222,11 +222,9 @@ extern "C" int subscriber_main(int sample_count)
     if (Alerts_DriverAlerts_reader == NULL) {
         printf("DataReader narrow error\n");
         subscriber_shutdown(participant);
+        delete waitset;
         return -1;
     }
-
-
-
 
     /* Main loop */
     for (count=0; (sample_count == 0) || (count < sample_count); ++count) {
@@ -271,25 +269,25 @@ extern "C" int subscriber_main(int sample_count)
                         Alerts_DriverAlertsTypeSupport::print_data(&data_seq[i]);
 
 
-						/* Pop-up the right message box. On Linux we use SDL2 */
-						if (data_seq[i].backCollision) {
-							MessageBoxUtil::PopUp("Back Collision Warning", MSGBOX_WARNING);
-						}
-						if (data_seq[i].blindSpotDriver) {
-							MessageBoxUtil::PopUp("Car in blind spot on driver side", MSGBOX_INFO);
-						}
-						if (data_seq[i].blindSpotPassenger) {
-							MessageBoxUtil::PopUp("Car in blind spot on passanger side", MSGBOX_INFO);
-						}
-						if (data_seq[i].driverAttention) {
-							MessageBoxUtil::PopUp("Driver Attention", MSGBOX_ATTENTION);
-						}
-						if (data_seq[i].frontCollision) {
-							MessageBoxUtil::PopUp("Front Collision Warning", MSGBOX_ATTENTION);
-						}
-						if (data_seq[i].parkingCollision) {
-							MessageBoxUtil::PopUp("Parking Collision Warning", MSGBOX_WARNING);
-						}
+                        /* Pop-up the right message box. On Linux we use SDL2 */
+                        if (data_seq[i].backCollision) {
+                            MessageBoxUtil::PopUp("Back Collision Warning", MSGBOX_WARNING);
+                        }
+                        if (data_seq[i].blindSpotDriver) {
+                            MessageBoxUtil::PopUp("Car in blind spot on driver side", MSGBOX_INFO);
+                        }
+                        if (data_seq[i].blindSpotPassenger) {
+                            MessageBoxUtil::PopUp("Car in blind spot on passanger side", MSGBOX_INFO);
+                        }
+                        if (data_seq[i].driverAttention) {
+                            MessageBoxUtil::PopUp("Driver Attention", MSGBOX_ATTENTION);
+                        }
+                        if (data_seq[i].frontCollision) {
+                            MessageBoxUtil::PopUp("Front Collision Warning", MSGBOX_ATTENTION);
+                        }
+                        if (data_seq[i].parkingCollision) {
+                            MessageBoxUtil::PopUp("Parking Collision Warning", MSGBOX_WARNING);
+                        }
                     }
                 }
             }
@@ -305,7 +303,7 @@ extern "C" int subscriber_main(int sample_count)
     /* Delete all entities */
     status = subscriber_shutdown(participant);
     delete reader_listener;
-
+    delete waitset;
     return status;
 }
 
