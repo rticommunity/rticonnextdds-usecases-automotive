@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+ExampleCode/win32/Debug/IDL.Build.CppClean.log
+README.md~
+*.un~
+*.cxx~
+*.h~
+ExampleCode/make/Makefile.common~
+ExampleCode/win32/.vs/Automotive-vs2015/v14/.suo
+ExampleCode/win32/Automotive-vs2015.VC.db
+*.xml~
