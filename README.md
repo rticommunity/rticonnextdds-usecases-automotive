@@ -7,8 +7,10 @@ Case + Code Overview
 This repository is part of Real-Time Innovations' Case + Code project,
 a project to create code for real-world RTI Connext DDS use cases.
 
-The example in this repository includes six applications that send and receive
-data related to an automotive system.
+This use case shows how Connext DDS can be used by Autonomous Vehicle 
+developers to leverage RTI’s extensive experience with autonomous 
+robotics, safety-critical systems and state-of-the-art architectures 
+to simplify development, design and integration.
 
 This use case example should be a stepping stone for creating real
 distributed applications based on RTI Connext DDS. Additional information
