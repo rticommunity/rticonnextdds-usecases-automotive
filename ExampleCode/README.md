@@ -37,7 +37,7 @@ The six applications are:
 
 ## Additional Documentation
 Additional documentation is available in the Docs directory and online at:
-www.rti.com/usecases/automotive.html
+https://www.rti.com/resources/usecases/automotive.
 
 ## Download RTI Connext DDS
 If you do not already have RTI Connext DDS installed, download and install it
