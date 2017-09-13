@@ -1,3 +1,4 @@
+![Image](https://www.rti.com/hubfs/RTI_Oct2016/Images/rti-logounit.png)  
  RTI Connext DDS Use Case: Automotive
 =====================================
 
@@ -36,8 +37,11 @@ The six applications are:
     one of the alert flags are set.
 
 ## Additional Documentation
-Additional documentation is available in the Docs directory and online at:
-https://www.rti.com/resources/usecases/automotive.
+Detailed documentation for this example is available online at:
+  https://www.rti.com/resources/usecases/automotive.
+
+More Case + Code examples are available at:
+  https://www.rti.com/resources/usecases
 
 ## Download RTI Connext DDS
 If you do not already have RTI Connext DDS installed, download and install it
@@ -45,9 +49,11 @@ now. You can use a 30-day trial license to try out the product. Your download
 will include the libraries that are required to run the example, and tools you
 can use to visualize and debug your distributed system.
 
+You can download RTI Connext here: https://www.rti.com/downloads/
+
 ## How to Build this Code
 On all platforms, the first thing you must do is set an environment variable
-called NDDSHOME. This environment variable must point to the
+called `NDDSHOME`. This environment variable must point to the
 rti_connext_dds-x.y.z directory inside your RTI Connext DDS installation. For
 more information on how to set an environment variable, please see the RTI
 Core Libraries and Utilities Getting Started Guide.
@@ -73,7 +79,8 @@ ExampleCode directory and use the command:
     make -f make/Makefile_x64Linux3gcc4.8.2
 
 The platform you choose will be the combination of your processor, OS, and
-compiler version.  Right now this example only supportsx64Linux3gcc4.8.2
+compiler version.  Right now this example supports x64Linux3gcc4.8.2, with
+an example makefile for x64Linux3gcc5.4.0
 
 ## How to Run the Example
 On Windows systems, navigate to the EXAMPLE_HOME\ExampleCode\scripts directory

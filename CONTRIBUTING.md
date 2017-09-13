@@ -1,4 +1,4 @@
-#Contributing to rticonnextdds-usecases-medical
+## Contributing to rticonnextdds-usecases-medical
 
 ### Contributor License Agreement (CLA)
 In order to accept your pull request, we need you to sign a Contributor
