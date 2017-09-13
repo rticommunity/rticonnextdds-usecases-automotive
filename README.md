@@ -15,7 +15,7 @@ to simplify development, design and integration.
 This use case example should be a stepping stone for creating real
 distributed applications based on RTI Connext DDS. Additional information
 about this use case can be found on
-[RTI's Case + Code page](http://www.rti.com/resources/usecases/index.html).
+[RTI's Case + Code page](https://www.rti.com/resources/usecases).
 
 RTI Connext DDS Overview
 ------------------------
