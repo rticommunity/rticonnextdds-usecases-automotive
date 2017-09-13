@@ -1,3 +1,4 @@
+![Image](https://www.rti.com/hubfs/RTI_Oct2016/Images/rti-logounit.png)  
  RTI Connext DDS Use Case: Automotive
 =====================================
 
@@ -52,7 +53,7 @@ You can download RTI Connext here: https://www.rti.com/downloads/
 
 ## How to Build this Code
 On all platforms, the first thing you must do is set an environment variable
-called NDDSHOME. This environment variable must point to the
+called `NDDSHOME`. This environment variable must point to the
 rti_connext_dds-x.y.z directory inside your RTI Connext DDS installation. For
 more information on how to set an environment variable, please see the RTI
 Core Libraries and Utilities Getting Started Guide.
