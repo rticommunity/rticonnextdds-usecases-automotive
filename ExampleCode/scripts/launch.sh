@@ -8,7 +8,7 @@
 #! /bin/sh
 
 if [[ -z "${ARCH}" ]]; then
-   ARCH=x64Linux3gcc4.8.2
+   ARCH=x64Linux3gcc5.4.0
 fi
 EXE_DIR=../objs/${ARCH}
 
@@ -63,7 +63,7 @@ do
       ${TERM} ${GEOMETRY} -e "${exe}" &
       ;;
     gnome-terminal) 
-      ${TERM} ${GEOMETRY} -e "${exe}" &
+      ${TERM} ${GEOMETRY} -- "${exe}" &
       ;;
     *) exit 1
   esac

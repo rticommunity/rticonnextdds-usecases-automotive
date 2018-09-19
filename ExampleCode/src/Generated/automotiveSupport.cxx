@@ -1315,3 +1315,603 @@ Defines:   TTypeSupport, TData, TDataReader, TDataWriter
 #undef TPlugin_new
 #undef TPlugin_delete
 
+/* ========================================================================= */
+/**
+<<IMPLEMENTATION>>
+
+Defines:   TData,
+TDataWriter,
+TDataReader,
+TTypeSupport
+
+Configure and implement 'builtin_interfaces_msg_dds__Time_' support classes.
+
+Note: Only the #defined classes get defined
+*/
+
+/* ----------------------------------------------------------------- */
+/* DDSDataWriter
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataWriter, TData
+*/
+
+/* Requires */
+#define TTYPENAME   builtin_interfaces_msg_dds__Time_TYPENAME
+
+/* Defines */
+#define TDataWriter builtin_interfaces_msg_dds__Time_DataWriter
+#define TData       builtin_interfaces_msg_dds__Time_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataWriter.gen"
+
+#undef TDataWriter
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* DDSDataReader
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataReader, TDataSeq, TData
+*/
+
+/* Requires */
+#define TTYPENAME   builtin_interfaces_msg_dds__Time_TYPENAME
+
+/* Defines */
+#define TDataReader builtin_interfaces_msg_dds__Time_DataReader
+#define TDataSeq    builtin_interfaces_msg_dds__Time_Seq
+#define TData       builtin_interfaces_msg_dds__Time_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataReader.gen"
+
+#undef TDataReader
+#undef TDataSeq
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* TypeSupport
+
+<<IMPLEMENTATION >>
+
+Requires:  TTYPENAME,
+TPlugin_new
+TPlugin_delete
+Defines:   TTypeSupport, TData, TDataReader, TDataWriter
+*/
+
+/* Requires */
+#define TTYPENAME    builtin_interfaces_msg_dds__Time_TYPENAME
+#define TPlugin_new  builtin_interfaces_msg_dds__Time_Plugin_new
+#define TPlugin_delete  builtin_interfaces_msg_dds__Time_Plugin_delete
+
+/* Defines */
+#define TTypeSupport builtin_interfaces_msg_dds__Time_TypeSupport
+#define TData        builtin_interfaces_msg_dds__Time_
+#define TDataReader  builtin_interfaces_msg_dds__Time_DataReader
+#define TDataWriter  builtin_interfaces_msg_dds__Time_DataWriter
+#define TGENERATE_SER_CODE
+#define TGENERATE_TYPECODE
+
+#include "dds_cpp/generic/dds_cpp_data_TTypeSupport.gen"
+
+#undef TTypeSupport
+#undef TData
+#undef TDataReader
+#undef TDataWriter
+#undef TGENERATE_TYPECODE
+#undef TGENERATE_SER_CODE
+#undef TTYPENAME
+#undef TPlugin_new
+#undef TPlugin_delete
+
+/* ========================================================================= */
+/**
+<<IMPLEMENTATION>>
+
+Defines:   TData,
+TDataWriter,
+TDataReader,
+TTypeSupport
+
+Configure and implement 'std_msgs_msg_dds__Header_' support classes.
+
+Note: Only the #defined classes get defined
+*/
+
+/* ----------------------------------------------------------------- */
+/* DDSDataWriter
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataWriter, TData
+*/
+
+/* Requires */
+#define TTYPENAME   std_msgs_msg_dds__Header_TYPENAME
+
+/* Defines */
+#define TDataWriter std_msgs_msg_dds__Header_DataWriter
+#define TData       std_msgs_msg_dds__Header_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataWriter.gen"
+
+#undef TDataWriter
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* DDSDataReader
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataReader, TDataSeq, TData
+*/
+
+/* Requires */
+#define TTYPENAME   std_msgs_msg_dds__Header_TYPENAME
+
+/* Defines */
+#define TDataReader std_msgs_msg_dds__Header_DataReader
+#define TDataSeq    std_msgs_msg_dds__Header_Seq
+#define TData       std_msgs_msg_dds__Header_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataReader.gen"
+
+#undef TDataReader
+#undef TDataSeq
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* TypeSupport
+
+<<IMPLEMENTATION >>
+
+Requires:  TTYPENAME,
+TPlugin_new
+TPlugin_delete
+Defines:   TTypeSupport, TData, TDataReader, TDataWriter
+*/
+
+/* Requires */
+#define TTYPENAME    std_msgs_msg_dds__Header_TYPENAME
+#define TPlugin_new  std_msgs_msg_dds__Header_Plugin_new
+#define TPlugin_delete  std_msgs_msg_dds__Header_Plugin_delete
+
+/* Defines */
+#define TTypeSupport std_msgs_msg_dds__Header_TypeSupport
+#define TData        std_msgs_msg_dds__Header_
+#define TDataReader  std_msgs_msg_dds__Header_DataReader
+#define TDataWriter  std_msgs_msg_dds__Header_DataWriter
+#define TGENERATE_SER_CODE
+#define TGENERATE_TYPECODE
+
+#include "dds_cpp/generic/dds_cpp_data_TTypeSupport.gen"
+
+#undef TTypeSupport
+#undef TData
+#undef TDataReader
+#undef TDataWriter
+#undef TGENERATE_TYPECODE
+#undef TGENERATE_SER_CODE
+#undef TTYPENAME
+#undef TPlugin_new
+#undef TPlugin_delete
+
+/* ========================================================================= */
+/**
+<<IMPLEMENTATION>>
+
+Defines:   TData,
+TDataWriter,
+TDataReader,
+TTypeSupport
+
+Configure and implement 'sensor_msgs_msg_dds__PointField_' support classes.
+
+Note: Only the #defined classes get defined
+*/
+
+/* ----------------------------------------------------------------- */
+/* DDSDataWriter
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataWriter, TData
+*/
+
+/* Requires */
+#define TTYPENAME   sensor_msgs_msg_dds__PointField_TYPENAME
+
+/* Defines */
+#define TDataWriter sensor_msgs_msg_dds__PointField_DataWriter
+#define TData       sensor_msgs_msg_dds__PointField_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataWriter.gen"
+
+#undef TDataWriter
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* DDSDataReader
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataReader, TDataSeq, TData
+*/
+
+/* Requires */
+#define TTYPENAME   sensor_msgs_msg_dds__PointField_TYPENAME
+
+/* Defines */
+#define TDataReader sensor_msgs_msg_dds__PointField_DataReader
+#define TDataSeq    sensor_msgs_msg_dds__PointField_Seq
+#define TData       sensor_msgs_msg_dds__PointField_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataReader.gen"
+
+#undef TDataReader
+#undef TDataSeq
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* TypeSupport
+
+<<IMPLEMENTATION >>
+
+Requires:  TTYPENAME,
+TPlugin_new
+TPlugin_delete
+Defines:   TTypeSupport, TData, TDataReader, TDataWriter
+*/
+
+/* Requires */
+#define TTYPENAME    sensor_msgs_msg_dds__PointField_TYPENAME
+#define TPlugin_new  sensor_msgs_msg_dds__PointField_Plugin_new
+#define TPlugin_delete  sensor_msgs_msg_dds__PointField_Plugin_delete
+
+/* Defines */
+#define TTypeSupport sensor_msgs_msg_dds__PointField_TypeSupport
+#define TData        sensor_msgs_msg_dds__PointField_
+#define TDataReader  sensor_msgs_msg_dds__PointField_DataReader
+#define TDataWriter  sensor_msgs_msg_dds__PointField_DataWriter
+#define TGENERATE_SER_CODE
+#define TGENERATE_TYPECODE
+
+#include "dds_cpp/generic/dds_cpp_data_TTypeSupport.gen"
+
+#undef TTypeSupport
+#undef TData
+#undef TDataReader
+#undef TDataWriter
+#undef TGENERATE_TYPECODE
+#undef TGENERATE_SER_CODE
+#undef TTYPENAME
+#undef TPlugin_new
+#undef TPlugin_delete
+
+/* ========================================================================= */
+/**
+<<IMPLEMENTATION>>
+
+Defines:   TData,
+TDataWriter,
+TDataReader,
+TTypeSupport
+
+Configure and implement 'sensor_msgs_msg_dds__PointCloud2_' support classes.
+
+Note: Only the #defined classes get defined
+*/
+
+/* ----------------------------------------------------------------- */
+/* DDSDataWriter
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataWriter, TData
+*/
+
+/* Requires */
+#define TTYPENAME   sensor_msgs_msg_dds__PointCloud2_TYPENAME
+
+/* Defines */
+#define TDataWriter sensor_msgs_msg_dds__PointCloud2_DataWriter
+#define TData       sensor_msgs_msg_dds__PointCloud2_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataWriter.gen"
+
+#undef TDataWriter
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* DDSDataReader
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataReader, TDataSeq, TData
+*/
+
+/* Requires */
+#define TTYPENAME   sensor_msgs_msg_dds__PointCloud2_TYPENAME
+
+/* Defines */
+#define TDataReader sensor_msgs_msg_dds__PointCloud2_DataReader
+#define TDataSeq    sensor_msgs_msg_dds__PointCloud2_Seq
+#define TData       sensor_msgs_msg_dds__PointCloud2_
+
+#include "dds_cpp/generic/dds_cpp_data_TDataReader.gen"
+
+#undef TDataReader
+#undef TDataSeq
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* TypeSupport
+
+<<IMPLEMENTATION >>
+
+Requires:  TTYPENAME,
+TPlugin_new
+TPlugin_delete
+Defines:   TTypeSupport, TData, TDataReader, TDataWriter
+*/
+
+/* Requires */
+#define TTYPENAME    sensor_msgs_msg_dds__PointCloud2_TYPENAME
+#define TPlugin_new  sensor_msgs_msg_dds__PointCloud2_Plugin_new
+#define TPlugin_delete  sensor_msgs_msg_dds__PointCloud2_Plugin_delete
+
+/* Defines */
+#define TTypeSupport sensor_msgs_msg_dds__PointCloud2_TypeSupport
+#define TData        sensor_msgs_msg_dds__PointCloud2_
+#define TDataReader  sensor_msgs_msg_dds__PointCloud2_DataReader
+#define TDataWriter  sensor_msgs_msg_dds__PointCloud2_DataWriter
+#define TGENERATE_SER_CODE
+#define TGENERATE_TYPECODE
+
+#include "dds_cpp/generic/dds_cpp_data_TTypeSupport.gen"
+
+#undef TTypeSupport
+#undef TData
+#undef TDataReader
+#undef TDataWriter
+#undef TGENERATE_TYPECODE
+#undef TGENERATE_SER_CODE
+#undef TTYPENAME
+#undef TPlugin_new
+#undef TPlugin_delete
+
+/* ========================================================================= */
+/**
+<<IMPLEMENTATION>>
+
+Defines:   TData,
+TDataWriter,
+TDataReader,
+TTypeSupport
+
+Configure and implement 'ShapeType' support classes.
+
+Note: Only the #defined classes get defined
+*/
+
+/* ----------------------------------------------------------------- */
+/* DDSDataWriter
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataWriter, TData
+*/
+
+/* Requires */
+#define TTYPENAME   ShapeTypeTYPENAME
+
+/* Defines */
+#define TDataWriter ShapeTypeDataWriter
+#define TData       ShapeType
+
+#include "dds_cpp/generic/dds_cpp_data_TDataWriter.gen"
+
+#undef TDataWriter
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* DDSDataReader
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataReader, TDataSeq, TData
+*/
+
+/* Requires */
+#define TTYPENAME   ShapeTypeTYPENAME
+
+/* Defines */
+#define TDataReader ShapeTypeDataReader
+#define TDataSeq    ShapeTypeSeq
+#define TData       ShapeType
+
+#include "dds_cpp/generic/dds_cpp_data_TDataReader.gen"
+
+#undef TDataReader
+#undef TDataSeq
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* TypeSupport
+
+<<IMPLEMENTATION >>
+
+Requires:  TTYPENAME,
+TPlugin_new
+TPlugin_delete
+Defines:   TTypeSupport, TData, TDataReader, TDataWriter
+*/
+
+/* Requires */
+#define TTYPENAME    ShapeTypeTYPENAME
+#define TPlugin_new  ShapeTypePlugin_new
+#define TPlugin_delete  ShapeTypePlugin_delete
+
+/* Defines */
+#define TTypeSupport ShapeTypeTypeSupport
+#define TData        ShapeType
+#define TDataReader  ShapeTypeDataReader
+#define TDataWriter  ShapeTypeDataWriter
+#define TGENERATE_SER_CODE
+#define TGENERATE_TYPECODE
+
+#include "dds_cpp/generic/dds_cpp_data_TTypeSupport.gen"
+
+#undef TTypeSupport
+#undef TData
+#undef TDataReader
+#undef TDataWriter
+#undef TGENERATE_TYPECODE
+#undef TGENERATE_SER_CODE
+#undef TTYPENAME
+#undef TPlugin_new
+#undef TPlugin_delete
+
+/* ========================================================================= */
+/**
+<<IMPLEMENTATION>>
+
+Defines:   TData,
+TDataWriter,
+TDataReader,
+TTypeSupport
+
+Configure and implement 'ShapeTypeExtended' support classes.
+
+Note: Only the #defined classes get defined
+*/
+
+/* ----------------------------------------------------------------- */
+/* DDSDataWriter
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataWriter, TData
+*/
+
+/* Requires */
+#define TTYPENAME   ShapeTypeExtendedTYPENAME
+
+/* Defines */
+#define TDataWriter ShapeTypeExtendedDataWriter
+#define TData       ShapeTypeExtended
+
+#include "dds_cpp/generic/dds_cpp_data_TDataWriter.gen"
+
+#undef TDataWriter
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* DDSDataReader
+*/
+
+/**
+<<IMPLEMENTATION >>
+
+Defines:   TDataReader, TDataSeq, TData
+*/
+
+/* Requires */
+#define TTYPENAME   ShapeTypeExtendedTYPENAME
+
+/* Defines */
+#define TDataReader ShapeTypeExtendedDataReader
+#define TDataSeq    ShapeTypeExtendedSeq
+#define TData       ShapeTypeExtended
+
+#include "dds_cpp/generic/dds_cpp_data_TDataReader.gen"
+
+#undef TDataReader
+#undef TDataSeq
+#undef TData
+
+#undef TTYPENAME
+
+/* ----------------------------------------------------------------- */
+/* TypeSupport
+
+<<IMPLEMENTATION >>
+
+Requires:  TTYPENAME,
+TPlugin_new
+TPlugin_delete
+Defines:   TTypeSupport, TData, TDataReader, TDataWriter
+*/
+
+/* Requires */
+#define TTYPENAME    ShapeTypeExtendedTYPENAME
+#define TPlugin_new  ShapeTypeExtendedPlugin_new
+#define TPlugin_delete  ShapeTypeExtendedPlugin_delete
+
+/* Defines */
+#define TTypeSupport ShapeTypeExtendedTypeSupport
+#define TData        ShapeTypeExtended
+#define TDataReader  ShapeTypeExtendedDataReader
+#define TDataWriter  ShapeTypeExtendedDataWriter
+#define TGENERATE_SER_CODE
+#define TGENERATE_TYPECODE
+
+#include "dds_cpp/generic/dds_cpp_data_TTypeSupport.gen"
+
+#undef TTypeSupport
+#undef TData
+#undef TDataReader
+#undef TDataWriter
+#undef TGENERATE_TYPECODE
+#undef TGENERATE_SER_CODE
+#undef TTYPENAME
+#undef TPlugin_new
+#undef TPlugin_delete
+

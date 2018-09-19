@@ -8,8 +8,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef automotiveSupport_2097329646_h
-#define automotiveSupport_2097329646_h
+#ifndef automotiveSupport_2097331504_h
+#define automotiveSupport_2097331504_h
 
 /* Uses */
 #include "automotive.h"
@@ -44,7 +44,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(POSIXTimestampTypeSupport, POSIXTimestamp);
+DDS_TYPESUPPORT_CPP(
+    POSIXTimestampTypeSupport, 
+    POSIXTimestamp);
 
 DDS_DATAWRITER_CPP(POSIXTimestampDataWriter, POSIXTimestamp);
 DDS_DATAREADER_CPP(POSIXTimestampDataReader, POSIXTimestampSeq, POSIXTimestamp);
@@ -73,7 +75,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Alerts_DriverAlertsTypeSupport, Alerts_DriverAlerts);
+DDS_TYPESUPPORT_CPP(
+    Alerts_DriverAlertsTypeSupport, 
+    Alerts_DriverAlerts);
 
 DDS_DATAWRITER_CPP(Alerts_DriverAlertsDataWriter, Alerts_DriverAlerts);
 DDS_DATAREADER_CPP(Alerts_DriverAlertsDataReader, Alerts_DriverAlertsSeq, Alerts_DriverAlerts);
@@ -102,7 +106,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Lane_LaneObjectTypeSupport, Lane_LaneObject);
+DDS_TYPESUPPORT_CPP(
+    Lane_LaneObjectTypeSupport, 
+    Lane_LaneObject);
 
 DDS_DATAWRITER_CPP(Lane_LaneObjectDataWriter, Lane_LaneObject);
 DDS_DATAREADER_CPP(Lane_LaneObjectDataReader, Lane_LaneObjectSeq, Lane_LaneObject);
@@ -131,7 +137,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Lane_LaneSensorTypeSupport, Lane_LaneSensor);
+DDS_TYPESUPPORT_CPP(
+    Lane_LaneSensorTypeSupport, 
+    Lane_LaneSensor);
 
 DDS_DATAWRITER_CPP(Lane_LaneSensorDataWriter, Lane_LaneSensor);
 DDS_DATAREADER_CPP(Lane_LaneSensorDataReader, Lane_LaneSensorSeq, Lane_LaneSensor);
@@ -160,7 +168,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Lidar_PointTypeSupport, Lidar_Point);
+DDS_TYPESUPPORT_CPP(
+    Lidar_PointTypeSupport, 
+    Lidar_Point);
 
 DDS_DATAWRITER_CPP(Lidar_PointDataWriter, Lidar_Point);
 DDS_DATAREADER_CPP(Lidar_PointDataReader, Lidar_PointSeq, Lidar_Point);
@@ -189,7 +199,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Lidar_PCloudTypeSupport, Lidar_PCloud);
+DDS_TYPESUPPORT_CPP(
+    Lidar_PCloudTypeSupport, 
+    Lidar_PCloud);
 
 DDS_DATAWRITER_CPP(Lidar_PCloudDataWriter, Lidar_PCloud);
 DDS_DATAREADER_CPP(Lidar_PCloudDataReader, Lidar_PCloudSeq, Lidar_PCloud);
@@ -218,7 +230,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Lidar_LidarSensorTypeSupport, Lidar_LidarSensor);
+DDS_TYPESUPPORT_CPP(
+    Lidar_LidarSensorTypeSupport, 
+    Lidar_LidarSensor);
 
 DDS_DATAWRITER_CPP(Lidar_LidarSensorDataWriter, Lidar_LidarSensor);
 DDS_DATAREADER_CPP(Lidar_LidarSensorDataReader, Lidar_LidarSensorSeq, Lidar_LidarSensor);
@@ -247,7 +261,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Platform_PlatformControlTypeSupport, Platform_PlatformControl);
+DDS_TYPESUPPORT_CPP(
+    Platform_PlatformControlTypeSupport, 
+    Platform_PlatformControl);
 
 DDS_DATAWRITER_CPP(Platform_PlatformControlDataWriter, Platform_PlatformControl);
 DDS_DATAREADER_CPP(Platform_PlatformControlDataReader, Platform_PlatformControlSeq, Platform_PlatformControl);
@@ -276,7 +292,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Platform_PlatformStatusTypeSupport, Platform_PlatformStatus);
+DDS_TYPESUPPORT_CPP(
+    Platform_PlatformStatusTypeSupport, 
+    Platform_PlatformStatus);
 
 DDS_DATAWRITER_CPP(Platform_PlatformStatusDataWriter, Platform_PlatformStatus);
 DDS_DATAREADER_CPP(Platform_PlatformStatusDataReader, Platform_PlatformStatusSeq, Platform_PlatformStatus);
@@ -305,7 +323,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Sensor_SensorObjectTypeSupport, Sensor_SensorObject);
+DDS_TYPESUPPORT_CPP(
+    Sensor_SensorObjectTypeSupport, 
+    Sensor_SensorObject);
 
 DDS_DATAWRITER_CPP(Sensor_SensorObjectDataWriter, Sensor_SensorObject);
 DDS_DATAREADER_CPP(Sensor_SensorObjectDataReader, Sensor_SensorObjectSeq, Sensor_SensorObject);
@@ -334,7 +354,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Sensor_SensorObjectListTypeSupport, Sensor_SensorObjectList);
+DDS_TYPESUPPORT_CPP(
+    Sensor_SensorObjectListTypeSupport, 
+    Sensor_SensorObjectList);
 
 DDS_DATAWRITER_CPP(Sensor_SensorObjectListDataWriter, Sensor_SensorObjectList);
 DDS_DATAREADER_CPP(Sensor_SensorObjectListDataReader, Sensor_SensorObjectListSeq, Sensor_SensorObjectList);
@@ -363,7 +385,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Vision_VisionObjectTypeSupport, Vision_VisionObject);
+DDS_TYPESUPPORT_CPP(
+    Vision_VisionObjectTypeSupport, 
+    Vision_VisionObject);
 
 DDS_DATAWRITER_CPP(Vision_VisionObjectDataWriter, Vision_VisionObject);
 DDS_DATAREADER_CPP(Vision_VisionObjectDataReader, Vision_VisionObjectSeq, Vision_VisionObject);
@@ -392,7 +416,9 @@ implementing generics in C and C++.
 
 #endif
 
-DDS_TYPESUPPORT_CPP(Vision_VisionSensorTypeSupport, Vision_VisionSensor);
+DDS_TYPESUPPORT_CPP(
+    Vision_VisionSensorTypeSupport, 
+    Vision_VisionSensor);
 
 DDS_DATAWRITER_CPP(Vision_VisionSensorDataWriter, Vision_VisionSensor);
 DDS_DATAREADER_CPP(Vision_VisionSensorDataReader, Vision_VisionSensorSeq, Vision_VisionSensor);
@@ -403,6 +429,192 @@ DDS_DATAREADER_CPP(Vision_VisionSensorDataReader, Vision_VisionSensorSeq, Vision
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+/* ========================================================================= */
+/**
+Uses:     T
 
-#endif  /* automotiveSupport_2097329646_h */
+Defines:  TTypeSupport, TDataWriter, TDataReader
+
+Organized using the well-documented "Generics Pattern" for
+implementing generics in C and C++.
+*/
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+
+#endif
+
+DDS_TYPESUPPORT_CPP(
+    builtin_interfaces_msg_dds__Time_TypeSupport, 
+    builtin_interfaces_msg_dds__Time_);
+
+DDS_DATAWRITER_CPP(builtin_interfaces_msg_dds__Time_DataWriter, builtin_interfaces_msg_dds__Time_);
+DDS_DATAREADER_CPP(builtin_interfaces_msg_dds__Time_DataReader, builtin_interfaces_msg_dds__Time_Seq, builtin_interfaces_msg_dds__Time_);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+/* ========================================================================= */
+/**
+Uses:     T
+
+Defines:  TTypeSupport, TDataWriter, TDataReader
+
+Organized using the well-documented "Generics Pattern" for
+implementing generics in C and C++.
+*/
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+
+#endif
+
+DDS_TYPESUPPORT_CPP(
+    std_msgs_msg_dds__Header_TypeSupport, 
+    std_msgs_msg_dds__Header_);
+
+DDS_DATAWRITER_CPP(std_msgs_msg_dds__Header_DataWriter, std_msgs_msg_dds__Header_);
+DDS_DATAREADER_CPP(std_msgs_msg_dds__Header_DataReader, std_msgs_msg_dds__Header_Seq, std_msgs_msg_dds__Header_);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+/* ========================================================================= */
+/**
+Uses:     T
+
+Defines:  TTypeSupport, TDataWriter, TDataReader
+
+Organized using the well-documented "Generics Pattern" for
+implementing generics in C and C++.
+*/
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+
+#endif
+
+DDS_TYPESUPPORT_CPP(
+    sensor_msgs_msg_dds__PointField_TypeSupport, 
+    sensor_msgs_msg_dds__PointField_);
+
+DDS_DATAWRITER_CPP(sensor_msgs_msg_dds__PointField_DataWriter, sensor_msgs_msg_dds__PointField_);
+DDS_DATAREADER_CPP(sensor_msgs_msg_dds__PointField_DataReader, sensor_msgs_msg_dds__PointField_Seq, sensor_msgs_msg_dds__PointField_);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+/* ========================================================================= */
+/**
+Uses:     T
+
+Defines:  TTypeSupport, TDataWriter, TDataReader
+
+Organized using the well-documented "Generics Pattern" for
+implementing generics in C and C++.
+*/
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+
+#endif
+
+DDS_TYPESUPPORT_CPP(
+    sensor_msgs_msg_dds__PointCloud2_TypeSupport, 
+    sensor_msgs_msg_dds__PointCloud2_);
+
+DDS_DATAWRITER_CPP(sensor_msgs_msg_dds__PointCloud2_DataWriter, sensor_msgs_msg_dds__PointCloud2_);
+DDS_DATAREADER_CPP(sensor_msgs_msg_dds__PointCloud2_DataReader, sensor_msgs_msg_dds__PointCloud2_Seq, sensor_msgs_msg_dds__PointCloud2_);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+/* ========================================================================= */
+/**
+Uses:     T
+
+Defines:  TTypeSupport, TDataWriter, TDataReader
+
+Organized using the well-documented "Generics Pattern" for
+implementing generics in C and C++.
+*/
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+
+#endif
+
+DDS_TYPESUPPORT_CPP(
+    ShapeTypeTypeSupport, 
+    ShapeType);
+
+DDS_DATAWRITER_CPP(ShapeTypeDataWriter, ShapeType);
+DDS_DATAREADER_CPP(ShapeTypeDataReader, ShapeTypeSeq, ShapeType);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+/* ========================================================================= */
+/**
+Uses:     T
+
+Defines:  TTypeSupport, TDataWriter, TDataReader
+
+Organized using the well-documented "Generics Pattern" for
+implementing generics in C and C++.
+*/
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+
+#endif
+
+DDS_TYPESUPPORT_CPP(
+    ShapeTypeExtendedTypeSupport, 
+    ShapeTypeExtended);
+
+DDS_DATAWRITER_CPP(ShapeTypeExtendedDataWriter, ShapeTypeExtended);
+DDS_DATAREADER_CPP(ShapeTypeExtendedDataReader, ShapeTypeExtendedSeq, ShapeTypeExtended);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+
+#endif  /* automotiveSupport_2097331504_h */
 

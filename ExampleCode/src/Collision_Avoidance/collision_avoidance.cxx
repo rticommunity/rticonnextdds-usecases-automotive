@@ -527,7 +527,7 @@ extern "C" int subscriber_main(int sample_count)
                     if (info_seq[i].valid_data) {
                         for (int j = 0; j < sensor_data_seq[i].objects.length(); j++) {
 
-                            /* As an example if size[1] of an object is gerater than 
+                            /* As an example if size[1] of an object is greater than
                                2 we issue a driver alert*/
                             if (sensor_data_seq[i].objects[j].size[1] > 2.0) {
                                 alerts_instance->backCollision = 0;

@@ -191,4 +191,75 @@ module Vision {
 
 };
 
+// [neil] added for ROS-compatible LiDAR support
+module builtin_interfaces {
+    module msg {
+        module dds_ {
+            struct Time_ {
+                long sec_;    //@ID 0
+                unsigned long nanosec_;    //@ID 1
+            };
+            //@Extensibility EXTENSIBLE_EXTENSIBILITY
+        }; // end of 'dds_' module
+    }; // end of 'msg' module
+}; // end of 'builtin_interfaces' module
+	
+module std_msgs {
+    module msg {
+        module dds_ {
+            struct Header_ {
+                builtin_interfaces::msg::dds_::Time_ stamp_;    //@ID 0
+                string frame_id_;    //@ID 1
+            };
+            //@Extensibility EXTENSIBLE_EXTENSIBILITY
+        }; // end of 'dds_' module
+    }; // end of 'msg' module
+}; // end of 'std_msgs' module
+	
+module sensor_msgs {
+    module msg {
+        module dds_ {
+            struct PointField_ {
+                string name_;
+                unsigned long offset_;
+                octet datatype_;
+                unsigned long count_;
+            };
+            //@Extensibility EXTENSIBLE_EXTENSIBILITY
+
+            struct PointCloud2_ {
+                std_msgs::msg::dds_::Header_ header_;
+                unsigned long height_;
+                unsigned long width_;
+                sequence <PointField_, 4> fields_;
+                boolean is_bigendian_;
+                unsigned long point_step_;
+                unsigned long row_step_;
+                sequence <octet, 129600> data_;
+                boolean is_dense_;
+            };
+        }; // end of 'dds_' module
+    }; // end of 'msg' module
+}; // end of 'sensor_msgs' module
+
+// [neil] added for shapeType --> LiDAR conversion
+enum ShapeFillKind {
+    SOLID_FILL,
+    TRANSPARENT_FILL,
+    HORIZONTAL_HATCH_FILL,
+    VERTICAL_HATCH_FILL
+};
+
+struct ShapeType
+{
+    string<128> color; //@key
+    long x;
+    long y;
+    long shapesize;
+};//@Extensibility EXTENSIBLE_EXTENSIBILITY 
+
+struct ShapeTypeExtended : ShapeType {
+    ShapeFillKind fillKind;
+    float angle;
+};//@Extensibility EXTENSIBLE_EXTENSIBILITY 
 

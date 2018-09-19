@@ -11,10 +11,7 @@ use or inability to use the software.
 
 #include <stdio.h>
 #include <stdlib.h>
-
-
 #include "Utils.h"
-
 #include "automotive.h"
 #include "automotiveSupport.h"
 #include "ndds/ndds_cpp.h"
@@ -66,7 +63,7 @@ public:
    the timestamp for each received data. The rest of the data
    is ignored
  */
-class Lidar_LidarSensorListener : public DDSDataReaderListener {
+class sensor_msgs_msg_dds__PointCloud2_Listener : public DDSDataReaderListener {
 public:
     virtual void on_requested_deadline_missed(
         DDSDataReader* /*reader*/,
@@ -107,21 +104,21 @@ public:
     virtual void on_data_available(DDSDataReader* reader);
 };
 
-void Lidar_LidarSensorListener::on_data_available(DDSDataReader* reader)
+void sensor_msgs_msg_dds__PointCloud2_Listener::on_data_available(DDSDataReader* reader)
 {
-    Lidar_LidarSensorDataReader *Lidar_LidarSensor_reader = NULL;
-    Lidar_LidarSensorSeq data_seq;
+    sensor_msgs_msg_dds__PointCloud2_DataReader *sensor_msgs_msg_dds__PointCloud2__reader = NULL;
+    sensor_msgs_msg_dds__PointCloud2_Seq data_seq;
     DDS_SampleInfoSeq info_seq;
     DDS_ReturnCode_t retcode;
     int i;
 
-    Lidar_LidarSensor_reader = Lidar_LidarSensorDataReader::narrow(reader);
-    if (Lidar_LidarSensor_reader == NULL) {
-        printf("DataReader narrow error\n");
+    sensor_msgs_msg_dds__PointCloud2__reader = sensor_msgs_msg_dds__PointCloud2_DataReader::narrow(reader);
+    if (sensor_msgs_msg_dds__PointCloud2__reader == NULL) {
+        fprintf(stderr, "DataReader narrow error\n");
         return;
     }
-    /* Take the samples*/
-    retcode = Lidar_LidarSensor_reader->take(
+
+    retcode = sensor_msgs_msg_dds__PointCloud2__reader->take(
         data_seq, info_seq, DDS_LENGTH_UNLIMITED,
         DDS_ANY_SAMPLE_STATE, DDS_ANY_VIEW_STATE, DDS_ANY_INSTANCE_STATE);
 
@@ -129,20 +126,27 @@ void Lidar_LidarSensorListener::on_data_available(DDSDataReader* reader)
         return;
     }
     else if (retcode != DDS_RETCODE_OK) {
-        printf("take error %d\n", retcode);
+        fprintf(stderr, "take error %d\n", retcode);
         return;
     }
-    /* In case we got multiple process them all*/
-    for (i = 0; i < data_seq.length(); ++i) {
+
+    int dsLen = data_seq.length();
+    for (i = 0; i < dsLen; ++i) {
         if (info_seq[i].valid_data) {
-            /* Print the timestamp */
-            printf("Lidar data received %d::%d\n", data_seq[i].timestamp.s, data_seq[i].timestamp.ns);
+            printf("Received %d dds sample with %d points; t = %d.%d\n",
+                dsLen, 
+                data_seq[i].data_.length(),
+                data_seq[i].header_.stamp_.sec_,
+                data_seq[i].header_.stamp_.nanosec_
+            );
+            // sensor_msgs_msg_dds__PointCloud2_TypeSupport::print_data(&data_seq[i]);
+            
         }
     }
 
-    retcode = Lidar_LidarSensor_reader->return_loan(data_seq, info_seq);
+    retcode = sensor_msgs_msg_dds__PointCloud2__reader->return_loan(data_seq, info_seq);
     if (retcode != DDS_RETCODE_OK) {
-        printf("return loan error %d\n", retcode);
+        fprintf(stderr, "return loan error %d\n", retcode);
     }
 }
 
@@ -186,7 +190,7 @@ extern "C" int publisher_main(int sample_count)
     int domainId = 0;
     DDS_Duration_t send_period = {4,0};
     DDSSubscriber *subscriber = NULL;
-    Lidar_LidarSensorListener *lidar_listener = NULL;
+    sensor_msgs_msg_dds__PointCloud2_Listener *lidar_listener = NULL;
     Vision_VisionSensorListener *vision_listener = NULL;
     DDSDataReader *reader = NULL;
     Vision_VisionSensorDataReader *Vision_VisionSensor_reader = NULL;
@@ -359,8 +363,8 @@ extern "C" int publisher_main(int sample_count)
     }
 
     /* Register the Lidar data type */
-    type_name = Lidar_LidarSensorTypeSupport::get_type_name();
-    retcode = Lidar_LidarSensorTypeSupport::register_type(
+    type_name = sensor_msgs_msg_dds__PointCloud2_TypeSupport::get_type_name();
+    retcode = sensor_msgs_msg_dds__PointCloud2_TypeSupport::register_type(
         participant, type_name);
     if (retcode != DDS_RETCODE_OK) {
         printf("register_type error %d\n", retcode);
@@ -379,8 +383,8 @@ extern "C" int publisher_main(int sample_count)
         return -1;
     }
 
-    /* Create Lidarr listener */
-    lidar_listener = new Lidar_LidarSensorListener();
+    /* Create LiDAR listener */
+    lidar_listener = new sensor_msgs_msg_dds__PointCloud2_Listener();
 
     /* Create the lidar reader. The listener will handle the 
        received samples so no processing of lidar samples

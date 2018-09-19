@@ -31,9 +31,6 @@
     <ClInclude Include="..\src\Generated\automotivePlugin.h" />
     <ClInclude Include="..\src\Generated\automotiveSupport.h" />
   </ItemGroup>
-  <PropertyGroup Condition="'$(NDDSHOME)'==''" Label="RTI Connext Home">
-    <NddsHome>C:\Users\andre\RTI\rti_connext_dds-5.2.3\bin\..</NddsHome>
-  </PropertyGroup>
   <PropertyGroup Label="RTI Connext Path">
     <LocalDebuggerEnvironment>PATH=$(NDDSHOME)\lib\i86Win32VS2015</LocalDebuggerEnvironment>
   </PropertyGroup>

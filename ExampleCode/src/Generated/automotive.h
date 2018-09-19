@@ -9,8 +9,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef automotive_2097329646_h
-#define automotive_2097329646_h
+#ifndef automotive_2097331504_h
+#define automotive_2097331504_h
 
 #ifndef NDDS_STANDALONE_TYPE
 #ifndef ndds_cpp_h
@@ -56,7 +56,7 @@ class POSIXTimestamp
 
 NDDSUSERDllExport DDS_TypeCode* POSIXTimestamp_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(POSIXTimestampSeq, POSIXTimestamp);                                        
+DDS_SEQUENCE(POSIXTimestampSeq, POSIXTimestamp);
 
 NDDSUSERDllExport
 RTIBool POSIXTimestamp_initialize(
@@ -69,7 +69,7 @@ RTIBool POSIXTimestamp_initialize_ex(
 NDDSUSERDllExport
 RTIBool POSIXTimestamp_initialize_w_params(
     POSIXTimestamp* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void POSIXTimestamp_finalize(
@@ -115,7 +115,7 @@ typedef enum IndicatorStatusEnum
 
 NDDSUSERDllExport DDS_TypeCode* IndicatorStatusEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(IndicatorStatusEnumSeq, IndicatorStatusEnum);                                        
+DDS_SEQUENCE(IndicatorStatusEnumSeq, IndicatorStatusEnum);
 
 NDDSUSERDllExport
 RTIBool IndicatorStatusEnum_initialize(
@@ -128,7 +128,7 @@ RTIBool IndicatorStatusEnum_initialize_ex(
 NDDSUSERDllExport
 RTIBool IndicatorStatusEnum_initialize_w_params(
     IndicatorStatusEnum* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void IndicatorStatusEnum_finalize(
@@ -178,7 +178,7 @@ typedef enum ClassificationEnum
 
 NDDSUSERDllExport DDS_TypeCode* ClassificationEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(ClassificationEnumSeq, ClassificationEnum);                                        
+DDS_SEQUENCE(ClassificationEnumSeq, ClassificationEnum);
 
 NDDSUSERDllExport
 RTIBool ClassificationEnum_initialize(
@@ -191,7 +191,7 @@ RTIBool ClassificationEnum_initialize_ex(
 NDDSUSERDllExport
 RTIBool ClassificationEnum_initialize_w_params(
     ClassificationEnum* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void ClassificationEnum_finalize(
@@ -261,7 +261,7 @@ class Alerts_DriverAlerts
 
 NDDSUSERDllExport DDS_TypeCode* Alerts_DriverAlerts_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Alerts_DriverAlertsSeq, Alerts_DriverAlerts);                                        
+DDS_SEQUENCE(Alerts_DriverAlertsSeq, Alerts_DriverAlerts);
 
 NDDSUSERDllExport
 RTIBool Alerts_DriverAlerts_initialize(
@@ -274,7 +274,7 @@ RTIBool Alerts_DriverAlerts_initialize_ex(
 NDDSUSERDllExport
 RTIBool Alerts_DriverAlerts_initialize_w_params(
     Alerts_DriverAlerts* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Alerts_DriverAlerts_finalize(
@@ -320,7 +320,7 @@ typedef enum Lane_ConfidenceEnum
 
 NDDSUSERDllExport DDS_TypeCode* Lane_ConfidenceEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lane_ConfidenceEnumSeq, Lane_ConfidenceEnum);                                        
+DDS_SEQUENCE(Lane_ConfidenceEnumSeq, Lane_ConfidenceEnum);
 
 NDDSUSERDllExport
 RTIBool Lane_ConfidenceEnum_initialize(
@@ -333,7 +333,7 @@ RTIBool Lane_ConfidenceEnum_initialize_ex(
 NDDSUSERDllExport
 RTIBool Lane_ConfidenceEnum_initialize_w_params(
     Lane_ConfidenceEnum* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Lane_ConfidenceEnum_finalize(
@@ -384,7 +384,7 @@ typedef enum Lane_LaneBoundaryEnum
 
 NDDSUSERDllExport DDS_TypeCode* Lane_LaneBoundaryEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lane_LaneBoundaryEnumSeq, Lane_LaneBoundaryEnum);                                        
+DDS_SEQUENCE(Lane_LaneBoundaryEnumSeq, Lane_LaneBoundaryEnum);
 
 NDDSUSERDllExport
 RTIBool Lane_LaneBoundaryEnum_initialize(
@@ -397,7 +397,7 @@ RTIBool Lane_LaneBoundaryEnum_initialize_ex(
 NDDSUSERDllExport
 RTIBool Lane_LaneBoundaryEnum_initialize_w_params(
     Lane_LaneBoundaryEnum* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Lane_LaneBoundaryEnum_finalize(
@@ -427,6 +427,7 @@ RTIBool Lane_LaneBoundaryEnum_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Lane_LaneObjectTYPENAME;
@@ -467,7 +468,7 @@ class Lane_LaneObject
 
 NDDSUSERDllExport DDS_TypeCode* Lane_LaneObject_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lane_LaneObjectSeq, Lane_LaneObject);                                        
+DDS_SEQUENCE(Lane_LaneObjectSeq, Lane_LaneObject);
 
 NDDSUSERDllExport
 RTIBool Lane_LaneObject_initialize(
@@ -480,7 +481,7 @@ RTIBool Lane_LaneObject_initialize_ex(
 NDDSUSERDllExport
 RTIBool Lane_LaneObject_initialize_w_params(
     Lane_LaneObject* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Lane_LaneObject_finalize(
@@ -510,6 +511,7 @@ RTIBool Lane_LaneObject_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Lane_LaneSensorTYPENAME;
@@ -546,7 +548,7 @@ class Lane_LaneSensor
 
 NDDSUSERDllExport DDS_TypeCode* Lane_LaneSensor_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lane_LaneSensorSeq, Lane_LaneSensor);                                        
+DDS_SEQUENCE(Lane_LaneSensorSeq, Lane_LaneSensor);
 
 NDDSUSERDllExport
 RTIBool Lane_LaneSensor_initialize(
@@ -559,7 +561,7 @@ RTIBool Lane_LaneSensor_initialize_ex(
 NDDSUSERDllExport
 RTIBool Lane_LaneSensor_initialize_w_params(
     Lane_LaneSensor* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Lane_LaneSensor_finalize(
@@ -625,7 +627,7 @@ class Lidar_Point
 
 NDDSUSERDllExport DDS_TypeCode* Lidar_Point_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lidar_PointSeq, Lidar_Point);                                        
+DDS_SEQUENCE(Lidar_PointSeq, Lidar_Point);
 
 NDDSUSERDllExport
 RTIBool Lidar_Point_initialize(
@@ -638,7 +640,7 @@ RTIBool Lidar_Point_initialize_ex(
 NDDSUSERDllExport
 RTIBool Lidar_Point_initialize_w_params(
     Lidar_Point* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Lidar_Point_finalize(
@@ -668,6 +670,7 @@ RTIBool Lidar_Point_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Lidar_PCloudTYPENAME;
@@ -710,7 +713,7 @@ class Lidar_PCloud
 
 NDDSUSERDllExport DDS_TypeCode* Lidar_PCloud_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lidar_PCloudSeq, Lidar_PCloud);                                        
+DDS_SEQUENCE(Lidar_PCloudSeq, Lidar_PCloud);
 
 NDDSUSERDllExport
 RTIBool Lidar_PCloud_initialize(
@@ -723,7 +726,7 @@ RTIBool Lidar_PCloud_initialize_ex(
 NDDSUSERDllExport
 RTIBool Lidar_PCloud_initialize_w_params(
     Lidar_PCloud* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Lidar_PCloud_finalize(
@@ -753,6 +756,7 @@ RTIBool Lidar_PCloud_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Lidar_LidarSensorTYPENAME;
@@ -789,7 +793,7 @@ class Lidar_LidarSensor
 
 NDDSUSERDllExport DDS_TypeCode* Lidar_LidarSensor_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Lidar_LidarSensorSeq, Lidar_LidarSensor);                                        
+DDS_SEQUENCE(Lidar_LidarSensorSeq, Lidar_LidarSensor);
 
 NDDSUSERDllExport
 RTIBool Lidar_LidarSensor_initialize(
@@ -802,7 +806,7 @@ RTIBool Lidar_LidarSensor_initialize_ex(
 NDDSUSERDllExport
 RTIBool Lidar_LidarSensor_initialize_w_params(
     Lidar_LidarSensor* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Lidar_LidarSensor_finalize(
@@ -832,6 +836,7 @@ RTIBool Lidar_LidarSensor_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Platform_PlatformControlTYPENAME;
@@ -871,7 +876,7 @@ class Platform_PlatformControl
 
 NDDSUSERDllExport DDS_TypeCode* Platform_PlatformControl_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Platform_PlatformControlSeq, Platform_PlatformControl);                                        
+DDS_SEQUENCE(Platform_PlatformControlSeq, Platform_PlatformControl);
 
 NDDSUSERDllExport
 RTIBool Platform_PlatformControl_initialize(
@@ -884,7 +889,7 @@ RTIBool Platform_PlatformControl_initialize_ex(
 NDDSUSERDllExport
 RTIBool Platform_PlatformControl_initialize_w_params(
     Platform_PlatformControl* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Platform_PlatformControl_finalize(
@@ -914,6 +919,7 @@ RTIBool Platform_PlatformControl_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Platform_PlatformStatusTYPENAME;
@@ -955,7 +961,7 @@ class Platform_PlatformStatus
 
 NDDSUSERDllExport DDS_TypeCode* Platform_PlatformStatus_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Platform_PlatformStatusSeq, Platform_PlatformStatus);                                        
+DDS_SEQUENCE(Platform_PlatformStatusSeq, Platform_PlatformStatus);
 
 NDDSUSERDllExport
 RTIBool Platform_PlatformStatus_initialize(
@@ -968,7 +974,7 @@ RTIBool Platform_PlatformStatus_initialize_ex(
 NDDSUSERDllExport
 RTIBool Platform_PlatformStatus_initialize_w_params(
     Platform_PlatformStatus* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Platform_PlatformStatus_finalize(
@@ -1015,7 +1021,7 @@ typedef enum Sensor_RangeModeEnum
 
 NDDSUSERDllExport DDS_TypeCode* Sensor_RangeModeEnum_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Sensor_RangeModeEnumSeq, Sensor_RangeModeEnum);                                        
+DDS_SEQUENCE(Sensor_RangeModeEnumSeq, Sensor_RangeModeEnum);
 
 NDDSUSERDllExport
 RTIBool Sensor_RangeModeEnum_initialize(
@@ -1028,7 +1034,7 @@ RTIBool Sensor_RangeModeEnum_initialize_ex(
 NDDSUSERDllExport
 RTIBool Sensor_RangeModeEnum_initialize_w_params(
     Sensor_RangeModeEnum* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Sensor_RangeModeEnum_finalize(
@@ -1058,6 +1064,7 @@ RTIBool Sensor_RangeModeEnum_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Sensor_SensorObjectTYPENAME;
@@ -1099,7 +1106,7 @@ class Sensor_SensorObject
 
 NDDSUSERDllExport DDS_TypeCode* Sensor_SensorObject_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Sensor_SensorObjectSeq, Sensor_SensorObject);                                        
+DDS_SEQUENCE(Sensor_SensorObjectSeq, Sensor_SensorObject);
 
 NDDSUSERDllExport
 RTIBool Sensor_SensorObject_initialize(
@@ -1112,7 +1119,7 @@ RTIBool Sensor_SensorObject_initialize_ex(
 NDDSUSERDllExport
 RTIBool Sensor_SensorObject_initialize_w_params(
     Sensor_SensorObject* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Sensor_SensorObject_finalize(
@@ -1142,6 +1149,7 @@ RTIBool Sensor_SensorObject_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Sensor_SensorObjectListTYPENAME;
@@ -1178,7 +1186,7 @@ class Sensor_SensorObjectList
 
 NDDSUSERDllExport DDS_TypeCode* Sensor_SensorObjectList_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Sensor_SensorObjectListSeq, Sensor_SensorObjectList);                                        
+DDS_SEQUENCE(Sensor_SensorObjectListSeq, Sensor_SensorObjectList);
 
 NDDSUSERDllExport
 RTIBool Sensor_SensorObjectList_initialize(
@@ -1191,7 +1199,7 @@ RTIBool Sensor_SensorObjectList_initialize_ex(
 NDDSUSERDllExport
 RTIBool Sensor_SensorObjectList_initialize_w_params(
     Sensor_SensorObjectList* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Sensor_SensorObjectList_finalize(
@@ -1222,6 +1230,7 @@ RTIBool Sensor_SensorObjectList_copy(
 #define NDDSUSERDllExport
 #endif
 static const DDS_Long Vision_VISION_OBJECT_LIST_MAX_SIZE= 10;
+
 extern "C" {
 
     extern const char *Vision_VisionObjectTYPENAME;
@@ -1260,7 +1269,7 @@ class Vision_VisionObject
 
 NDDSUSERDllExport DDS_TypeCode* Vision_VisionObject_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Vision_VisionObjectSeq, Vision_VisionObject);                                        
+DDS_SEQUENCE(Vision_VisionObjectSeq, Vision_VisionObject);
 
 NDDSUSERDllExport
 RTIBool Vision_VisionObject_initialize(
@@ -1273,7 +1282,7 @@ RTIBool Vision_VisionObject_initialize_ex(
 NDDSUSERDllExport
 RTIBool Vision_VisionObject_initialize_w_params(
     Vision_VisionObject* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Vision_VisionObject_finalize(
@@ -1303,6 +1312,7 @@ RTIBool Vision_VisionObject_copy(
 #undef NDDSUSERDllExport
 #define NDDSUSERDllExport
 #endif
+
 extern "C" {
 
     extern const char *Vision_VisionSensorTYPENAME;
@@ -1340,7 +1350,7 @@ class Vision_VisionSensor
 
 NDDSUSERDllExport DDS_TypeCode* Vision_VisionSensor_get_typecode(void); /* Type code */
 
-DDS_SEQUENCE(Vision_VisionSensorSeq, Vision_VisionSensor);                                        
+DDS_SEQUENCE(Vision_VisionSensorSeq, Vision_VisionSensor);
 
 NDDSUSERDllExport
 RTIBool Vision_VisionSensor_initialize(
@@ -1353,7 +1363,7 @@ RTIBool Vision_VisionSensor_initialize_ex(
 NDDSUSERDllExport
 RTIBool Vision_VisionSensor_initialize_w_params(
     Vision_VisionSensor* self,
-    const struct DDS_TypeAllocationParams_t * allocParams);        
+    const struct DDS_TypeAllocationParams_t * allocParams);  
 
 NDDSUSERDllExport
 void Vision_VisionSensor_finalize(
@@ -1376,6 +1386,553 @@ NDDSUSERDllExport
 RTIBool Vision_VisionSensor_copy(
     Vision_VisionSensor* dst,
     const Vision_VisionSensor* src);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+extern "C" {
+
+    extern const char *builtin_interfaces_msg_dds__Time_TYPENAME;
+
+}
+
+struct builtin_interfaces_msg_dds__Time_Seq;
+#ifndef NDDS_STANDALONE_TYPE
+class builtin_interfaces_msg_dds__Time_TypeSupport;
+class builtin_interfaces_msg_dds__Time_DataWriter;
+class builtin_interfaces_msg_dds__Time_DataReader;
+#endif
+
+class builtin_interfaces_msg_dds__Time_ 
+{
+  public:
+    typedef struct builtin_interfaces_msg_dds__Time_Seq Seq;
+    #ifndef NDDS_STANDALONE_TYPE
+    typedef builtin_interfaces_msg_dds__Time_TypeSupport TypeSupport;
+    typedef builtin_interfaces_msg_dds__Time_DataWriter DataWriter;
+    typedef builtin_interfaces_msg_dds__Time_DataReader DataReader;
+    #endif
+
+    DDS_Long   sec_ ;
+    DDS_UnsignedLong   nanosec_ ;
+
+};
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+#endif
+
+NDDSUSERDllExport DDS_TypeCode* builtin_interfaces_msg_dds__Time__get_typecode(void); /* Type code */
+
+DDS_SEQUENCE(builtin_interfaces_msg_dds__Time_Seq, builtin_interfaces_msg_dds__Time_);
+
+NDDSUSERDllExport
+RTIBool builtin_interfaces_msg_dds__Time__initialize(
+    builtin_interfaces_msg_dds__Time_* self);
+
+NDDSUSERDllExport
+RTIBool builtin_interfaces_msg_dds__Time__initialize_ex(
+    builtin_interfaces_msg_dds__Time_* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool builtin_interfaces_msg_dds__Time__initialize_w_params(
+    builtin_interfaces_msg_dds__Time_* self,
+    const struct DDS_TypeAllocationParams_t * allocParams);  
+
+NDDSUSERDllExport
+void builtin_interfaces_msg_dds__Time__finalize(
+    builtin_interfaces_msg_dds__Time_* self);
+
+NDDSUSERDllExport
+void builtin_interfaces_msg_dds__Time__finalize_ex(
+    builtin_interfaces_msg_dds__Time_* self,RTIBool deletePointers);
+
+NDDSUSERDllExport
+void builtin_interfaces_msg_dds__Time__finalize_w_params(
+    builtin_interfaces_msg_dds__Time_* self,
+    const struct DDS_TypeDeallocationParams_t * deallocParams);
+
+NDDSUSERDllExport
+void builtin_interfaces_msg_dds__Time__finalize_optional_members(
+    builtin_interfaces_msg_dds__Time_* self, RTIBool deletePointers);  
+
+NDDSUSERDllExport
+RTIBool builtin_interfaces_msg_dds__Time__copy(
+    builtin_interfaces_msg_dds__Time_* dst,
+    const builtin_interfaces_msg_dds__Time_* src);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+
+extern "C" {
+
+    extern const char *std_msgs_msg_dds__Header_TYPENAME;
+
+}
+
+struct std_msgs_msg_dds__Header_Seq;
+#ifndef NDDS_STANDALONE_TYPE
+class std_msgs_msg_dds__Header_TypeSupport;
+class std_msgs_msg_dds__Header_DataWriter;
+class std_msgs_msg_dds__Header_DataReader;
+#endif
+
+class std_msgs_msg_dds__Header_ 
+{
+  public:
+    typedef struct std_msgs_msg_dds__Header_Seq Seq;
+    #ifndef NDDS_STANDALONE_TYPE
+    typedef std_msgs_msg_dds__Header_TypeSupport TypeSupport;
+    typedef std_msgs_msg_dds__Header_DataWriter DataWriter;
+    typedef std_msgs_msg_dds__Header_DataReader DataReader;
+    #endif
+
+    builtin_interfaces_msg_dds__Time_   stamp_ ;
+    DDS_Char *   frame_id_ ;
+
+};
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+#endif
+
+NDDSUSERDllExport DDS_TypeCode* std_msgs_msg_dds__Header__get_typecode(void); /* Type code */
+
+DDS_SEQUENCE(std_msgs_msg_dds__Header_Seq, std_msgs_msg_dds__Header_);
+
+NDDSUSERDllExport
+RTIBool std_msgs_msg_dds__Header__initialize(
+    std_msgs_msg_dds__Header_* self);
+
+NDDSUSERDllExport
+RTIBool std_msgs_msg_dds__Header__initialize_ex(
+    std_msgs_msg_dds__Header_* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool std_msgs_msg_dds__Header__initialize_w_params(
+    std_msgs_msg_dds__Header_* self,
+    const struct DDS_TypeAllocationParams_t * allocParams);  
+
+NDDSUSERDllExport
+void std_msgs_msg_dds__Header__finalize(
+    std_msgs_msg_dds__Header_* self);
+
+NDDSUSERDllExport
+void std_msgs_msg_dds__Header__finalize_ex(
+    std_msgs_msg_dds__Header_* self,RTIBool deletePointers);
+
+NDDSUSERDllExport
+void std_msgs_msg_dds__Header__finalize_w_params(
+    std_msgs_msg_dds__Header_* self,
+    const struct DDS_TypeDeallocationParams_t * deallocParams);
+
+NDDSUSERDllExport
+void std_msgs_msg_dds__Header__finalize_optional_members(
+    std_msgs_msg_dds__Header_* self, RTIBool deletePointers);  
+
+NDDSUSERDllExport
+RTIBool std_msgs_msg_dds__Header__copy(
+    std_msgs_msg_dds__Header_* dst,
+    const std_msgs_msg_dds__Header_* src);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+extern "C" {
+
+    extern const char *sensor_msgs_msg_dds__PointField_TYPENAME;
+
+}
+
+struct sensor_msgs_msg_dds__PointField_Seq;
+#ifndef NDDS_STANDALONE_TYPE
+class sensor_msgs_msg_dds__PointField_TypeSupport;
+class sensor_msgs_msg_dds__PointField_DataWriter;
+class sensor_msgs_msg_dds__PointField_DataReader;
+#endif
+
+class sensor_msgs_msg_dds__PointField_ 
+{
+  public:
+    typedef struct sensor_msgs_msg_dds__PointField_Seq Seq;
+    #ifndef NDDS_STANDALONE_TYPE
+    typedef sensor_msgs_msg_dds__PointField_TypeSupport TypeSupport;
+    typedef sensor_msgs_msg_dds__PointField_DataWriter DataWriter;
+    typedef sensor_msgs_msg_dds__PointField_DataReader DataReader;
+    #endif
+
+    DDS_Char *   name_ ;
+    DDS_UnsignedLong   offset_ ;
+    DDS_Octet   datatype_ ;
+    DDS_UnsignedLong   count_ ;
+
+};
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+#endif
+
+NDDSUSERDllExport DDS_TypeCode* sensor_msgs_msg_dds__PointField__get_typecode(void); /* Type code */
+
+DDS_SEQUENCE(sensor_msgs_msg_dds__PointField_Seq, sensor_msgs_msg_dds__PointField_);
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointField__initialize(
+    sensor_msgs_msg_dds__PointField_* self);
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointField__initialize_ex(
+    sensor_msgs_msg_dds__PointField_* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointField__initialize_w_params(
+    sensor_msgs_msg_dds__PointField_* self,
+    const struct DDS_TypeAllocationParams_t * allocParams);  
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointField__finalize(
+    sensor_msgs_msg_dds__PointField_* self);
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointField__finalize_ex(
+    sensor_msgs_msg_dds__PointField_* self,RTIBool deletePointers);
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointField__finalize_w_params(
+    sensor_msgs_msg_dds__PointField_* self,
+    const struct DDS_TypeDeallocationParams_t * deallocParams);
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointField__finalize_optional_members(
+    sensor_msgs_msg_dds__PointField_* self, RTIBool deletePointers);  
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointField__copy(
+    sensor_msgs_msg_dds__PointField_* dst,
+    const sensor_msgs_msg_dds__PointField_* src);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+
+extern "C" {
+
+    extern const char *sensor_msgs_msg_dds__PointCloud2_TYPENAME;
+
+}
+
+struct sensor_msgs_msg_dds__PointCloud2_Seq;
+#ifndef NDDS_STANDALONE_TYPE
+class sensor_msgs_msg_dds__PointCloud2_TypeSupport;
+class sensor_msgs_msg_dds__PointCloud2_DataWriter;
+class sensor_msgs_msg_dds__PointCloud2_DataReader;
+#endif
+
+class sensor_msgs_msg_dds__PointCloud2_ 
+{
+  public:
+    typedef struct sensor_msgs_msg_dds__PointCloud2_Seq Seq;
+    #ifndef NDDS_STANDALONE_TYPE
+    typedef sensor_msgs_msg_dds__PointCloud2_TypeSupport TypeSupport;
+    typedef sensor_msgs_msg_dds__PointCloud2_DataWriter DataWriter;
+    typedef sensor_msgs_msg_dds__PointCloud2_DataReader DataReader;
+    #endif
+
+    std_msgs_msg_dds__Header_   header_ ;
+    DDS_UnsignedLong   height_ ;
+    DDS_UnsignedLong   width_ ;
+    sensor_msgs_msg_dds__PointField_Seq  fields_ ;
+    DDS_Boolean   is_bigendian_ ;
+    DDS_UnsignedLong   point_step_ ;
+    DDS_UnsignedLong   row_step_ ;
+    DDS_OctetSeq  data_ ;
+    DDS_Boolean   is_dense_ ;
+
+};
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+#endif
+
+NDDSUSERDllExport DDS_TypeCode* sensor_msgs_msg_dds__PointCloud2__get_typecode(void); /* Type code */
+
+DDS_SEQUENCE(sensor_msgs_msg_dds__PointCloud2_Seq, sensor_msgs_msg_dds__PointCloud2_);
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointCloud2__initialize(
+    sensor_msgs_msg_dds__PointCloud2_* self);
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_ex(
+    sensor_msgs_msg_dds__PointCloud2_* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_w_params(
+    sensor_msgs_msg_dds__PointCloud2_* self,
+    const struct DDS_TypeAllocationParams_t * allocParams);  
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointCloud2__finalize(
+    sensor_msgs_msg_dds__PointCloud2_* self);
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointCloud2__finalize_ex(
+    sensor_msgs_msg_dds__PointCloud2_* self,RTIBool deletePointers);
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointCloud2__finalize_w_params(
+    sensor_msgs_msg_dds__PointCloud2_* self,
+    const struct DDS_TypeDeallocationParams_t * deallocParams);
+
+NDDSUSERDllExport
+void sensor_msgs_msg_dds__PointCloud2__finalize_optional_members(
+    sensor_msgs_msg_dds__PointCloud2_* self, RTIBool deletePointers);  
+
+NDDSUSERDllExport
+RTIBool sensor_msgs_msg_dds__PointCloud2__copy(
+    sensor_msgs_msg_dds__PointCloud2_* dst,
+    const sensor_msgs_msg_dds__PointCloud2_* src);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+typedef enum ShapeFillKind
+{
+    SOLID_FILL ,      
+    TRANSPARENT_FILL ,      
+    HORIZONTAL_HATCH_FILL ,      
+    VERTICAL_HATCH_FILL      
+} ShapeFillKind;
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+#endif
+
+NDDSUSERDllExport DDS_TypeCode* ShapeFillKind_get_typecode(void); /* Type code */
+
+DDS_SEQUENCE(ShapeFillKindSeq, ShapeFillKind);
+
+NDDSUSERDllExport
+RTIBool ShapeFillKind_initialize(
+    ShapeFillKind* self);
+
+NDDSUSERDllExport
+RTIBool ShapeFillKind_initialize_ex(
+    ShapeFillKind* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool ShapeFillKind_initialize_w_params(
+    ShapeFillKind* self,
+    const struct DDS_TypeAllocationParams_t * allocParams);  
+
+NDDSUSERDllExport
+void ShapeFillKind_finalize(
+    ShapeFillKind* self);
+
+NDDSUSERDllExport
+void ShapeFillKind_finalize_ex(
+    ShapeFillKind* self,RTIBool deletePointers);
+
+NDDSUSERDllExport
+void ShapeFillKind_finalize_w_params(
+    ShapeFillKind* self,
+    const struct DDS_TypeDeallocationParams_t * deallocParams);
+
+NDDSUSERDllExport
+void ShapeFillKind_finalize_optional_members(
+    ShapeFillKind* self, RTIBool deletePointers);  
+
+NDDSUSERDllExport
+RTIBool ShapeFillKind_copy(
+    ShapeFillKind* dst,
+    const ShapeFillKind* src);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+extern "C" {
+
+    extern const char *ShapeTypeTYPENAME;
+
+}
+
+struct ShapeTypeSeq;
+#ifndef NDDS_STANDALONE_TYPE
+class ShapeTypeTypeSupport;
+class ShapeTypeDataWriter;
+class ShapeTypeDataReader;
+#endif
+
+class ShapeType 
+{
+  public:
+    typedef struct ShapeTypeSeq Seq;
+    #ifndef NDDS_STANDALONE_TYPE
+    typedef ShapeTypeTypeSupport TypeSupport;
+    typedef ShapeTypeDataWriter DataWriter;
+    typedef ShapeTypeDataReader DataReader;
+    #endif
+
+    DDS_Char *   color ;
+    DDS_Long   x ;
+    DDS_Long   y ;
+    DDS_Long   shapesize ;
+
+};
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+#endif
+
+NDDSUSERDllExport DDS_TypeCode* ShapeType_get_typecode(void); /* Type code */
+
+DDS_SEQUENCE(ShapeTypeSeq, ShapeType);
+
+NDDSUSERDllExport
+RTIBool ShapeType_initialize(
+    ShapeType* self);
+
+NDDSUSERDllExport
+RTIBool ShapeType_initialize_ex(
+    ShapeType* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool ShapeType_initialize_w_params(
+    ShapeType* self,
+    const struct DDS_TypeAllocationParams_t * allocParams);  
+
+NDDSUSERDllExport
+void ShapeType_finalize(
+    ShapeType* self);
+
+NDDSUSERDllExport
+void ShapeType_finalize_ex(
+    ShapeType* self,RTIBool deletePointers);
+
+NDDSUSERDllExport
+void ShapeType_finalize_w_params(
+    ShapeType* self,
+    const struct DDS_TypeDeallocationParams_t * deallocParams);
+
+NDDSUSERDllExport
+void ShapeType_finalize_optional_members(
+    ShapeType* self, RTIBool deletePointers);  
+
+NDDSUSERDllExport
+RTIBool ShapeType_copy(
+    ShapeType* dst,
+    const ShapeType* src);
+
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, stop exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport
+#endif
+
+extern "C" {
+
+    extern const char *ShapeTypeExtendedTYPENAME;
+
+}
+
+struct ShapeTypeExtendedSeq;
+#ifndef NDDS_STANDALONE_TYPE
+class ShapeTypeExtendedTypeSupport;
+class ShapeTypeExtendedDataWriter;
+class ShapeTypeExtendedDataReader;
+#endif
+
+class ShapeTypeExtended 
+: public ShapeType{
+  public:
+    typedef struct ShapeTypeExtendedSeq Seq;
+    #ifndef NDDS_STANDALONE_TYPE
+    typedef ShapeTypeExtendedTypeSupport TypeSupport;
+    typedef ShapeTypeExtendedDataWriter DataWriter;
+    typedef ShapeTypeExtendedDataReader DataReader;
+    #endif
+
+    ShapeFillKind   fillKind ;
+    DDS_Float   angle ;
+
+};
+#if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
+/* If the code is building on Windows, start exporting symbols.
+*/
+#undef NDDSUSERDllExport
+#define NDDSUSERDllExport __declspec(dllexport)
+#endif
+
+NDDSUSERDllExport DDS_TypeCode* ShapeTypeExtended_get_typecode(void); /* Type code */
+
+DDS_SEQUENCE(ShapeTypeExtendedSeq, ShapeTypeExtended);
+
+NDDSUSERDllExport
+RTIBool ShapeTypeExtended_initialize(
+    ShapeTypeExtended* self);
+
+NDDSUSERDllExport
+RTIBool ShapeTypeExtended_initialize_ex(
+    ShapeTypeExtended* self,RTIBool allocatePointers,RTIBool allocateMemory);
+
+NDDSUSERDllExport
+RTIBool ShapeTypeExtended_initialize_w_params(
+    ShapeTypeExtended* self,
+    const struct DDS_TypeAllocationParams_t * allocParams);  
+
+NDDSUSERDllExport
+void ShapeTypeExtended_finalize(
+    ShapeTypeExtended* self);
+
+NDDSUSERDllExport
+void ShapeTypeExtended_finalize_ex(
+    ShapeTypeExtended* self,RTIBool deletePointers);
+
+NDDSUSERDllExport
+void ShapeTypeExtended_finalize_w_params(
+    ShapeTypeExtended* self,
+    const struct DDS_TypeDeallocationParams_t * deallocParams);
+
+NDDSUSERDllExport
+void ShapeTypeExtended_finalize_optional_members(
+    ShapeTypeExtended* self, RTIBool deletePointers);  
+
+NDDSUSERDllExport
+RTIBool ShapeTypeExtended_copy(
+    ShapeTypeExtended* dst,
+    const ShapeTypeExtended* src);
 
 #if (defined(RTI_WIN32) || defined (RTI_WINCE)) && defined(NDDS_USER_DLL_EXPORT)
 /* If the code is building on Windows, stop exporting symbols.

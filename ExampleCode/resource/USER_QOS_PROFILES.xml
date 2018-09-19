@@ -36,9 +36,10 @@ RTI Connext user manual.
       <!-- QoS profiles used by the different applications of the autonotive Case + Code.
            A QoS profile groups a set of related QoS.
       -->
-    <qos_profile name="Lidar_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+    <!-- qos_profile name="Lidar_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false"-->
+    <qos_profile name="Lidar_Profile" base_name="BuiltinQosLibExp::Generic.StrictReliable" is_default_qos="false">
       <!-- QoS used to configure the LiDAR data writer created in the example code 
-           The data is periodic so it will be sent best effort. A deadline has been added
+           The data is periodic; best effort is typical QoS. A deadline has been added
            to make sure that an error is reported when no data is received for a certain time.
            LiDAR data is huge and therefore requires an asynchronous publisher -->                
       <datawriter_qos>
