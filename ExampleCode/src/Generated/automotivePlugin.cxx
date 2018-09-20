@@ -20830,7 +20830,7 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_serialize(
                 stream,
                 DDS_OctetSeq_get_contiguous_bufferI(&sample->data_),
                 DDS_OctetSeq_get_length(&sample->data_),
-                (129600),
+                (368640),
                 RTI_CDR_OCTET_TYPE)) {
                 return RTI_FALSE;
             } 
@@ -20839,7 +20839,7 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_serialize(
                 stream,
                 (const void **) DDS_OctetSeq_get_discontiguous_bufferI(&sample->data_),
                 DDS_OctetSeq_get_length(&sample->data_),
-                (129600), 
+                (368640), 
                 RTI_CDR_OCTET_TYPE)) {
                 return RTI_FALSE;
             } 
@@ -21321,7 +21321,7 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_get_serialized_sample_max_size_ex(
         current_alignment);
 
     current_alignment +=RTICdrType_getPrimitiveSequenceMaxSizeSerialized(
-        current_alignment,(129600),RTI_CDR_OCTET_TYPE) ;
+        current_alignment,(368640),RTI_CDR_OCTET_TYPE) ;
 
     current_alignment +=RTICdrType_getBooleanMaxSizeSerialized(
         current_alignment);

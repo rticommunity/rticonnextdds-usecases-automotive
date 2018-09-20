@@ -235,7 +235,7 @@ module sensor_msgs {
                 boolean is_bigendian_;
                 unsigned long point_step_;
                 unsigned long row_step_;
-                sequence <octet, 129600> data_;
+                sequence <octet, 368640> data_;
                 boolean is_dense_;
             };
         }; // end of 'dds_' module

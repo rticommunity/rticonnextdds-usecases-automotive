@@ -6119,7 +6119,7 @@ DDS_TypeCode* sensor_msgs_msg_dds__PointCloud2__get_typecode()
     static RTIBool is_initialized = RTI_FALSE;
 
     static DDS_TypeCode sensor_msgs_msg_dds__PointCloud2__g_tc_fields__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((4),NULL);
-    static DDS_TypeCode sensor_msgs_msg_dds__PointCloud2__g_tc_data__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((129600),NULL);
+    static DDS_TypeCode sensor_msgs_msg_dds__PointCloud2__g_tc_data__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((368640),NULL);
     static DDS_TypeCode_Member sensor_msgs_msg_dds__PointCloud2__g_tc_members[9]=
     {
 
@@ -6394,8 +6394,8 @@ RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_w_params(
 
     if (allocParams->allocate_memory) {
         DDS_OctetSeq_initialize(&sample->data_  );
-        DDS_OctetSeq_set_absolute_maximum(&sample->data_ , (129600));
-        if (!DDS_OctetSeq_set_maximum(&sample->data_ , (129600))) {
+        DDS_OctetSeq_set_absolute_maximum(&sample->data_ , (368640));
+        if (!DDS_OctetSeq_set_maximum(&sample->data_ , (368640))) {
             return RTI_FALSE;
         }
     } else { 

@@ -8,15 +8,18 @@ related to an automotive system.
 
 The six applications are:
 
-1. LIDAR (Lidar)
-  - Sends LIDAR data.
-  - This application generates periodic random data. The sample size
-    of the data is 360kB.  
-  - The LIDAR sends high amounts of data at a high data rate.
+1. LiDAR (Lidar)
+  - Sends LiDAR point clouds at a high data rate.
+  - This application generates periodic ray-casted LiDAR data from a point observer.
+  - Scan is configurable for range & resolution by editing lidar.properties file.
+   - Default is full-circle, 180 columns by 64 rows.  184kB per sample.
+  - If an `RTI Shapes Demo` is publishing `Circle` data on the same domain, these will be rendered in the LiDAR data.
+   - A Yellow circle will control the LiDAR observer position.
+  - The LiDAR data can be 3D visualized using RViz2.
 2. Vision Sensor (Vision)
   - Sends vision sensor data.
   - The vision sensor sends a smaller amount of data (a few hundred bytes) at
-    a lower rate than the LIDAR.
+    a lower rate than the LiDAR.
   - Sensor data is read from a file and can be modified to publish different
     data.
 3. Vehicle Platform (Vehicle_Platform)
