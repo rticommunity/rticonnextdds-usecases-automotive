@@ -79,11 +79,11 @@ required libraries.
 To build the applications on a Linux system, change directories to the
 ExampleCode directory and use the command:
 
-    make -f make/Makefile_x64Linux3gcc4.8.2
+    make -f make/Makefile_x64Linux3gcc5.4.0
 
 The platform you choose will be the combination of your processor, OS, and
-compiler version.  Right now this example supports x64Linux3gcc4.8.2, with
-an example makefile for x64Linux3gcc5.4.0
+compiler version.  Right now this example supports x64Linux3gcc5.4.0, with
+an example makefile for x64Linux3gcc4.8.2
 
 ## How to Run the Example
 On Windows systems, navigate to the EXAMPLE_HOME\ExampleCode\scripts directory
@@ -95,3 +95,4 @@ On Linux systems, navigate to the EXAMPLE_HOME/ExampleCode/scripts directory
 and run:
 
     ./launch.sh
+
