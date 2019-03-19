@@ -98,7 +98,7 @@ module Lidar {
     };
 
     struct PCloud {
-        sequence <Point, MAX_POINTS> Location; 
+        sequence <Point, MAX_POINTS> Location;
         octet color;
         float normal;
         float intensity;
@@ -112,11 +112,10 @@ module Lidar {
         POSIXTimestamp timestamp;
         PCloud ptCloud;
     };
-
 };
 
-module Platform {
 
+module Platform {
 
     struct PlatformControl {
         // sample ID : counter that represents the instance of the data sent.
@@ -191,7 +190,7 @@ module Vision {
 
 };
 
-// [neil] added for ROS-compatible LiDAR support
+// added for ROS2-compatible LiDAR and image support
 module builtin_interfaces {
     module msg {
         module dds_ {
@@ -262,4 +261,22 @@ struct ShapeTypeExtended : ShapeType {
     ShapeFillKind fillKind;
     float angle;
 };//@Extensibility EXTENSIBLE_EXTENSIBILITY 
+
+
+const long MAX_IMAGE_SIZE = (1366 * 768 * 4);
+module CameraImage {
+    // uncomment next 2 lines to enable FlatData
+    // @mutable
+    // @language_binding(FLAT_DATA)
+    
+    // uncomment next line to enable ZeroCopy
+    // @transfer_mode(SHMEM_REF) 
+    struct CameraImageData {
+        unsigned long id;   //@key
+        long sec_;
+        unsigned long nanosec_;
+        unsigned long seqnum;
+        octet data[MAX_IMAGE_SIZE];
+    };
+};
 
