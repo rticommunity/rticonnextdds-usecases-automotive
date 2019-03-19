@@ -1,14 +1,21 @@
 /** ------------------------------------------------------------------------
  * CameraImageData_publisher.cxx
- * Publishes fixed-frame data arrays of type "CameraImageData" defined in 
+ * Publishes fixed-frame data arrays of type "CameraImageData" defined in
  * automotive.idl file, with options for "Flat Data" and/or "Zero Copy"
  * optimizations to be included.
+ * Parameters (such as publish rate) are set in camera_image.properties file.
  *
  * The data is generated from an LFSR function, with optional verification
  * at the receiving end.   Timestamps are included to measure the transit
  * times of each optimization mode.
  *
- * (c) 2005-2019 Copyright, Real-Time Innovations, Inc.  All rights reserved.    	                             
+ * TO USE THE DIFFERENT OPTIMIZATION MODES(FlatData, ZeroCopy, or both)
+ *  1. Uncomment the required #define DDS_LARGE_DATA_*
+ *     (in this file (below) and in the complementary subscriber.cxx file)
+ *  2. Uncomment the supporting lines in the automotive.idl file.
+ *  3. Rebuild all.
+ *
+ * (c) 2005-2019 Copyright, Real-Time Innovations, Inc.  All rights reserved.
  * RTI grants Licensee a license to use, modify, compile, and create derivative
  * works of the Software.  Licensee has the right to distribute object form
  * only for use with RTI products.  The Software is provided 'as is', with no
@@ -28,34 +35,42 @@
 #include "ndds/ndds_cpp.h"
 
 #ifdef _WIN32
-#include <Windows.h>
+#include <Windows.h>    // for timestamp/timing
+#else   // Linux
+#include <time.h>       // for timestamp/timing
 #endif  // def _WIN32
 
-// uncomment one|other|both|neither of the following for FLAT_DATA | ZERO_COPY | FLAT and ZERO | (standard DDS) speedup
-// #define DDS_LARGE_DATA_FLAT_DATA
-// #define DDS_LARGE_DATA_ZERO_COPY
+/* uncomment one|other|both|neither of the following for
+   FLAT_DATA | ZERO_COPY | FLAT and ZERO | (standard DDS) speed optimizations */
+//#define DDS_LARGE_DATA_FLAT_DATA
+//#define DDS_LARGE_DATA_ZERO_COPY
 
 // seed for LFSR used for striping the data array
 #define LFSR_SEED   (0x55555555)
-
+uint32_t ddsId = 1;
 uint32_t lfsr = LFSR_SEED;
 uint32_t seqNum = 1;
 
 
 #ifdef _WIN32
-#define  TICKS_PER_DAY ((uint64_t)864000000000)         // 100nS resolution
 uint64_t UtcNowPrecise()
 {
     const uint64_t OA_ZERO_TICKS = 94353120000000000; //12/30/1899 12:00am in ticks
-    // const uint64_t TICKS_PER_DAY = 864000000000;      //ticks per day
-
     FILETIME ft;
     GetSystemTimePreciseAsFileTime(&ft);
-
     ULARGE_INTEGER dt; //needed to avoid alignment faults
     dt.LowPart = ft.dwLowDateTime;
     dt.HighPart = ft.dwHighDateTime;
-    return dt.QuadPart - OA_ZERO_TICKS;
+    return ((uint64_t)(dt.QuadPart - OA_ZERO_TICKS) * 100);
+}
+#else
+// Returns time in nanoSeconds
+uint64_t UtcNowPrecise()
+{
+    timespec tsNow;
+    clock_gettime(CLOCK_MONOTONIC, &tsNow);
+    uint64_t tNow = ((uint64_t)tsNow.tv_sec * 1000000000) + tsNow.tv_nsec;
+    return tNow;
 }
 #endif  // def _WIN32
 
@@ -107,7 +122,7 @@ static int publisher_shutdown(
 bool build_data_sample(CameraImage_CameraImageDataBuilder& builder)
 {
     // Build the CameraImage_CameraImageData data sample
-    builder.add_id(LFSR_SEED);
+    builder.add_id(ddsId);
     builder.add_seqnum(seqNum++);
     auto data_offset = builder.add_data();
     auto data_array = rti::flat::plain_cast(data_offset);
@@ -117,8 +132,8 @@ bool build_data_sample(CameraImage_CameraImageDataBuilder& builder)
         lfsr = (lfsr >> 1) ^ (-(lfsr & 1u) & 0xD0000001u);
     }
     uint64_t tNow = UtcNowPrecise();
-    builder.add_sec_(tNow / 10000000);
-    builder.add_nanosec_(tNow % 10000000);
+    builder.add_sec_(tNow / 1000000000);
+    builder.add_nanosec_(tNow % 1000000000);
     return true;
 }
 #endif 	// DDS_LARGE_DATA_FLAT_DATA
@@ -139,7 +154,7 @@ extern "C" int publisher_main(int sample_count)
     DDS_InstanceHandle_t instance_handle = DDS_HANDLE_NIL;
     const char *type_name = NULL;
     int domainId = 0;
-    int count = 0;  
+    int count = 0;
     DDS_Duration_t send_period = {4,0};
 
     /* Get the configurtion properties from the camera_image.properties file */
@@ -152,25 +167,30 @@ extern "C" int publisher_main(int sample_count)
     }
 
     domainId = prop->getLongProperty("config.domainId");
+    ddsId    = (uint32_t) prop->getLongProperty("config.ddsId");
+    if(ddsId == 0) ddsId = 404;
+
     std::string topicName = prop->getStringProperty("topic.Sensor");
     if (topicName == "") {
         printf("No topic name specified (%s:%d)\n", __FILE__, __LINE__);
         return -1;
     }
-
     std::string qosLibrary = prop->getStringProperty("qos.Library");
     if (qosLibrary == "") {
         printf("No QoS Library specified (%s:%d)\n", __FILE__, __LINE__);
         return -1;
     }
+#ifdef DDS_LARGE_DATA_FLAT_DATA
+    std::string qosProfile = prop->getStringProperty("qos.XCDR2Profile");
+#else
     std::string qosProfile = prop->getStringProperty("qos.Profile");
+#endif
     if (qosProfile == "") {
         printf("No QoS Profile specified (%s:%d)\n", __FILE__, __LINE__);
         return -1;
     }
 
     /* To customize participant QoS, use the configuration file USER_QOS_PROFILES.xml */
-
     // create participant
     participant = DDSTheParticipantFactory->create_participant_with_profile(
         domainId, qosLibrary.c_str(), qosProfile.c_str(),
@@ -237,7 +257,7 @@ extern "C" int publisher_main(int sample_count)
     }
 
     // CameraImageData type uses a @key; init and register it here
-    instance->id = lfsr;
+    instance->id = ddsId;
     instance_handle = CameraImage_CameraImageData_writer->register_instance(*instance);
 
 #endif	// ndef DDS_LARGE_DATA_ZERO_COPY
@@ -266,7 +286,7 @@ extern "C" int publisher_main(int sample_count)
         if (instance == NULL) {
             printf("finish_sample() error(%s:%d)\n", __FILE__, __LINE__);
             publisher_shutdown(participant);
-            return -1;            
+            return -1;
         }
 #endif 	// def DDS_LARGE_DATA_FLAT_DATA
 #ifdef DDS_LARGE_DATA_ZERO_COPY
@@ -293,8 +313,8 @@ extern "C" int publisher_main(int sample_count)
         }
         instance->seqnum = seqNum++;
         uint64_t tNow = UtcNowPrecise();
-        instance->sec_ = (tNow / 10000000);
-        instance->nanosec_ = (tNow % 10000000);
+        instance->sec_ = (tNow / 1000000000);
+        instance->nanosec_ = (tNow % 1000000000);
         //printf("tNow: %llu = %u.%u\n", tNow, instance->sec_, instance->nanosec_);
 
 
@@ -332,19 +352,15 @@ extern "C" int publisher_main(int sample_count)
 
 int main(int argc, char *argv[])
 {
-    int domain_id = 0;
     int sample_count = 0; /* infinite loop */
 
     if (argc >= 2) {
-        domain_id = atoi(argv[1]);
-    }
-    if (argc >= 3) {
-        sample_count = atoi(argv[2]);
+        sample_count = atoi(argv[1]);
     }
 
     /* Uncomment this to turn on additional logging
     NDDSConfigLogger::get_instance()->
-    set_verbosity_by_category(NDDS_CONFIG_LOG_CATEGORY_API, 
+    set_verbosity_by_category(NDDS_CONFIG_LOG_CATEGORY_API,
     NDDS_CONFIG_LOG_VERBOSITY_STATUS_ALL);
     */
 

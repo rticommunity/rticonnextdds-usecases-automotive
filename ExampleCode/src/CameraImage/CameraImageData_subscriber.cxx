@@ -1,7 +1,7 @@
 /** ------------------------------------------------------------------------
  * CameraImageData_subscriber.cxx
- * Subscribes to fixed-frame data arrays of type "CameraImageData" defined in 
- * automotive.idl file, with options for "Flat Data" optimizations to be 
+ * Subscribes to fixed-frame data arrays of type "CameraImageData" defined in
+ * automotive.idl file, with options for "Flat Data" optimizations to be
  * included (note: "Zero Copy" optimizations do not require changes in this file.
  *
  * The data is generated from an LFSR function in the publisher, and can optionally
@@ -9,7 +9,13 @@
  * published packets, these are used here in the subscriber to measure the transit
  * times of each optimization mode.
  *
- * (c) 2005-2019 Copyright, Real-Time Innovations, Inc.  All rights reserved.    	                             
+ * TO USE THE DIFFERENT OPTIMIZATION MODES(FlatData, ZeroCopy, or both)
+ *  1. Uncomment the required #define DDS_LARGE_DATA_*
+ *     (in this file (below) and in the complementary publisher.cxx file)
+ *  2. Uncomment the supporting lines in the automotive.idl file.
+ *  3. Rebuild all.
+ *
+ * (c) 2005-2019 Copyright, Real-Time Innovations, Inc.  All rights reserved.
  * RTI grants Licensee a license to use, modify, compile, and create derivative
  * works of the Software.  Licensee has the right to distribute object form
  * only for use with RTI products.  The Software is provided 'as is', with no
@@ -20,10 +26,8 @@
  **/
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "dataObject.h"
 #include "Utils.h"
-
 #include "automotive.h"
 #include "automotiveSupport.h"
 #include "ndds/ndds_cpp.h"
@@ -33,22 +37,28 @@
 #endif  // def _WIN32
 
 // uncomment if using FLAT_DATA
-// #define DDS_LARGE_DATA_FLAT_DATA
+//#define DDS_LARGE_DATA_FLAT_DATA
 
 #ifdef _WIN32
-#define  TICKS_PER_DAY ((uint64_t)864000000000)         // 100nS resolution
+// returns time in nanoSeconds
 uint64_t UtcNowPrecise()
 {
     const uint64_t OA_ZERO_TICKS = 94353120000000000; //12/30/1899 12:00am in ticks
-    // const uint64_t TICKS_PER_DAY = 864000000000;      //ticks per day
-
     FILETIME ft;
     GetSystemTimePreciseAsFileTime(&ft);
-
     ULARGE_INTEGER dt; //needed to avoid alignment faults
     dt.LowPart = ft.dwLowDateTime;
     dt.HighPart = ft.dwHighDateTime;
-    return dt.QuadPart - OA_ZERO_TICKS;
+    return ((uint64_t)(dt.QuadPart - OA_ZERO_TICKS) * 100);
+}
+#else
+// Returns time in nanoSeconds
+uint64_t UtcNowPrecise()
+{
+    timespec tsNow;
+    clock_gettime(CLOCK_MONOTONIC, &tsNow);
+    uint64_t tNow = ((uint64_t)tsNow.tv_sec * 1000000000) + tsNow.tv_nsec;
+    return tNow;
 }
 #endif  // def _WIN32
 
@@ -101,18 +111,19 @@ void calcAndPrintTransitTime(uint64_t tSend, uint64_t tReceive)
         tMax = tDelta;
     tSum += tDelta;
     tSampleCount++;
-    printf("tNow: %2.7f tMin: %2.7f tMax: %2.7f, tAvg: %2.7f Samples[%u] size:%u\n",
-        ((double)tDelta / 10000000),
-        ((double)tMin / 10000000),
-        ((double)tMax / 10000000),
-        (((double)tSum / tSampleCount) / 10000000), tSampleCount,
-        MAX_IMAGE_SIZE);
+    double tAvg = (((double)tSum / tSampleCount) / 1000000000);
+    fprintf(stdout, "tNow: %2.7f tMin: %2.7f tMax: %2.7f, tAvg: %2.7f N:%u size:%u (%3.3f MB/s avg)\n",
+        ((double)tDelta / 1000000000),
+        ((double)tMin / 1000000000),
+        ((double)tMax / 1000000000),
+        tAvg, tSampleCount, MAX_IMAGE_SIZE,
+        ((double)MAX_IMAGE_SIZE / tAvg) / 1000000);
     return;
 }
 
 /** ----------------------------------------------------------------
  * checkLfsrDataInArray()
- * Check the u32 data in array for correct LFSR sequence, based on 
+ * Check the u32 data in array for correct LFSR sequence, based on
  * value in position [0].  Scan until MAX_IMAGE_SIZE
  * returns true if no error
  **/
@@ -123,7 +134,7 @@ bool checkLfsrDataInArray(uint32_t *lfsrArray)
         lfsrArray++;
         lfsr = (lfsr >> 1) ^ (-(lfsr & 1u) & 0xD0000001u);
         if (lfsr != *lfsrArray) {
-            printf("Image data received != sent [%08x != %08x] at %s:%d\n", *lfsrArray, lfsr, __FILE__, __LINE__);
+            fprintf(stderr, "Image data received != sent [%08x != %08x] at %s:%d\n", *lfsrArray, lfsr, __FILE__, __LINE__);
             return false;
         }
     }
@@ -165,11 +176,11 @@ void CameraImage_CameraImageDataListener::on_data_available(DDSDataReader* reade
             uint64_t tReceive = UtcNowPrecise();
 
 #ifdef DDS_LARGE_DATA_FLAT_DATA
-            // get the root to the Flat Data sample            
+            // get the root to the Flat Data sample
             CameraImage_CameraImageDataOffset sample_root = data_seq[i].root();
 
             // get the send-timestamp value from the received packet
-            uint64_t tSend = (((uint64_t)sample_root.sec_()) * 10000000) + sample_root.nanosec_();
+            uint64_t tSend = (((uint64_t)sample_root.sec_()) * 1000000000) + sample_root.nanosec_();
 
             // verify the contents of the received data (optional)
             auto data_array = rti::flat::plain_cast(sample_root.data());
@@ -178,7 +189,7 @@ void CameraImage_CameraImageDataListener::on_data_available(DDSDataReader* reade
 
 #else  // ndef DDS_LARGE_DATA_FLAT_DATA
             // get the send-timestamp value from the received packet
-            uint64_t tSend = (((uint64_t)data_seq[i].sec_) * 10000000) + data_seq[i].nanosec_;
+            uint64_t tSend = (((uint64_t)data_seq[i].sec_) * 1000000000) + data_seq[i].nanosec_;
 
             // verify the contents of the received data (optional)
             uint32_t *rcvBuffer = (uint32_t *) &data_seq[i].data[0];
@@ -240,7 +251,7 @@ static int subscriber_shutdown(
     DDSDomainParticipant *participant = NULL;
     DDSSubscriber *subscriber = NULL;
     DDSTopic *topic = NULL;
-    CameraImage_CameraImageDataListener *reader_listener = NULL; 
+    CameraImage_CameraImageDataListener *reader_listener = NULL;
     DDSDataReader *reader = NULL;
     DDS_ReturnCode_t retcode;
     const char *type_name = NULL;
@@ -253,22 +264,28 @@ static int subscriber_shutdown(
     PropertyUtil* prop = new PropertyUtil("camera_image.properties");
 
     long time = prop->getLongProperty("config.pubInterval");
-    receive_period.sec = time / 1000;
-    receive_period.nanosec = (time % 1000) * 1000 * 1000;
+    if(time) {
+        receive_period.sec = time / 1000;
+        receive_period.nanosec = (time % 1000) * 1000 * 1000;
+    }
 
     domainId = prop->getLongProperty("config.domainId");
+
     std::string topicName = prop->getStringProperty("topic.Sensor");
     if (topicName == "") {
         printf("No topic name specified (%s:%d)\n", __FILE__, __LINE__);
         return -1;
     }
-
     std::string qosLibrary = prop->getStringProperty("qos.Library");
     if (qosLibrary == "") {
         printf("No QoS Library specified (%s:%d)\n", __FILE__, __LINE__);
         return -1;
     }
+#ifdef DDS_LARGE_DATA_FLAT_DATA
+    std::string qosProfile = prop->getStringProperty("qos.XCDR2Profile");
+#else
     std::string qosProfile = prop->getStringProperty("qos.Profile");
+#endif  // def DDS_LARGE_DATA_FLAT_DATA
     if (qosProfile == "") {
         printf("No QoS Profile specified (%s:%d)\n", __FILE__, __LINE__);
         return -1;
@@ -327,13 +344,9 @@ static int subscriber_shutdown(
         return -1;
     }
 
-
     printf("Start Receiving\n");
     /* Main loop */
     for (count=0; (sample_count == 0) || (count < sample_count); ++count) {
-
-        // printf("CameraImage_CameraImageData subscriber sleeping for %d sec...\n", receive_period.sec);
-
         NDDSUtility::sleep(receive_period);
     }
 
@@ -354,7 +367,7 @@ int main(int argc, char *argv[])
 
     /* Uncomment this to turn on additional logging
     NDDSConfigLogger::get_instance()->
-    set_verbosity_by_category(NDDS_CONFIG_LOG_CATEGORY_API, 
+    set_verbosity_by_category(NDDS_CONFIG_LOG_CATEGORY_API,
     NDDS_CONFIG_LOG_VERBOSITY_STATUS_ALL);
     */
 

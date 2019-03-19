@@ -401,21 +401,23 @@ RTI Connext user manual.
         </subscription_name>
       </datareader_qos>
     </qos_profile>
-    
+
+<!--
+    <qos_profile name="CameraXCDR2_Profile"
+                     base_name="BuiltinQosLibExp::Generic.StrictReliable.LargeData" is_default_qos="false">
+-->
     <qos_profile name="CameraXCDR2_Profile" 
-                     base_name="BuiltinQosLibExp::Generic.StrictReliable.LargeData" is_default_qos="true">
+                     base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
             <datawriter_qos>
                 <durability>
                     <kind>VOLATILE_DURABILITY_QOS</kind>
                 </durability>
-
                 <!-- Use XCDR2 format always, even for plain DataWriters so
                      that they can communicate with flat-data DataReaders, which
                      only support XCDR2 -->
                 <representation>
                     <value><element>XCDR2_DATA_REPRESENTATION</element></value>
                 </representation>
-
             </datawriter_qos>
             <datareader_qos>
                 <!-- Use XCDR2 format always, even for plain DataReaders so
@@ -432,7 +434,7 @@ RTI Connext user manual.
                             <name>dds.transport.shmem.builtin.received_message_count_max</name>
                             <value>1000</value>
                         </element>
-                            <element>
+                        <element>
                             <name>dds.transport.shmem.builtin.receive_buffer_size</name>
                             <value>60000000</value>
                         </element>
@@ -440,8 +442,5 @@ RTI Connext user manual.
                 </property>
             </participant_qos>
         </qos_profile>
-
-    
-    
   </qos_library>
 </dds>
