@@ -239,7 +239,6 @@ static int publisher_shutdown(
     DDS_InstanceHandle_t instance_handle = DDS_HANDLE_NIL;
     const char *pointcloud_type_name = NULL;
     const char *shape_type_name = NULL;
-    int count = 0; 
     int domainId = 0;
     DDS_Duration_t send_period = {4,0};
     ptCloud topLidar;       // to hold LiDAR data
