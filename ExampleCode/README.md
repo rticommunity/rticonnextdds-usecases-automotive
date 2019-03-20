@@ -3,41 +3,48 @@
 =====================================
 
 ## Concept
-This use case example includes six applications that send and receive data
+This use case example includes eight applications that send and receive data
 related to an automotive system.
 
-The six applications are:
+The eight applications are:
 
-1. LiDAR (Lidar)
-  - Sends LiDAR point clouds at a high data rate.
+1. **LiDAR** (Lidar)
+  - Sends LiDAR point clouds at a configurable high data rate.
   - This application generates periodic ray-casted LiDAR data from a point observer.
   - Scan is configurable for range & resolution by editing lidar.properties file.
    - Default is full-circle, 180 columns by 64 rows.  184kB per sample.
   - If an `RTI Shapes Demo` is publishing `Circle` data on the same domain, these will be rendered in the LiDAR data.
    - A Yellow circle will control the LiDAR observer position.
   - The LiDAR data can be 3D visualized using RViz2.
-2. Vision Sensor (Vision)
+2. **Vision Sensor** (Vision)
   - Sends vision sensor data.
   - The vision sensor sends a smaller amount of data (a few hundred bytes) at
     a lower rate than the LiDAR.
   - Sensor data is read from a file and can be modified to publish different
     data.
-3. Vehicle Platform (Vehicle_Platform)
+3. **Vehicle Platform** (Vehicle_Platform)
   - Sends data about the vehicle platform state.
   - Takes/Receives control commands.
-4. Sensor Fusion Module (Sensor_Fusion)
+4. **Sensor Fusion Module** (Sensor_Fusion)
   - Receives vision sensor information which it then aggregates.
   - Sends data about/Provides information to the collision  
     avoidance system.
-  - The sensor fusion application aggregates all the sensor  information which
-    is then processed by the collision avoidance system.
-5. Collision Avoidance System (Collision_Avoidance)
-  - The sensor fusion application collects all the sensor
+  - The sensor fusion application aggregates all the sensor  
+    information which is then processed by the collision avoidance system.
+5. **Collision Avoidance System** (Collision_Avoidance)
+  - The sensor fusion application collects all the sensor  
     information and publishes a summary of all sensor data.
-6. HMI (HMI)
+6. **HMI** (HMI)
   - Receives alerts from the collision avoidance application.
-  - The HMI subscribes to the alert and pops-up an alert box if
-    one of the alert flags are set.
+  - The HMI subscribes to the alert and pops-up an alert box  
+    if one of the alert flags are set.
+7. & 8. **Back Up Camera** (CameraImageData)
+  - Generates large image data arrays, filled with pseudorandom data.
+  - Size and update rate is configurable.
+  - Data transfer speed is measured and displayed.
+  - Build options to enable the **Flat Data** and **Zero Copy**  
+    features of Connext 6, which can dramatically improve the  
+    performance of large data transfers.
 
 ## Additional Documentation
 Detailed documentation for this example is available online at:
@@ -62,7 +69,7 @@ more information on how to set an environment variable, please see the RTI
 Core Libraries and Utilities Getting Started Guide.
 
 We will refer to the location where you unzipped the example in this document
-as EXAMPLE_HOME.  
+as EXAMPLE_HOME.
 
 All source and build files are located in EXAMPLE_HOME/ExampleCode/.  Before
 building or running, change directories into EXAMPLE_HOME/ExampleCode.
