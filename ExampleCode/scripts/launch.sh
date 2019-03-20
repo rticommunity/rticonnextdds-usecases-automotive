@@ -35,7 +35,7 @@ case ${TERM} in
 esac
 
 ### Make sure all component programs are available
-PROGRAMS="${EXE_DIR}/VisionSensor ${EXE_DIR}/Lidar ${EXE_DIR}/sensorFusion ${EXE_DIR}/hmi ${EXE_DIR}/collisionAvoidance ${EXE_DIR}/Platform"
+PROGRAMS="${EXE_DIR}/VisionSensor ${EXE_DIR}/Lidar ${EXE_DIR}/sensorFusion ${EXE_DIR}/hmi ${EXE_DIR}/collisionAvoidance ${EXE_DIR}/Platform ${EXE_DIR}/CameraImageDataSub ${EXE_DIR}/CameraImageDataPub"
 
 for exe in ${PROGRAMS}
 do

@@ -11,6 +11,8 @@ if exist "%obj_dir%" (
    start ..\objs\i86Win32VS2015\hmi.exe
    start ..\objs\i86Win32VS2015\collisionAvoidance.exe
    start ..\objs\i86Win32VS2015\vehiclePlatform.exe
+   start ..\objs\i86Win32VS2015\CameraImageDataSub.exe
+   start ..\objs\i86Win32VS2015\CameraImageDataPub.exe
    ) else (
    echo Object directory %obj_dir% not found. Check if the Visual Studio solution has been built
 )
