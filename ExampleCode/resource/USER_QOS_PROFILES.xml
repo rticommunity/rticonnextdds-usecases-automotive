@@ -370,8 +370,8 @@ RTI Connext user manual.
     <qos_profile name="CameraImage_Profile" base_name="BuiltinQosLibExp::Generic.StrictReliable" is_default_qos="false">
       <participant_qos>
         <participant_name>
-          <name>backupCamParticipant</name>
-          <role_name>backupCamParticipantRole</role_name>
+          <name>rearViewCamParticipant</name>
+          <role_name>rearViewCamParticipantRole</role_name>
         </participant_name>
         <transport_builtin>
           <mask>SHMEM|UDPv4</mask>
@@ -383,13 +383,12 @@ RTI Connext user manual.
             <!-- to contact                                     -->
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
             <element>shmem://,127.0.0.1</element>
-            <!-- <element>192.168.1.2</element>-->
           </initial_peers>
         </discovery>
       </participant_qos>
       <datawriter_qos>
         <publication_name>
-          <name>backupCamWriter</name>
+          <name>rearViewCamWriter</name>
         </publication_name>
         <publish_mode>
           <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
@@ -397,17 +396,13 @@ RTI Connext user manual.
       </datawriter_qos>
       <datareader_qos>
         <subscription_name>
-          <name>backupCamReader</name>
+          <name>rearViewCamReader</name>
         </subscription_name>
       </datareader_qos>
     </qos_profile>
-
-<!--
-    <qos_profile name="CameraXCDR2_Profile"
-                     base_name="BuiltinQosLibExp::Generic.StrictReliable.LargeData" is_default_qos="false">
--->
+    
     <qos_profile name="CameraXCDR2_Profile" 
-                     base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+                     base_name="BuiltinQosLibExp::Generic.StrictReliable.LargeData" is_default_qos="true">
             <datawriter_qos>
                 <durability>
                     <kind>VOLATILE_DURABILITY_QOS</kind>
@@ -434,7 +429,7 @@ RTI Connext user manual.
                             <name>dds.transport.shmem.builtin.received_message_count_max</name>
                             <value>1000</value>
                         </element>
-                        <element>
+                            <element>
                             <name>dds.transport.shmem.builtin.receive_buffer_size</name>
                             <value>60000000</value>
                         </element>

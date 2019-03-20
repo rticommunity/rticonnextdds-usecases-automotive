@@ -38,7 +38,7 @@ The eight applications are:
   - Receives alerts from the collision avoidance application.
   - The HMI subscribes to the alert and pops-up an alert box  
     if one of the alert flags are set.
-7. & 8. **Back Up Camera** (CameraImageData)
+7. & 8. **Rear-view Camera** (CameraImageData)
   - Generates large image data arrays, filled with pseudorandom data.
   - Size and update rate is configurable.
   - Data transfer speed is measured and displayed.
