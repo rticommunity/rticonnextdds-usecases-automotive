@@ -10,13 +10,13 @@
 # rtiddsgen generated PlannerSystem files
 ###############################################################################
 
-SOURCES_IDL = src/common/automotive.cxx \
-	      src/common/automotivePlugin.cxx \
-	      src/common/automotiveSupport.cxx
+SOURCES_IDL = src/Generated/automotive.cxx \
+	      src/Generated/automotivePlugin.cxx \
+	      src/Generated/automotiveSupport.cxx
 
-HEADER_IDL  = src/common/automotive.h \
-	      src/common/automotivePlugin.h \
-	      src/common/automotiveSupport.h
+HEADER_IDL  = src/Generated/automotive.h \
+	      src/Generated/automotivePlugin.h \
+	      src/Generated/automotiveSupport.h
 
 SOURCES_IDL_NODIR  = $(notdir $(SOURCES_IDL))
 IDL_OBJS          = $(SOURCES_IDL_NODIR:%.cxx=objs/$(ARCH)/%.o)
@@ -127,7 +127,7 @@ VP_EXE            = objs/$(ARCH)/Platform
 # common build items
 ###############################################################################
 
-INCLUDES = -Isrc -Isrc/common -I$(NDDSHOME)/include -I$(NDDSHOME)/include/ndds
+INCLUDES = -Isrc -Isrc/common -Isrc/Generated -I$(NDDSHOME)/include -I$(NDDSHOME)/include/ndds
 
 LIBS = -L$(NDDSHOME)/lib/$(ARCH) \
         -lnddsmetpz -lnddscppz -lnddscz -lnddscorez $(SYSLIBS) -lSDL2
@@ -191,6 +191,9 @@ Vehicle_Platform:	$(DIRECTORIES) $(IDL_OBJS) $(DATA_OBJS) \
 objs/$(ARCH)/%.o : src/common/%.cxx
 		$(COMPILER) $(COMPILER_FLAGS)  -o $@ $(DEFINES) $(INCLUDES) -c $<
 
+objs/$(ARCH)/%.o : src/Generated/%.cxx
+		$(COMPILER) $(COMPILER_FLAGS)  -o $@ $(DEFINES) $(INCLUDES) -c $<
+
 objs/$(ARCH)/%.o : src/Vision/%.cxx
 		$(COMPILER) $(COMPILER_FLAGS)  -o $@ $(DEFINES) $(INCLUDES) -c $<
 
@@ -218,7 +221,7 @@ objs/$(ARCH)/%.o : src/Vehicle_Platform/%.cxx
 $(SOURCES_IDL) $(HEADER_IDL): src/idl/automotive.idl
 		@echo " "
 		@echo "Generating Sensor type support source and include files"
-		$(NDDSHOME)/bin/rtiddsgen -d src/common src/idl/automotive.idl -replace -language C++
+		$(NDDSHOME)/bin/rtiddsgen -d src/Generated src/idl/automotive.idl -replace -language C++
 
 #
 # Planner build rules
@@ -276,6 +279,6 @@ clean:
 
 veryclean:
 	@rm -Rf objs
-	@rm -Rf src/common/automotive*
+	@rm -Rf src/Generated/automotive*
 	@echo "Deleted all executables, objects and generated files"
 
