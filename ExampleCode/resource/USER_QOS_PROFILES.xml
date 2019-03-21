@@ -382,7 +382,8 @@ RTI Connext user manual.
             <!-- Insert addresses here of machines you want     -->
             <!-- to contact                                     -->
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <element>shmem://,127.0.0.1</element>
+            <element>shmem://</element>
+            <element>127.0.0.1</element>
           </initial_peers>
         </discovery>
       </participant_qos>
