@@ -24,7 +24,7 @@
     <ClCompile Include="..\src\Generated\automotive.cxx" />
     <ClCompile Include="..\src\Generated\automotivePlugin.cxx" />
     <ClCompile Include="..\src\Generated\automotiveSupport.cxx" />
-    <ClCompile Include="..\src\CameraImage\CameraImageData_publisher.cxx" />
+    <ClCompile Include="..\src\Vehicle_Platform\Platform_main.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\common\dataObject.h" />
@@ -37,9 +37,9 @@
     <LocalDebuggerEnvironment>PATH=$(NDDSHOME)\lib\i86Win32VS2017</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>CameraImageDataPub</ProjectName>
-    <RootNamespace>CameraImageDataPub</RootNamespace>
-    <ProjectGuid>{A5259D70-CDAC-4F82-9406-5245C4209B11}</ProjectGuid>
+    <ProjectName>VehiclePlatform</ProjectName>
+    <RootNamespace>vehicle_platform</RootNamespace>
+    <ProjectGuid>{009DDD13-88E1-4390-86C1-B937CCEEDCBE}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -86,21 +86,21 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2017\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2017\CameraImageDataPub\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2017\Vehicle_Platform\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2017\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2017\CameraImageDataPub\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2017\Vehicle_Platform\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2017\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2017\CameraImageDataPub\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2017\Vehicle_Platform\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2017\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2017\CameraImageDataPub\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2017\Vehicle_Platform\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'" />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2017\CameraImageDataPub.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2017\vehicle_platform.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -114,9 +114,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2017\CameraImageDataPub\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2017\Vehicle_Platform\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -127,19 +127,19 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>nddsmetpzd.lib;nddscppzd.lib;nddsczd.lib;nddscorezd.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2017\CameraImageDataPub.exe</OutputFile>
+      <AdditionalDependencies>nddscppzd.lib;nddsczd.lib;nddscorezd.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\objs\i86Win32VS2017\vehiclePlatform.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2017\CameraImageDataPub.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2017\vehiclePlatform.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2017\CameraImageDataPub.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2017\vehicle_platform.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -153,9 +153,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2017\CameraImageDataPub\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2017\Vehicle_Platform\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -166,19 +166,19 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>nddsmetpd.lib;nddscppd.lib;nddscd.lib;nddscored.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2017\CameraImageDataPub.exe</OutputFile>
+      <AdditionalDependencies>nddscppd.lib;nddscd.lib;nddscored.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\objs\i86Win32VS2017\vehicle_platform.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2017\CameraImageDataPub.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2017\vehicle_platform.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2017\CameraImageDataPub.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2017\vehicle_platform.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -194,9 +194,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2017\CameraImageDataPub\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2017\Vehicle_Platform\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
@@ -206,18 +206,18 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>nddsmetpz.lib;nddscppz.lib;nddscz.lib;nddscorez.lib; netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2017\CameraImageDataPub.exe</OutputFile>
+      <AdditionalDependencies>nddscppz.lib;nddscz.lib;nddscorez.lib; netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\objs\i86Win32VS2017\vehiclePlatform.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2017\CameraImageDataPub.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2017\vehicle_platform.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2017\CameraImageDataPub.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2017\vehicle_platform.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -233,9 +233,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2017\CameraImageDataPub\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\CameraImageDataPub\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2017\Vehicle_Platform\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2017\Vehicle_Platform\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
@@ -245,11 +245,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>nddsmetp.lib;nddscpp.lib;nddsc.lib;nddscore.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2017\CameraImageDataPub.exe</OutputFile>
+      <AdditionalDependencies>nddscpp.lib;nddsc.lib;nddscore.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\objs\i86Win32VS2017\vehicle_platform.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2017\CameraImageDataPub.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2017\vehicle_platform.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>

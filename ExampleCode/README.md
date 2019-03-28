@@ -75,7 +75,21 @@ All source and build files are located in EXAMPLE_HOME/ExampleCode/.  Before
 building or running, change directories into EXAMPLE_HOME/ExampleCode.
 
 ### Windows Systems
-On a Windows system, start by opening the file win32\Automotive-vs2015.sln.
+To build the applications on a Windows system, solution and project files are  
+included for Visual Studio 2017, and Visual Studio 2015.  Batch files are included  
+to copy the appropriate files for VS2017 or VS2015 into the win32 directory.  
+
+**For Visual Studio 2017**: open a terminal in the ExampleCode\win32 directory,  
+and run the command:
+    setup-VS2017.bat
+
+**For Visual Studio 2015**: open a terminal in the ExampleCode\win32 directory,  
+and run the command:
+    setup-VS2015.bat
+    
+Open the solution file to match your version of Visual studio:  
+ * win32\Automotive-vs2017.sln.
+ * win32\Automotive-vs2015.sln.
 
 This code is made up of a combination of libraries, source, and IDL files that
 represent the interface to the application. The Visual Studio solution files
