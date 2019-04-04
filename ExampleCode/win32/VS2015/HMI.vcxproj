@@ -19,28 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\common\dataObject.cxx" />
     <ClCompile Include="..\src\common\Utils.cxx" />
     <ClCompile Include="..\src\Generated\automotive.cxx" />
     <ClCompile Include="..\src\Generated\automotivePlugin.cxx" />
     <ClCompile Include="..\src\Generated\automotiveSupport.cxx" />
-    <ClCompile Include="..\src\Sensor_Fusion\sensor_fusion.cxx" />
+    <ClCompile Include="..\src\HMI\DriverAlerts_subscriber.cxx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\common\dataObject.h" />
     <ClInclude Include="..\src\common\Utils.h" />
     <ClInclude Include="..\src\Generated\automotive.h" />
     <ClInclude Include="..\src\Generated\automotivePlugin.h" />
     <ClInclude Include="..\src\Generated\automotiveSupport.h" />
   </ItemGroup>
-  <PropertyGroup Condition="'$(NDDSHOME)'==''" Label="RTI Connext Home">
-    <NddsHome>C:\Users\andre\RTI\rti_connext_dds-5.2.3\bin\..</NddsHome>
-  </PropertyGroup>
   <PropertyGroup Label="RTI Connext Path">
     <LocalDebuggerEnvironment>PATH=$(NDDSHOME)\lib\i86Win32VS2015</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>SensorFusion</ProjectName>
-    <RootNamespace>sensor_fusion</RootNamespace>
-    <ProjectGuid>{86EA1ED2-583F-4F7B-9656-52EDA7E32A7B}</ProjectGuid>
+    <ProjectName>HMI</ProjectName>
+    <RootNamespace>HMI</RootNamespace>
+    <ProjectGuid>{229B4A9A-F7CA-4D73-A4AA-CA56B3F6EDBB}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'" Label="Configuration">
@@ -86,21 +85,21 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2015\Sensor_Fusion\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2015\HMI\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2015\Sensor_Fusion\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2015\HMI\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2015\Sensor_Fusion\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2015\HMI\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2015\Sensor_Fusion\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2015\HMI\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'" />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\sensor_fusion.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\HMI.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -114,9 +113,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Sensor_Fusion\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\HMI\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\HMI\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\HMI\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -128,18 +127,18 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppzd.lib;nddsczd.lib;nddscorezd.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\sensorFusion.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\hmi.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\sensorFusion.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\HMI.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\sensor_fusion.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\HMI.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -153,9 +152,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Sensor_Fusion\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\HMI\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\HMI\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\HMI\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -167,18 +166,18 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppd.lib;nddscd.lib;nddscored.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\sensor_fusion.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\hmi.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\sensor_fusion.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\HMI.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\sensor_fusion.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\HMI.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -194,9 +193,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Sensor_Fusion\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\HMI\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\HMI\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\HMI\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
@@ -207,17 +206,17 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppz.lib;nddscz.lib;nddscorez.lib; netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\sensorFusion.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\hmi.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\sensor_fusion.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\HMI.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\sensor_fusion.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\HMI.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -233,9 +232,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Sensor_Fusion\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Sensor_Fusion\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\HMI\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\HMI\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\HMI\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
@@ -246,10 +245,10 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscpp.lib;nddsc.lib;nddscore.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\sensor_fusion.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\hmi.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\sensor_fusion.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\HMI.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>

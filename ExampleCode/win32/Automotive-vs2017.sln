@@ -2,32 +2,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CollisionAvoidance", "collision_avoidance-vs2015.vcxproj", "{C2ADEF06-64D1-494D-BC43-D0F35AE8F9D7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CollisionAvoidance", "collision_avoidance.vcxproj", "{C2ADEF06-64D1-494D-BC43-D0F35AE8F9D7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F9CA4D65-54CE-4038-B27A-1E418FCA040F} = {F9CA4D65-54CE-4038-B27A-1E418FCA040F}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HMI", "HMI-vs2015.vcxproj", "{229B4A9A-F7CA-4D73-A4AA-CA56B3F6EDBB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HMI", "HMI.vcxproj", "{229B4A9A-F7CA-4D73-A4AA-CA56B3F6EDBB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F9CA4D65-54CE-4038-B27A-1E418FCA040F} = {F9CA4D65-54CE-4038-B27A-1E418FCA040F}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SensorFusion", "sensor_fusion-vs2015.vcxproj", "{86EA1ED2-583F-4F7B-9656-52EDA7E32A7B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SensorFusion", "sensor_fusion.vcxproj", "{86EA1ED2-583F-4F7B-9656-52EDA7E32A7B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F9CA4D65-54CE-4038-B27A-1E418FCA040F} = {F9CA4D65-54CE-4038-B27A-1E418FCA040F}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VehiclePlatform", "vehicle_platform-vs2015.vcxproj", "{009DDD13-88E1-4390-86C1-B937CCEEDCBE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VehiclePlatform", "vehicle_platform.vcxproj", "{009DDD13-88E1-4390-86C1-B937CCEEDCBE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F9CA4D65-54CE-4038-B27A-1E418FCA040F} = {F9CA4D65-54CE-4038-B27A-1E418FCA040F}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisionSensor", "VisionSensor-vs2015.vcxproj", "{BE86953F-858F-40E9-8B79-BC030D13CB8A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisionSensor", "VisionSensor.vcxproj", "{BE86953F-858F-40E9-8B79-BC030D13CB8A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F9CA4D65-54CE-4038-B27A-1E418FCA040F} = {F9CA4D65-54CE-4038-B27A-1E418FCA040F}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lidar", "Lidar-vs2015.vcxproj", "{6C83BEEC-A48A-43F5-A454-5128A22277FF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lidar", "Lidar.vcxproj", "{6C83BEEC-A48A-43F5-A454-5128A22277FF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F9CA4D65-54CE-4038-B27A-1E418FCA040F} = {F9CA4D65-54CE-4038-B27A-1E418FCA040F}
 	EndProjectSection

@@ -18,31 +18,13 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\common\dataObject.cxx" />
-    <ClCompile Include="..\src\common\Utils.cxx" />
-    <ClCompile Include="..\src\Generated\automotive.cxx" />
-    <ClCompile Include="..\src\Generated\automotivePlugin.cxx" />
-    <ClCompile Include="..\src\Generated\automotiveSupport.cxx" />
-    <ClCompile Include="..\src\Vehicle_Platform\Platform_main.cxx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\common\dataObject.h" />
-    <ClInclude Include="..\src\common\Utils.h" />
-    <ClInclude Include="..\src\Generated\automotive.h" />
-    <ClInclude Include="..\src\Generated\automotivePlugin.h" />
-    <ClInclude Include="..\src\Generated\automotiveSupport.h" />
-  </ItemGroup>
-  <PropertyGroup Condition="'$(NDDSHOME)'==''" Label="RTI Connext Home">
-    <NddsHome>C:\Users\andre\RTI\rti_connext_dds-5.2.3\bin\..</NddsHome>
-  </PropertyGroup>
   <PropertyGroup Label="RTI Connext Path">
     <LocalDebuggerEnvironment>PATH=$(NDDSHOME)\lib\i86Win32VS2015</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>VehiclePlatform</ProjectName>
-    <RootNamespace>vehicle_platform</RootNamespace>
-    <ProjectGuid>{009DDD13-88E1-4390-86C1-B937CCEEDCBE}</ProjectGuid>
+    <ProjectName>CollisionAvoidance</ProjectName>
+    <RootNamespace>Collision_Avoidance</RootNamespace>
+    <ProjectGuid>{C2ADEF06-64D1-494D-BC43-D0F35AE8F9D7}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'" Label="Configuration">
@@ -88,21 +70,21 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2015\Vehicle_Platform\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\objs\i86Win32VS2015\Collision_Avoidance\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2015\Vehicle_Platform\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">..\objs\i86Win32VS2015\Collision_Avoidance\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2015\Vehicle_Platform\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\objs\i86Win32VS2015\Collision_Avoidance\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2015\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2015\Vehicle_Platform\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">..\objs\i86Win32VS2015\Collision_Avoidance\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'" />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\vehicle_platform.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\collision_avoidance.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -111,18 +93,18 @@
       <AdditionalIncludeDirectories>$(NDDSHOME)\include;$(NDDSHOME)\include\ndds;..\src\common;..\src\Generated;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;RTI_WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Vehicle_Platform\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\Collision_Avoidance\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -130,18 +112,18 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppzd.lib;nddsczd.lib;nddscorezd.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\vehiclePlatform.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\collisionAvoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\vehiclePlatform.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\collisionAvoidance.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\vehicle_platform.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\collision_avoidance.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -155,9 +137,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Vehicle_Platform\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\Collision_Avoidance\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -169,18 +151,18 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppd.lib;nddscd.lib;nddscored.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\vehicle_platform.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\collision_avoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\vehicle_platform.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\collision_avoidance.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\vehicle_platform.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\collision_avoidance.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -190,15 +172,14 @@
       <AdditionalIncludeDirectories>$(NDDSHOME)\include;$(NDDSHOME)\include\ndds;..\src\common;..\src\Generated;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;RTI_WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Vehicle_Platform\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\Collision_Avoidance\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
@@ -208,18 +189,19 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>nddscppz.lib;nddscz.lib;nddscorez.lib; netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\vehiclePlatform.exe</OutputFile>
+      <AdditionalDependencies>nddscppz.lib;nddscz.lib;nddscorez.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\objs\i86Win32VS2015\collision_avoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\vehicle_platform.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\collision_avoidance.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <IgnoreSpecificDefaultLibraries>libcmtd;libcmt</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">
     <Midl>
-      <TypeLibraryName>..\objs\i86Win32VS2015\vehicle_platform.tlb</TypeLibraryName>
+      <TypeLibraryName>..\objs\i86Win32VS2015\collision_avoidance.tlb</TypeLibraryName>
       <HeaderFileName>
       </HeaderFileName>
     </Midl>
@@ -235,9 +217,9 @@
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\objs\i86Win32VS2015\Vehicle_Platform\</AssemblerListingLocation>
-      <ObjectFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ObjectFileName>
-      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Vehicle_Platform\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>..\objs\i86Win32VS2015\Collision_Avoidance\</AssemblerListingLocation>
+      <ObjectFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ObjectFileName>
+      <ProgramDataBaseFileName>..\objs\i86Win32VS2015\Collision_Avoidance\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
@@ -248,14 +230,29 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscpp.lib;nddsc.lib;nddscore.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\vehicle_platform.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\collision_avoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>..\objs\i86Win32VS2015\vehicle_platform.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>..\objs\i86Win32VS2015\collision_avoidance.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Collision_Avoidance\collision_avoidance.cxx" />
+    <ClCompile Include="..\src\common\dataObject.cxx" />
+    <ClCompile Include="..\src\common\Utils.cxx" />
+    <ClCompile Include="..\src\Generated\automotive.cxx" />
+    <ClCompile Include="..\src\Generated\automotivePlugin.cxx" />
+    <ClCompile Include="..\src\Generated\automotiveSupport.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\common\dataObject.h" />
+    <ClInclude Include="..\src\common\Utils.h" />
+    <ClInclude Include="..\src\Generated\automotive.h" />
+    <ClInclude Include="..\src\Generated\automotivePlugin.h" />
+    <ClInclude Include="..\src\Generated\automotiveSupport.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

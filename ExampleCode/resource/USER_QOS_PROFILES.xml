@@ -26,8 +26,8 @@ For more information about XML QoS Profiles see Chapter 17 in the
 RTI Connext user manual.
 -->
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/5.2.3/rti_dds_qos_profiles.xsd"
-     version="5.2.3">
+     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/6.0.0/rti_dds_qos_profiles.xsd"
+     version="6.0.0">
   <!-- QoS Library containing the QoS profile used in the Automotive Case + CODE.
        A QoS library is a named set of QoS profiles.
    -->
@@ -36,9 +36,10 @@ RTI Connext user manual.
       <!-- QoS profiles used by the different applications of the autonotive Case + Code.
            A QoS profile groups a set of related QoS.
       -->
-    <qos_profile name="Lidar_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false">
+    <!-- qos_profile name="Lidar_Profile" base_name="BuiltinQosLibExp::Generic.BestEffort" is_default_qos="false"-->
+    <qos_profile name="Lidar_Profile" base_name="BuiltinQosLibExp::Generic.StrictReliable" is_default_qos="false">
       <!-- QoS used to configure the LiDAR data writer created in the example code 
-           The data is periodic so it will be sent best effort. A deadline has been added
+           The data is periodic; best effort is typical QoS. A deadline has been added
            to make sure that an error is reported when no data is received for a certain time.
            LiDAR data is huge and therefore requires an asynchronous publisher -->                
       <datawriter_qos>
@@ -76,6 +77,9 @@ RTI Connext user manual.
         <participant_name>
           <name>LiDAR</name>
         </participant_name>
+        <transport_builtin>
+          <mask>UDPv4</mask>
+        </transport_builtin>        
         <discovery>
           <initial_peers>
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -102,6 +106,9 @@ RTI Connext user manual.
         <participant_name>
           <name>HMI</name>
         </participant_name>
+        <transport_builtin>
+          <mask>UDPv4</mask>
+        </transport_builtin>        
         <discovery>
           <initial_peers>
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -158,6 +165,9 @@ RTI Connext user manual.
         <participant_name>
           <name>Vision Sensor</name>
         </participant_name>
+        <transport_builtin>
+          <mask>UDPv4</mask>
+        </transport_builtin>                
         <discovery>
           <initial_peers>
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -208,6 +218,9 @@ RTI Connext user manual.
         <participant_name>
           <name>Vehicle Platform</name>
         </participant_name>
+        <transport_builtin>
+          <mask>UDPv4</mask>
+        </transport_builtin>        
         <discovery>
           <initial_peers>
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -259,6 +272,9 @@ RTI Connext user manual.
         <participant_name>
           <name>Collision Avoidance</name>
         </participant_name>
+        <transport_builtin>
+          <mask>UDPv4</mask>
+        </transport_builtin>        
         <discovery>
           <initial_peers>
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -310,6 +326,9 @@ RTI Connext user manual.
        <participant_name>
          <name>Sensor Fusion</name>
        </participant_name>
+        <transport_builtin>
+          <mask>UDPv4</mask>
+        </transport_builtin>        
         <discovery>
           <initial_peers>
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -348,5 +367,76 @@ RTI Connext user manual.
       </datawriter_qos>
     </qos_profile>
 
+    <qos_profile name="CameraImage_Profile" base_name="BuiltinQosLibExp::Generic.StrictReliable" is_default_qos="false">
+      <participant_qos>
+        <participant_name>
+          <name>rearViewCamParticipant</name>
+          <role_name>rearViewCamParticipantRole</role_name>
+        </participant_name>
+        <transport_builtin>
+          <mask>SHMEM|UDPv4</mask>
+        </transport_builtin>        
+        <discovery>
+          <initial_peers>
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Insert addresses here of machines you want     -->
+            <!-- to contact                                     -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <element>shmem://</element>
+            <element>127.0.0.1</element>
+          </initial_peers>
+        </discovery>
+      </participant_qos>
+      <datawriter_qos>
+        <publication_name>
+          <name>rearViewCamWriter</name>
+        </publication_name>
+        <publish_mode>
+          <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+        </publish_mode>
+      </datawriter_qos>
+      <datareader_qos>
+        <subscription_name>
+          <name>rearViewCamReader</name>
+        </subscription_name>
+      </datareader_qos>
+    </qos_profile>
+    
+    <qos_profile name="CameraXCDR2_Profile" 
+                     base_name="BuiltinQosLibExp::Generic.StrictReliable.LargeData" is_default_qos="true">
+            <datawriter_qos>
+                <durability>
+                    <kind>VOLATILE_DURABILITY_QOS</kind>
+                </durability>
+                <!-- Use XCDR2 format always, even for plain DataWriters so
+                     that they can communicate with flat-data DataReaders, which
+                     only support XCDR2 -->
+                <representation>
+                    <value><element>XCDR2_DATA_REPRESENTATION</element></value>
+                </representation>
+            </datawriter_qos>
+            <datareader_qos>
+                <!-- Use XCDR2 format always, even for plain DataReaders so
+                     that they can communicate with flat-data DataWriters, which
+                     only support XCDR2 -->
+                <representation>
+                    <value><element>XCDR2_DATA_REPRESENTATION</element></value>
+                </representation>
+            </datareader_qos>
+            <participant_qos>
+                <property>
+                    <value>
+                        <element>
+                            <name>dds.transport.shmem.builtin.received_message_count_max</name>
+                            <value>1000</value>
+                        </element>
+                            <element>
+                            <name>dds.transport.shmem.builtin.receive_buffer_size</name>
+                            <value>60000000</value>
+                        </element>
+                    </value>
+                </property>
+            </participant_qos>
+        </qos_profile>
   </qos_library>
 </dds>

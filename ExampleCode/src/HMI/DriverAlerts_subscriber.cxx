@@ -268,25 +268,24 @@ extern "C" int subscriber_main(int sample_count)
                         /* Print the sample for information purpose*/
                         Alerts_DriverAlertsTypeSupport::print_data(&data_seq[i]);
 
-
                         /* Pop-up the right message box. On Linux we use SDL2 */
                         if (data_seq[i].backCollision) {
-                            MessageBoxUtil::PopUp("Back Collision Warning", MSGBOX_WARNING);
+                            MessageBoxUtil::PopUp((char *)"Back Collision Warning", MSGBOX_WARNING);
                         }
                         if (data_seq[i].blindSpotDriver) {
-                            MessageBoxUtil::PopUp("Car in blind spot on driver side", MSGBOX_INFO);
+                            MessageBoxUtil::PopUp((char *)"Car in blind spot on driver side", MSGBOX_INFO);
                         }
                         if (data_seq[i].blindSpotPassenger) {
-                            MessageBoxUtil::PopUp("Car in blind spot on passanger side", MSGBOX_INFO);
+                            MessageBoxUtil::PopUp((char *)"Car in blind spot on passanger side", MSGBOX_INFO);
                         }
                         if (data_seq[i].driverAttention) {
-                            MessageBoxUtil::PopUp("Driver Attention", MSGBOX_ATTENTION);
+                            MessageBoxUtil::PopUp((char *)"Driver Attention", MSGBOX_ATTENTION);
                         }
                         if (data_seq[i].frontCollision) {
-                            MessageBoxUtil::PopUp("Front Collision Warning", MSGBOX_ATTENTION);
+                            MessageBoxUtil::PopUp((char *)"Front Collision Warning", MSGBOX_ATTENTION);
                         }
                         if (data_seq[i].parkingCollision) {
-                            MessageBoxUtil::PopUp("Parking Collision Warning", MSGBOX_WARNING);
+                            MessageBoxUtil::PopUp((char *)"Parking Collision Warning", MSGBOX_WARNING);
                         }
                     }
                 }
