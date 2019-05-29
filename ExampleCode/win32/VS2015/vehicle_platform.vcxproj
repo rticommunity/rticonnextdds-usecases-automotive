@@ -166,7 +166,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppd.lib;nddscd.lib;nddscored.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\vehicle_platform.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\vehiclePlatform.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -245,7 +245,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscpp.lib;nddsc.lib;nddscore.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2015\vehicle_platform.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2015\vehiclePlatform.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>..\objs\i86Win32VS2015\vehicle_platform.pdb</ProgramDatabaseFile>
