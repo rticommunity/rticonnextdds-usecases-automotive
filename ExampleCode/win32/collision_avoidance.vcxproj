@@ -152,7 +152,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppd.lib;nddscd.lib;nddscored.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2017\collision_avoidance.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2017\collisionAvoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -191,7 +191,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscppz.lib;nddscz.lib;nddscorez.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2017\collision_avoidance.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2017\collisionAvoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>..\objs\i86Win32VS2017\collision_avoidance.pdb</ProgramDatabaseFile>
@@ -231,7 +231,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nddscpp.lib;nddsc.lib;nddscore.lib;netapi32.lib;advapi32.lib;user32.lib;WS2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\objs\i86Win32VS2017\collision_avoidance.exe</OutputFile>
+      <OutputFile>..\objs\i86Win32VS2017\collisionAvoidance.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(NDDSHOME)\lib\i86Win32VS2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>..\objs\i86Win32VS2017\collision_avoidance.pdb</ProgramDatabaseFile>
