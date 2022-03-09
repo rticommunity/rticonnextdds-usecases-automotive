@@ -2,10 +2,11 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from automotive.idl using "rtiddsgen".
-The rtiddsgen tool is part of the RTI Connext distribution.
+This file was generated from automotive.idl
+using RTI Code Generator (rtiddsgen) version 3.1.0.
+The rtiddsgen tool is part of the RTI Connext DDS distribution.
 For more information, type 'rtiddsgen -help' at a command shell
-or consult the RTI Connext manual.
+or consult the Code Generator User's Manual.
 */
 
 #include <string.h>
@@ -118,7 +119,6 @@ POSIXTimestampPluginSupport_destroy_data_w_params(
     POSIXTimestamp_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -127,7 +127,6 @@ POSIXTimestampPluginSupport_destroy_data_ex(
     POSIXTimestamp_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -156,13 +155,13 @@ POSIXTimestampPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -205,6 +204,7 @@ POSIXTimestampPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -341,7 +341,7 @@ POSIXTimestampPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -350,7 +350,7 @@ POSIXTimestampPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -428,12 +428,12 @@ POSIXTimestampPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -634,9 +634,9 @@ POSIXTimestampPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *POSIXTimestampPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * POSIXTimestampPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     POSIXTimestamp, 
     true, true, true>();
 }
@@ -793,12 +793,12 @@ void IndicatorStatusEnumPluginSupport_print_data(
 {
     if (description != NULL) {
         RTICdrType_printIndent(indent_level);
-        RTILog_debug("%s:\n", description);
+        RTILogParamString_printPlain("%s:\n", description);
     }
 
     if (sample == NULL) {
         RTICdrType_printIndent(indent_level+1);
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -845,12 +845,12 @@ void ClassificationEnumPluginSupport_print_data(
 {
     if (description != NULL) {
         RTICdrType_printIndent(indent_level);
-        RTILog_debug("%s:\n", description);
+        RTILogParamString_printPlain("%s:\n", description);
     }
 
     if (sample == NULL) {
         RTICdrType_printIndent(indent_level+1);
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -919,7 +919,6 @@ Alerts_DriverAlertsPluginSupport_destroy_data_w_params(
     Alerts_DriverAlerts_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -928,7 +927,6 @@ Alerts_DriverAlertsPluginSupport_destroy_data_ex(
     Alerts_DriverAlerts_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -957,13 +955,13 @@ Alerts_DriverAlertsPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -1018,6 +1016,7 @@ Alerts_DriverAlertsPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -1154,7 +1153,7 @@ Alerts_DriverAlertsPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -1163,7 +1162,7 @@ Alerts_DriverAlertsPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -1241,12 +1240,12 @@ Alerts_DriverAlertsPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -1447,9 +1446,9 @@ Alerts_DriverAlertsPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Alerts_DriverAlertsPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Alerts_DriverAlertsPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Alerts_DriverAlerts, 
     true, true, true>();
 }
@@ -1606,12 +1605,12 @@ void Lane_ConfidenceEnumPluginSupport_print_data(
 {
     if (description != NULL) {
         RTICdrType_printIndent(indent_level);
-        RTILog_debug("%s:\n", description);
+        RTILogParamString_printPlain("%s:\n", description);
     }
 
     if (sample == NULL) {
         RTICdrType_printIndent(indent_level+1);
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -1658,12 +1657,12 @@ void Lane_LaneBoundaryEnumPluginSupport_print_data(
 {
     if (description != NULL) {
         RTICdrType_printIndent(indent_level);
-        RTILog_debug("%s:\n", description);
+        RTILogParamString_printPlain("%s:\n", description);
     }
 
     if (sample == NULL) {
         RTICdrType_printIndent(indent_level+1);
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -1732,7 +1731,6 @@ Lane_LaneObjectPluginSupport_destroy_data_w_params(
     Lane_LaneObject_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -1741,7 +1739,6 @@ Lane_LaneObjectPluginSupport_destroy_data_ex(
     Lane_LaneObject_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -1770,13 +1767,13 @@ Lane_LaneObjectPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -1831,6 +1828,7 @@ Lane_LaneObjectPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -1967,7 +1965,7 @@ Lane_LaneObjectPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -1976,7 +1974,7 @@ Lane_LaneObjectPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -2054,12 +2052,12 @@ Lane_LaneObjectPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -2260,9 +2258,9 @@ Lane_LaneObjectPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Lane_LaneObjectPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Lane_LaneObjectPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Lane_LaneObject, 
     true, true, true>();
 }
@@ -2441,7 +2439,6 @@ Lane_LaneSensorPluginSupport_destroy_data_w_params(
     Lane_LaneSensor_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -2450,7 +2447,6 @@ Lane_LaneSensorPluginSupport_destroy_data_ex(
     Lane_LaneSensor_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -2479,13 +2475,13 @@ Lane_LaneSensorPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -2528,6 +2524,7 @@ Lane_LaneSensorPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -2664,7 +2661,7 @@ Lane_LaneSensorPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -2673,7 +2670,7 @@ Lane_LaneSensorPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -2751,12 +2748,12 @@ Lane_LaneSensorPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -2957,9 +2954,9 @@ Lane_LaneSensorPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Lane_LaneSensorPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Lane_LaneSensorPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Lane_LaneSensor, 
     true, true, true>();
 }
@@ -3138,7 +3135,6 @@ Lidar_PointPluginSupport_destroy_data_w_params(
     Lidar_Point_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -3147,7 +3143,6 @@ Lidar_PointPluginSupport_destroy_data_ex(
     Lidar_Point_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -3176,18 +3171,18 @@ Lidar_PointPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
     RTICdrType_printArray(
-        sample->point, (3), RTI_CDR_FLOAT_SIZE,
+        sample->point, (3L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "point", indent_level + 1);        
 
@@ -3224,6 +3219,7 @@ Lidar_PointPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -3360,7 +3356,7 @@ Lidar_PointPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -3369,7 +3365,7 @@ Lidar_PointPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -3447,12 +3443,12 @@ Lidar_PointPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -3653,9 +3649,9 @@ Lidar_PointPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Lidar_PointPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Lidar_PointPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Lidar_Point, 
     true, true, true>();
 }
@@ -3834,7 +3830,6 @@ Lidar_PCloudPluginSupport_destroy_data_w_params(
     Lidar_PCloud_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -3843,7 +3838,6 @@ Lidar_PCloudPluginSupport_destroy_data_ex(
     Lidar_PCloud_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -3872,13 +3866,13 @@ Lidar_PCloudPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -3910,17 +3904,17 @@ Lidar_PCloudPluginSupport_print_data(
         &sample->count, "count", indent_level + 1);    
 
     RTICdrType_printArray(
-        sample->xLimits, (2), RTI_CDR_FLOAT_SIZE,
+        sample->xLimits, (2L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "xLimits", indent_level + 1);        
 
     RTICdrType_printArray(
-        sample->yLimits, (2), RTI_CDR_FLOAT_SIZE,
+        sample->yLimits, (2L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "yLimits", indent_level + 1);        
 
     RTICdrType_printArray(
-        sample->zLimits, (2), RTI_CDR_FLOAT_SIZE,
+        sample->zLimits, (2L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "zLimits", indent_level + 1);        
 
@@ -3957,6 +3951,7 @@ Lidar_PCloudPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -4093,7 +4088,7 @@ Lidar_PCloudPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -4102,7 +4097,7 @@ Lidar_PCloudPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -4180,12 +4175,12 @@ Lidar_PCloudPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -4386,9 +4381,9 @@ Lidar_PCloudPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Lidar_PCloudPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Lidar_PCloudPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Lidar_PCloud, 
     true, true, true>();
 }
@@ -4567,7 +4562,6 @@ Lidar_LidarSensorPluginSupport_destroy_data_w_params(
     Lidar_LidarSensor_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -4576,7 +4570,6 @@ Lidar_LidarSensorPluginSupport_destroy_data_ex(
     Lidar_LidarSensor_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -4605,13 +4598,13 @@ Lidar_LidarSensorPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -4654,6 +4647,7 @@ Lidar_LidarSensorPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -4790,7 +4784,7 @@ Lidar_LidarSensorPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -4799,7 +4793,7 @@ Lidar_LidarSensorPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -4877,12 +4871,12 @@ Lidar_LidarSensorPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -5083,9 +5077,9 @@ Lidar_LidarSensorPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Lidar_LidarSensorPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Lidar_LidarSensorPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Lidar_LidarSensor, 
     true, true, true>();
 }
@@ -5264,7 +5258,6 @@ Platform_PlatformControlPluginSupport_destroy_data_w_params(
     Platform_PlatformControl_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -5273,7 +5266,6 @@ Platform_PlatformControlPluginSupport_destroy_data_ex(
     Platform_PlatformControl_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -5302,13 +5294,13 @@ Platform_PlatformControlPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -5360,6 +5352,7 @@ Platform_PlatformControlPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -5496,7 +5489,7 @@ Platform_PlatformControlPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -5505,7 +5498,7 @@ Platform_PlatformControlPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -5583,12 +5576,12 @@ Platform_PlatformControlPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -5789,9 +5782,9 @@ Platform_PlatformControlPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Platform_PlatformControlPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Platform_PlatformControlPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Platform_PlatformControl, 
     true, true, true>();
 }
@@ -5970,7 +5963,6 @@ Platform_PlatformStatusPluginSupport_destroy_data_w_params(
     Platform_PlatformStatus_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -5979,7 +5971,6 @@ Platform_PlatformStatusPluginSupport_destroy_data_ex(
     Platform_PlatformStatus_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -6008,13 +5999,13 @@ Platform_PlatformStatusPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -6072,6 +6063,7 @@ Platform_PlatformStatusPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -6208,7 +6200,7 @@ Platform_PlatformStatusPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -6217,7 +6209,7 @@ Platform_PlatformStatusPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -6295,12 +6287,12 @@ Platform_PlatformStatusPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -6501,9 +6493,9 @@ Platform_PlatformStatusPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Platform_PlatformStatusPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Platform_PlatformStatusPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Platform_PlatformStatus, 
     true, true, true>();
 }
@@ -6660,12 +6652,12 @@ void Sensor_RangeModeEnumPluginSupport_print_data(
 {
     if (description != NULL) {
         RTICdrType_printIndent(indent_level);
-        RTILog_debug("%s:\n", description);
+        RTILogParamString_printPlain("%s:\n", description);
     }
 
     if (sample == NULL) {
         RTICdrType_printIndent(indent_level+1);
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -6734,7 +6726,6 @@ Sensor_SensorObjectPluginSupport_destroy_data_w_params(
     Sensor_SensorObject_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -6743,7 +6734,6 @@ Sensor_SensorObjectPluginSupport_destroy_data_ex(
     Sensor_SensorObject_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -6772,13 +6762,13 @@ Sensor_SensorObjectPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -6786,17 +6776,17 @@ Sensor_SensorObjectPluginSupport_print_data(
         (const ClassificationEnum*) &sample->classification, "classification", indent_level + 1);
 
     RTICdrType_printArray(
-        sample->position, (3), RTI_CDR_FLOAT_SIZE,
+        sample->position, (3L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "position", indent_level + 1);        
 
     RTICdrType_printArray(
-        sample->velocity, (3), RTI_CDR_FLOAT_SIZE,
+        sample->velocity, (3L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "velocity", indent_level + 1);        
 
     RTICdrType_printArray(
-        sample->size, (3), RTI_CDR_FLOAT_SIZE,
+        sample->size, (3L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "size", indent_level + 1);        
 
@@ -6842,6 +6832,7 @@ Sensor_SensorObjectPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -6978,7 +6969,7 @@ Sensor_SensorObjectPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -6987,7 +6978,7 @@ Sensor_SensorObjectPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -7065,12 +7056,12 @@ Sensor_SensorObjectPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -7271,9 +7262,9 @@ Sensor_SensorObjectPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Sensor_SensorObjectPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Sensor_SensorObjectPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Sensor_SensorObject, 
     true, true, true>();
 }
@@ -7452,7 +7443,6 @@ Sensor_SensorObjectListPluginSupport_destroy_data_w_params(
     Sensor_SensorObjectList_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -7461,7 +7451,6 @@ Sensor_SensorObjectListPluginSupport_destroy_data_ex(
     Sensor_SensorObjectList_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -7490,13 +7479,13 @@ Sensor_SensorObjectListPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -7551,6 +7540,7 @@ Sensor_SensorObjectListPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -7687,7 +7677,7 @@ Sensor_SensorObjectListPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -7696,7 +7686,7 @@ Sensor_SensorObjectListPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -7774,12 +7764,12 @@ Sensor_SensorObjectListPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -7980,9 +7970,9 @@ Sensor_SensorObjectListPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Sensor_SensorObjectListPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Sensor_SensorObjectListPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Sensor_SensorObjectList, 
     true, true, true>();
 }
@@ -8161,7 +8151,6 @@ Vision_VisionObjectPluginSupport_destroy_data_w_params(
     Vision_VisionObject_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -8170,7 +8159,6 @@ Vision_VisionObjectPluginSupport_destroy_data_ex(
     Vision_VisionObject_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -8199,13 +8187,13 @@ Vision_VisionObjectPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -8213,17 +8201,17 @@ Vision_VisionObjectPluginSupport_print_data(
         (const ClassificationEnum*) &sample->classification, "classification", indent_level + 1);
 
     RTICdrType_printArray(
-        sample->position, (3), RTI_CDR_FLOAT_SIZE,
+        sample->position, (3L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "position", indent_level + 1);        
 
     RTICdrType_printArray(
-        sample->velocity, (3), RTI_CDR_FLOAT_SIZE,
+        sample->velocity, (3L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "velocity", indent_level + 1);        
 
     RTICdrType_printArray(
-        sample->size, (3), RTI_CDR_FLOAT_SIZE,
+        sample->size, (3L), RTI_CDR_FLOAT_SIZE,
         (RTICdrTypePrintFunction)RTICdrType_printFloat, 
         "size", indent_level + 1);        
 
@@ -8260,6 +8248,7 @@ Vision_VisionObjectPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -8396,7 +8385,7 @@ Vision_VisionObjectPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -8405,7 +8394,7 @@ Vision_VisionObjectPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -8483,12 +8472,12 @@ Vision_VisionObjectPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -8689,9 +8678,9 @@ Vision_VisionObjectPlugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *Vision_VisionObjectPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Vision_VisionObjectPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Vision_VisionObject, 
     true, true, true>();
 }
@@ -8870,7 +8859,6 @@ Vision_VisionSensorPluginSupport_destroy_data_w_params(
     Vision_VisionSensor_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -8879,7 +8867,6 @@ Vision_VisionSensorPluginSupport_destroy_data_ex(
     Vision_VisionSensor_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -8908,13 +8895,13 @@ Vision_VisionSensorPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -8965,7 +8952,6 @@ Vision_VisionSensorPluginSupport_destroy_key_ex(
     Vision_VisionSensor_finalize_ex(key,deallocate_pointers);
 
     delete  key;
-    key=NULL;
 }
 
 void 
@@ -9007,6 +8993,7 @@ Vision_VisionSensorPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -9165,7 +9152,7 @@ Vision_VisionSensorPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -9174,7 +9161,7 @@ Vision_VisionSensorPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -9252,12 +9239,12 @@ Vision_VisionSensorPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -9488,106 +9475,6 @@ Vision_VisionSensorPlugin_key_to_instance(
 }
 
 RTIBool 
-Vision_VisionSensorPlugin_instance_to_keyhash(
-    PRESTypePluginEndpointData endpoint_data,
-    DDS_KeyHash_t *keyhash,
-    const Vision_VisionSensor *instance,
-    RTIEncapsulationId encapsulationId)
-{
-    struct RTICdrStream * md5Stream = NULL;
-    struct RTICdrStreamState cdrState;
-    char * buffer = NULL;
-    RTIXCdrBoolean iCdrv2;
-
-    iCdrv2 = RTIXCdrEncapsulationId_isCdrV2(encapsulationId);
-    RTICdrStreamState_init(&cdrState);
-    md5Stream = PRESTypePluginDefaultEndpointData_getMD5Stream(endpoint_data);
-
-    if (md5Stream == NULL) {
-        return RTI_FALSE;
-    }
-
-    RTICdrStream_resetPosition(md5Stream);
-    RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-
-    if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-        endpoint_data,
-        instance,
-        md5Stream,
-        iCdrv2?
-        RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-        RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-        NULL)) 
-    {
-        int size;
-
-        RTICdrStream_pushState(md5Stream, &cdrState, -1);
-
-        size = (int)PRESTypePlugin_interpretedGetSerializedSampleSize(
-            endpoint_data,
-            RTI_FALSE,
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            0,
-            instance);
-
-        if (size <= RTICdrStream_getBufferLength(md5Stream)) {
-            RTICdrStream_popState(md5Stream, &cdrState);        
-            return RTI_FALSE;
-        }   
-
-        RTIOsapiHeap_allocateBuffer(&buffer,size,0);
-
-        if (buffer == NULL) {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            return RTI_FALSE;
-        }
-
-        RTICdrStream_set(md5Stream, buffer, size);
-        RTIOsapiMemory_zero(
-            RTICdrStream_getBuffer(md5Stream),
-            RTICdrStream_getBufferLength(md5Stream));
-        RTICdrStream_resetPosition(md5Stream);
-        RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-        if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-            endpoint_data,
-            instance,
-            md5Stream, 
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            NULL)) 
-        {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            RTIOsapiHeap_freeBuffer(buffer);
-            return RTI_FALSE;
-        }        
-    }   
-
-    if (PRESTypePluginDefaultEndpointData_getMaxSizeSerializedKey(endpoint_data, iCdrv2) > 
-    (unsigned int)(MIG_RTPS_KEY_HASH_MAX_LENGTH) ||
-    PRESTypePluginDefaultEndpointData_forceMD5KeyHash(endpoint_data)) {
-        RTICdrStream_computeMD5(md5Stream, keyhash->value);
-    } else {
-        RTIOsapiMemory_zero(keyhash->value,MIG_RTPS_KEY_HASH_MAX_LENGTH);
-        RTIOsapiMemory_copy(
-            keyhash->value, 
-            RTICdrStream_getBuffer(md5Stream), 
-            RTICdrStream_getCurrentPositionOffset(md5Stream));
-    }
-
-    keyhash->length = MIG_RTPS_KEY_HASH_MAX_LENGTH;
-
-    if (buffer != NULL) {
-        RTICdrStream_popState(md5Stream, &cdrState);
-        RTIOsapiHeap_freeBuffer(buffer);
-    }
-
-    return RTI_TRUE;
-}
-
-RTIBool 
 Vision_VisionSensorPlugin_serialized_sample_to_keyhash(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream, 
@@ -9611,7 +9498,7 @@ Vision_VisionSensorPlugin_serialized_sample_to_keyhash(
         endpoint_plugin_qos)) {
         return RTI_FALSE;
     }
-    if (!Vision_VisionSensorPlugin_instance_to_keyhash(
+    if (!PRESTypePlugin_interpretedInstanceToKeyHash(
         endpoint_data, 
         keyhash, 
         sample,
@@ -9621,9 +9508,9 @@ Vision_VisionSensorPlugin_serialized_sample_to_keyhash(
     return RTI_TRUE;
 }
 
-struct RTIXCdrInterpreterPrograms *Vision_VisionSensorPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * Vision_VisionSensorPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     Vision_VisionSensor, 
     true, true, true>();
 }
@@ -9709,7 +9596,7 @@ struct PRESTypePlugin *Vision_VisionSensorPlugin_new(void)
 
     plugin-> instanceToKeyHashFnc = 
     (PRESTypePluginInstanceToKeyHashFunction)
-    Vision_VisionSensorPlugin_instance_to_keyhash;
+    PRESTypePlugin_interpretedInstanceToKeyHash;
     plugin->serializedSampleToKeyHashFnc = 
     (PRESTypePluginSerializedSampleToKeyHashFunction)
     Vision_VisionSensorPlugin_serialized_sample_to_keyhash;
@@ -9823,7 +9710,6 @@ builtin_interfaces_msg_dds__Time_PluginSupport_destroy_data_w_params(
     builtin_interfaces_msg_dds__Time__finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -9832,7 +9718,6 @@ builtin_interfaces_msg_dds__Time_PluginSupport_destroy_data_ex(
     builtin_interfaces_msg_dds__Time__finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -9861,13 +9746,13 @@ builtin_interfaces_msg_dds__Time_PluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -9910,6 +9795,7 @@ builtin_interfaces_msg_dds__Time_Plugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -10046,7 +9932,7 @@ builtin_interfaces_msg_dds__Time_Plugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -10055,7 +9941,7 @@ builtin_interfaces_msg_dds__Time_Plugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -10133,12 +10019,12 @@ builtin_interfaces_msg_dds__Time_Plugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -10339,9 +10225,9 @@ builtin_interfaces_msg_dds__Time_Plugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *builtin_interfaces_msg_dds__Time_Plugin_get_programs()
+struct RTIXCdrInterpreterPrograms * builtin_interfaces_msg_dds__Time_Plugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     builtin_interfaces_msg_dds__Time_, 
     true, true, true>();
 }
@@ -10520,7 +10406,6 @@ std_msgs_msg_dds__Header_PluginSupport_destroy_data_w_params(
     std_msgs_msg_dds__Header__finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -10529,7 +10414,6 @@ std_msgs_msg_dds__Header_PluginSupport_destroy_data_ex(
     std_msgs_msg_dds__Header__finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -10558,13 +10442,13 @@ std_msgs_msg_dds__Header_PluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -10612,6 +10496,7 @@ std_msgs_msg_dds__Header_Plugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -10748,7 +10633,7 @@ std_msgs_msg_dds__Header_Plugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -10757,7 +10642,7 @@ std_msgs_msg_dds__Header_Plugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -10835,12 +10720,12 @@ std_msgs_msg_dds__Header_Plugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -11041,9 +10926,9 @@ std_msgs_msg_dds__Header_Plugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *std_msgs_msg_dds__Header_Plugin_get_programs()
+struct RTIXCdrInterpreterPrograms * std_msgs_msg_dds__Header_Plugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     std_msgs_msg_dds__Header_, 
     true, true, true>();
 }
@@ -11222,7 +11107,6 @@ sensor_msgs_msg_dds__PointField_PluginSupport_destroy_data_w_params(
     sensor_msgs_msg_dds__PointField__finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -11231,7 +11115,6 @@ sensor_msgs_msg_dds__PointField_PluginSupport_destroy_data_ex(
     sensor_msgs_msg_dds__PointField__finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -11260,13 +11143,13 @@ sensor_msgs_msg_dds__PointField_PluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -11320,6 +11203,7 @@ sensor_msgs_msg_dds__PointField_Plugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -11456,7 +11340,7 @@ sensor_msgs_msg_dds__PointField_Plugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -11465,7 +11349,7 @@ sensor_msgs_msg_dds__PointField_Plugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -11543,12 +11427,12 @@ sensor_msgs_msg_dds__PointField_Plugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -11749,9 +11633,9 @@ sensor_msgs_msg_dds__PointField_Plugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *sensor_msgs_msg_dds__PointField_Plugin_get_programs()
+struct RTIXCdrInterpreterPrograms * sensor_msgs_msg_dds__PointField_Plugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     sensor_msgs_msg_dds__PointField_, 
     true, true, true>();
 }
@@ -11930,7 +11814,6 @@ sensor_msgs_msg_dds__PointCloud2_PluginSupport_destroy_data_w_params(
     sensor_msgs_msg_dds__PointCloud2__finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -11939,7 +11822,6 @@ sensor_msgs_msg_dds__PointCloud2_PluginSupport_destroy_data_ex(
     sensor_msgs_msg_dds__PointCloud2__finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -11968,13 +11850,13 @@ sensor_msgs_msg_dds__PointCloud2_PluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -12062,6 +11944,7 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -12198,7 +12081,7 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -12207,7 +12090,7 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -12285,12 +12168,12 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -12491,9 +12374,9 @@ sensor_msgs_msg_dds__PointCloud2_Plugin_get_serialized_key_max_size_for_keyhash(
     return size;
 }
 
-struct RTIXCdrInterpreterPrograms *sensor_msgs_msg_dds__PointCloud2_Plugin_get_programs()
+struct RTIXCdrInterpreterPrograms * sensor_msgs_msg_dds__PointCloud2_Plugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     sensor_msgs_msg_dds__PointCloud2_, 
     true, true, true>();
 }
@@ -12650,12 +12533,12 @@ void ShapeFillKindPluginSupport_print_data(
 {
     if (description != NULL) {
         RTICdrType_printIndent(indent_level);
-        RTILog_debug("%s:\n", description);
+        RTILogParamString_printPlain("%s:\n", description);
     }
 
     if (sample == NULL) {
         RTICdrType_printIndent(indent_level+1);
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -12724,7 +12607,6 @@ ShapeTypePluginSupport_destroy_data_w_params(
     ShapeType_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -12733,7 +12615,6 @@ ShapeTypePluginSupport_destroy_data_ex(
     ShapeType_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -12762,13 +12643,13 @@ ShapeTypePluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -12815,7 +12696,6 @@ ShapeTypePluginSupport_destroy_key_ex(
     ShapeType_finalize_ex(key,deallocate_pointers);
 
     delete  key;
-    key=NULL;
 }
 
 void 
@@ -12857,6 +12737,7 @@ ShapeTypePlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -13015,7 +12896,7 @@ ShapeTypePlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -13024,7 +12905,7 @@ ShapeTypePlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -13102,12 +12983,12 @@ ShapeTypePlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -13318,7 +13199,7 @@ ShapeTypePlugin_instance_to_key(
 
     if (!RTICdrType_copyStringEx (
         &dst->color, src->color, 
-        (128) + 1, RTI_FALSE)){
+        (128L) + 1, RTI_FALSE)){
         return RTI_FALSE;
     }
     return RTI_TRUE;
@@ -13333,109 +13214,9 @@ ShapeTypePlugin_key_to_instance(
     if (endpoint_data) {} /* To avoid warnings */   
     if (!RTICdrType_copyStringEx (
         &dst->color, src->color, 
-        (128) + 1, RTI_FALSE)){
+        (128L) + 1, RTI_FALSE)){
         return RTI_FALSE;
     }
-    return RTI_TRUE;
-}
-
-RTIBool 
-ShapeTypePlugin_instance_to_keyhash(
-    PRESTypePluginEndpointData endpoint_data,
-    DDS_KeyHash_t *keyhash,
-    const ShapeType *instance,
-    RTIEncapsulationId encapsulationId)
-{
-    struct RTICdrStream * md5Stream = NULL;
-    struct RTICdrStreamState cdrState;
-    char * buffer = NULL;
-    RTIXCdrBoolean iCdrv2;
-
-    iCdrv2 = RTIXCdrEncapsulationId_isCdrV2(encapsulationId);
-    RTICdrStreamState_init(&cdrState);
-    md5Stream = PRESTypePluginDefaultEndpointData_getMD5Stream(endpoint_data);
-
-    if (md5Stream == NULL) {
-        return RTI_FALSE;
-    }
-
-    RTICdrStream_resetPosition(md5Stream);
-    RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-
-    if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-        endpoint_data,
-        instance,
-        md5Stream,
-        iCdrv2?
-        RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-        RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-        NULL)) 
-    {
-        int size;
-
-        RTICdrStream_pushState(md5Stream, &cdrState, -1);
-
-        size = (int)PRESTypePlugin_interpretedGetSerializedSampleSize(
-            endpoint_data,
-            RTI_FALSE,
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            0,
-            instance);
-
-        if (size <= RTICdrStream_getBufferLength(md5Stream)) {
-            RTICdrStream_popState(md5Stream, &cdrState);        
-            return RTI_FALSE;
-        }   
-
-        RTIOsapiHeap_allocateBuffer(&buffer,size,0);
-
-        if (buffer == NULL) {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            return RTI_FALSE;
-        }
-
-        RTICdrStream_set(md5Stream, buffer, size);
-        RTIOsapiMemory_zero(
-            RTICdrStream_getBuffer(md5Stream),
-            RTICdrStream_getBufferLength(md5Stream));
-        RTICdrStream_resetPosition(md5Stream);
-        RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-        if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-            endpoint_data,
-            instance,
-            md5Stream, 
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            NULL)) 
-        {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            RTIOsapiHeap_freeBuffer(buffer);
-            return RTI_FALSE;
-        }        
-    }   
-
-    if (PRESTypePluginDefaultEndpointData_getMaxSizeSerializedKey(endpoint_data, iCdrv2) > 
-    (unsigned int)(MIG_RTPS_KEY_HASH_MAX_LENGTH) ||
-    PRESTypePluginDefaultEndpointData_forceMD5KeyHash(endpoint_data)) {
-        RTICdrStream_computeMD5(md5Stream, keyhash->value);
-    } else {
-        RTIOsapiMemory_zero(keyhash->value,MIG_RTPS_KEY_HASH_MAX_LENGTH);
-        RTIOsapiMemory_copy(
-            keyhash->value, 
-            RTICdrStream_getBuffer(md5Stream), 
-            RTICdrStream_getCurrentPositionOffset(md5Stream));
-    }
-
-    keyhash->length = MIG_RTPS_KEY_HASH_MAX_LENGTH;
-
-    if (buffer != NULL) {
-        RTICdrStream_popState(md5Stream, &cdrState);
-        RTIOsapiHeap_freeBuffer(buffer);
-    }
-
     return RTI_TRUE;
 }
 
@@ -13463,7 +13244,7 @@ ShapeTypePlugin_serialized_sample_to_keyhash(
         endpoint_plugin_qos)) {
         return RTI_FALSE;
     }
-    if (!ShapeTypePlugin_instance_to_keyhash(
+    if (!PRESTypePlugin_interpretedInstanceToKeyHash(
         endpoint_data, 
         keyhash, 
         sample,
@@ -13473,9 +13254,9 @@ ShapeTypePlugin_serialized_sample_to_keyhash(
     return RTI_TRUE;
 }
 
-struct RTIXCdrInterpreterPrograms *ShapeTypePlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * ShapeTypePlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     ShapeType, 
     true, true, true>();
 }
@@ -13561,7 +13342,7 @@ struct PRESTypePlugin *ShapeTypePlugin_new(void)
 
     plugin-> instanceToKeyHashFnc = 
     (PRESTypePluginInstanceToKeyHashFunction)
-    ShapeTypePlugin_instance_to_keyhash;
+    PRESTypePlugin_interpretedInstanceToKeyHash;
     plugin->serializedSampleToKeyHashFnc = 
     (PRESTypePluginSerializedSampleToKeyHashFunction)
     ShapeTypePlugin_serialized_sample_to_keyhash;
@@ -13675,7 +13456,6 @@ ShapeTypeExtendedPluginSupport_destroy_data_w_params(
     ShapeTypeExtended_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -13684,7 +13464,6 @@ ShapeTypeExtendedPluginSupport_destroy_data_ex(
     ShapeTypeExtended_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -13713,13 +13492,13 @@ ShapeTypeExtendedPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -13757,7 +13536,6 @@ ShapeTypeExtendedPluginSupport_destroy_key_ex(
     ShapeTypeExtended_finalize_ex(key,deallocate_pointers);
 
     delete  key;
-    key=NULL;
 }
 
 void 
@@ -13799,6 +13577,7 @@ ShapeTypeExtendedPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -13957,7 +13736,7 @@ ShapeTypeExtendedPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -13966,7 +13745,7 @@ ShapeTypeExtendedPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -14044,12 +13823,12 @@ ShapeTypeExtendedPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -14276,106 +14055,6 @@ ShapeTypeExtendedPlugin_key_to_instance(
 }
 
 RTIBool 
-ShapeTypeExtendedPlugin_instance_to_keyhash(
-    PRESTypePluginEndpointData endpoint_data,
-    DDS_KeyHash_t *keyhash,
-    const ShapeTypeExtended *instance,
-    RTIEncapsulationId encapsulationId)
-{
-    struct RTICdrStream * md5Stream = NULL;
-    struct RTICdrStreamState cdrState;
-    char * buffer = NULL;
-    RTIXCdrBoolean iCdrv2;
-
-    iCdrv2 = RTIXCdrEncapsulationId_isCdrV2(encapsulationId);
-    RTICdrStreamState_init(&cdrState);
-    md5Stream = PRESTypePluginDefaultEndpointData_getMD5Stream(endpoint_data);
-
-    if (md5Stream == NULL) {
-        return RTI_FALSE;
-    }
-
-    RTICdrStream_resetPosition(md5Stream);
-    RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-
-    if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-        endpoint_data,
-        instance,
-        md5Stream,
-        iCdrv2?
-        RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-        RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-        NULL)) 
-    {
-        int size;
-
-        RTICdrStream_pushState(md5Stream, &cdrState, -1);
-
-        size = (int)PRESTypePlugin_interpretedGetSerializedSampleSize(
-            endpoint_data,
-            RTI_FALSE,
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            0,
-            instance);
-
-        if (size <= RTICdrStream_getBufferLength(md5Stream)) {
-            RTICdrStream_popState(md5Stream, &cdrState);        
-            return RTI_FALSE;
-        }   
-
-        RTIOsapiHeap_allocateBuffer(&buffer,size,0);
-
-        if (buffer == NULL) {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            return RTI_FALSE;
-        }
-
-        RTICdrStream_set(md5Stream, buffer, size);
-        RTIOsapiMemory_zero(
-            RTICdrStream_getBuffer(md5Stream),
-            RTICdrStream_getBufferLength(md5Stream));
-        RTICdrStream_resetPosition(md5Stream);
-        RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-        if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-            endpoint_data,
-            instance,
-            md5Stream, 
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            NULL)) 
-        {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            RTIOsapiHeap_freeBuffer(buffer);
-            return RTI_FALSE;
-        }        
-    }   
-
-    if (PRESTypePluginDefaultEndpointData_getMaxSizeSerializedKey(endpoint_data, iCdrv2) > 
-    (unsigned int)(MIG_RTPS_KEY_HASH_MAX_LENGTH) ||
-    PRESTypePluginDefaultEndpointData_forceMD5KeyHash(endpoint_data)) {
-        RTICdrStream_computeMD5(md5Stream, keyhash->value);
-    } else {
-        RTIOsapiMemory_zero(keyhash->value,MIG_RTPS_KEY_HASH_MAX_LENGTH);
-        RTIOsapiMemory_copy(
-            keyhash->value, 
-            RTICdrStream_getBuffer(md5Stream), 
-            RTICdrStream_getCurrentPositionOffset(md5Stream));
-    }
-
-    keyhash->length = MIG_RTPS_KEY_HASH_MAX_LENGTH;
-
-    if (buffer != NULL) {
-        RTICdrStream_popState(md5Stream, &cdrState);
-        RTIOsapiHeap_freeBuffer(buffer);
-    }
-
-    return RTI_TRUE;
-}
-
-RTIBool 
 ShapeTypeExtendedPlugin_serialized_sample_to_keyhash(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream, 
@@ -14399,7 +14078,7 @@ ShapeTypeExtendedPlugin_serialized_sample_to_keyhash(
         endpoint_plugin_qos)) {
         return RTI_FALSE;
     }
-    if (!ShapeTypeExtendedPlugin_instance_to_keyhash(
+    if (!PRESTypePlugin_interpretedInstanceToKeyHash(
         endpoint_data, 
         keyhash, 
         sample,
@@ -14409,9 +14088,9 @@ ShapeTypeExtendedPlugin_serialized_sample_to_keyhash(
     return RTI_TRUE;
 }
 
-struct RTIXCdrInterpreterPrograms *ShapeTypeExtendedPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * ShapeTypeExtendedPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     ShapeTypeExtended, 
     true, true, true>();
 }
@@ -14497,7 +14176,7 @@ struct PRESTypePlugin *ShapeTypeExtendedPlugin_new(void)
 
     plugin-> instanceToKeyHashFnc = 
     (PRESTypePluginInstanceToKeyHashFunction)
-    ShapeTypeExtendedPlugin_instance_to_keyhash;
+    PRESTypePlugin_interpretedInstanceToKeyHash;
     plugin->serializedSampleToKeyHashFnc = 
     (PRESTypePluginSerializedSampleToKeyHashFunction)
     ShapeTypeExtendedPlugin_serialized_sample_to_keyhash;
@@ -14611,7 +14290,6 @@ CameraImage_CameraImageDataPluginSupport_destroy_data_w_params(
     CameraImage_CameraImageData_finalize_w_params(sample,dealloc_params);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -14620,7 +14298,6 @@ CameraImage_CameraImageDataPluginSupport_destroy_data_ex(
     CameraImage_CameraImageData_finalize_ex(sample,deallocate_pointers);
 
     delete  sample;
-    sample=NULL;
 }
 
 void 
@@ -14649,13 +14326,13 @@ CameraImage_CameraImageDataPluginSupport_print_data(
     RTICdrType_printIndent(indent_level);
 
     if (desc != NULL) {
-        RTILog_debug("%s:\n", desc);
+        RTILogParamString_printPlain("%s:\n", desc);
     } else {
-        RTILog_debug("\n");
+        RTILogParamString_printPlain("\n");
     }
 
     if (sample == NULL) {
-        RTILog_debug("NULL\n");
+        RTILogParamString_printPlain("NULL\n");
         return;
     }
 
@@ -14702,7 +14379,6 @@ CameraImage_CameraImageDataPluginSupport_destroy_key_ex(
     CameraImage_CameraImageData_finalize_ex(key,deallocate_pointers);
 
     delete  key;
-    key=NULL;
 }
 
 void 
@@ -14744,6 +14420,7 @@ CameraImage_CameraImageDataPlugin_on_participant_attached(
     programProperty.resolveAlias = RTI_XCDR_TRUE;
     programProperty.inlineStruct = RTI_XCDR_TRUE;
     programProperty.optimizeEnum = RTI_XCDR_TRUE;
+    programProperty.unboundedSize = RTIXCdrLong_MAX;
 
     programs = DDS_TypeCodeFactory_assert_programs_in_global_list(
         DDS_TypeCodeFactory_get_instance(),
@@ -14902,7 +14579,7 @@ CameraImage_CameraImageDataPlugin_serialize_to_cdr_buffer_ex(
     struct PRESTypePluginDefaultEndpointData epd;
     RTIBool result;
     struct PRESTypePluginDefaultParticipantData pd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePlugin plugin;
 
@@ -14911,7 +14588,7 @@ CameraImage_CameraImageDataPlugin_serialize_to_cdr_buffer_ex(
     }
 
     RTIOsapiMemory_zero(&epd, sizeof(struct PRESTypePluginDefaultEndpointData));
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -14989,12 +14666,12 @@ CameraImage_CameraImageDataPlugin_deserialize_from_cdr_buffer(
 {
     struct RTICdrStream stream;
     struct PRESTypePluginDefaultEndpointData epd;
-    struct RTIXCdrTypePluginProgramContext defaultProgramConext =
+    struct RTIXCdrTypePluginProgramContext defaultProgramContext =
     RTIXCdrTypePluginProgramContext_INTIALIZER;
     struct PRESTypePluginDefaultParticipantData pd;
     struct PRESTypePlugin plugin;
 
-    epd.programContext = defaultProgramConext;  
+    epd.programContext = defaultProgramContext;
     epd._participantData = &pd;
     epd.typePlugin = &plugin;
     epd.programContext.endpointPluginData = &epd;
@@ -15225,106 +14902,6 @@ CameraImage_CameraImageDataPlugin_key_to_instance(
 }
 
 RTIBool 
-CameraImage_CameraImageDataPlugin_instance_to_keyhash(
-    PRESTypePluginEndpointData endpoint_data,
-    DDS_KeyHash_t *keyhash,
-    const CameraImage_CameraImageData *instance,
-    RTIEncapsulationId encapsulationId)
-{
-    struct RTICdrStream * md5Stream = NULL;
-    struct RTICdrStreamState cdrState;
-    char * buffer = NULL;
-    RTIXCdrBoolean iCdrv2;
-
-    iCdrv2 = RTIXCdrEncapsulationId_isCdrV2(encapsulationId);
-    RTICdrStreamState_init(&cdrState);
-    md5Stream = PRESTypePluginDefaultEndpointData_getMD5Stream(endpoint_data);
-
-    if (md5Stream == NULL) {
-        return RTI_FALSE;
-    }
-
-    RTICdrStream_resetPosition(md5Stream);
-    RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-
-    if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-        endpoint_data,
-        instance,
-        md5Stream,
-        iCdrv2?
-        RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-        RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-        NULL)) 
-    {
-        int size;
-
-        RTICdrStream_pushState(md5Stream, &cdrState, -1);
-
-        size = (int)PRESTypePlugin_interpretedGetSerializedSampleSize(
-            endpoint_data,
-            RTI_FALSE,
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            0,
-            instance);
-
-        if (size <= RTICdrStream_getBufferLength(md5Stream)) {
-            RTICdrStream_popState(md5Stream, &cdrState);        
-            return RTI_FALSE;
-        }   
-
-        RTIOsapiHeap_allocateBuffer(&buffer,size,0);
-
-        if (buffer == NULL) {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            return RTI_FALSE;
-        }
-
-        RTICdrStream_set(md5Stream, buffer, size);
-        RTIOsapiMemory_zero(
-            RTICdrStream_getBuffer(md5Stream),
-            RTICdrStream_getBufferLength(md5Stream));
-        RTICdrStream_resetPosition(md5Stream);
-        RTICdrStream_setDirtyBit(md5Stream, RTI_TRUE);
-        if (!PRESTypePlugin_interpretedSerializeKeyForKeyhash(
-            endpoint_data,
-            instance,
-            md5Stream, 
-            iCdrv2?
-            RTI_CDR_ENCAPSULATION_ID_CDR2_BE:
-            RTI_CDR_ENCAPSULATION_ID_CDR_BE,
-            NULL)) 
-        {
-            RTICdrStream_popState(md5Stream, &cdrState);
-            RTIOsapiHeap_freeBuffer(buffer);
-            return RTI_FALSE;
-        }        
-    }   
-
-    if (PRESTypePluginDefaultEndpointData_getMaxSizeSerializedKey(endpoint_data, iCdrv2) > 
-    (unsigned int)(MIG_RTPS_KEY_HASH_MAX_LENGTH) ||
-    PRESTypePluginDefaultEndpointData_forceMD5KeyHash(endpoint_data)) {
-        RTICdrStream_computeMD5(md5Stream, keyhash->value);
-    } else {
-        RTIOsapiMemory_zero(keyhash->value,MIG_RTPS_KEY_HASH_MAX_LENGTH);
-        RTIOsapiMemory_copy(
-            keyhash->value, 
-            RTICdrStream_getBuffer(md5Stream), 
-            RTICdrStream_getCurrentPositionOffset(md5Stream));
-    }
-
-    keyhash->length = MIG_RTPS_KEY_HASH_MAX_LENGTH;
-
-    if (buffer != NULL) {
-        RTICdrStream_popState(md5Stream, &cdrState);
-        RTIOsapiHeap_freeBuffer(buffer);
-    }
-
-    return RTI_TRUE;
-}
-
-RTIBool 
 CameraImage_CameraImageDataPlugin_serialized_sample_to_keyhash(
     PRESTypePluginEndpointData endpoint_data,
     struct RTICdrStream *stream, 
@@ -15348,7 +14925,7 @@ CameraImage_CameraImageDataPlugin_serialized_sample_to_keyhash(
         endpoint_plugin_qos)) {
         return RTI_FALSE;
     }
-    if (!CameraImage_CameraImageDataPlugin_instance_to_keyhash(
+    if (!PRESTypePlugin_interpretedInstanceToKeyHash(
         endpoint_data, 
         keyhash, 
         sample,
@@ -15358,9 +14935,9 @@ CameraImage_CameraImageDataPlugin_serialized_sample_to_keyhash(
     return RTI_TRUE;
 }
 
-struct RTIXCdrInterpreterPrograms *CameraImage_CameraImageDataPlugin_get_programs()
+struct RTIXCdrInterpreterPrograms * CameraImage_CameraImageDataPlugin_get_programs(void)
 {
-    return rti::xcdr::get_cdr_serialization_programs<
+    return ::rti::xcdr::get_cdr_serialization_programs<
     CameraImage_CameraImageData, 
     true, true, true>();
 }
@@ -15446,7 +15023,7 @@ struct PRESTypePlugin *CameraImage_CameraImageDataPlugin_new(void)
 
     plugin-> instanceToKeyHashFnc = 
     (PRESTypePluginInstanceToKeyHashFunction)
-    CameraImage_CameraImageDataPlugin_instance_to_keyhash;
+    PRESTypePlugin_interpretedInstanceToKeyHash;
     plugin->serializedSampleToKeyHashFnc = 
     (PRESTypePluginSerializedSampleToKeyHashFunction)
     CameraImage_CameraImageDataPlugin_serialized_sample_to_keyhash;

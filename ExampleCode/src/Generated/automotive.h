@@ -3,14 +3,15 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from automotive.idl using "rtiddsgen".
-The rtiddsgen tool is part of the RTI Connext distribution.
+This file was generated from automotive.idl
+using RTI Code Generator (rtiddsgen) version 3.1.0.
+The rtiddsgen tool is part of the RTI Connext DDS distribution.
 For more information, type 'rtiddsgen -help' at a command shell
-or consult the RTI Connext manual.
+or consult the Code Generator User's Manual.
 */
 
-#ifndef automotive_2097331952_h
-#define automotive_2097331952_h
+#ifndef automotive_2097331918_h
+#define automotive_2097331918_h
 
 #ifndef NDDS_STANDALONE_TYPE
 #ifndef ndds_cpp_h
@@ -55,7 +56,7 @@ class POSIXTimestamp
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* POSIXTimestamp_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * POSIXTimestamp_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *POSIXTimestamp_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *POSIXTimestamp_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *POSIXTimestamp_get_sample_seq_access_info(void);
@@ -123,7 +124,7 @@ typedef enum IndicatorStatusEnum
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* IndicatorStatusEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * IndicatorStatusEnum_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *IndicatorStatusEnum_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *IndicatorStatusEnum_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *IndicatorStatusEnum_get_sample_seq_access_info(void);
@@ -195,7 +196,7 @@ typedef enum ClassificationEnum
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* ClassificationEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * ClassificationEnum_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *ClassificationEnum_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ClassificationEnum_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ClassificationEnum_get_sample_seq_access_info(void);
@@ -287,7 +288,7 @@ class Alerts_DriverAlerts
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Alerts_DriverAlerts_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Alerts_DriverAlerts_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Alerts_DriverAlerts_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Alerts_DriverAlerts_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Alerts_DriverAlerts_get_sample_seq_access_info(void);
@@ -355,7 +356,7 @@ typedef enum Lane_ConfidenceEnum
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Lane_ConfidenceEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Lane_ConfidenceEnum_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Lane_ConfidenceEnum_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_ConfidenceEnum_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_ConfidenceEnum_get_sample_seq_access_info(void);
@@ -428,7 +429,7 @@ typedef enum Lane_LaneBoundaryEnum
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Lane_LaneBoundaryEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Lane_LaneBoundaryEnum_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Lane_LaneBoundaryEnum_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_LaneBoundaryEnum_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_LaneBoundaryEnum_get_sample_seq_access_info(void);
@@ -520,7 +521,7 @@ class Lane_LaneObject
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Lane_LaneObject_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Lane_LaneObject_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Lane_LaneObject_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_LaneObject_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_LaneObject_get_sample_seq_access_info(void);
@@ -608,7 +609,7 @@ class Lane_LaneSensor
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Lane_LaneSensor_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Lane_LaneSensor_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Lane_LaneSensor_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_LaneSensor_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lane_LaneSensor_get_sample_seq_access_info(void);
@@ -662,7 +663,7 @@ RTIBool Lane_LaneSensor_copy(
 #define NDDSUSERDllExport
 #endif
 
-static const DDS_Long Lidar_MAX_POINTS= 30000;
+static const DDS_Long Lidar_MAX_POINTS= 30000L;
 
 extern "C" {
 
@@ -686,7 +687,7 @@ class Lidar_Point
     typedef Lidar_PointDataReader DataReader;
     #endif
 
-    DDS_Float   point [3];
+    DDS_Float   point [3L];
 
 };
 #if (defined(RTI_WIN32) || defined (RTI_WINCE) || defined(RTI_INTIME)) && defined(NDDS_USER_DLL_EXPORT)
@@ -697,7 +698,7 @@ class Lidar_Point
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Lidar_Point_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Lidar_Point_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Lidar_Point_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lidar_Point_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lidar_Point_get_sample_seq_access_info(void);
@@ -778,9 +779,9 @@ class Lidar_PCloud
     DDS_Float   normal ;
     DDS_Float   intensity ;
     DDS_Long   count ;
-    DDS_Float   xLimits [2];
-    DDS_Float   yLimits [2];
-    DDS_Float   zLimits [2];
+    DDS_Float   xLimits [2L];
+    DDS_Float   yLimits [2L];
+    DDS_Float   zLimits [2L];
 
 };
 #if (defined(RTI_WIN32) || defined (RTI_WINCE) || defined(RTI_INTIME)) && defined(NDDS_USER_DLL_EXPORT)
@@ -791,7 +792,7 @@ class Lidar_PCloud
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Lidar_PCloud_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Lidar_PCloud_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Lidar_PCloud_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lidar_PCloud_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lidar_PCloud_get_sample_seq_access_info(void);
@@ -879,7 +880,7 @@ class Lidar_LidarSensor
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Lidar_LidarSensor_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Lidar_LidarSensor_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Lidar_LidarSensor_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lidar_LidarSensor_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Lidar_LidarSensor_get_sample_seq_access_info(void);
@@ -970,7 +971,7 @@ class Platform_PlatformControl
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Platform_PlatformControl_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Platform_PlatformControl_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Platform_PlatformControl_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Platform_PlatformControl_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Platform_PlatformControl_get_sample_seq_access_info(void);
@@ -1063,7 +1064,7 @@ class Platform_PlatformStatus
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Platform_PlatformStatus_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Platform_PlatformStatus_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Platform_PlatformStatus_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Platform_PlatformStatus_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Platform_PlatformStatus_get_sample_seq_access_info(void);
@@ -1117,7 +1118,7 @@ RTIBool Platform_PlatformStatus_copy(
 #define NDDSUSERDllExport
 #endif
 
-static const DDS_Long Sensor_SENSOR_OBJECT_LIST_MAX_SIZE= 128;
+static const DDS_Long Sensor_SENSOR_OBJECT_LIST_MAX_SIZE= 128L;
 typedef enum Sensor_RangeModeEnum
 {
     RANGE_NONE  = 0,      
@@ -1133,7 +1134,7 @@ typedef enum Sensor_RangeModeEnum
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Sensor_RangeModeEnum_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Sensor_RangeModeEnum_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Sensor_RangeModeEnum_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Sensor_RangeModeEnum_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Sensor_RangeModeEnum_get_sample_seq_access_info(void);
@@ -1210,9 +1211,9 @@ class Sensor_SensorObject
     #endif
 
     ClassificationEnum   classification ;
-    DDS_Float   position [3];
-    DDS_Float   velocity [3];
-    DDS_Float   size [3];
+    DDS_Float   position [3L];
+    DDS_Float   velocity [3L];
+    DDS_Float   size [3L];
     DDS_Float   amplitude ;
     Sensor_RangeModeEnum   rangeMode ;
     DDS_Float   rangeRate ;
@@ -1226,7 +1227,7 @@ class Sensor_SensorObject
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Sensor_SensorObject_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Sensor_SensorObject_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Sensor_SensorObject_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Sensor_SensorObject_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Sensor_SensorObject_get_sample_seq_access_info(void);
@@ -1314,7 +1315,7 @@ class Sensor_SensorObjectList
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Sensor_SensorObjectList_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Sensor_SensorObjectList_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Sensor_SensorObjectList_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Sensor_SensorObjectList_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Sensor_SensorObjectList_get_sample_seq_access_info(void);
@@ -1368,7 +1369,7 @@ RTIBool Sensor_SensorObjectList_copy(
 #define NDDSUSERDllExport
 #endif
 
-static const DDS_Long Vision_VISION_OBJECT_LIST_MAX_SIZE= 10;
+static const DDS_Long Vision_VISION_OBJECT_LIST_MAX_SIZE= 10L;
 
 extern "C" {
 
@@ -1393,9 +1394,9 @@ class Vision_VisionObject
     #endif
 
     ClassificationEnum   classification ;
-    DDS_Float   position [3];
-    DDS_Float   velocity [3];
-    DDS_Float   size [3];
+    DDS_Float   position [3L];
+    DDS_Float   velocity [3L];
+    DDS_Float   size [3L];
 
 };
 #if (defined(RTI_WIN32) || defined (RTI_WINCE) || defined(RTI_INTIME)) && defined(NDDS_USER_DLL_EXPORT)
@@ -1406,7 +1407,7 @@ class Vision_VisionObject
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Vision_VisionObject_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Vision_VisionObject_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Vision_VisionObject_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Vision_VisionObject_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Vision_VisionObject_get_sample_seq_access_info(void);
@@ -1495,7 +1496,7 @@ class Vision_VisionSensor
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* Vision_VisionSensor_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * Vision_VisionSensor_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *Vision_VisionSensor_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Vision_VisionSensor_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *Vision_VisionSensor_get_sample_seq_access_info(void);
@@ -1583,7 +1584,7 @@ class builtin_interfaces_msg_dds__Time_
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* builtin_interfaces_msg_dds__Time__get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * builtin_interfaces_msg_dds__Time__get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *builtin_interfaces_msg_dds__Time__get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *builtin_interfaces_msg_dds__Time__get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *builtin_interfaces_msg_dds__Time__get_sample_seq_access_info(void);
@@ -1671,7 +1672,7 @@ class std_msgs_msg_dds__Header_
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* std_msgs_msg_dds__Header__get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * std_msgs_msg_dds__Header__get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *std_msgs_msg_dds__Header__get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *std_msgs_msg_dds__Header__get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *std_msgs_msg_dds__Header__get_sample_seq_access_info(void);
@@ -1761,7 +1762,7 @@ class sensor_msgs_msg_dds__PointField_
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* sensor_msgs_msg_dds__PointField__get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * sensor_msgs_msg_dds__PointField__get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *sensor_msgs_msg_dds__PointField__get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *sensor_msgs_msg_dds__PointField__get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *sensor_msgs_msg_dds__PointField__get_sample_seq_access_info(void);
@@ -1856,7 +1857,7 @@ class sensor_msgs_msg_dds__PointCloud2_
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* sensor_msgs_msg_dds__PointCloud2__get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * sensor_msgs_msg_dds__PointCloud2__get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *sensor_msgs_msg_dds__PointCloud2__get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *sensor_msgs_msg_dds__PointCloud2__get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *sensor_msgs_msg_dds__PointCloud2__get_sample_seq_access_info(void);
@@ -1924,7 +1925,7 @@ typedef enum ShapeFillKind
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* ShapeFillKind_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * ShapeFillKind_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *ShapeFillKind_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ShapeFillKind_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ShapeFillKind_get_sample_seq_access_info(void);
@@ -2014,7 +2015,7 @@ class ShapeType
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* ShapeType_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * ShapeType_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *ShapeType_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ShapeType_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ShapeType_get_sample_seq_access_info(void);
@@ -2102,7 +2103,7 @@ class ShapeTypeExtended
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* ShapeTypeExtended_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * ShapeTypeExtended_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *ShapeTypeExtended_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ShapeTypeExtended_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *ShapeTypeExtended_get_sample_seq_access_info(void);
@@ -2156,7 +2157,7 @@ RTIBool ShapeTypeExtended_copy(
 #define NDDSUSERDllExport
 #endif
 
-static const DDS_Long MAX_IMAGE_SIZE= (1366*768*4);
+static const DDS_Long MAX_IMAGE_SIZE= (1366L*768L*4L);
 
 extern "C" {
 
@@ -2195,7 +2196,7 @@ class CameraImage_CameraImageData
 #endif
 
 #ifndef NDDS_STANDALONE_TYPE
-NDDSUSERDllExport DDS_TypeCode* CameraImage_CameraImageData_get_typecode(void); /* Type code */
+NDDSUSERDllExport DDS_TypeCode * CameraImage_CameraImageData_get_typecode(void); /* Type code */
 NDDSUSERDllExport RTIXCdrTypePlugin *CameraImage_CameraImageData_get_type_plugin_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *CameraImage_CameraImageData_get_sample_access_info(void);
 NDDSUSERDllExport RTIXCdrSampleAccessInfo *CameraImage_CameraImageData_get_sample_seq_access_info(void);

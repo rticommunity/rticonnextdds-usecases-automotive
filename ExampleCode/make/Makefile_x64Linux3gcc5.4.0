@@ -29,7 +29,7 @@ COMPILER_FLAGS = -m64 -Wall -std=c++11
 ifndef LINKER
 LINKER = g++
 endif
-LINKER_FLAGS = -m64 -static-libgcc -Wl,--no-as-needed
+LINKER_FLAGS = -m64 -static-libgcc -Wl,--no-as-needed -no-pie
 SYSLIBS = -ldl -lnsl -lm -lpthread -lrt
 DEFINES = -DRTI_UNIX -DRTI_LINUX -DRTI_64BIT 
 

@@ -3,14 +3,15 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from automotive.idl using "rtiddsgen".
-The rtiddsgen tool is part of the RTI Connext distribution.
+This file was generated from automotive.idl
+using RTI Code Generator (rtiddsgen) version 3.1.0.
+The rtiddsgen tool is part of the RTI Connext DDS distribution.
 For more information, type 'rtiddsgen -help' at a command shell
-or consult the RTI Connext manual.
+or consult the Code Generator User's Manual.
 */
 
-#ifndef automotivePlugin_2097331952_h
-#define automotivePlugin_2097331952_h
+#ifndef automotivePlugin_2097331918_h
+#define automotivePlugin_2097331918_h
 
 #include "automotive.h"
 
@@ -27,7 +28,7 @@ struct RTICdrStream;
 #define NDDSUSERDllExport __declspec(dllexport)
 #endif
 
-extern "C" {
+extern "C"{
 
     #define POSIXTimestampPlugin_get_sample PRESTypePluginDefaultEndpointData_getSample 
 
@@ -131,16 +132,6 @@ extern "C" {
         const POSIXTimestamp *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    POSIXTimestampPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        POSIXTimestamp **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     POSIXTimestampPlugin_deserialize_from_cdr_buffer(
         POSIXTimestamp *sample,
@@ -192,7 +183,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *POSIXTimestampPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * POSIXTimestampPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -375,16 +366,6 @@ extern "C" {
         const Alerts_DriverAlerts *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Alerts_DriverAlertsPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Alerts_DriverAlerts **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Alerts_DriverAlertsPlugin_deserialize_from_cdr_buffer(
         Alerts_DriverAlerts *sample,
@@ -436,7 +417,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Alerts_DriverAlertsPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Alerts_DriverAlertsPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -619,16 +600,6 @@ extern "C" {
         const Lane_LaneObject *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Lane_LaneObjectPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Lane_LaneObject **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Lane_LaneObjectPlugin_deserialize_from_cdr_buffer(
         Lane_LaneObject *sample,
@@ -680,7 +651,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Lane_LaneObjectPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Lane_LaneObjectPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -791,16 +762,6 @@ extern "C" {
         const Lane_LaneSensor *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Lane_LaneSensorPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Lane_LaneSensor **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Lane_LaneSensorPlugin_deserialize_from_cdr_buffer(
         Lane_LaneSensor *sample,
@@ -852,7 +813,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Lane_LaneSensorPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Lane_LaneSensorPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -963,16 +924,6 @@ extern "C" {
         const Lidar_Point *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Lidar_PointPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Lidar_Point **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Lidar_PointPlugin_deserialize_from_cdr_buffer(
         Lidar_Point *sample,
@@ -1024,7 +975,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Lidar_PointPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Lidar_PointPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -1135,16 +1086,6 @@ extern "C" {
         const Lidar_PCloud *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Lidar_PCloudPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Lidar_PCloud **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Lidar_PCloudPlugin_deserialize_from_cdr_buffer(
         Lidar_PCloud *sample,
@@ -1196,7 +1137,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Lidar_PCloudPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Lidar_PCloudPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -1307,16 +1248,6 @@ extern "C" {
         const Lidar_LidarSensor *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Lidar_LidarSensorPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Lidar_LidarSensor **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Lidar_LidarSensorPlugin_deserialize_from_cdr_buffer(
         Lidar_LidarSensor *sample,
@@ -1368,7 +1299,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Lidar_LidarSensorPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Lidar_LidarSensorPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -1479,16 +1410,6 @@ extern "C" {
         const Platform_PlatformControl *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Platform_PlatformControlPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Platform_PlatformControl **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Platform_PlatformControlPlugin_deserialize_from_cdr_buffer(
         Platform_PlatformControl *sample,
@@ -1540,7 +1461,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Platform_PlatformControlPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Platform_PlatformControlPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -1651,16 +1572,6 @@ extern "C" {
         const Platform_PlatformStatus *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Platform_PlatformStatusPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Platform_PlatformStatus **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Platform_PlatformStatusPlugin_deserialize_from_cdr_buffer(
         Platform_PlatformStatus *sample,
@@ -1712,7 +1623,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Platform_PlatformStatusPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Platform_PlatformStatusPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -1859,16 +1770,6 @@ extern "C" {
         const Sensor_SensorObject *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Sensor_SensorObjectPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Sensor_SensorObject **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Sensor_SensorObjectPlugin_deserialize_from_cdr_buffer(
         Sensor_SensorObject *sample,
@@ -1920,7 +1821,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Sensor_SensorObjectPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Sensor_SensorObjectPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -2031,16 +1932,6 @@ extern "C" {
         const Sensor_SensorObjectList *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Sensor_SensorObjectListPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Sensor_SensorObjectList **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Sensor_SensorObjectListPlugin_deserialize_from_cdr_buffer(
         Sensor_SensorObjectList *sample,
@@ -2092,7 +1983,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Sensor_SensorObjectListPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Sensor_SensorObjectListPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -2203,16 +2094,6 @@ extern "C" {
         const Vision_VisionObject *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Vision_VisionObjectPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Vision_VisionObject **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Vision_VisionObjectPlugin_deserialize_from_cdr_buffer(
         Vision_VisionObject *sample,
@@ -2264,7 +2145,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Vision_VisionObjectPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Vision_VisionObjectPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -2408,16 +2289,6 @@ extern "C" {
         const Vision_VisionSensor *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    Vision_VisionSensorPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        Vision_VisionSensor **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     Vision_VisionSensorPlugin_deserialize_from_cdr_buffer(
         Vision_VisionSensor *sample,
@@ -2481,13 +2352,6 @@ extern "C" {
         const Vision_VisionSensorKeyHolder *key);
 
     NDDSUSERDllExport extern RTIBool 
-    Vision_VisionSensorPlugin_instance_to_keyhash(
-        PRESTypePluginEndpointData endpoint_data,
-        DDS_KeyHash_t *keyhash,
-        const Vision_VisionSensor *instance,
-        RTIEncapsulationId encapsulationId);
-
-    NDDSUSERDllExport extern RTIBool 
     Vision_VisionSensorPlugin_serialized_sample_to_keyhash(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
@@ -2496,7 +2360,7 @@ extern "C" {
         void *endpoint_plugin_qos); 
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *Vision_VisionSensorPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * Vision_VisionSensorPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -2607,16 +2471,6 @@ extern "C" {
         const builtin_interfaces_msg_dds__Time_ *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    builtin_interfaces_msg_dds__Time_Plugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        builtin_interfaces_msg_dds__Time_ **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     builtin_interfaces_msg_dds__Time_Plugin_deserialize_from_cdr_buffer(
         builtin_interfaces_msg_dds__Time_ *sample,
@@ -2668,7 +2522,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *builtin_interfaces_msg_dds__Time_Plugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * builtin_interfaces_msg_dds__Time_Plugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -2779,16 +2633,6 @@ extern "C" {
         const std_msgs_msg_dds__Header_ *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    std_msgs_msg_dds__Header_Plugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        std_msgs_msg_dds__Header_ **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     std_msgs_msg_dds__Header_Plugin_deserialize_from_cdr_buffer(
         std_msgs_msg_dds__Header_ *sample,
@@ -2840,7 +2684,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *std_msgs_msg_dds__Header_Plugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * std_msgs_msg_dds__Header_Plugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -2951,16 +2795,6 @@ extern "C" {
         const sensor_msgs_msg_dds__PointField_ *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    sensor_msgs_msg_dds__PointField_Plugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        sensor_msgs_msg_dds__PointField_ **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     sensor_msgs_msg_dds__PointField_Plugin_deserialize_from_cdr_buffer(
         sensor_msgs_msg_dds__PointField_ *sample,
@@ -3012,7 +2846,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *sensor_msgs_msg_dds__PointField_Plugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * sensor_msgs_msg_dds__PointField_Plugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -3123,16 +2957,6 @@ extern "C" {
         const sensor_msgs_msg_dds__PointCloud2_ *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    sensor_msgs_msg_dds__PointCloud2_Plugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        sensor_msgs_msg_dds__PointCloud2_ **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     sensor_msgs_msg_dds__PointCloud2_Plugin_deserialize_from_cdr_buffer(
         sensor_msgs_msg_dds__PointCloud2_ *sample,
@@ -3184,7 +3008,7 @@ extern "C" {
         void *endpoint_plugin_qos);
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *sensor_msgs_msg_dds__PointCloud2_Plugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * sensor_msgs_msg_dds__PointCloud2_Plugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -3364,16 +3188,6 @@ extern "C" {
         const ShapeType *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    ShapeTypePlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        ShapeType **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     ShapeTypePlugin_deserialize_from_cdr_buffer(
         ShapeType *sample,
@@ -3437,13 +3251,6 @@ extern "C" {
         const ShapeTypeKeyHolder *key);
 
     NDDSUSERDllExport extern RTIBool 
-    ShapeTypePlugin_instance_to_keyhash(
-        PRESTypePluginEndpointData endpoint_data,
-        DDS_KeyHash_t *keyhash,
-        const ShapeType *instance,
-        RTIEncapsulationId encapsulationId);
-
-    NDDSUSERDllExport extern RTIBool 
     ShapeTypePlugin_serialized_sample_to_keyhash(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
@@ -3452,7 +3259,7 @@ extern "C" {
         void *endpoint_plugin_qos); 
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *ShapeTypePlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * ShapeTypePlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -3596,16 +3403,6 @@ extern "C" {
         const ShapeTypeExtended *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    ShapeTypeExtendedPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        ShapeTypeExtended **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     ShapeTypeExtendedPlugin_deserialize_from_cdr_buffer(
         ShapeTypeExtended *sample,
@@ -3669,13 +3466,6 @@ extern "C" {
         const ShapeTypeExtendedKeyHolder *key);
 
     NDDSUSERDllExport extern RTIBool 
-    ShapeTypeExtendedPlugin_instance_to_keyhash(
-        PRESTypePluginEndpointData endpoint_data,
-        DDS_KeyHash_t *keyhash,
-        const ShapeTypeExtended *instance,
-        RTIEncapsulationId encapsulationId);
-
-    NDDSUSERDllExport extern RTIBool 
     ShapeTypeExtendedPlugin_serialized_sample_to_keyhash(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
@@ -3684,7 +3474,7 @@ extern "C" {
         void *endpoint_plugin_qos); 
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *ShapeTypeExtendedPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * ShapeTypeExtendedPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -3828,16 +3618,6 @@ extern "C" {
         const CameraImage_CameraImageData *sample,
         DDS_DataRepresentationId_t representation);
 
-    NDDSUSERDllExport extern RTIBool 
-    CameraImage_CameraImageDataPlugin_deserialize(
-        PRESTypePluginEndpointData endpoint_data,
-        CameraImage_CameraImageData **sample, 
-        RTIBool * drop_sample,
-        struct RTICdrStream *stream,
-        RTIBool deserialize_encapsulation,
-        RTIBool deserialize_sample, 
-        void *endpoint_plugin_qos);
-
     NDDSUSERDllExport extern RTIBool
     CameraImage_CameraImageDataPlugin_deserialize_from_cdr_buffer(
         CameraImage_CameraImageData *sample,
@@ -3901,13 +3681,6 @@ extern "C" {
         const CameraImage_CameraImageDataKeyHolder *key);
 
     NDDSUSERDllExport extern RTIBool 
-    CameraImage_CameraImageDataPlugin_instance_to_keyhash(
-        PRESTypePluginEndpointData endpoint_data,
-        DDS_KeyHash_t *keyhash,
-        const CameraImage_CameraImageData *instance,
-        RTIEncapsulationId encapsulationId);
-
-    NDDSUSERDllExport extern RTIBool 
     CameraImage_CameraImageDataPlugin_serialized_sample_to_keyhash(
         PRESTypePluginEndpointData endpoint_data,
         struct RTICdrStream *stream, 
@@ -3916,7 +3689,7 @@ extern "C" {
         void *endpoint_plugin_qos); 
 
     NDDSUSERDllExport extern
-    struct RTIXCdrInterpreterPrograms *CameraImage_CameraImageDataPlugin_get_programs();
+    struct RTIXCdrInterpreterPrograms * CameraImage_CameraImageDataPlugin_get_programs(void);
 
     /* Plugin Functions */
     NDDSUSERDllExport extern struct PRESTypePlugin*
@@ -3934,5 +3707,5 @@ extern "C" {
 #define NDDSUSERDllExport
 #endif
 
-#endif /* automotivePlugin_2097331952_h */
+#endif /* automotivePlugin_2097331918_h */
 
