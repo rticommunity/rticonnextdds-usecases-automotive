@@ -57,13 +57,13 @@ for exe in ${PROGRAMS}
 do
   case ${TERM} in
     lxterminal)
-      ${TERM} ${GEOMETRY} -t ${exe} -e "${exe}" &
+      ${TERM} ${GEOMETRY} -t `basename ${exe}` -e "${exe}" &
       ;;
     xterm)
       ${TERM} ${GEOMETRY} -e "${exe}" &
       ;;
     gnome-terminal) 
-      ${TERM} ${GEOMETRY} -- "${exe}" &
+      ${TERM} ${GEOMETRY} -t `basename ${exe}` -- "${exe}" &
       ;;
     *) exit 1
   esac
