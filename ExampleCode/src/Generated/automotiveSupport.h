@@ -2,14 +2,15 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from automotive.idl using "rtiddsgen".
-The rtiddsgen tool is part of the RTI Connext distribution.
+This file was generated from automotive.idl
+using RTI Code Generator (rtiddsgen) version 3.1.0.
+The rtiddsgen tool is part of the RTI Connext DDS distribution.
 For more information, type 'rtiddsgen -help' at a command shell
-or consult the RTI Connext manual.
+or consult the Code Generator User's Manual.
 */
 
-#ifndef automotiveSupport_2097331952_h
-#define automotiveSupport_2097331952_h
+#ifndef automotiveSupport_2097331918_h
+#define automotiveSupport_2097331918_h
 
 /* Uses */
 #include "automotive.h"
@@ -727,5 +728,5 @@ DDS_DATAREADER_W_DATA_CONSISTENCY_CHECK(CameraImage_CameraImageDataDataReader, C
 #define NDDSUSERDllExport
 #endif
 
-#endif  /* automotiveSupport_2097331952_h */
+#endif  /* automotiveSupport_2097331918_h */
 

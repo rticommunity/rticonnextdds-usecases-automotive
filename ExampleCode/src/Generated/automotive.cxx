@@ -3,10 +3,11 @@
 /*
 WARNING: THIS FILE IS AUTO-GENERATED. DO NOT MODIFY.
 
-This file was generated from automotive.idl using "rtiddsgen".
-The rtiddsgen tool is part of the RTI Connext distribution.
+This file was generated from automotive.idl 
+using RTI Code Generator (rtiddsgen) version 3.1.0.
+The rtiddsgen tool is part of the RTI Connext DDS distribution.
 For more information, type 'rtiddsgen -help' at a command shell
-or consult the RTI Connext manual.
+or consult the Code Generator User's Manual.
 */
 
 #ifndef NDDS_STANDALONE_TYPE
@@ -43,7 +44,7 @@ or consult the RTI Connext manual.
 const char *POSIXTimestampTYPENAME = "POSIXTimestamp";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* POSIXTimestamp_get_typecode()
+DDS_TypeCode * POSIXTimestamp_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -198,9 +199,9 @@ RTIXCdrSampleAccessInfo *POSIXTimestamp_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(POSIXTimestamp);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             POSIXTimestamp_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             POSIXTimestamp_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -409,7 +410,7 @@ RTIBool POSIXTimestamp_copy(
 const char *IndicatorStatusEnumTYPENAME = "IndicatorStatusEnum";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* IndicatorStatusEnum_get_typecode()
+DDS_TypeCode * IndicatorStatusEnum_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -577,9 +578,9 @@ RTIXCdrSampleAccessInfo *IndicatorStatusEnum_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(IndicatorStatusEnum);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             IndicatorStatusEnum_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             IndicatorStatusEnum_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -777,7 +778,7 @@ RTIBool IndicatorStatusEnum_copy(
 const char *ClassificationEnumTYPENAME = "ClassificationEnum";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* ClassificationEnum_get_typecode()
+DDS_TypeCode * ClassificationEnum_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -1021,9 +1022,9 @@ RTIXCdrSampleAccessInfo *ClassificationEnum_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(ClassificationEnum);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             ClassificationEnum_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             ClassificationEnum_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -1221,7 +1222,7 @@ RTIBool ClassificationEnum_copy(
 const char *Alerts_DriverAlertsTYPENAME = "Alerts::DriverAlerts";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Alerts_DriverAlerts_get_typecode()
+DDS_TypeCode * Alerts_DriverAlerts_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -1468,9 +1469,9 @@ RTIXCdrSampleAccessInfo *Alerts_DriverAlerts_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Alerts_DriverAlerts);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Alerts_DriverAlerts_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Alerts_DriverAlerts_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -1703,7 +1704,7 @@ RTIBool Alerts_DriverAlerts_copy(
 const char *Lane_ConfidenceEnumTYPENAME = "Lane::ConfidenceEnum";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Lane_ConfidenceEnum_get_typecode()
+DDS_TypeCode * Lane_ConfidenceEnum_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -1871,9 +1872,9 @@ RTIXCdrSampleAccessInfo *Lane_ConfidenceEnum_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Lane_ConfidenceEnum);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Lane_ConfidenceEnum_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Lane_ConfidenceEnum_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -2071,7 +2072,7 @@ RTIBool Lane_ConfidenceEnum_copy(
 const char *Lane_LaneBoundaryEnumTYPENAME = "Lane::LaneBoundaryEnum";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Lane_LaneBoundaryEnum_get_typecode()
+DDS_TypeCode * Lane_LaneBoundaryEnum_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -2334,9 +2335,9 @@ RTIXCdrSampleAccessInfo *Lane_LaneBoundaryEnum_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Lane_LaneBoundaryEnum);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Lane_LaneBoundaryEnum_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Lane_LaneBoundaryEnum_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -2534,7 +2535,7 @@ RTIBool Lane_LaneBoundaryEnum_copy(
 const char *Lane_LaneObjectTYPENAME = "Lane::LaneObject";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Lane_LaneObject_get_typecode()
+DDS_TypeCode * Lane_LaneObject_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -2793,9 +2794,9 @@ RTIXCdrSampleAccessInfo *Lane_LaneObject_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Lane_LaneObject);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Lane_LaneObject_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Lane_LaneObject_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -2877,7 +2878,6 @@ RTIBool Lane_LaneObject_initialize_w_params(
 
     sample->confidence = CONFIDENCE_NONE;
     sample->boundaryType = BOUNDRY_NONE;
-
     sample->offset = 0.0f;
 
     sample->headingAngle = 0.0f;
@@ -2952,8 +2952,6 @@ void Lane_LaneObject_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    Lane_ConfidenceEnum_finalize_optional_members(&sample->confidence, deallocParams->delete_pointers);
-    Lane_LaneBoundaryEnum_finalize_optional_members(&sample->boundaryType, deallocParams->delete_pointers);
 }
 
 RTIBool Lane_LaneObject_copy(
@@ -3033,7 +3031,7 @@ RTIBool Lane_LaneObject_copy(
 const char *Lane_LaneSensorTYPENAME = "Lane::LaneSensor";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Lane_LaneSensor_get_typecode()
+DDS_TypeCode * Lane_LaneSensor_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -3175,9 +3173,9 @@ RTIXCdrSampleAccessInfo *Lane_LaneSensor_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Lane_LaneSensor);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Lane_LaneSensor_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Lane_LaneSensor_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -3331,8 +3329,6 @@ void Lane_LaneSensor_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    Lane_LaneObject_finalize_optional_members(&sample->left, deallocParams->delete_pointers);
-    Lane_LaneObject_finalize_optional_members(&sample->right, deallocParams->delete_pointers);
 }
 
 RTIBool Lane_LaneSensor_copy(
@@ -3396,11 +3392,11 @@ RTIBool Lane_LaneSensor_copy(
 const char *Lidar_PointTYPENAME = "Lidar::Point";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Lidar_Point_get_typecode()
+DDS_TypeCode * Lidar_Point_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode Lidar_Point_g_tc_point_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
+    static DDS_TypeCode Lidar_Point_g_tc_point_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3L, NULL,NULL);
 
     static DDS_TypeCode_Member Lidar_Point_g_tc_members[1]=
     {
@@ -3519,9 +3515,9 @@ RTIXCdrSampleAccessInfo *Lidar_Point_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Lidar_Point);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Lidar_Point_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Lidar_Point_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -3600,7 +3596,7 @@ RTIBool Lidar_Point_initialize_w_params(
     }
 
     if (!RTICdrType_initArray(
-        sample->point, (3), RTI_CDR_FLOAT_SIZE)) {
+        sample->point, (3L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     return RTI_TRUE;
@@ -3680,7 +3676,7 @@ RTIBool Lidar_Point_copy(
         }
 
         if (!RTICdrType_copyArray(
-            dst->point ,src->point,(3), RTI_CDR_FLOAT_SIZE)) {
+            dst->point ,src->point,(3L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
 
@@ -3726,14 +3722,14 @@ RTIBool Lidar_Point_copy(
 const char *Lidar_PCloudTYPENAME = "Lidar::PCloud";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Lidar_PCloud_get_typecode()
+DDS_TypeCode * Lidar_PCloud_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
     static DDS_TypeCode Lidar_PCloud_g_tc_Location_sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE(((Lidar_MAX_POINTS)),NULL);
-    static DDS_TypeCode Lidar_PCloud_g_tc_xLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
-    static DDS_TypeCode Lidar_PCloud_g_tc_yLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
-    static DDS_TypeCode Lidar_PCloud_g_tc_zLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2, NULL,NULL);
+    static DDS_TypeCode Lidar_PCloud_g_tc_xLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2L, NULL,NULL);
+    static DDS_TypeCode Lidar_PCloud_g_tc_yLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2L, NULL,NULL);
+    static DDS_TypeCode Lidar_PCloud_g_tc_zLimits_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,2L, NULL,NULL);
 
     static DDS_TypeCode_Member Lidar_PCloud_g_tc_members[8]=
     {
@@ -4038,9 +4034,9 @@ RTIXCdrSampleAccessInfo *Lidar_PCloud_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Lidar_PCloud);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Lidar_PCloud_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Lidar_PCloud_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -4139,7 +4135,6 @@ RTIBool Lidar_PCloud_initialize_w_params(
             return RTI_FALSE;
         }    
     }
-
     sample->color = 0;
 
     sample->normal = 0.0f;
@@ -4149,15 +4144,15 @@ RTIBool Lidar_PCloud_initialize_w_params(
     sample->count = 0;
 
     if (!RTICdrType_initArray(
-        sample->xLimits, (2), RTI_CDR_FLOAT_SIZE)) {
+        sample->xLimits, (2L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->yLimits, (2), RTI_CDR_FLOAT_SIZE)) {
+        sample->yLimits, (2L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->zLimits, (2), RTI_CDR_FLOAT_SIZE)) {
+        sample->zLimits, (2L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     return RTI_TRUE;
@@ -4232,18 +4227,6 @@ void Lidar_PCloud_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    {
-        DDS_UnsignedLong i, length;
-        length = Lidar_PointSeq_get_length(
-            &sample->Location);
-
-        for (i = 0; i < length; i++) {
-            Lidar_Point_finalize_optional_members(
-                Lidar_PointSeq_get_reference(
-                    &sample->Location, i), deallocParams->delete_pointers);
-        }
-    }  
-
 }
 
 RTIBool Lidar_PCloud_copy(
@@ -4277,15 +4260,15 @@ RTIBool Lidar_PCloud_copy(
             return RTI_FALSE;
         }
         if (!RTICdrType_copyArray(
-            dst->xLimits ,src->xLimits,(2), RTI_CDR_FLOAT_SIZE)) {
+            dst->xLimits ,src->xLimits,(2L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
         if (!RTICdrType_copyArray(
-            dst->yLimits ,src->yLimits,(2), RTI_CDR_FLOAT_SIZE)) {
+            dst->yLimits ,src->yLimits,(2L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
         if (!RTICdrType_copyArray(
-            dst->zLimits ,src->zLimits,(2), RTI_CDR_FLOAT_SIZE)) {
+            dst->zLimits ,src->zLimits,(2L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
 
@@ -4331,7 +4314,7 @@ RTIBool Lidar_PCloud_copy(
 const char *Lidar_LidarSensorTYPENAME = "Lidar::LidarSensor";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Lidar_LidarSensor_get_typecode()
+DDS_TypeCode * Lidar_LidarSensor_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -4473,9 +4456,9 @@ RTIXCdrSampleAccessInfo *Lidar_LidarSensor_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Lidar_LidarSensor);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Lidar_LidarSensor_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Lidar_LidarSensor_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -4629,8 +4612,6 @@ void Lidar_LidarSensor_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    POSIXTimestamp_finalize_optional_members(&sample->timestamp, deallocParams->delete_pointers);
-    Lidar_PCloud_finalize_optional_members(&sample->ptCloud, deallocParams->delete_pointers);
 }
 
 RTIBool Lidar_LidarSensor_copy(
@@ -4694,7 +4675,7 @@ RTIBool Lidar_LidarSensor_copy(
 const char *Platform_PlatformControlTYPENAME = "Platform::PlatformControl";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Platform_PlatformControl_get_typecode()
+DDS_TypeCode * Platform_PlatformControl_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -4925,9 +4906,9 @@ RTIXCdrSampleAccessInfo *Platform_PlatformControl_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Platform_PlatformControl);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Platform_PlatformControl_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Platform_PlatformControl_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -5011,7 +4992,6 @@ RTIBool Platform_PlatformControl_initialize_w_params(
     allocParams)) {
         return RTI_FALSE;
     }
-
     sample->vehicleSteerAngle = 0.0f;
 
     sample->speed = 0.0f;
@@ -5085,8 +5065,6 @@ void Platform_PlatformControl_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    POSIXTimestamp_finalize_optional_members(&sample->timestamp, deallocParams->delete_pointers);
-    IndicatorStatusEnum_finalize_optional_members(&sample->blinkerStatus, deallocParams->delete_pointers);
 }
 
 RTIBool Platform_PlatformControl_copy(
@@ -5162,7 +5140,7 @@ RTIBool Platform_PlatformControl_copy(
 const char *Platform_PlatformStatusTYPENAME = "Platform::PlatformStatus";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Platform_PlatformStatus_get_typecode()
+DDS_TypeCode * Platform_PlatformStatus_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -5452,9 +5430,9 @@ RTIXCdrSampleAccessInfo *Platform_PlatformStatus_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Platform_PlatformStatus);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Platform_PlatformStatus_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Platform_PlatformStatus_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -5536,11 +5514,9 @@ RTIBool Platform_PlatformStatus_initialize_w_params(
     allocParams)) {
         return RTI_FALSE;
     }
-
     sample->vehSpd = 0.0f;
 
     sample->blinkerStatus = INDICATOR_OFF;
-
     sample->posGasPedal = 0.0f;
 
     sample->velocity = 0.0f;
@@ -5617,8 +5593,6 @@ void Platform_PlatformStatus_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    POSIXTimestamp_finalize_optional_members(&sample->timestamp, deallocParams->delete_pointers);
-    IndicatorStatusEnum_finalize_optional_members(&sample->blinkerStatus, deallocParams->delete_pointers);
 }
 
 RTIBool Platform_PlatformStatus_copy(
@@ -5702,7 +5676,7 @@ RTIBool Platform_PlatformStatus_copy(
 const char *Sensor_RangeModeEnumTYPENAME = "Sensor::RangeModeEnum";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Sensor_RangeModeEnum_get_typecode()
+DDS_TypeCode * Sensor_RangeModeEnum_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -5870,9 +5844,9 @@ RTIXCdrSampleAccessInfo *Sensor_RangeModeEnum_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Sensor_RangeModeEnum);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Sensor_RangeModeEnum_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Sensor_RangeModeEnum_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -6070,13 +6044,13 @@ RTIBool Sensor_RangeModeEnum_copy(
 const char *Sensor_SensorObjectTYPENAME = "Sensor::SensorObject";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Sensor_SensorObject_get_typecode()
+DDS_TypeCode * Sensor_SensorObject_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode Sensor_SensorObject_g_tc_position_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
-    static DDS_TypeCode Sensor_SensorObject_g_tc_velocity_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
-    static DDS_TypeCode Sensor_SensorObject_g_tc_size_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
+    static DDS_TypeCode Sensor_SensorObject_g_tc_position_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3L, NULL,NULL);
+    static DDS_TypeCode Sensor_SensorObject_g_tc_velocity_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3L, NULL,NULL);
+    static DDS_TypeCode Sensor_SensorObject_g_tc_size_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3L, NULL,NULL);
 
     static DDS_TypeCode_Member Sensor_SensorObject_g_tc_members[7]=
     {
@@ -6348,9 +6322,9 @@ RTIXCdrSampleAccessInfo *Sensor_SensorObject_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Sensor_SensorObject);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Sensor_SensorObject_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Sensor_SensorObject_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -6430,22 +6404,20 @@ RTIBool Sensor_SensorObject_initialize_w_params(
 
     sample->classification = CLASSIFICATION_UNKNOWN;
     if (!RTICdrType_initArray(
-        sample->position, (3), RTI_CDR_FLOAT_SIZE)) {
+        sample->position, (3L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->velocity, (3), RTI_CDR_FLOAT_SIZE)) {
+        sample->velocity, (3L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->size, (3), RTI_CDR_FLOAT_SIZE)) {
+        sample->size, (3L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
-
     sample->amplitude = 0.0f;
 
     sample->rangeMode = RANGE_NONE;
-
     sample->rangeRate = 0.0f;
 
     return RTI_TRUE;
@@ -6516,8 +6488,6 @@ void Sensor_SensorObject_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    ClassificationEnum_finalize_optional_members(&sample->classification, deallocParams->delete_pointers);
-    Sensor_RangeModeEnum_finalize_optional_members(&sample->rangeMode, deallocParams->delete_pointers);
 }
 
 RTIBool Sensor_SensorObject_copy(
@@ -6535,15 +6505,15 @@ RTIBool Sensor_SensorObject_copy(
             return RTI_FALSE;
         } 
         if (!RTICdrType_copyArray(
-            dst->position ,src->position,(3), RTI_CDR_FLOAT_SIZE)) {
+            dst->position ,src->position,(3L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
         if (!RTICdrType_copyArray(
-            dst->velocity ,src->velocity,(3), RTI_CDR_FLOAT_SIZE)) {
+            dst->velocity ,src->velocity,(3L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
         if (!RTICdrType_copyArray(
-            dst->size ,src->size,(3), RTI_CDR_FLOAT_SIZE)) {
+            dst->size ,src->size,(3L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
         if (!RTICdrType_copyFloat (
@@ -6601,7 +6571,7 @@ RTIBool Sensor_SensorObject_copy(
 const char *Sensor_SensorObjectListTYPENAME = "Sensor::SensorObjectList";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Sensor_SensorObjectList_get_typecode()
+DDS_TypeCode * Sensor_SensorObjectList_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -6747,9 +6717,9 @@ RTIXCdrSampleAccessInfo *Sensor_SensorObjectList_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Sensor_SensorObjectList);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Sensor_SensorObjectList_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Sensor_SensorObjectList_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -6926,19 +6896,6 @@ void Sensor_SensorObjectList_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    POSIXTimestamp_finalize_optional_members(&sample->timestamp, deallocParams->delete_pointers);
-    {
-        DDS_UnsignedLong i, length;
-        length = Sensor_SensorObjectSeq_get_length(
-            &sample->objects);
-
-        for (i = 0; i < length; i++) {
-            Sensor_SensorObject_finalize_optional_members(
-                Sensor_SensorObjectSeq_get_reference(
-                    &sample->objects, i), deallocParams->delete_pointers);
-        }
-    }  
-
 }
 
 RTIBool Sensor_SensorObjectList_copy(
@@ -7002,13 +6959,13 @@ RTIBool Sensor_SensorObjectList_copy(
 const char *Vision_VisionObjectTYPENAME = "Vision::VisionObject";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Vision_VisionObject_get_typecode()
+DDS_TypeCode * Vision_VisionObject_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode Vision_VisionObject_g_tc_position_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
-    static DDS_TypeCode Vision_VisionObject_g_tc_velocity_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
-    static DDS_TypeCode Vision_VisionObject_g_tc_size_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
+    static DDS_TypeCode Vision_VisionObject_g_tc_position_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3L, NULL,NULL);
+    static DDS_TypeCode Vision_VisionObject_g_tc_velocity_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3L, NULL,NULL);
+    static DDS_TypeCode Vision_VisionObject_g_tc_size_array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3L, NULL,NULL);
 
     static DDS_TypeCode_Member Vision_VisionObject_g_tc_members[4]=
     {
@@ -7197,9 +7154,9 @@ RTIXCdrSampleAccessInfo *Vision_VisionObject_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Vision_VisionObject);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Vision_VisionObject_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Vision_VisionObject_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -7279,15 +7236,15 @@ RTIBool Vision_VisionObject_initialize_w_params(
 
     sample->classification = CLASSIFICATION_UNKNOWN;
     if (!RTICdrType_initArray(
-        sample->position, (3), RTI_CDR_FLOAT_SIZE)) {
+        sample->position, (3L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->velocity, (3), RTI_CDR_FLOAT_SIZE)) {
+        sample->velocity, (3L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     if (!RTICdrType_initArray(
-        sample->size, (3), RTI_CDR_FLOAT_SIZE)) {
+        sample->size, (3L), RTI_CDR_FLOAT_SIZE)) {
         return RTI_FALSE;
     }
     return RTI_TRUE;
@@ -7356,7 +7313,6 @@ void Vision_VisionObject_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    ClassificationEnum_finalize_optional_members(&sample->classification, deallocParams->delete_pointers);
 }
 
 RTIBool Vision_VisionObject_copy(
@@ -7374,15 +7330,15 @@ RTIBool Vision_VisionObject_copy(
             return RTI_FALSE;
         } 
         if (!RTICdrType_copyArray(
-            dst->position ,src->position,(3), RTI_CDR_FLOAT_SIZE)) {
+            dst->position ,src->position,(3L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
         if (!RTICdrType_copyArray(
-            dst->velocity ,src->velocity,(3), RTI_CDR_FLOAT_SIZE)) {
+            dst->velocity ,src->velocity,(3L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
         if (!RTICdrType_copyArray(
-            dst->size ,src->size,(3), RTI_CDR_FLOAT_SIZE)) {
+            dst->size ,src->size,(3L), RTI_CDR_FLOAT_SIZE)) {
             return RTI_FALSE;
         }
 
@@ -7428,7 +7384,7 @@ RTIBool Vision_VisionObject_copy(
 const char *Vision_VisionSensorTYPENAME = "Vision::VisionSensor";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* Vision_VisionSensor_get_typecode()
+DDS_TypeCode * Vision_VisionSensor_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -7602,9 +7558,9 @@ RTIXCdrSampleAccessInfo *Vision_VisionSensor_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(Vision_VisionSensor);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             Vision_VisionSensor_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             Vision_VisionSensor_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -7783,19 +7739,6 @@ void Vision_VisionSensor_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    POSIXTimestamp_finalize_optional_members(&sample->timestamp, deallocParams->delete_pointers);
-    {
-        DDS_UnsignedLong i, length;
-        length = Vision_VisionObjectSeq_get_length(
-            &sample->objects);
-
-        for (i = 0; i < length; i++) {
-            Vision_VisionObject_finalize_optional_members(
-                Vision_VisionObjectSeq_get_reference(
-                    &sample->objects, i), deallocParams->delete_pointers);
-        }
-    }  
-
 }
 
 RTIBool Vision_VisionSensor_copy(
@@ -7863,7 +7806,7 @@ RTIBool Vision_VisionSensor_copy(
 const char *builtin_interfaces_msg_dds__Time_TYPENAME = "builtin_interfaces::msg::dds_::Time_";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* builtin_interfaces_msg_dds__Time__get_typecode()
+DDS_TypeCode * builtin_interfaces_msg_dds__Time__get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -8018,9 +7961,9 @@ RTIXCdrSampleAccessInfo *builtin_interfaces_msg_dds__Time__get_sample_access_inf
     {
         size_t candidateTypeSize = sizeof(builtin_interfaces_msg_dds__Time_);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             builtin_interfaces_msg_dds__Time__g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             builtin_interfaces_msg_dds__Time__g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -8229,11 +8172,11 @@ RTIBool builtin_interfaces_msg_dds__Time__copy(
 const char *std_msgs_msg_dds__Header_TYPENAME = "std_msgs::msg::dds_::Header_";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* std_msgs_msg_dds__Header__get_typecode()
+DDS_TypeCode * std_msgs_msg_dds__Header__get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode std_msgs_msg_dds__Header__g_tc_frame_id__string = DDS_INITIALIZE_STRING_TYPECODE((255));
+    static DDS_TypeCode std_msgs_msg_dds__Header__g_tc_frame_id__string = DDS_INITIALIZE_STRING_TYPECODE((255L));
 
     static DDS_TypeCode_Member std_msgs_msg_dds__Header__g_tc_members[2]=
     {
@@ -8376,9 +8319,9 @@ RTIXCdrSampleAccessInfo *std_msgs_msg_dds__Header__get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(std_msgs_msg_dds__Header_);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             std_msgs_msg_dds__Header__g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             std_msgs_msg_dds__Header__g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -8462,11 +8405,11 @@ RTIBool std_msgs_msg_dds__Header__initialize_w_params(
     }
 
     if (allocParams->allocate_memory) {
-        sample->frame_id_ = DDS_String_alloc((255));
+        sample->frame_id_ = DDS_String_alloc((255L));
         RTICdrType_copyStringEx(
             &sample->frame_id_,
             "",
-            (255),
+            (255L),
             RTI_FALSE);
         if (sample->frame_id_ == NULL) {
             return RTI_FALSE;
@@ -8476,7 +8419,7 @@ RTIBool std_msgs_msg_dds__Header__initialize_w_params(
             RTICdrType_copyStringEx(
                 &sample->frame_id_,
                 "",
-                (255),
+                (255L),
                 RTI_FALSE);
             if (sample->frame_id_ == NULL) {
                 return RTI_FALSE;
@@ -8555,7 +8498,6 @@ void std_msgs_msg_dds__Header__finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    builtin_interfaces_msg_dds__Time__finalize_optional_members(&sample->stamp_, deallocParams->delete_pointers);
 }
 
 RTIBool std_msgs_msg_dds__Header__copy(
@@ -8574,7 +8516,7 @@ RTIBool std_msgs_msg_dds__Header__copy(
         } 
         if (!RTICdrType_copyStringEx (
             &dst->frame_id_, src->frame_id_, 
-            (255) + 1, RTI_FALSE)){
+            (255L) + 1, RTI_FALSE)){
             return RTI_FALSE;
         }
 
@@ -8620,11 +8562,11 @@ RTIBool std_msgs_msg_dds__Header__copy(
 const char *sensor_msgs_msg_dds__PointField_TYPENAME = "sensor_msgs::msg::dds_::PointField_";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* sensor_msgs_msg_dds__PointField__get_typecode()
+DDS_TypeCode * sensor_msgs_msg_dds__PointField__get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode sensor_msgs_msg_dds__PointField__g_tc_name__string = DDS_INITIALIZE_STRING_TYPECODE((255));
+    static DDS_TypeCode sensor_msgs_msg_dds__PointField__g_tc_name__string = DDS_INITIALIZE_STRING_TYPECODE((255L));
 
     static DDS_TypeCode_Member sensor_msgs_msg_dds__PointField__g_tc_members[4]=
     {
@@ -8831,9 +8773,9 @@ RTIXCdrSampleAccessInfo *sensor_msgs_msg_dds__PointField__get_sample_access_info
     {
         size_t candidateTypeSize = sizeof(sensor_msgs_msg_dds__PointField_);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             sensor_msgs_msg_dds__PointField__g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             sensor_msgs_msg_dds__PointField__g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -8912,11 +8854,11 @@ RTIBool sensor_msgs_msg_dds__PointField__initialize_w_params(
     }
 
     if (allocParams->allocate_memory) {
-        sample->name_ = DDS_String_alloc((255));
+        sample->name_ = DDS_String_alloc((255L));
         RTICdrType_copyStringEx(
             &sample->name_,
             "",
-            (255),
+            (255L),
             RTI_FALSE);
         if (sample->name_ == NULL) {
             return RTI_FALSE;
@@ -8926,7 +8868,7 @@ RTIBool sensor_msgs_msg_dds__PointField__initialize_w_params(
             RTICdrType_copyStringEx(
                 &sample->name_,
                 "",
-                (255),
+                (255L),
                 RTI_FALSE);
             if (sample->name_ == NULL) {
                 return RTI_FALSE;
@@ -9024,7 +8966,7 @@ RTIBool sensor_msgs_msg_dds__PointField__copy(
 
         if (!RTICdrType_copyStringEx (
             &dst->name_, src->name_, 
-            (255) + 1, RTI_FALSE)){
+            (255L) + 1, RTI_FALSE)){
             return RTI_FALSE;
         }
         if (!RTICdrType_copyUnsignedLong (
@@ -9082,12 +9024,12 @@ RTIBool sensor_msgs_msg_dds__PointField__copy(
 const char *sensor_msgs_msg_dds__PointCloud2_TYPENAME = "sensor_msgs::msg::dds_::PointCloud2_";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* sensor_msgs_msg_dds__PointCloud2__get_typecode()
+DDS_TypeCode * sensor_msgs_msg_dds__PointCloud2__get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode sensor_msgs_msg_dds__PointCloud2__g_tc_fields__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((4),NULL);
-    static DDS_TypeCode sensor_msgs_msg_dds__PointCloud2__g_tc_data__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((368640),NULL);
+    static DDS_TypeCode sensor_msgs_msg_dds__PointCloud2__g_tc_fields__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((4L),NULL);
+    static DDS_TypeCode sensor_msgs_msg_dds__PointCloud2__g_tc_data__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((368640L),NULL);
 
     static DDS_TypeCode_Member sensor_msgs_msg_dds__PointCloud2__g_tc_members[9]=
     {
@@ -9419,9 +9361,9 @@ RTIXCdrSampleAccessInfo *sensor_msgs_msg_dds__PointCloud2__get_sample_access_inf
     {
         size_t candidateTypeSize = sizeof(sensor_msgs_msg_dds__PointCloud2_);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             sensor_msgs_msg_dds__PointCloud2__g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             sensor_msgs_msg_dds__PointCloud2__g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -9506,7 +9448,6 @@ RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_w_params(
     allocParams)) {
         return RTI_FALSE;
     }
-
     sample->height_ = 0u;
 
     sample->width_ = 0u;
@@ -9518,10 +9459,10 @@ RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_w_params(
         if(!sensor_msgs_msg_dds__PointField_Seq_set_element_allocation_params(&sample->fields_ ,allocParams)){
             return RTI_FALSE;
         };
-        if(!sensor_msgs_msg_dds__PointField_Seq_set_absolute_maximum(&sample->fields_ , (4))){
+        if(!sensor_msgs_msg_dds__PointField_Seq_set_absolute_maximum(&sample->fields_ , (4L))){
             return RTI_FALSE;
         }
-        if (!sensor_msgs_msg_dds__PointField_Seq_set_maximum(&sample->fields_, (4))) {
+        if (!sensor_msgs_msg_dds__PointField_Seq_set_maximum(&sample->fields_, (4L))) {
             return RTI_FALSE;
         }
     } else { 
@@ -9529,7 +9470,6 @@ RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_w_params(
             return RTI_FALSE;
         }    
     }
-
     sample->is_bigendian_ = 0;
 
     sample->point_step_ = 0u;
@@ -9540,10 +9480,10 @@ RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_w_params(
         if(!DDS_OctetSeq_initialize(&sample->data_  )){
             return RTI_FALSE;
         }
-        if(!DDS_OctetSeq_set_absolute_maximum(&sample->data_ , (368640))){
+        if(!DDS_OctetSeq_set_absolute_maximum(&sample->data_ , (368640L))){
             return RTI_FALSE;
         }
-        if (!DDS_OctetSeq_set_maximum(&sample->data_ , (368640))) {
+        if (!DDS_OctetSeq_set_maximum(&sample->data_ , (368640L))) {
             return RTI_FALSE;
         }
     } else { 
@@ -9551,7 +9491,6 @@ RTIBool sensor_msgs_msg_dds__PointCloud2__initialize_w_params(
             return RTI_FALSE;
         }    
     }
-
     sample->is_dense_ = 0;
 
     return RTI_TRUE;
@@ -9631,19 +9570,6 @@ void sensor_msgs_msg_dds__PointCloud2__finalize_optional_members(
 
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
-
-    std_msgs_msg_dds__Header__finalize_optional_members(&sample->header_, deallocParams->delete_pointers);
-    {
-        DDS_UnsignedLong i, length;
-        length = sensor_msgs_msg_dds__PointField_Seq_get_length(
-            &sample->fields_);
-
-        for (i = 0; i < length; i++) {
-            sensor_msgs_msg_dds__PointField__finalize_optional_members(
-                sensor_msgs_msg_dds__PointField_Seq_get_reference(
-                    &sample->fields_, i), deallocParams->delete_pointers);
-        }
-    }  
 
 }
 
@@ -9736,7 +9662,7 @@ RTIBool sensor_msgs_msg_dds__PointCloud2__copy(
 const char *ShapeFillKindTYPENAME = "ShapeFillKind";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* ShapeFillKind_get_typecode()
+DDS_TypeCode * ShapeFillKind_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -9904,9 +9830,9 @@ RTIXCdrSampleAccessInfo *ShapeFillKind_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(ShapeFillKind);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             ShapeFillKind_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             ShapeFillKind_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -10104,11 +10030,11 @@ RTIBool ShapeFillKind_copy(
 const char *ShapeTypeTYPENAME = "ShapeType";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* ShapeType_get_typecode()
+DDS_TypeCode * ShapeType_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
-    static DDS_TypeCode ShapeType_g_tc_color_string = DDS_INITIALIZE_STRING_TYPECODE((128));
+    static DDS_TypeCode ShapeType_g_tc_color_string = DDS_INITIALIZE_STRING_TYPECODE((128L));
 
     static DDS_TypeCode_Member ShapeType_g_tc_members[4]=
     {
@@ -10315,9 +10241,9 @@ RTIXCdrSampleAccessInfo *ShapeType_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(ShapeType);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             ShapeType_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             ShapeType_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -10396,11 +10322,11 @@ RTIBool ShapeType_initialize_w_params(
     }
 
     if (allocParams->allocate_memory) {
-        sample->color = DDS_String_alloc((128));
+        sample->color = DDS_String_alloc((128L));
         RTICdrType_copyStringEx(
             &sample->color,
             "",
-            (128),
+            (128L),
             RTI_FALSE);
         if (sample->color == NULL) {
             return RTI_FALSE;
@@ -10410,7 +10336,7 @@ RTIBool ShapeType_initialize_w_params(
             RTICdrType_copyStringEx(
                 &sample->color,
                 "",
-                (128),
+                (128L),
                 RTI_FALSE);
             if (sample->color == NULL) {
                 return RTI_FALSE;
@@ -10508,7 +10434,7 @@ RTIBool ShapeType_copy(
 
         if (!RTICdrType_copyStringEx (
             &dst->color, src->color, 
-            (128) + 1, RTI_FALSE)){
+            (128L) + 1, RTI_FALSE)){
             return RTI_FALSE;
         }
         if (!RTICdrType_copyLong (
@@ -10566,7 +10492,7 @@ RTIBool ShapeType_copy(
 const char *ShapeTypeExtendedTYPENAME = "ShapeTypeExtended";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* ShapeTypeExtended_get_typecode()
+DDS_TypeCode * ShapeTypeExtended_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -10719,9 +10645,9 @@ RTIXCdrSampleAccessInfo *ShapeTypeExtended_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(ShapeTypeExtended);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             ShapeTypeExtended_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             ShapeTypeExtended_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
@@ -10803,7 +10729,6 @@ RTIBool ShapeTypeExtended_initialize_w_params(
     }
 
     sample->fillKind = SOLID_FILL;
-
     sample->angle = 0.0f;
 
     return RTI_TRUE;
@@ -10875,7 +10800,6 @@ void ShapeTypeExtended_finalize_optional_members(
     deallocParamsTmp.delete_pointers = (DDS_Boolean)deletePointers;
     deallocParamsTmp.delete_optional_members = DDS_BOOLEAN_TRUE;
 
-    ShapeFillKind_finalize_optional_members(&sample->fillKind, deallocParams->delete_pointers);
 }
 
 RTIBool ShapeTypeExtended_copy(
@@ -10943,7 +10867,7 @@ RTIBool ShapeTypeExtended_copy(
 const char *CameraImage_CameraImageDataTYPENAME = "CameraImage::CameraImageData";
 
 #ifndef NDDS_STANDALONE_TYPE
-DDS_TypeCode* CameraImage_CameraImageData_get_typecode()
+DDS_TypeCode * CameraImage_CameraImageData_get_typecode(void)
 {
     static RTIBool is_initialized = RTI_FALSE;
 
@@ -11181,9 +11105,9 @@ RTIXCdrSampleAccessInfo *CameraImage_CameraImageData_get_sample_access_info()
     {
         size_t candidateTypeSize = sizeof(CameraImage_CameraImageData);
 
-        if (candidateTypeSize > RTIXCdrUnsignedLong_MAX) {
+        if (candidateTypeSize > RTIXCdrLong_MAX) {
             CameraImage_CameraImageData_g_sampleAccessInfo.typeSize[0] =
-            RTIXCdrUnsignedLong_MAX;
+            RTIXCdrLong_MAX;
         } else {
             CameraImage_CameraImageData_g_sampleAccessInfo.typeSize[0] =
             (RTIXCdrUnsignedLong) candidateTypeSize;
