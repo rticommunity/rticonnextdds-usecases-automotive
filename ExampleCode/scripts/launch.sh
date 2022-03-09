@@ -75,7 +75,7 @@ read ignored
 
 for exe in ${PROGRAMS}
 do
-  pkill -9 ${TERM}
+  pkill -9 -f `basename ${exe}`
 done
 
 cd ../scripts
