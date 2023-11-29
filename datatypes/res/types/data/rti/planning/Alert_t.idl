@@ -1,0 +1,43 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef ALERT_IDL
+#define ALERT_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+
+module dds {
+    module planning {
+
+        /**
+        * Alert Definition - base structure of alerts
+        */
+        struct Alert : base::Entity  {
+        };
+
+
+        /**
+        * AlertKind - valid values for Alert::id[base::KIND]
+        */
+        enum AlertKind {
+            ALERT_UNKNOWN,
+            ALERT_BLINDSPOT_LEFT,
+            ALERT_BLINDSPOT_RIGHT,
+            ALERT_COLLISION_FRONT,
+            ALERT_COLLISION_REAR,
+            ALERT_COLLISION_PARKING,
+            ALERT_ATTENTION_OCCUPANT,
+            ALERT_ATTENTION_ROADUSER
+        };
+
+    };
+};
+
+#endif /* ALERT_IDL */

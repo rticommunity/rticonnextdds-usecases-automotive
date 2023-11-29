@@ -1,0 +1,53 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/LkaLane.msg
+// generated code does not contain a copyright notice
+
+#ifndef __LKALANE_IDL__
+#define __LKALANE_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    module LkaLane_Constants {
+      const uint8 LANE_CONFIDENCE_NONE = 0;
+      const uint8 LANE_CONFIDENCE_LOW = 1;
+      const uint8 LANE_CONFIDENCE_MED = 2;
+      const uint8 LANE_CONFIDENCE_HIGH = 3;
+      const uint8 LANE_TYPE_DASHED = 0;
+      const uint8 LANE_TYPE_SOLID = 1;
+      const uint8 LANE_TYPE_NONE = 2;
+      const uint8 LANE_TYPE_ROAD_EDGE = 3;
+      const uint8 LANE_TYPE_DOUBLE_LANE_MARK = 4;
+      const uint8 LANE_TYPE_BOTTS_DOTS = 5;
+      const uint8 LANE_TYPE_INVALID = 6;
+    };
+    struct LkaLane_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 lane_type;
+
+      uint8 quality;
+
+      uint8 model_degree;
+
+      double position_parameter_c0;
+
+      double curvature_parameter_c2;
+
+      double curvature_derivative_parameter_c3;
+
+      float marking_width;
+
+      double heading_angle_parameter_c1;
+
+      float view_range;
+
+      boolean view_range_availability;
+    };
+  };
+};
+};
+
+
+#endif /* __LKALANE_IDL__ */

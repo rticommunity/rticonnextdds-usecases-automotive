@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Object2271.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBJECT2271_IDL__
+#define __OBJECT2271_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/TrackedProperties.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/UntrackedProperties.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct Object2271_ {
+      uint32 id;
+
+      boolean tracked_properties_available;
+
+      boolean untracked_properties_available;
+
+      ibeo_msgs::msg::dds_::TrackedProperties_ tracked_properties;
+
+      ibeo_msgs::msg::dds_::UntrackedProperties_ untracked_properties;
+    };
+  };
+};
+};
+
+
+#endif /* __OBJECT2271_IDL__ */

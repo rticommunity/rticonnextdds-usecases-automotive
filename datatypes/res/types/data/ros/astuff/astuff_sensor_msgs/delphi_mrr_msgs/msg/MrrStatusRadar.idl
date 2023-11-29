@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrStatusRadar.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRSTATUSRADAR_IDL__
+#define __MRRSTATUSRADAR_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrStatusRadar_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 can_interference_type;
+
+      boolean can_recommend_unconverge;
+
+      uint8 can_blockage_sidelobe_filter_val;
+
+      boolean can_radar_align_incomplete;
+
+      boolean can_blockage_sidelobe;
+
+      boolean can_blockage_mnr;
+
+      boolean can_radar_ext_cond_nok;
+
+      boolean can_radar_align_out_range;
+
+      boolean can_radar_align_not_start;
+
+      boolean can_radar_overheat_error;
+
+      boolean can_radar_not_op;
+
+      boolean can_xcvr_operational;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRSTATUSRADAR_IDL__ */

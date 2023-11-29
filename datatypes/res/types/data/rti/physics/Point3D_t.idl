@@ -1,0 +1,39 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef POINT3D_IDL
+#define POINT3D_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+
+module dds {
+    module physics {
+        @nested @final 
+        struct Point3D_integer {
+            base::Int32 x;
+            base::Int32 y;
+            base::Int32 z;
+        };
+
+        @nested @final
+        struct Point3D_float {
+            base::Float32 x;
+            base::Float32 y;
+            base::Float32 z;
+        };
+
+        @nested @final
+        struct Point3D_real {
+            base::Float64 x;
+            base::Float64 y;
+            base::Float64 z;
+        };
+    };
+};
+#endif /* POINT3D_IDL */

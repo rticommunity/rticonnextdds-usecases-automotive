@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/ActiveFaultLatched2.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ACTIVEFAULTLATCHED2_IDL__
+#define __ACTIVEFAULTLATCHED2_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct ActiveFaultLatched2_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean ipma_pcan_data_range_check;
+
+      boolean ipma_pcan_missing_msg;
+
+      boolean vin_signal_compare_failure;
+
+      boolean module_not_configured_error;
+
+      boolean car_cfg_not_configured_error;
+    };
+  };
+};
+};
+
+
+#endif /* __ACTIVEFAULTLATCHED2_IDL__ */

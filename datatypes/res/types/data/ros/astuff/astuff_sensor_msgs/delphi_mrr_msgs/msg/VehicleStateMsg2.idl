@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/VehicleStateMsg2.msg
+// generated code does not contain a copyright notice
+
+#ifndef __VEHICLESTATEMSG2_IDL__
+#define __VEHICLESTATEMSG2_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct VehicleStateMsg2_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean fsm_yaw_rate_valid;
+
+      float fsm_yaw_rate;
+
+      uint16 can_vehicle_index_4fa;
+
+      float fsm_vehicle_velocity;
+
+      boolean can_steering_whl_angle_qf;
+
+      boolean fsm_vehicle_velocity_valid;
+
+      float can_steering_whl_angle;
+    };
+  };
+};
+};
+
+
+#endif /* __VEHICLESTATEMSG2_IDL__ */

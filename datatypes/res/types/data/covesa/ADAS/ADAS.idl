@@ -1,0 +1,79 @@
+#ifndef __ADAS_IDL__
+#define __ADAS_IDL__
+
+#include "res/types/data/covesa/base/entity.idl"
+
+module covesa {
+module Vehicle {
+    module ADAS {
+        struct CruiseControl {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            boolean IsEnabled; // actuator:Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.
+            boolean IsActive; // actuator:Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.
+            float SpeedSet; // actuator:Set cruise control speed in kilometers per hour.
+            boolean IsError; // sensor:Indicates if cruise control system incurred an error condition. True = Error. False = No Error.
+        };
+        struct LaneDepartureDetection {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            boolean IsEnabled; // actuator:Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
+            boolean IsWarning; // sensor:Indicates if lane departure detection registered a lane departure.
+            boolean IsError; // sensor:Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
+        };
+        struct ObstacleDetection {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            boolean IsEnabled; // actuator:Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.
+            boolean IsWarning; // sensor:Indicates if obstacle sensor system registered an obstacle.
+            boolean IsError; // sensor:Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
+        };
+        struct ABS {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            boolean IsEnabled; // actuator:Indicates if ABS is enabled. True = Enabled. False = Disabled.
+            boolean IsError; // sensor:Indicates if ABS incurred an error condition. True = Error. False = No Error.
+            boolean IsEngaged; // sensor:Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.
+        };
+        struct TCS {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            boolean IsEnabled; // actuator:Indicates if TCS is enabled. True = Enabled. False = Disabled.
+            boolean IsError; // sensor:Indicates if TCS incurred an error condition. True = Error. False = No Error.
+            boolean IsEngaged; // sensor:Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.
+        };
+        module ESC {
+            struct ESC {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                boolean IsEnabled; // actuator:Indicates if ESC is enabled. True = Enabled. False = Disabled.
+                boolean IsError; // sensor:Indicates if ESC incurred an error condition. True = Error. False = No Error.
+                boolean IsEngaged; // sensor:Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.
+                boolean IsStrongCrossWindDetected; // sensor:Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected.
+            };
+            struct RoadFriction {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                float MostProbable; // sensor:Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.
+                float LowerBound; // sensor:Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
+                float UpperBound; // sensor:Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
+            };
+        };
+        struct EBD {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            boolean IsEnabled; // actuator:Indicates if EBD is enabled. True = Enabled. False = Disabled.
+            boolean IsError; // sensor:Indicates if EBD incurred an error condition. True = Error. False = No Error.
+            boolean IsEngaged; // sensor:Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.
+        };
+        struct EBA {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            boolean IsEnabled; // actuator:Indicates if EBA is enabled. True = Enabled. False = Disabled.
+            boolean IsError; // sensor:Indicates if EBA incurred an error condition. True = Error. False = No Error.
+            boolean IsEngaged; // sensor:Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.
+        };
+    };
+};
+};
+#endif  // __ADAS_IDL__

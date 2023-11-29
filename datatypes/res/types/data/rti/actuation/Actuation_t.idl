@@ -1,0 +1,68 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef ACTUATION_IDL
+#define ACTUATION_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+#include "res/types/data/rti/physics/Point2D_t.idl"
+
+module dds {
+    module actuation {
+       
+        /**
+        * IntentionIndicator - indicators to signal vehicle intentions
+        */
+        enum IntentionIndicator {
+            INDICATOR_NONE, 
+            INDICATOR_LEFT,
+            INDICATOR_RIGHT,
+            INDICATOR_HAZARD
+        };
+
+        /**
+        * SteeringInfo - information about the Steering Commands and Status
+        */
+        struct SteeringInfo {
+            base::Float64 angle_scale;
+            base::Float64 throttle_scale;
+            base::Float64 brake_scale;
+            physics::Point2D_real velocity_scale;
+            physics::Point2D_real acceleration_scale;
+        };
+       
+        /**
+        * Steering - common steering data
+        */
+        @nested
+        struct Steering {
+            base::Int32 angle;
+            base::Int32 throttle;
+            base::Int32 brake;
+            IntentionIndicator indicator;
+        };
+
+        /**
+        * SteeringDesired - desired steering commands given to the vehicle
+        */
+        struct SteeringDesired : Steering {
+        };
+
+        /**
+        * SteeringActual - actual steering state of the vehicle (may change as a result 
+        *                  of the SteeringDesired commands given to the vehicle
+        */
+        struct SteeringActual : Steering {
+            physics::Point2D_integer velocity;
+            physics::Point2D_integer acceleration;
+        };
+
+    };
+};
+#endif /* ACTUATION_IDL */

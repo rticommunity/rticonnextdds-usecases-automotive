@@ -1,0 +1,96 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_srr_msgs/msg/SrrStatus5.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SRRSTATUS5_IDL__
+#define __SRRSTATUS5_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_srr_msgs {
+  module msg { module dds_ {
+    module SrrStatus5_Constants {
+      const uint8 CAN_TX_YAW_RATE_REF_QF_UNDEFINED = 0;
+      const uint8 CAN_TX_YAW_RATE_REF_QF_TEMP_UNDEFINED = 1;
+      const uint8 CAN_TX_YAW_RATE_REF_QF_NOT_ACCURATE = 2;
+      const uint8 CAN_TX_YAW_RATE_REF_QF_ACCURATE = 3;
+      const uint8 CAN_TX_YAW_RATE_RAW_QF_UNDEFINED = 0;
+      const uint8 CAN_TX_YAW_RATE_RAW_QF_TEMP_UNDEFINED = 1;
+      const uint8 CAN_TX_YAW_RATE_RAW_QF_NOT_ACCURATE = 2;
+      const uint8 CAN_TX_YAW_RATE_RAW_QF_ACCURATE = 3;
+      const uint8 CAN_TX_SYSTEM_STATUS_CONFIGURATION = 0;
+      const uint8 CAN_TX_SYSTEM_STATUS_STARTUP = 1;
+      const uint8 CAN_TX_SYSTEM_STATUS_RUNNING = 2;
+      const uint8 CAN_TX_SYSTEM_STATUS_BLOCKED = 3;
+      const uint8 CAN_TX_SYSTEM_STATUS_FAULTY = 4;
+      const uint8 CAN_TX_SYSTEM_STATUS_SHUTDOWN = 5;
+      const uint8 CAN_TX_SYSTEM_STATUS_HOT = 6;
+    };
+    //&verbatim (language="comment", text=
+    //  " Message file for srr_status5")
+    struct SrrStatus5_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean disable_auto_align;
+
+      uint8 can_tx_yaw_rate_ref_qf;
+
+      uint8 can_tx_yaw_rate_raw_qf;
+
+      //&verbatim (language="comment", text=        " deg/s")
+      float can_tx_yaw_rate_reference;
+
+      //&verbatim (language="comment", text=        " deg/s")
+      float can_tx_yaw_rate_raw;
+
+      uint8 can_tx_system_status;
+
+      //&verbatim (language="comment", text=        " degc")
+      int16 can_tx_outside_temperature;
+
+      boolean can_blockage_mnr_blocked;
+
+      boolean can_blockage_bb_blocked;
+
+      boolean can_blockage_radar_blocked;
+
+      boolean can_td_blocked;
+
+      boolean radar_tx_power_error;
+
+      boolean radar_lo_power_error;
+
+      boolean radar_data_sync_error;
+
+      boolean linearizer_spi_transfer_error;
+
+      boolean saturated_tuning_freq_error;
+
+      boolean rtn_spi_transfer_error;
+
+      boolean rrn_spi_transfer_error;
+
+      boolean video_port_capture_error;
+
+      boolean vertical_misalignment_error;
+
+      boolean tx_temperature_fault;
+
+      boolean transmitter_id_error;
+
+      boolean dsp_unit_cal_checksum_error;
+
+      boolean dsp_unit_cal_block_chcksm_error;
+
+      boolean dsp_tuning_sensitivity_error;
+
+      boolean dsp_loop_overrun_error;
+
+      boolean adc_spi_transfer_error;
+    };
+  };
+};
+};
+
+
+#endif /* __SRRSTATUS5_IDL__ */

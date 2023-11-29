@@ -1,0 +1,76 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ScanData2208.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SCANDATA2208_IDL__
+#define __SCANDATA2208_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/ScanPoint2208.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    module ScanData2208_Constants {
+      const uint16 SCALA_B2 = 11520;
+      const uint8 CLOCKWISE = 0;
+      const uint8 COUNTER_CLOCKWISE = 1;
+      const uint8 FRONT_MIRROR = 0;
+      const uint8 REAR_MIRROR = 1;
+    };
+    struct ScanData2208_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      uint16 scan_number;
+
+      uint16 scanner_type;
+
+      boolean motor_on;
+
+      boolean laser_on;
+
+      boolean frequency_locked;
+
+      uint8 motor_rotating_direction;
+
+      uint16 angle_ticks_per_rotation;
+
+      uint32 scan_flags;
+
+      int16 mounting_yaw_angle_ticks;
+
+      int16 mounting_pitch_angle_ticks;
+
+      int16 mounting_roll_angle_ticks;
+
+      int16 mounting_position_x;
+
+      int16 mounting_position_y;
+
+      int16 mounting_position_z;
+
+      uint8 device_id;
+
+      builtin_interfaces::msg::dds_::Time_ scan_start_time;
+
+      builtin_interfaces::msg::dds_::Time_ scan_end_time;
+
+      int16 start_angle_ticks;
+
+      int16 end_angle_ticks;
+
+      uint8 mirror_side;
+
+      int16 mirror_tilt;
+
+      sequence<ibeo_msgs::msg::dds_::ScanPoint2208_> scan_point_list;
+    };
+  };
+};
+};
+
+
+#endif /* __SCANDATA2208_IDL__ */

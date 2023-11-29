@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ZeroingMessageRpt.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ZEROINGMESSAGERPT_IDL__
+#define __ZEROINGMESSAGERPT_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct ZeroingMessageRpt_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 chip_1_voltage;
+
+      uint16 chip_2_voltage;
+
+      uint8 chip_error_1;
+
+      uint8 chip_error_2;
+    };
+  };
+};
+};
+
+
+#endif /* __ZEROINGMESSAGERPT_IDL__ */

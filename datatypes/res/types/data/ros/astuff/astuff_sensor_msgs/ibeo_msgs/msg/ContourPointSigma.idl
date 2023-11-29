@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ContourPointSigma.msg
+// generated code does not contain a copyright notice
+
+#ifndef __CONTOURPOINTSIGMA_IDL__
+#define __CONTOURPOINTSIGMA_IDL__
+#ifndef __CONTOUR_POINT_SIGMA_IDL__
+#define __CONTOUR_POINT_SIGMA_IDL__
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct ContourPointSigma_ {
+      int16 x;
+
+      int16 y;
+
+      uint8 x_sigma;
+
+      uint8 y_sigma;
+    };
+  };
+};
+};
+#endif //  __CONTOUR_POINT_SIGMA_IDL__
+
+
+#endif /* __CONTOURPOINTSIGMA_IDL__ */

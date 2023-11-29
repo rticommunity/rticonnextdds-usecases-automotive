@@ -1,0 +1,136 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/Tsr.msg
+// generated code does not contain a copyright notice
+
+#ifndef __TSR_IDL__
+#define __TSR_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    module Tsr_Constants {
+      const uint8 SIGN_TYPE_REGULAR_10 = 0;
+      const uint8 SIGN_TYPE_REGULAR_20 = 1;
+      const uint8 SIGN_TYPE_REGULAR_30 = 2;
+      const uint8 SIGN_TYPE_REGULAR_40 = 3;
+      const uint8 SIGN_TYPE_REGULAR_50 = 4;
+      const uint8 SIGN_TYPE_REGULAR_60 = 5;
+      const uint8 SIGN_TYPE_REGULAR_70 = 6;
+      const uint8 SIGN_TYPE_REGULAR_80 = 7;
+      const uint8 SIGN_TYPE_REGULAR_90 = 8;
+      const uint8 SIGN_TYPE_REGULAR_100 = 9;
+      const uint8 SIGN_TYPE_REGULAR_110 = 10;
+      const uint8 SIGN_TYPE_REGULAR_120 = 11;
+      const uint8 SIGN_TYPE_REGULAR_130 = 12;
+      const uint8 SIGN_TYPE_REGULAR_140 = 13;
+      const uint8 SIGN_TYPE_REGULAR_END_RESTRICTION_OF_NUMBER = 20;
+      const uint8 SIGN_TYPE_ELECTRONIC_10 = 28;
+      const uint8 SIGN_TYPE_ELECTRONIC_20 = 29;
+      const uint8 SIGN_TYPE_ELECTRONIC_30 = 30;
+      const uint8 SIGN_TYPE_ELECTRONIC_40 = 31;
+      const uint8 SIGN_TYPE_ELECTRONIC_50 = 32;
+      const uint8 SIGN_TYPE_ELECTRONIC_60 = 33;
+      const uint8 SIGN_TYPE_ELECTRONIC_70 = 34;
+      const uint8 SIGN_TYPE_ELECTRONIC_80 = 35;
+      const uint8 SIGN_TYPE_ELECTRONIC_90 = 36;
+      const uint8 SIGN_TYPE_ELECTRONIC_100 = 37;
+      const uint8 SIGN_TYPE_ELECTRONIC_110 = 38;
+      const uint8 SIGN_TYPE_ELECTRONIC_120 = 39;
+      const uint8 SIGN_TYPE_ELECTRONIC_130 = 40;
+      const uint8 SIGN_TYPE_ELECTRONIC_140 = 41;
+      const uint8 SIGN_TYPE_ELECTRONIC_END_RESTRICTION_OF_NUMBER = 50;
+      const uint8 SIGN_TYPE_REGULAR_GENERAL_END_ALL_RESTRICTION = 64;
+      const uint8 SIGN_TYPE_ELECTRONIC_GENERAL_END_ALL_RESTRICTION = 65;
+      const uint8 SIGN_TYPE_REGULAR_5 = 100;
+      const uint8 SIGN_TYPE_REGULAR_15 = 101;
+      const uint8 SIGN_TYPE_REGULAR_25 = 102;
+      const uint8 SIGN_TYPE_REGULAR_35 = 103;
+      const uint8 SIGN_TYPE_REGULAR_45 = 104;
+      const uint8 SIGN_TYPE_REGULAR_55 = 105;
+      const uint8 SIGN_TYPE_REGULAR_65 = 106;
+      const uint8 SIGN_TYPE_REGULAR_75 = 107;
+      const uint8 SIGN_TYPE_REGULAR_85 = 108;
+      const uint8 SIGN_TYPE_REGULAR_95 = 109;
+      const uint8 SIGN_TYPE_REGULAR_105 = 110;
+      const uint8 SIGN_TYPE_REGULAR_115 = 111;
+      const uint8 SIGN_TYPE_REGULAR_125 = 112;
+      const uint8 SIGN_TYPE_REGULAR_135 = 113;
+      const uint8 SIGN_TYPE_REGULAR_145 = 114;
+      const uint8 SIGN_TYPE_ELECTRONIC_5 = 115;
+      const uint8 SIGN_TYPE_ELECTRONIC_15 = 116;
+      const uint8 SIGN_TYPE_ELECTRONIC_25 = 117;
+      const uint8 SIGN_TYPE_ELECTRONIC_35 = 118;
+      const uint8 SIGN_TYPE_ELECTRONIC_45 = 119;
+      const uint8 SIGN_TYPE_ELECTRONIC_55 = 120;
+      const uint8 SIGN_TYPE_ELECTRONIC_65 = 121;
+      const uint8 SIGN_TYPE_ELECTRONIC_75 = 122;
+      const uint8 SIGN_TYPE_ELECTRONIC_85 = 123;
+      const uint8 SIGN_TYPE_ELECTRONIC_95 = 124;
+      const uint8 SIGN_TYPE_ELECTRONIC_105 = 125;
+      const uint8 SIGN_TYPE_ELECTRONIC_115 = 126;
+      const uint8 SIGN_TYPE_ELECTRONIC_125 = 127;
+      const uint8 SIGN_TYPE_ELECTRONIC_135 = 128;
+      const uint8 SIGN_TYPE_ELECTRONIC_145 = 129;
+      const uint8 SIGN_TYPE_REGULAR_MOTORWAY_BEGIN = 171;
+      const uint8 SIGN_TYPE_REGULAR_END_OF_MOTORWAY = 172;
+      const uint8 SIGN_TYPE_REGULAR_EXPRESSWAY_BEGIN = 173;
+      const uint8 SIGN_TYPE_REGULAR_END_OF_EXPRESSWAY = 174;
+      const uint8 SIGN_TYPE_REGULAR_PLAYGROUND_AREA_BEGIN = 175;
+      const uint8 SIGN_TYPE_REGULAR_END_OF_PLAYGROUND_AREA = 176;
+      const uint8 SIGN_TYPE_REGULAR_NO_PASSING_START = 200;
+      const uint8 SIGN_TYPE_REGULAR_END_OF_NO_PASSING = 201;
+      const uint8 SIGN_TYPE_ELECTRONIC_NO_PASSING_START = 220;
+      const uint8 SIGN_TYPE_ELECTRONIC_END_OF_NO_PASSING = 221;
+      const uint8 SIGN_TYPE_NONE_DETECTED = 254;
+      const uint8 SIGN_TYPE_INVALID = 255;
+      const uint8 SUPP_SIGN_TYPE_NONE = 0;
+      const uint8 SUPP_SIGN_TYPE_RAIN = 1;
+      const uint8 SUPP_SIGN_TYPE_SNOW = 2;
+      const uint8 SUPP_SIGN_TYPE_TRAILER = 3;
+      const uint8 SUPP_SIGN_TYPE_TIME = 4;
+      const uint8 SUPP_SIGN_TYPE_ARROW_LEFT = 5;
+      const uint8 SUPP_SIGN_TYPE_ARROW_RIGHT = 6;
+      const uint8 SUPP_SIGN_TYPE_BEND_ARROW_LEFT = 7;
+      const uint8 SUPP_SIGN_TYPE_BEND_ARROW_RIGHT = 8;
+      const uint8 SUPP_SIGN_TYPE_TRUCK = 9;
+      const uint8 SUPP_SIGN_TYPE_DISTANCE_ARROW = 10;
+      const uint8 SUPP_SIGN_TYPE_WEIGHT = 11;
+      const uint8 SUPP_SIGN_TYPE_DISTANCE_IN = 12;
+      const uint8 SUPP_SIGN_TYPE_TRACTOR = 13;
+      const uint8 SUPP_SIGN_TYPE_SNOW_RAIN = 14;
+      const uint8 SUPP_SIGN_TYPE_SCHOOL = 15;
+      const uint8 SUPP_SIGN_TYPE_RAIN_CLOUD = 16;
+      const uint8 SUPP_SIGN_TYPE_FOG = 17;
+      const uint8 SUPP_SIGN_TYPE_HAZARDOUS_MATERIALS = 18;
+      const uint8 SUPP_SIGN_TYPE_NIGHT = 19;
+      const uint8 SUPP_SIGN_TYPE_GENERIC = 20;
+      const uint8 SUPP_SIGN_TYPE_RAPPEL = 21;
+      const uint8 SUPP_SIGN_TYPE_ZONE = 22;
+      const uint8 SUPP_SIGN_TYPE_INVALID = 255;
+      const uint8 FILTER_TYPE_NOT_FILTERED = 0;
+      const uint8 FILTER_TYPE_IRRELEVANT_TO_DRIVER = 1;
+      const uint8 FILTER_TYPE_ON_VEHICLE = 2;
+      const uint8 FILTER_TYPE_EMBEDDED = 3;
+    };
+    struct Tsr_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 vision_only_sign_type;
+
+      uint8 vision_only_supplementary_sign_type;
+
+      float sign_position_x;
+
+      float sign_position_y;
+
+      float sign_position_z;
+
+      uint8 filter_type;
+    };
+  };
+};
+};
+
+
+#endif /* __TSR_IDL__ */

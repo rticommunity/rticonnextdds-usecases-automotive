@@ -1,0 +1,60 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/HostVehicleState2807.msg
+// generated code does not contain a copyright notice
+
+#ifndef __HOSTVEHICLESTATE2807_IDL__
+#define __HOSTVEHICLESTATE2807_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct HostVehicleState2807_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      builtin_interfaces::msg::dds_::Time_ timestamp;
+
+      int32 distance_x;
+
+      int32 distance_y;
+
+      float course_angle;
+
+      float longitudinal_velocity;
+
+      float yaw_rate;
+
+      float steering_wheel_angle;
+
+      float cross_acceleration;
+
+      float front_wheel_angle;
+
+      float vehicle_width;
+
+      float vehicle_front_to_front_axle;
+
+      float rear_axle_to_front_axle;
+
+      float rear_axle_to_vehicle_rear;
+
+      float steer_ratio_poly_0;
+
+      float steer_ratio_poly_1;
+
+      float steer_ratio_poly_2;
+
+      float steer_ratio_poly_3;
+
+      float longitudinal_acceleration;
+    };
+  };
+};
+};
+
+
+#endif /* __HOSTVEHICLESTATE2807_IDL__ */

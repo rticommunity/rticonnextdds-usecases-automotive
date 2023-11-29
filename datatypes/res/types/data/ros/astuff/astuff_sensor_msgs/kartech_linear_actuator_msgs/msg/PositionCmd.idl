@@ -1,0 +1,36 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/PositionCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __POSITIONCMD_IDL__
+#define __POSITIONCMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct PositionCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      boolean auto_reply;
+
+      //&verbatim (language="comment", text=
+      //  " Position in 0.001\" increments.")
+      double position;
+
+      //&verbatim (language="comment", text=
+      //  " Disables (false) or enables (true) the built-in clutch after the position has been reached.")
+      boolean clutch_enable;
+
+      //&verbatim (language="comment", text=
+      //  " Disables (false) or enables (true) the motor after the position has been reached.")
+      boolean motor_enable;
+    };
+  };
+};
+};
+
+
+#endif /* __POSITIONCMD_IDL__ */

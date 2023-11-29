@@ -1,0 +1,47 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ResetCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __RESETCMD_IDL__
+#define __RESETCMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    module ResetCmd_Constants {
+      const uint8 RESET_OUTPUTS = 0;
+      const uint8 RESET_USER_DEFINED_IDS = 1;
+      const uint8 RESET_REPORT_RATES = 2;
+      const uint8 RESET_HARDWARE_CONFIGURATIONS = 3;
+      const uint8 RESET_USER_CONFIGURATIONS = 4;
+      const uint8 RESET_EVERYTHING = 5;
+      const uint8 RESET_NONE = 6;
+    };
+    struct ResetCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      uint8 reset_type;
+
+      boolean reset_user_rpt_id;
+
+      boolean reset_user_cmd_id_1;
+
+      boolean reset_user_cmd_id_2;
+
+      boolean reset_user_cmd_id_3;
+
+      boolean reset_user_cmd_id_4;
+
+      boolean disable_user_rpt_id;
+
+      boolean reenable_default_cmd_id;
+    };
+  };
+};
+};
+
+
+#endif /* __RESETCMD_IDL__ */

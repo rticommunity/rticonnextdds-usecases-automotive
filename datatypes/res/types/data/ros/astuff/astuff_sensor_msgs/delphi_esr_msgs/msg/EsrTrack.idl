@@ -1,0 +1,48 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrTrack.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRTRACK_IDL__
+#define __ESRTRACK_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrTrack_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint8 id;
+
+      float lat_rate;
+
+      boolean grouping_changed;
+
+      boolean oncoming;
+
+      uint8 status;
+
+      float angle;
+
+      float range;
+
+      boolean bridge_object;
+
+      boolean rolling_count;
+
+      float width;
+
+      float range_accel;
+
+      uint8 med_range_mode;
+
+      float range_rate;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRTRACK_IDL__ */

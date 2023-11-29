@@ -1,0 +1,54 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef LANE_IDL
+#define LANE_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/physics/Point2D_t.idl"
+
+module dds {
+    module perception {
+
+        /**
+        * Lane Definition - base structure of lanes
+        */
+        struct Lane : base::Entity  {
+            @optional
+            physics::Point2D_integer offset;
+        };
+
+
+        /**
+        * LaneInfo - descriptive information about Lanes 
+        */
+        struct LaneInfo : base::EntityInfo {
+            @optional
+            physics::Point2D_real offset_scale;
+        };
+
+
+        /**
+        * LaneKind - valid values for Lane::id[base::KIND]
+        */
+        enum LaneKind {
+            LANE_UNKNOWN,
+            LANE_NONE,
+            LANE_VIRTUAL,
+            LANE_SOLID,
+            LANE_DASHED,
+            LANE_DOUBLE_LINES,
+            LANE_DIVIDER
+        };
+
+    };
+};
+
+#endif /* LANE_IDL */

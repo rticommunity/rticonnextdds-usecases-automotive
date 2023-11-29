@@ -1,0 +1,27 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef QUATERNION_IDL
+#define QUATERNION_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+
+module dds {
+    module physics {
+        /* Orientation in free space */
+        @nested @final 
+        struct Quaternion_real {
+            base::Float64 x;
+            base::Float64 y;
+            base::Float64 z;
+            base::Float64 w;
+        };
+    };
+};
+#endif /* QUATERNION_IDL */

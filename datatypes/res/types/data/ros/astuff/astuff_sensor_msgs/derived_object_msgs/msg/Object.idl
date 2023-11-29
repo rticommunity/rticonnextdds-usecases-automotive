@@ -1,0 +1,85 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from derived_object_msgs/msg/Object.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBJECT_IDL__
+#define __OBJECT_IDL__
+
+#include "res/types/data/ros/geometry_msgs/msg/Accel.idl"
+#include "res/types/data/ros/geometry_msgs/msg/Polygon.idl"
+#include "res/types/data/ros/geometry_msgs/msg/Pose.idl"
+#include "res/types/data/ros/geometry_msgs/msg/Twist.idl"
+#include "res/types/data/ros/shape_msgs/msg/SolidPrimitive.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module derived_object_msgs {
+  module msg { module dds_ {
+    module Object_Constants {
+      const uint8 OBJECT_DETECTED = 0;
+      const uint8 OBJECT_TRACKED = 1;
+      const uint8 CLASSIFICATION_UNKNOWN = 0;
+      const uint8 CLASSIFICATION_UNKNOWN_SMALL = 1;
+      const uint8 CLASSIFICATION_UNKNOWN_MEDIUM = 2;
+      const uint8 CLASSIFICATION_UNKNOWN_BIG = 3;
+      const uint8 CLASSIFICATION_PEDESTRIAN = 4;
+      const uint8 CLASSIFICATION_BIKE = 5;
+      const uint8 CLASSIFICATION_CAR = 6;
+      const uint8 CLASSIFICATION_TRUCK = 7;
+      const uint8 CLASSIFICATION_MOTORCYCLE = 8;
+      const uint8 CLASSIFICATION_OTHER_VEHICLE = 9;
+      const uint8 CLASSIFICATION_BARRIER = 10;
+      const uint8 CLASSIFICATION_SIGN = 11;
+    };
+    //&verbatim (language="comment", text=
+    //  " This represents a detected or tracked object with reference coordinate frame and timestamp.")
+    struct Object_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      //&verbatim (language="comment", text=        " The id of the object (presumably from the detecting sensor).")
+      uint32 id;
+
+      //&verbatim (language="comment", text=
+      //  " A Detected object is one which has been seen in at least one scan/frame of a sensor." "\n"
+      //  " A Tracked object is one which has been correlated over multiple scans/frames of a sensor." "\n"
+      //  " An object which is detected can only be assumed to have valid pose and shape properties." "\n"
+      //  " An object which is tracked should also be assumed to have valid twist and accel properties.")
+      uint8 detection_level;
+
+      //&verbatim (language="comment", text=
+      //  " A Classified object is one which has been identified as a certain object type." "\n"
+      //  " Classified objects should have valid classification, classification_certainty, and classification_age properties.")
+      boolean object_classified;
+
+      //&verbatim (language="comment", text=        " The detected position and orientation of the object.")
+      geometry_msgs::msg::dds_::Pose_ pose;
+
+      //&verbatim (language="comment", text=        " The detected linear and angular velocities of the object.")
+      geometry_msgs::msg::dds_::Twist_ twist;
+
+      //&verbatim (language="comment", text=        " The detected linear and angular accelerations of the object.")
+      geometry_msgs::msg::dds_::Accel_ accel;
+
+      //&verbatim (language="comment", text=        " (OPTIONAL) The polygon defining the detection points at the outer edges of the object.")
+      geometry_msgs::msg::dds_::Polygon_ polygon;
+
+      //&verbatim (language="comment", text=        " A shape conforming to the outer bounding edges of the object.")
+      shape_msgs::msg::dds_::SolidPrimitive_ shape;
+
+      //&verbatim (language="comment", text=        " The type of classification given to this object.")
+      uint8 classification;
+
+      //&verbatim (language="comment", text=
+      //  " The certainty of the classification from the originating sensor." "\n"
+      //  " Higher value indicates greater certainty (MAX=255)." "\n"
+      //  " It is recommended that a native sensor value be scaled to 0-255 for interoperability.")
+      uint8 classification_certainty;
+
+      //&verbatim (language="comment", text=        " The number of scans/frames from the sensor that this object has been classified as the current classification.")
+      uint32 classification_age;
+    };
+  };
+};
+};
+
+
+#endif /* __OBJECT_IDL__ */

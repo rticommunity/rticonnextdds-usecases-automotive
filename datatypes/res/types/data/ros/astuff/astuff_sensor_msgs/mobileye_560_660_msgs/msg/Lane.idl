@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/Lane.msg
+// generated code does not contain a copyright notice
+
+#ifndef __LANE_IDL__
+#define __LANE_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    struct Lane_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      double lane_curvature;
+
+      double lane_heading;
+
+      boolean construction_area;
+
+      double pitch_angle;
+
+      double yaw_angle;
+
+      boolean right_ldw_availability;
+
+      boolean left_ldw_availability;
+    };
+  };
+};
+};
+
+
+#endif /* __LANE_IDL__ */

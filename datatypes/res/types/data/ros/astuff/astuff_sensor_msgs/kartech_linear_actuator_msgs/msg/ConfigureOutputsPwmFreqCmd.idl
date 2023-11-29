@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ConfigureOutputsPwmFreqCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __CONFIGUREOUTPUTSPWMFREQCMD_IDL__
+#define __CONFIGUREOUTPUTSPWMFREQCMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct ConfigureOutputsPwmFreqCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      //&verbatim (language="comment", text=
+      //  " The minimum motor drive duty cycle in percent (0-100). Default is 20%.")
+      uint8 min_pwm_pct;
+
+      //&verbatim (language="comment", text=
+      //  " The maximum motor drive duty cycle in percent (0-100). Default is 90%.")
+      uint8 max_pwm_pct;
+
+      //&verbatim (language="comment", text=
+      //  " The frequency of the PWM outputs in Hz. Default is 2000Hz.")
+      uint16 pwm_freq;
+    };
+  };
+};
+};
+
+
+#endif /* __CONFIGUREOUTPUTSPWMFREQCMD_IDL__ */

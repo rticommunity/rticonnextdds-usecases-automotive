@@ -1,0 +1,160 @@
+#ifndef __BODY_IDL__
+#define __BODY_IDL__
+
+#include "res/types/data/covesa/base/entity.idl"
+
+module covesa {
+module Vehicle {
+    module Body {
+        module RefuelPositionValues_M {
+            enum RefuelPositionValues{REFUEL_POSITION_FRONT_LEFT,REFUEL_POSITION_FRONT_RIGHT,REFUEL_POSITION_MIDDLE_LEFT,REFUEL_POSITION_MIDDLE_RIGHT,REFUEL_POSITION_REAR_LEFT,REFUEL_POSITION_REAR_RIGHT};
+        };
+        struct BodyInfo {
+            // ### TOP-LEVEL GROUP (EntityIdentity has a KEY field): USE FOR EXTERNAL ACCESS #####
+            covesa::base::EntityIdentity entity;
+            string<128> BodyType; // attribute:Body type code as defined by ISO 3779.
+            Vehicle::Body::RefuelPositionValues_M::RefuelPositionValues RefuelPosition;
+        };
+    };
+};
+};
+
+// INSTANCES: ['Front', 'Rear'], len: 2
+// file: Body/Body.vspec
+module covesa {
+    module Vehicle {
+        module Body {
+            module Hood {
+                struct HoodState {
+                    boolean IsOpen; // actuator:Hood open or closed. True = Open. False = Closed.
+                };
+            };
+            module Trunk {
+                struct TrunkState {
+                    boolean IsOpen; // actuator:Trunk open or closed. True = Open. False = Closed.
+                    boolean IsLocked; // actuator:Is trunk locked or unlocked. True = Locked. False = Unlocked.
+                };
+            };
+            module Horn {
+                struct HornState {
+                    boolean IsActive; // actuator:Horn active or inactive. True = Active. False = Inactive.
+                };
+            };
+            module Mirrors {
+                struct MirrorsState {
+                    string<16> location;
+                    octet Tilt; // actuator:Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+                    octet Pan; // actuator:Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+                    boolean IsHeatingOn; // actuator:Mirror Heater on or off. True = Heater On. False = Heater Off.
+                };
+            };
+        };
+    };
+};
+
+
+// data type group for topic pub/sub
+module covesa {
+    module Vehicle {
+        module Body {
+            struct BodyState {
+                // ### TOP-LEVEL GROUP (EntityIdentity has a KEY field): USE FOR EXTERNAL ACCESS #####
+                covesa::base::EntityIdentity entity;
+                covesa::Vehicle::Body::Hood::HoodState hood;
+                covesa::Vehicle::Body::Trunk::TrunkState trunk;
+                float RearMainSpoilerPosition; // actuator:Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.
+                covesa::Vehicle::Body::Horn::HornState horn;
+                sequence<covesa::Vehicle::Body::Mirrors::MirrorsState,2> mirrors;
+            };
+        };
+    };
+};
+
+
+
+// file: Body/Body.vspec
+module covesa {
+    module Vehicle {
+        module Body {
+            module Raindetection {
+                struct Raindetection {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    octet Intensity; // sensor:Rain intensity. 0 = Dry, No Rain. 100 = Covered.
+                };
+            };
+            module Windshield {
+                struct WindshieldHeating {
+                    boolean IsHeatingOn; // actuator:Windshield heater status. False - off, True - on.
+                };
+                module WasherFluid {
+                    struct WasherFluidState {
+                        boolean IsLevelLow; // sensor:Low level indication for washer fluid. True = Level Low. False = Level OK.
+                        octet Level; // sensor:Washer fluid level as a percent. 0 = Empty. 100 = Full.
+                    };
+                };
+                struct WindshieldState {
+                    // ### TOP-LEVEL GROUP (EntityIdentity has a KEY field): USE FOR EXTERNAL ACCESS #####
+                    covesa::base::EntityIdentity entity;
+                    covesa::Vehicle::Body::Windshield::WindshieldHeating heating;
+                    covesa::Vehicle::Body::Windshield::WasherFluid::WasherFluidState washerfluid;
+                };
+                module Wiping {
+                    module System {
+                        module ModeValues_M {
+                            enum ModeValues{SYSTEM_MODE_STOP_HOLD,SYSTEM_MODE_WIPE,SYSTEM_MODE_PLANT_MODE,SYSTEM_MODE_EMERGENCY_STOP};
+                        };
+                        struct SystemInfo {
+                            octet Frequency; // actuator:Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.
+                            float TargetPosition; // actuator:Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.
+                            float ActualPosition; // actuator:Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.
+                            float DriveCurrent; // sensor:Actual current used by wiper drive.
+                            boolean IsWiping; // sensor:Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.
+                            boolean IsEndingWipeCycle; // sensor:Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.
+                            boolean IsWiperError; // sensor:Indicates system failure. True if wiping is disabled due to system failure.
+                            boolean IsPositionReached; // sensor:Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.
+                            boolean IsBlocked; // sensor:Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.
+                            boolean IsOverheated; // sensor:Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.
+                            covesa::Vehicle::Body::Windshield::Wiping::System::ModeValues_M::ModeValues Mode;
+                        };
+                    };
+                    module ModeValues_M {
+                        enum ModeValues{WIPING_MODE_OFF,WIPING_MODE_SLOW,WIPING_MODE_MEDIUM,WIPING_MODE_FAST,WIPING_MODE_INTERVAL,WIPING_MODE_RAIN_SENSOR};
+                    };
+                    struct WiperState {
+                        // ### TOP-LEVEL GROUP (EntityIdentity has a KEY field): USE FOR EXTERNAL ACCESS #####
+                        covesa::base::EntityIdentity entity;
+                        octet Intensity; // actuator:Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.
+                        octet WiperWear; // sensor:Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.
+                        boolean IsWipersWorn; // sensor:Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.
+                        covesa::Vehicle::Body::Windshield::Wiping::ModeValues_M::ModeValues Mode;
+                        covesa::Vehicle::Body::Windshield::Wiping::System::SystemInfo System;
+                    };
+                };
+            };
+        };
+    };
+};
+
+
+// INSTANCES: ['Low', 'High'], len: 2
+// file: Body/StaticLights.vspec
+module covesa {
+    module Vehicle {
+        module Body {
+            module Lights {
+                module IsActiveValues_M {
+                    enum IsActiveValues{LIGHTS_INACTIVE,LIGHTS_ACTIVE,LIGHTS_ADAPTIVE};  // also for boolean 0=False
+                };
+                struct LightInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    Vehicle::Body::Lights::IsActiveValues_M::IsActiveValues IsActive; // actuator:Indicates if light is on or off. True = On. False = Off.
+                    boolean IsDefect; // sensor:Indicates if light is defect. True = Light is defect. False = Light has no defect.
+                };
+            };
+        };
+    };
+};
+
+#endif  // __BODY_IDL__

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/Ahbc.msg
+// generated code does not contain a copyright notice
+
+#ifndef __AHBC_IDL__
+#define __AHBC_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    module Ahbc_Constants {
+      const uint8 HIGH_LOW_BEAM_DECISION_NO_RECOMMENDATION = 0;
+      const uint8 HIGH_LOW_BEAM_DECISION_RECOMMENDATION_OFF = 1;
+      const uint8 HIGH_LOW_BEAM_DECISION_RECOMMENDATION_ON = 2;
+      const uint8 HIGH_LOW_BEAM_DECISION_INVALID = 3;
+    };
+    struct Ahbc_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 high_low_beam_decision;
+
+      uint16 reasons_for_switch_to_low_beam;
+    };
+  };
+};
+};
+
+
+#endif /* __AHBC_IDL__ */

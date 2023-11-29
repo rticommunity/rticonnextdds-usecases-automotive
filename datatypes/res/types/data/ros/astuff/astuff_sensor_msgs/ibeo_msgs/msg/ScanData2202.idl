@@ -1,0 +1,69 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ScanData2202.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SCANDATA2202_IDL__
+#define __SCANDATA2202_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/ScanPoint2202.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    module ScanData2202_Constants {
+      const uint8 FRONT = 0;
+      const uint8 REAR = 1;
+    };
+    struct ScanData2202_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      uint16 scan_number;
+
+      uint16 scanner_status;
+
+      uint16 sync_phase_offset;
+
+      builtin_interfaces::msg::dds_::Time_ scan_start_time;
+
+      builtin_interfaces::msg::dds_::Time_ scan_end_time;
+
+      uint16 angle_ticks_per_rotation;
+
+      int16 start_angle_ticks;
+
+      int16 end_angle_ticks;
+
+      uint16 scan_points_count;
+
+      int16 mounting_yaw_angle_ticks;
+
+      int16 mounting_pitch_angle_ticks;
+
+      int16 mounting_roll_angle_ticks;
+
+      int16 mounting_position_x;
+
+      int16 mounting_position_y;
+
+      int16 mounting_position_z;
+
+      boolean ground_labeled;
+
+      boolean dirt_labeled;
+
+      boolean rain_labeled;
+
+      uint8 mirror_side;
+
+      sequence<ibeo_msgs::msg::dds_::ScanPoint2202_> scan_point_list;
+    };
+  };
+};
+};
+
+
+#endif /* __SCANDATA2202_IDL__ */

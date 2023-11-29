@@ -1,0 +1,33 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef POSE3D_IDL
+#define POSE3D_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+#include "res/types/data/rti/physics/Point3D_t.idl"
+#include "res/types/data/rti/physics/Quaternion_t.idl"
+#include "res/types/data/rti/physics/Time_t.idl"
+#include "res/types/data/rti/physics/Frame_t.idl"
+
+module dds {
+    module physics {
+        /* the 'pose' (position and orientation) of an object in free space */
+        struct Pose3D_real {
+            Point3D_real position;
+            Quaternion_real orientation;
+        };
+
+        struct Pose3D_with_covariance_real : Pose3D_real {
+            base::Float64 covariance[36];
+        };
+
+    };
+};
+#endif /* POSE3D_IDL */

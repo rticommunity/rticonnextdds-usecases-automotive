@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrStatusSwVersion.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRSTATUSSWVERSION_IDL__
+#define __MRRSTATUSSWVERSION_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrStatusSwVersion_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 can_pbl_field_revision;
+
+      uint8 can_pbl_promote_revision;
+
+      uint8 can_sw_field_revision;
+
+      uint8 can_sw_promote_revision;
+
+      uint8 can_sw_release_revision;
+
+      uint8 can_pbl_release_revision;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRSTATUSSWVERSION_IDL__ */

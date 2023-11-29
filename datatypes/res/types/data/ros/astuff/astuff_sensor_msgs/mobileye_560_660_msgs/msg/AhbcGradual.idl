@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/AhbcGradual.msg
+// generated code does not contain a copyright notice
+
+#ifndef __AHBCGRADUAL_IDL__
+#define __AHBCGRADUAL_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    struct AhbcGradual_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      float boundary_domain_bottom_non_glare_hlb;
+
+      float boundary_domain_non_glare_left_hand_hlb;
+
+      float boundary_domain_non_glare_right_hand_hlb;
+
+      uint16 object_distance_hlb;
+
+      uint8 status_boundary_domain_bottom_non_glare_hlb;
+
+      uint8 status_boundary_domain_non_glare_left_hand_hlb;
+
+      uint8 status_boundary_domain_non_glare_right_hand_hlb;
+
+      uint8 status_object_distance_hlb;
+
+      boolean left_target_change;
+
+      boolean right_target_change;
+
+      boolean too_many_cars;
+
+      boolean busy_scene;
+    };
+  };
+};
+};
+
+
+#endif /* __AHBCGRADUAL_IDL__ */

@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ReportIndex.msg
+// generated code does not contain a copyright notice
+
+#ifndef __REPORTINDEX_IDL__
+#define __REPORTINDEX_IDL__
+
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    module ReportIndex_Constants {
+      const uint8 POSITION_REPORT_INDEX = 128;
+      const uint8 MOTOR_CURRENT_REPORT_INDEX = 129;
+      const uint8 ENHANCED_POSITION_REPORT_INDEX = 152;
+      const uint8 UNIQUE_DEVICE_ID_REPORTS_INDEX = 167;
+      const uint8 SOFTWARE_REVISION_REPORT_INDEX = 229;
+      const uint8 ZEROING_MESSAGE_REPORT_INDEX = 238;
+    };
+    struct ReportIndex_ {
+      uint8 report_index;
+    };
+  };
+};
+};
+
+
+#endif /* __REPORTINDEX_IDL__ */

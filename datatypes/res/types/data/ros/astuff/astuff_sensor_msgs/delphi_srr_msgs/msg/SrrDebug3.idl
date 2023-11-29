@@ -1,0 +1,114 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_srr_msgs/msg/SrrDebug3.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SRRDEBUG3_IDL__
+#define __SRRDEBUG3_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_srr_msgs {
+  module msg { module dds_ {
+    //&verbatim (language="comment", text=
+    //  " Message file for srr_debug3")
+    struct SrrDebug3_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean timer_create_error;
+
+      boolean thread_create_error;
+
+      boolean arm_calibration_error;
+
+      boolean spi_fee_error;
+
+      boolean spi_comm_error;
+
+      boolean socket_write_error;
+
+      boolean dsp_cal_obsolete_62_error;
+
+      boolean socket_read_error;
+
+      boolean socket_init_error;
+
+      boolean signal_wait_error;
+
+      boolean signal_send_error;
+
+      boolean signal_create_error;
+
+      boolean shared_mem_write_error;
+
+      boolean shared_mem_read_error;
+
+      boolean shared_mem_config_error;
+
+      boolean share_mem_init_error;
+
+      boolean ram_test_error;
+
+      boolean num_errors;
+
+      boolean mmap_memory_error;
+
+      boolean isr_attach_error;
+
+      boolean ipc_drv_write_error;
+
+      boolean ipc_drv_trigger_error;
+
+      boolean ipc_drv_sync_error;
+
+      boolean ipc_drv_read_error;
+
+      boolean ipc_drv_init_error;
+
+      boolean interrupt_enable_error;
+
+      boolean hil_format_error;
+
+      boolean flash_filesystem_error;
+
+      boolean error_none;
+
+      boolean dsp_load_read_error;
+
+      boolean dsp_load_open_error;
+
+      boolean dsp_load_address_error;
+
+      boolean dsp_isp_write_error;
+
+      boolean dsp_ipc_read_error;
+
+      boolean dsp_ipc_init;
+
+      boolean dsp_init_error;
+
+      boolean dsp_drv_start_error;
+
+      boolean dsp_drv_load_error;
+
+      boolean dsp_drv_init_error;
+
+      boolean dsp_drv_init2_error;
+
+      boolean dsp_drv_init1_error;
+
+      boolean dsp_calibration_error;
+
+      boolean can_xmt_error;
+
+      boolean can_rcv_error;
+
+      boolean can_hardware_error;
+
+      boolean always_true;
+    };
+  };
+};
+};
+
+
+#endif /* __SRRDEBUG3_IDL__ */

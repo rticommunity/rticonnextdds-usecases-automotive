@@ -1,0 +1,142 @@
+// file: ../spec/VehicleSignalSpecification.vspec
+#ifndef __VEHICLE_IDL__
+#define __VEHICLE_IDL__
+
+#include "res/types/data/covesa/base/entity.idl"
+#include "res/types/data/covesa/Body/Body.idl"
+
+module covesa {
+    module Vehicle {
+        struct VersionVSS {
+            unsigned long Major; // attribute:Supported Version of VSS - Major version.
+            unsigned long Minor; // attribute:Supported Version of VSS - Minor version.
+            unsigned long Patch; // attribute:Supported Version of VSS - Patch version.
+            string<256> Label; // attribute:Label to further describe the version.
+        };
+        module Service {
+            struct ServiceInfo {
+                boolean IsServiceDue; // sensor:Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service.
+                float DistanceToService; // sensor:Remaining distance to service (of any kind). Negative values indicate service overdue.
+                long TimeToService; // sensor:Remaining time to service (of any kind). Negative values indicate service overdue.
+            };
+        };
+        struct VehicleIdentification {
+            string<17> VIN; // attribute:17-character Vehicle Identification Number (VIN) as defined by ISO 3779.
+            string<3> WMI; // attribute:3-character World Manufacturer Identification (WMI) as defined by ISO 3780.
+            string<32> Brand; // attribute:Vehicle brand or manufacturer.
+            string<32> Model; // attribute:Vehicle model.
+            unsigned short Year; // attribute:Model year of the vehicle.
+            string<32> AcrissCode; // attribute:The ACRISS Car Classification Code is a code used by many car rental companies.
+            string<32> BodyType; // attribute:Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
+            string<16> DateVehicleFirstRegistered; // attribute:The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.
+            string<64> MeetsEmissionStandard; // attribute:Indicates that the vehicle meets the respective emission standard.
+            string<16> ProductionDate; // attribute:The date in ISO 8601 format of production of the item, e.g. vehicle.
+            string<16> PurchaseDate; // attribute:The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.
+            string<16> VehicleModelDate; // attribute:The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).
+            string<32> VehicleConfiguration; // attribute:A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+            unsigned short VehicleSeatingCapacity; // attribute:The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
+            string<128> VehicleSpecialUsage; // attribute:Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.
+            string<64> VehicleInteriorColor; // attribute:The color or color combination of the interior of the vehicle.
+            string<64> VehicleInteriorType; // attribute:The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).
+            string<8192> KnownVehicleDamages; // attribute:A textual description of known damages, both repaired and unrepaired.
+        };
+        module LowVoltageSystemStateValues_M {
+            enum LowVoltageSystemStateValues{LVSS_UNDEFINED,LVSS_LOCK,LVSS_OFF,LVSS_ACC,LVSS_ON,LVSS_START};
+        };
+        struct VehicleInfo {
+            // ### TOP-LEVEL GROUP (EntityIdentity has a KEY field): USE FOR EXTERNAL ACCESS #####
+            covesa::base::EntityIdentity entity;
+            float Speed; // sensor:Vehicle speed.
+            float TravelledDistance; // sensor:Odometer reading, total distance travelled during the lifetime of the vehicle.
+            float TripMeterReading; // sensor:Current trip meter reading.
+            boolean IsBrokenDown; // sensor:Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.
+            boolean IsMoving; // sensor:Indicates whether the vehicle is stationary or moving.
+            float AverageSpeed; // sensor:Average speed for the current trip.
+            short RoofLoad; // attribute:The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
+            float CargoVolume; // attribute:The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
+            short EmissionsCO2; // attribute:The CO2 emissions.
+            unsigned short CurrentOverallWeight; // sensor:Current overall Vehicle weight. Including passengers, cargo and other load inside the car.
+            unsigned short CurbWeight; // attribute:Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers.
+            unsigned short GrossWeight; // attribute:Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.
+            unsigned short MaxTowWeight; // attribute:Maximum weight of trailer.
+            unsigned short MaxTowBallWeight; // attribute:Maximum vertical weight on the tow ball of a trailer.
+            unsigned short Length; // attribute:Overall vehicle length.
+            unsigned short Height; // attribute:Overall vehicle height.
+            unsigned short Width; // attribute:Overall vehicle width.
+            Vehicle::LowVoltageSystemStateValues_M::LowVoltageSystemStateValues LowVoltageSystemState;
+            VersionVSS CovesaVersion;
+            VehicleIdentification VehicleIdentification;
+            Service::ServiceInfo ServiceInfo;
+        };
+
+
+        struct LowVoltageBattery {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            unsigned short NominalVoltage; // attribute:Nominal Voltage of the battery.
+            unsigned short NominalCapacity; // attribute:Nominal capacity of the low voltage battery.
+            float CurrentVoltage; // sensor:Current Voltage of the low voltage battery.
+            float CurrentCurrent; // sensor:Current current flowing in/out of the low voltage battery. Positive = Current flowing in to battery, e.g. during charging or driving. Negative = Current flowing out of battery, e.g. when using the battery to start a combustion engine.
+        };
+        struct Trailer {
+            boolean IsConnected; // sensor:Signal indicating if trailer is connected or not.
+        };
+        module GNSSReceiver {
+            struct MountingPosition {
+                short X; // attribute:Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.
+                short Y; // attribute:Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.
+                short Z; // attribute:Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.
+            };
+        };
+        struct CurrentLocation {
+            string<32> Timestamp; // sensor:Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.
+            double Latitude; // sensor:Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
+            double Longitude; // sensor:Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
+            double Heading; // sensor:Current heading relative to geographic north. 0 = North, 90 = East, 180 = South, 270 = West.
+            double HorizontalAccuracy; // sensor:Accuracy of the latitude and longitude coordinates.
+            double Altitude; // sensor:Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.
+            double VerticalAccuracy; // sensor:Accuracy of altitude.
+            Vehicle::GNSSReceiver::MountingPosition MountingPosition;
+        };
+        struct Acceleration {
+            float Longitudinal; // sensor:Vehicle acceleration in X (longitudinal acceleration).
+            float Lateral; // sensor:Vehicle acceleration in Y (lateral acceleration).
+            float Vertical; // sensor:Vehicle acceleration in Z (vertical acceleration).
+        };
+        struct AngularVelocity {
+            float Roll; // sensor:Vehicle rotation rate along X (longitudinal).
+            float Pitch; // sensor:Vehicle rotation rate along Y (lateral).
+            float Yaw; // sensor:Vehicle rotation rate along Z (vertical).
+        };
+        module Connectivity {
+            struct ConnectivityInfo {
+                boolean IsConnectivityAvailable; // sensor:Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.
+            };
+        };
+        struct VehicleState {
+            // ### TOP-LEVEL GROUP (EntityIdentity has a KEY field): USE FOR EXTERNAL ACCESS #####
+            covesa::base::EntityIdentity entity;
+            CurrentLocation CurrentLocation;
+            Acceleration Acceleration;
+            AngularVelocity AngularVelocity;
+            LowVoltageBattery lowVoltageBattery;
+            Connectivity::ConnectivityInfo ConnectivityInfo;
+            Trailer Trailer;
+        };
+    };
+};
+module covesa {
+    module Vehicle {
+        module Exterior {
+            struct ExteriorState {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                float AirTemperature; // sensor:Air temperature outside the vehicle.
+                float Humidity; // sensor:Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.
+                float LightIntensity; // sensor:Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.
+                Body::Raindetection::Raindetection RainDetection; 
+            };
+        };
+    };
+};
+#endif // __VEHICLE_IDL__

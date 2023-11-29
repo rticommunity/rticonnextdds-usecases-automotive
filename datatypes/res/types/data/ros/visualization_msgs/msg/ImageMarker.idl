@@ -1,0 +1,57 @@
+/* 
+ * Copyright 2012-2018 Open Source Robotics Foundation 
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ * 
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ */ 
+
+#ifndef __visualization_msgs__msg__ImageMarker__idl
+#define __visualization_msgs__msg__ImageMarker__idl
+
+#include "res/types/data/ros/geometry_msgs/msg/Point.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+#include "res/types/data/ros/std_msgs/msg/ColorRGBA.idl"
+#include "res/types/data/ros/builtin_interfaces/msg/Duration.idl"
+
+module visualization_msgs {
+  module msg {
+    module dds_ {
+      module ImageMarker_Constants {
+        const int32 CIRCLE_ = 0;
+        const int32 LINE_STRIP_ = 1;
+        const int32 LINE_LIST_ = 2;
+        const int32 POLYGON_ = 3;
+        const int32 POINTS_ = 4;
+        const int32 ADD_ = 0;
+        const int32 REMOVE_ = 1;
+      };
+      @appendable struct ImageMarker_ {
+        std_msgs::msg::dds_::Header_ header;
+        string ns;
+        int32 id;
+        int32 type;
+        int32 action;
+        geometry_msgs::msg::dds_::Point_ position;
+        float scale;
+        std_msgs::msg::dds_::ColorRGBA_ outline_color;
+        octet filled;
+        std_msgs::msg::dds_::ColorRGBA_ fill_color;
+        builtin_interfaces::msg::dds_::Duration_ lifetime;
+        sequence<geometry_msgs::msg::dds_::Point_> points;
+        sequence<std_msgs::msg::dds_::ColorRGBA_> outline_colors;
+      };
+    };
+  };
+};
+
+
+#endif // __visualization_msgs__msg__ImageMarker__idl

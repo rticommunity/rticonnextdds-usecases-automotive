@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrVehicle1.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRVEHICLE1_IDL__
+#define __ESRVEHICLE1_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrVehicle1_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      float vehicle_speed;
+
+      boolean vehicle_speed_direction;
+
+      float yaw_rate;
+
+      boolean yaw_rate_validity;
+
+      boolean steering_angle_rate_sign;
+
+      int16 radius_curvature;
+
+      boolean steering_angle_validity;
+
+      boolean steering_angle_sign;
+
+      uint16 steering_angle;
+
+      uint16 steering_angle_rate;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRVEHICLE1_IDL__ */

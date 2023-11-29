@@ -1,0 +1,97 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/TrackedProperties.msg
+// generated code does not contain a copyright notice
+
+#ifndef __TRACKEDPROPERTIES_IDL__
+#define __TRACKEDPROPERTIES_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/ContourPointSigma.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/Point2Di.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/Point2Dui.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    module TrackedProperties_Constants {
+      const uint8 INITIALIZATION_PHASE = 0;
+      const uint8 TRACKING_PHASE = 1;
+      const uint8 DYNAMIC_AND_MOVING = 0;
+      const uint8 DYNAMIC_AND_STOPPED = 1;
+      const uint8 A_PRIORI_STATIONARY = 2;
+      const uint8 UNCLASSIFIED = 0;
+      const uint8 UNKNOWN_SMALL = 1;
+      const uint8 UNKNOWN_BIG = 2;
+      const uint8 PEDESTRIAN = 3;
+      const uint8 BIKE = 4;
+      const uint8 CAR = 5;
+      const uint8 TRUCK = 6;
+      const uint8 OVER_DRIVABLE = 10;
+      const uint8 UNDER_DRIVABLE = 11;
+      const uint8 CENTER_OF_GRAVITY = 0;
+      const uint8 TOP_FRONT_LEFT_CORNER = 1;
+      const uint8 TOP_FRONT_RIGHT_CORNER = 2;
+      const uint8 BOTTOM_REAR_RIGHT_CORNER = 3;
+      const uint8 BOTTOM_REAR_LEFT_CORNER = 4;
+      const uint8 CENTER_OF_TOP_FRONT_EDGE = 5;
+      const uint8 CENTER_OF_RIGHT_EDGE = 6;
+      const uint8 CENTER_OF_BOTTOM_REAR_EDGE = 7;
+      const uint8 CENTER_OF_LEFT_EDGE = 8;
+      const uint8 BOX_CENTER = 9;
+      const uint8 INVALID = 255;
+    };
+    struct TrackedProperties_ {
+      uint16 object_age;
+
+      uint16 hidden_status_age;
+
+      uint8 object_phase;
+
+      uint8 dynamic_property;
+
+      uint16 relative_time_of_measure;
+
+      ibeo_msgs::msg::dds_::Point2Di_ position_closest_point;
+
+      ibeo_msgs::msg::dds_::Point2Di_ relative_velocity;
+
+      ibeo_msgs::msg::dds_::Point2Dui_ relative_velocity_sigma;
+
+      uint8 classification;
+
+      uint16 classification_age;
+
+      ibeo_msgs::msg::dds_::Point2Di_ object_box_size;
+
+      ibeo_msgs::msg::dds_::Point2Dui_ object_box_size_sigma;
+
+      int16 object_box_orientation;
+
+      uint16 object_box_orientation_sigma;
+
+      uint8 tracking_point_location;
+
+      ibeo_msgs::msg::dds_::Point2Di_ tracking_point_coordinate;
+
+      ibeo_msgs::msg::dds_::Point2Dui_ tracking_point_coordinate_sigma;
+
+      ibeo_msgs::msg::dds_::Point2Di_ velocity;
+
+      ibeo_msgs::msg::dds_::Point2Dui_ velocity_sigma;
+
+      ibeo_msgs::msg::dds_::Point2Di_ acceleration;
+
+      ibeo_msgs::msg::dds_::Point2Dui_ acceleration_sigma;
+
+      int16 yaw_rate;
+
+      uint16 yaw_rate_sigma;
+
+      uint8 number_of_contour_points;
+
+      sequence<ibeo_msgs::msg::dds_::ContourPointSigma_> contour_point_list;
+    };
+  };
+};
+};
+
+
+#endif /* __TRACKEDPROPERTIES_IDL__ */

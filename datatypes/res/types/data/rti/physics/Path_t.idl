@@ -1,0 +1,35 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef PATH_IDL
+#define PATH_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/physics/Point3D_t.idl"
+#include "res/types/data/rti/physics/Velocity_t.idl"
+#include "res/types/data/rti/physics/Time_t.idl"
+#include "res/types/data/rti/physics/Frame_t.idl"
+
+module dds {
+    module physics {
+        /* a point on the path (detected or predicted) of an object in free space */
+        struct PathPoint_real {
+            Point3D_real position;
+            Velocity3_real velocity;
+        };
+
+        /* a path sequence */
+        struct Path_real : base::Entity {
+            FrameOfReferenceKind frame;
+            Time_integer timestamp;
+            sequence<PathPoint_real, 16> path_points;
+        };
+    };
+};
+#endif /* PATH_IDL */

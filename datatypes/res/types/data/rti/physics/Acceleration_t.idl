@@ -1,0 +1,30 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef ACCELERATION_IDL
+#define ACCELERATION_IDL
+
+#include "res/types/data/rti/physics/Vector_t.idl"
+
+module dds {
+    module physics {
+        /* linear and angular acceleration in free space */
+        @nested @final
+        struct Acceleration3_real {
+            Vector3_real linear;
+            Vector3_real angular;
+        };
+
+        struct Acceleration3_with_covariance_real : Acceleration3_real {
+            base::Float64 covariance[36];
+        };
+
+    };
+};
+#endif /* ACCELERATION_IDL */

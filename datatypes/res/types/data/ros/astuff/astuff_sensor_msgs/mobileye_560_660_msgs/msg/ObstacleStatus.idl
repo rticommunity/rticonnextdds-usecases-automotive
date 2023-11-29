@@ -1,0 +1,50 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/ObstacleStatus.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBSTACLESTATUS_IDL__
+#define __OBSTACLESTATUS_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    module ObstacleStatus_Constants {
+      const uint8 STOP_GO_STOP = 0;
+      const uint8 STOP_GO_GO = 1;
+      const uint8 STOP_GO_UNDECIDED = 2;
+      const uint8 STOP_GO_DRIVER_DECISION_REQUIRED = 3;
+      const uint8 STOP_GO_NOT_CALCULATED = 15;
+      const uint8 FAILSAFE_NONE = 0;
+      const uint8 FAILSAFE_LOW_SUN = 1;
+      const uint8 FAILSAFE_BLUR_IMAGE = 2;
+    };
+    struct ObstacleStatus_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 num_obstacles;
+
+      uint16 timestamp;
+
+      uint16 application_version;
+
+      uint16 active_version_number_section;
+
+      boolean left_close_range_cut_in;
+
+      boolean right_close_range_cut_in;
+
+      uint8 stop_go;
+
+      uint8 protocol_version;
+
+      boolean close_car;
+
+      uint8 failsafe;
+    };
+  };
+};
+};
+
+
+#endif /* __OBSTACLESTATUS_IDL__ */

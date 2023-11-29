@@ -1,0 +1,329 @@
+#ifndef __POWERTRAIN_IDL__
+#define __POWERTRAIN_IDL__
+
+#include "res/types/data/covesa/base/entity.idl"
+
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            enum TypeValues{POWERTRAIN_TYPE_COMBUSTION,POWERTRAIN_TYPE_HYBRID,POWERTRAIN_TYPE_ELECTRIC};
+            struct PowertrainInfo {
+                // ### TOP-LEVEL GROUP (EntityIdentity has a KEY field): USE FOR EXTERNAL ACCESS #####
+                covesa::base::EntityIdentity entity;
+                float AccumulatedBrakingEnergy; // sensor:The accumulated energy from regenerative braking over lifetime.
+                unsigned long Range; // sensor:Remaining range in meters using all energy sources available in the vehicle.
+                Vehicle::Powertrain::TypeValues Type;
+            };
+        };
+    };
+};
+// file: ../spec/VehicleSignalSpecification.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module CombustionEngine {
+                module ConfigurationValues_M {
+                    enum ConfigurationValues{ICE_CONFIGURATION_UNKNOWN,ICE_CONFIGURATION_STRAIGHT,ICE_CONFIGURATION_V,ICE_CONFIGURATION_BOXER,ICE_CONFIGURATION_W,ICE_CONFIGURATION_ROTARY,ICE_CONFIGURATION_RADIAL,ICE_CONFIGURATION_SQUARE,ICE_CONFIGURATION_H,ICE_CONFIGURATION_U,ICE_CONFIGURATION_OPPOSED,ICE_CONFIGURATION_X};
+                };
+                module AspirationTypeValues_M {
+                    enum AspirationTypeValues{ICE_ASPIRATION_UNKNOWN,ICE_ASPIRATION_NATURAL,vSUPERCHARGER,ICE_ASPIRATION_TURBOCHARGER};
+                };
+                module EngineOilLevelValues_M {
+                    enum EngineOilLevelValues{ENGINE_OIL_LEVEL_CRITICALLY_LOW,ENGINE_OIL_LEVEL_LOW,ENGINE_OIL_LEVEL_NORMAL,ENGINE_OIL_LEVEL_HIGH,ENGINE_OIL_LEVEL_CRITICALLY_HIGH};
+                };
+                struct CombustionEngineInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    Vehicle::Powertrain::CombustionEngine::ConfigurationValues_M::ConfigurationValues Configuration;
+                    Vehicle::Powertrain::CombustionEngine::AspirationTypeValues_M::AspirationTypeValues AspirationType;
+                    Vehicle::Powertrain::CombustionEngine::EngineOilLevelValues_M::EngineOilLevelValues EngineOilLevel;
+                    string<32> EngineCode; // attribute:Engine code designation, as specified by vehicle manufacturer.
+                    unsigned short Displacement; // attribute:Displacement in cubic centimetres.
+                    float StrokeLength; // attribute:Stroke length in millimetres.
+                    float Bore; // attribute:Bore in millimetres.
+                    unsigned short NumberOfCylinders; // attribute:Number of cylinders.
+                    unsigned short NumberOfValvesPerCylinder; // attribute:Number of valves per cylinder.
+                    string<16> CompressionRatio; // attribute:Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'.
+                    float EngineOilCapacity; // attribute:Engine oil capacity in liters.
+                    float EngineCoolantCapacity; // attribute:Engine coolant capacity in liters.
+                    unsigned short MaxPower; // attribute:Peak power, in kilowatts, that engine can generate.
+                    unsigned short MaxTorque; // attribute:Peak torque, in newton meter, that the engine can generate.
+                    long OilLifeRemaining; // sensor:Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
+                    boolean IsRunning; // sensor:Engine Running. True if engine is rotating (Speed > 0).
+                    unsigned short Speed; // sensor:Engine speed measured as rotations per minute.
+                    float EngineHours; // sensor:Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.
+                    float IdleHours; // sensor:Accumulated idling time during engine lifetime. Definition of idling is not standardized.
+                    short ECT; // sensor:Engine coolant temperature.
+                    short EOT; // sensor:Engine oil temperature.
+                    unsigned short _MAP; // sensor:Manifold absolute pressure possibly boosted using forced induction.
+                    unsigned short MAF; // sensor:Grams of air drawn into engine per second.
+                    octet TPS; // sensor:Current throttle position.
+                    unsigned short EOP; // sensor:Engine oil pressure.
+                    unsigned short Power; // sensor:Current engine power output. Shall be reported as 0 during engine breaking.
+                    unsigned short Torque; // sensor:Current engine torque. Shall be reported as 0 during engine breaking.
+                };
+            };
+        };
+    };
+};
+// file: Powertrain/CombustionEngine.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module CombustionEngine {
+                module DieselExhaustFluid {
+                    struct DieselExhaustFluidInfo {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        float Capacity; // attribute:Capacity in liters of the Diesel Exhaust Fluid Tank.
+                        octet Level; // sensor:Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full.
+                        unsigned long Range; // sensor:Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle.
+                        boolean IsLevelLow; // sensor:Indicates if the Diesel Exhaust Fluid level is low. True if level is low. Definition of low is vehicle dependent.
+                    };
+                };
+            };
+        };
+    };
+};
+// file: Powertrain/CombustionEngine.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module CombustionEngine {
+                module DieselParticulateFilter {
+                    struct DieselParticulateFilterInfo {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        float InletTemperature; // sensor:Inlet temperature of Diesel Particulate Filter.
+                        float OutletTemperature; // sensor:Outlet temperature of Diesel Particulate Filter.
+                        float DeltaPressure; // sensor:Delta Pressure of Diesel Particulate Filter.
+                    };
+                };
+            };
+        };
+    };
+};
+// file: ../spec/VehicleSignalSpecification.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module Transmission {
+                module TransmissionTypeValues_M {
+                    enum TransmissionTypeValues{TRANSMISSION_TYPE_UNKNOWN,TRANSMISSION_TYPE_SEQUENTIAL,TRANSMISSION_TYPE_H,TRANSMISSION_TYPE_AUTOMATIC,TRANSMISSION_TYPE_DSG,TRANSMISSION_TYPE_CVT};
+                };
+                module DriveTypeValues_M {
+                    enum DriveTypeValues{DRIVE_TYPE_UNKNOWN,DRIVE_TYPE_FORWARD_WHEEL_DRIVE,DRIVE_TYPE_REAR_WHEEL_DRIVE,DRIVE_TYPE_ALL_WHEEL_DRIVE};
+                };
+                module PerformanceModeValues_M {
+                    enum PerformanceModeValues{TRANSMISSION_PERFORMANCE_NORMAL,TRANSMISSION_PERFORMANCE_SPORT,TRANSMISSION_PERFORMANCE_ECONOMY,TRANSMISSION_PERFORMANCE_SNOW,TRANSMISSION_PERFORMANCE_RAIN};
+                };
+                module GearChangeModeValues_M {
+                    enum GearChangeModeValues{TRANSMISSION_GEAR_CHANGE_MANUAL,TRANSMISSION_GEAR_CHANGE_AUTOMATIC};
+                };
+                struct TransmissionInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    Vehicle::Powertrain::Transmission::TransmissionTypeValues_M::TransmissionTypeValues Type;
+                    Vehicle::Powertrain::Transmission::DriveTypeValues_M::DriveTypeValues DriveType;
+                    Vehicle::Powertrain::Transmission::PerformanceModeValues_M::PerformanceModeValues PerformanceMode;
+                    Vehicle::Powertrain::Transmission::GearChangeModeValues_M::GearChangeModeValues GearChangeMode;
+                    octet GearCount; // attribute:Number of forward gears in the transmission. -1 = CVT.
+                    float TravelledDistance; // sensor:Odometer reading, total distance travelled during the lifetime of the transmission.
+                    octet CurrentGear; // sensor:The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse.
+                    octet SelectedGear; // actuator:The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.
+                    boolean IsParkLockEngaged; // actuator:Is the transmission park lock engaged or not. False = Disengaged. True = Engaged.
+                    boolean IsLowRangeEngaged; // actuator:Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged.
+                    boolean IsElectricalPowertrainEngaged; // actuator:Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged.
+                    short Temperature; // sensor:The current gearbox temperature.
+                    float ClutchEngagement; // actuator:Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.
+                    octet ClutchWear; // sensor:Clutch wear as a percent. 0 = no wear. 100 = worn.
+                    float DiffLockFrontEngagement; // actuator:Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.
+                    float DiffLockRearEngagement; // actuator:Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.
+                    float TorqueDistribution; // actuator:Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.
+                };
+            };
+        };
+    };
+};
+// file: ../spec/VehicleSignalSpecification.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module ElectricMotor {
+                struct ElectricMotorInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    string<32> EngineCode; // attribute:Engine code designation, as specified by vehicle manufacturer.
+                    unsigned short MaxPower; // attribute:Peak power, in kilowatts, that motor(s) can generate.
+                    unsigned short MaxTorque; // attribute:Peak power, in newton meter, that the motor(s) can generate.
+                    unsigned short MaxRegenPower; // attribute:Peak regen/brake power, in kilowatts, that motor(s) can generate.
+                    unsigned short MaxRegenTorque; // attribute:Peak regen/brake torque, in newton meter, that the motor(s) can generate.
+                    long Speed; // sensor:Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.
+                    short Temperature; // sensor:Motor temperature.
+                    short CoolantTemperature; // sensor:Motor coolant temperature (if applicable).
+                    short Power; // sensor:Current motor power output. Negative values indicate regen mode.
+                    short Torque; // sensor:Current motor torque. Negative values indicate regen mode.
+                };
+            };
+        };
+    };
+};
+// file: ../spec/VehicleSignalSpecification.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module TractionBattery {
+                struct Temperature {
+                    float Average; // sensor:Current average temperature of the battery cells.
+                    float Min; // sensor:Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.
+                    float Max; // sensor:Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.
+                };
+                struct StateOfCharge {
+                    float Current; // sensor:Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.
+                    float Displayed; // sensor:State of charge displayed to the customer.
+                };
+                struct TractionBatteryInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    string<32> Id; // attribute:Battery Identification Number as assigned by OEM.
+                    string<10> ProductionDate; // attribute:Production date of battery in ISO8601 format, e.g. YYYY-MM-DD.
+                    boolean IsPowerConnected; // sensor:Indicating if the power (positive terminator) of the traction battery is connected to the powertrain.
+                    boolean IsGroundConnected; // sensor:Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain.
+                    unsigned short GrossCapacity; // attribute:Gross capacity of the battery.
+                    unsigned short NetCapacity; // sensor:Total net capacity of the battery considering aging.
+                    float StateOfHealth; // sensor:Calculated battery state of health at standard conditions.
+                    unsigned short NominalVoltage; // attribute:Nominal Voltage of the battery.
+                    unsigned short MaxVoltage; // attribute:Max allowed voltage of the battery, e.g. during charging.
+                    float CurrentVoltage; // sensor:Current Voltage of the battery.
+                    float CurrentCurrent; // sensor:Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.
+                    float CurrentPower; // sensor:Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.
+                    float AccumulatedChargedEnergy; // sensor:The accumulated energy delivered to the battery during charging over lifetime of the battery.
+                    float AccumulatedConsumedEnergy; // sensor:The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
+                    float AccumulatedChargedThroughput; // sensor:The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.
+                    float AccumulatedConsumedThroughput; // sensor:The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
+                    float PowerLoss; // sensor:Electrical energy lost by power dissipation to heat inside the battery.
+                    unsigned long Range; // sensor:Remaining range in meters using only battery.
+                    Vehicle::Powertrain::TractionBattery::Temperature Temperature;
+                    Vehicle::Powertrain::TractionBattery::StateOfCharge StateOfCharge;
+                };
+            };
+        };
+    };
+};
+// file: Powertrain/Battery.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module TractionBattery {
+                module Charging {
+                    module Timer {
+                        enum ModeValues{BATTERY_CHARGING_TIMER_INACTIVE,BATTERY_CHARGING_TIMER_START_TIME,BATTERY_CHARGING_TIMER_END_TIME};
+                        struct TimerInfo {
+                            // EntityIdentity has a KEY field
+                            covesa::base::EntityIdentity entity;
+                            string<16> Time; // actuator:Time for next charging-related action, formatted according to ISO 8601 with UTC time zone. Value has no significance if Charging.Timer.Mode is 'inactive'.
+                            Vehicle::Powertrain::TractionBattery::Charging::Timer::ModeValues Mode;
+                        };
+                    };
+                    struct MaximumChargingCurrent {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        float DC; // sensor:Maximum DC charging current at inlet that can be accepted by the system.
+                        float Phase1; // sensor:Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.
+                        float Phase2; // sensor:Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.
+                        float Phase3; // sensor:Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.
+                    };
+                    struct ChargeCurrent {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        float DC; // sensor:Current DC charging current at inlet. Negative if returning energy to grid.
+                        float Phase1; // sensor:Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.
+                        float Phase2; // sensor:Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.
+                        float Phase3; // sensor:Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.
+                    };
+                    struct ChargeVoltage {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        float DC; // sensor:Current DC charging voltage at charging inlet.
+                        float Phase1; // sensor:Current AC charging voltage (rms) at inlet for Phase 1.
+                        float Phase2; // sensor:Current AC charging voltage (rms) at inlet for Phase 2.
+                        float Phase3; // sensor:Current AC charging voltage (rms) at inlet for Phase 3.
+                    };
+                    enum ChargePortFlapValues{BATTERY_CHARGE_PORT_FLAP_OPEN,BATTERY_CHARGE_PORT_FLAP_CLOSED};
+                    enum ChargePlugTypeValues{BATTERY_CHARGE_PLUG_IEC_TYPE_1_AC,BATTERY_CHARGE_PLUG_IEC_TYPE_2_AC,BATTERY_CHARGE_PLUG_IEC_TYPE_3_AC,BATTERY_CHARGE_PLUG_IEC_TYPE_4_DC,BATTERY_CHARGE_PLUG_IEC_TYPE_1_CCS_DC,BATTERY_CHARGE_PLUG_IEC_TYPE_2_CCS_DC,BATTERY_CHARGE_PLUG_TESLA_ROADSTER,BATTERY_CHARGE_PLUG_TESLA_HPWC,BATTERY_CHARGE_PLUG_TESLA_SUPERCHARGER,BATTERY_CHARGE_PLUG_GBT_AC,BATTERY_CHARGE_PLUG_GBT_DC,BATTERY_CHARGE_PLUG_OTHER};
+                    enum ModeValues{BATTERY_CHARGE_MODE_MANUAL,BATTERY_CHARGE_MODE_TIMER,BATTERY_CHARGE_MODE_GRID,BATTERY_CHARGE_MODE_PROFILE};
+                    enum StartStopChargingValues{BATTERY_CHARGING_START,BATTERY_CHARGING_STOP};
+                    struct ChargingInfo {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        octet ChargeLimit; // actuator:Target charge limit (state of charge) for battery.
+                        boolean IsChargingCableConnected; // sensor:Indicates if a charging cable is physically connected to the vehicle or not.
+                        boolean IsChargingCableLocked; // actuator:Is charging cable locked to prevent removal.
+                        boolean IsCharging; // sensor:True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle.
+                        boolean IsDischarging; // sensor:True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.
+                        float PowerLoss; // sensor:Electrical energy lost by power dissipation to heat inside the AC/DC converter.
+                        float Temperature; // sensor:Current temperature of AC/DC converter converting grid voltage to battery voltage.
+                        float ChargeRate; // sensor:Current charging rate, as in kilometers of range added per hour.
+                        unsigned long TimeToComplete; // sensor:The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.
+                        Vehicle::Powertrain::TractionBattery::Charging::ChargePortFlapValues ChargePortFlap;
+                        Vehicle::Powertrain::TractionBattery::Charging::ChargePlugTypeValues ChargePlugType;
+                        Vehicle::Powertrain::TractionBattery::Charging::ModeValues Mode;
+                        Vehicle::Powertrain::TractionBattery::Charging::StartStopChargingValues StartStopCharging;
+                    };
+                };
+            };
+        };
+    };
+};
+// file: Powertrain/Battery.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module TractionBattery {
+                module DCDC {
+                    struct DCDCState {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        float PowerLoss; // sensor:Electrical energy lost by power dissipation to heat inside DC/DC converter.
+                        float Temperature; // sensor:Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).
+                    };
+                };
+            };
+        };
+    };
+};
+// file: ../spec/VehicleSignalSpecification.vspec
+module covesa {
+    module Vehicle {
+        module Powertrain {
+            module FuelSystem {
+                module SupportedFuelTypesValues_M {
+                    enum SupportedFuelTypesValues{SUPPORTED_FUEL_GASOLINE,SUPPORTED_FUEL_DIESEL,SUPPORTED_FUEL_E85,SUPPORTED_FUEL_LPG,SUPPORTED_FUEL_CNG,SUPPORTED_FUEL_LNG,SUPPORTED_FUEL_H2,SUPPORTED_FUEL_OTHER};
+                };
+                module SupportedFuelValues_M {
+                    enum SupportedFuelValues{SUPPORTED_FUEL_VALUE_E5_95,SUPPORTED_FUEL_VALUE_E5_98,SUPPORTED_FUEL_VALUE_E10_95,SUPPORTED_FUEL_VALUE_E10_98,SUPPORTED_FUEL_VALUE_E85,SUPPORTED_FUEL_VALUE_B7,SUPPORTED_FUEL_VALUE_B10,SUPPORTED_FUEL_VALUE_B20,SUPPORTED_FUEL_VALUE_B30,SUPPORTED_FUEL_VALUE_B100,SUPPORTED_FUEL_VALUE_XTL,SUPPORTED_FUEL_VALUE_LPG,SUPPORTED_FUEL_VALUE_CNG,SUPPORTED_FUEL_VALUE_LNG,SUPPORTED_FUEL_VALUE_H2,SUPPORTED_FUEL_VALUE_OTHER};
+                };
+                module HybridTypeValues_M {
+                    enum HybridTypeValues{HYBRID_TYPE_UNKNOWN,HYBRID_TYPE_NOT_APPLICABLE,HYBRID_TYPE_STOP_START,HYBRID_TYPE_BELT_ISG,HYBRID_TYPE_CIMG,HYBRID_TYPE_PHEV};
+                };
+                struct FuelSystemInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    float TankCapacity; // attribute:Capacity of the fuel tank in liters.
+                    octet Level; // sensor:Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
+                    unsigned long Range; // sensor:Remaining range in meters using only liquid fuel.
+                    float InstantConsumption; // sensor:Current consumption in liters per 100 km.
+                    float AverageConsumption; // sensor:Average consumption in liters per 100 km.
+                    float ConsumptionSinceStart; // sensor:Fuel amount in liters consumed since start of current trip.
+                    unsigned long TimeSinceStart; // sensor:Time in seconds elapsed since start of current trip.
+                    boolean IsEngineStopStartEnabled; // sensor:Indicates whether eco start stop is currently enabled.
+                    boolean IsFuelLevelLow; // sensor:Indicates that the fuel level is low (e.g. <50km range).
+                    Vehicle::Powertrain::FuelSystem::SupportedFuelTypesValues_M::SupportedFuelTypesValues SupportedFuelTypes;
+                    Vehicle::Powertrain::FuelSystem::SupportedFuelValues_M::SupportedFuelValues SupportedFuel;
+                    Vehicle::Powertrain::FuelSystem::HybridTypeValues_M::HybridTypeValues HybridType;
+                };
+            };
+        };
+    };
+};
+#endif  // __POWERTRAIN_IDL__

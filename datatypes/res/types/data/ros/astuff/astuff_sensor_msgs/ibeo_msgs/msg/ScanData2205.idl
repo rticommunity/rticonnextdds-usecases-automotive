@@ -1,0 +1,52 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ScanData2205.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SCANDATA2205_IDL__
+#define __SCANDATA2205_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/ScanPoint2205.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/ScannerInfo2205.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    module ScanData2205_Constants {
+      const uint8 FRONT = 0;
+      const uint8 REAR = 1;
+      const uint8 SCANNER = 0;
+      const uint8 VEHICLE = 1;
+    };
+    struct ScanData2205_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      builtin_interfaces::msg::dds_::Time_ scan_start_time;
+
+      uint8 scan_end_time_offset;
+
+      boolean fused_scan;
+
+      uint8 mirror_side;
+
+      uint8 coordinate_system;
+
+      uint16 scan_number;
+
+      uint16 scan_points;
+
+      uint8 number_of_scanner_infos;
+
+      sequence<ibeo_msgs::msg::dds_::ScannerInfo2205_> scanner_info_list;
+
+      sequence<ibeo_msgs::msg::dds_::ScanPoint2205_> scan_point_list;
+    };
+  };
+};
+};
+
+
+#endif /* __SCANDATA2205_IDL__ */

@@ -1,0 +1,127 @@
+#ifndef __OBD_IDL__
+#define __OBD_IDL__
+
+#include "res/types/data/covesa/base/entity.idl"
+
+module covesa {
+module Vehicle {
+    module OBD {
+        module Status {
+            module IgnitionTypeValues_M {
+                enum IgnitionTypeValues{IGNITION_TYPE_SPARK,IGNITION_TYPE_COMPRESSION};
+            };
+            struct Status {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                Vehicle::OBD::Status::IgnitionTypeValues_M::IgnitionTypeValues IgnitionType;
+                boolean IsMILOn; // sensor:Malfunction Indicator Light (MIL) False = Off, True = On
+                octet DTCCount; // sensor:Number of sensor Trouble Codes (DTC)
+                unsigned long PidsA; // sensor:PID 00 - Bit array of the supported pids 01 to 20
+                sequence<string<5>,128> DTCList; // sensor:List of currently active DTCs formatted according OBD II (SAE-J2012DA_201812) standard ([P|C|B|U]XXXXX )
+                sequence<string<5>,16> FreezeDTC; // sensor:PID 02 - DTC that triggered the freeze frame
+                sequence<string<16>,16> FuelStatus; // sensor:PID 03 - Fuel status
+                sequence<float,8> EngineLoad; // sensor:PID 04 - Engine load in percent - 0 = no load, 100 = full load
+                sequence<float,8> CoolantTemperature; // sensor:PID 05 - Coolant temperature
+                sequence<float,8> ShortTermFuelTrim1; // sensor:PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
+                sequence<float,8> LongTermFuelTrim1; // sensor:PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
+                sequence<float,8> ShortTermFuelTrim2; // sensor:PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
+                sequence<float,8> LongTermFuelTrim2; // sensor:PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
+                sequence<float,8> FuelPressure; // sensor:PID 0A - Fuel pressure
+                sequence<float,8> _MAP; // sensor:PID 0B - Intake manifold pressure
+                sequence<float,8> EngineSpeed; // sensor:PID 0C - Engine speed measured as rotations per minute
+                sequence<float,8> Speed; // sensor:PID 0D - Vehicle speed
+                sequence<float,16> TimingAdvance; // sensor:PID 0E - Time advance
+                sequence<float,16> IntakeTemp; // sensor:PID 0F - Intake temperature
+                sequence<float,16> MAF; // sensor:PID 10 - Grams of air drawn into engine per second
+                sequence<float,16> ThrottlePosition; // sensor:PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle
+                sequence<string<16>,8> AirStatus; // sensor:PID 12 - Secondary air status
+                sequence<octet,16> OxygenSensorsIn2Banks; // sensor:PID 13 - Presence of oxygen sensors in 2 banks. [A0..A3] == Bank 1, Sensors 1-4. [A4..A7] == Bank 2, Sensors 1-4
+                sequence<octet,16> OBDStandards; // attribute:PID 1C - OBD standards this vehicle conforms to
+                sequence<octet,16> OxygenSensorsIn4Banks; // sensor:PID 1D - Presence of oxygen sensors in 4 banks. Similar to PID 13, but [A0..A7] == [B1S1, B1S2, B2S1, B2S2, B3S1, B3S2, B4S1, B4S2]
+                sequence<boolean,16> IsPTOActive; // sensor:PID 1E - Auxiliary input status (power take off)
+                sequence<float,16> RunTime; // sensor:PID 1F - Engine run time
+                sequence<unsigned long,16> PidsB; // sensor:PID 20 - Bit array of the supported pids 21 to 40
+                sequence<float,16> DistanceWithMIL; // sensor:PID 21 - Distance traveled with MIL on
+                sequence<float,16> FuelRailPressureVac; // sensor:PID 22 - Fuel rail pressure relative to vacuum
+                sequence<float,16> FuelRailPressureDirect; // sensor:PID 23 - Fuel rail pressure direct inject
+                sequence<float,16> CommandedEGR; // sensor:PID 2C - Commanded exhaust gas recirculation (EGR)
+                sequence<float,16> EGRError; // sensor:PID 2D - Exhaust gas recirculation (EGR) error
+                sequence<float,16> CommandedEVAP; // sensor:PID 2E - Commanded evaporative purge (EVAP) valve
+                sequence<float,16> FuelLevel; // sensor:PID 2F - Fuel level in the fuel tank
+                sequence<octet, 16> WarmupsSinceDTCClear; // sensor:PID 30 - Number of warm-ups since codes cleared
+                sequence<float,16> DistanceSinceDTCClear; // sensor:PID 31 - Distance traveled since codes cleared
+                sequence<float,16> EVAPVaporPressure; // sensor:PID 32 - Evaporative purge (EVAP) system pressure
+                sequence<float,16> BarometricPressure; // sensor:PID 33 - Barometric pressure
+                sequence<unsigned long, 16> PidsC; // sensor:PID 40 - Bit array of the supported pids 41 to 60
+                sequence<float,16> ControlModuleVoltage; // sensor:PID 42 - Control module voltage
+                sequence<float,16> AbsoluteLoad; // sensor:PID 43 - Absolute load value
+                sequence<float,16> CommandedEquivalenceRatio; // sensor:PID 44 - Commanded equivalence ratio
+                sequence<float,16> RelativeThrottlePosition; // sensor:PID 45 - Relative throttle position
+                sequence<float,16> AmbientAirTemperature; // sensor:PID 46 - Ambient air temperature
+                sequence<float,16> ThrottlePositionB; // sensor:PID 47 - Absolute throttle position B
+                sequence<float,16> ThrottlePositionC; // sensor:PID 48 - Absolute throttle position C
+                sequence<float,16> AcceleratorPositionD; // sensor:PID 49 - Accelerator pedal position D
+                sequence<float,16> AcceleratorPositionE; // sensor:PID 4A - Accelerator pedal position E
+                sequence<float,16> AcceleratorPositionF; // sensor:PID 4B - Accelerator pedal position F
+                sequence<float,16> ThrottleActuator; // sensor:PID 4C - Commanded throttle actuator
+                sequence<float,16> RunTimeMIL; // sensor:PID 4D - Run time with MIL on
+                sequence<float,16> TimeSinceDTCCleared; // sensor:PID 4E - Time since trouble codes cleared
+                sequence<float,16> MaxMAF; // sensor:PID 50 - Maximum flow for mass air flow sensor
+                sequence<string<16>,16> FuelType; // sensor:PID 51 - Fuel type
+                sequence<float,16> EthanolPercent; // sensor:PID 52 - Percentage of ethanol in the fuel
+                sequence<float,16> EVAPVaporPressureAbsolute; // sensor:PID 53 - Absolute evaporative purge (EVAP) system pressure
+                sequence<float,16> EVAPVaporPressureAlternate; // sensor:PID 54 - Alternate evaporative purge (EVAP) system pressure
+                sequence<float,16> ShortTermO2Trim1; // sensor:PID 55 (byte A) - Short term secondary O2 trim - Bank 1
+                sequence<float,16> ShortTermO2Trim3; // sensor:PID 55 (byte B) - Short term secondary O2 trim - Bank 3
+                sequence<float,16> LongTermO2Trim1; // sensor:PID 56 (byte A) - Long term secondary O2 trim - Bank 1
+                sequence<float,16> LongTermO2Trim3; // sensor:PID 56 (byte B) - Long term secondary O2 trim - Bank 3
+                sequence<float,16> ShortTermO2Trim2; // sensor:PID 57 (byte A) - Short term secondary O2 trim - Bank 2
+                sequence<float,16> ShortTermO2Trim4; // sensor:PID 57 (byte B) - Short term secondary O2 trim - Bank 4
+                sequence<float,16> LongTermO2Trim2; // sensor:PID 58 (byte A) - Long term secondary O2 trim - Bank 2
+                sequence<float,16> LongTermO2Trim4; // sensor:PID 58 (byte B) - Long term secondary O2 trim - Bank 4
+                sequence<float,16> FuelRailPressureAbsolute; // sensor:PID 59 - Absolute fuel rail pressure
+                sequence<float,16> RelativeAcceleratorPosition; // sensor:PID 5A - Relative accelerator pedal position
+                sequence<float,16> HybridBatteryRemaining; // sensor:PID 5B - Remaining life of hybrid battery
+                sequence<float,16> OilTemperature; // sensor:PID 5C - Engine oil temperature
+                sequence<float,16> FuelInjectionTiming; // sensor:PID 5D - Fuel injection timing
+                sequence<float,16> FuelRate; // sensor:PID 5E - Engine fuel rate
+            };
+        };
+        module O2 {
+            struct SensorState {
+                float Voltage; // sensor:PID 1x (byte A) - Sensor voltage
+                float ShortTermFuelTrim; // sensor:PID 1x (byte B) - Short term fuel trim
+            };
+            struct Sensors {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                sequence<Vehicle::OBD::O2::SensorState, 8> O2Sensors;
+            };
+        };
+        module O2WR {
+            struct SensorState {
+                float Lambda; // sensor:PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor
+                float Voltage; // sensor:PID 2x (byte CD) - Voltage for wide range/band oxygen sensor
+                float Current; // sensor:PID 3x (byte CD) - Current for wide range/band oxygen sensor
+            };
+            struct Sensors {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                sequence<Vehicle::OBD::O2WR::SensorState, 8> O2WRSensors;
+            };
+        };
+        module Catalyst {
+            struct BankTemperature {
+                float Temperature1; // sensor:PID 3C - Catalyst temperature from bank 1, sensor 1
+                float Temperature2; // sensor:PID 3E - Catalyst temperature from bank 1, sensor 2
+            };
+            struct BankStatus {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                sequence<Vehicle::OBD::Catalyst::BankTemperature, 2> Temperature;
+            };
+        };
+    };
+};
+};
+#endif  // __OBD_IDL__

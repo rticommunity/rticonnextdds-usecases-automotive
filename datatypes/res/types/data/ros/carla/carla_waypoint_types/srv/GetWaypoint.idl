@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from carla_waypoint_types/srv/GetWaypoint.srv
+// generated code does not contain a copyright notice
+
+#include "res/types/data/ros/carla/carla_waypoint_types/msg/CarlaWaypoint.idl"
+#include "res/types/data/ros/geometry_msgs/msg/Point.idl"
+
+module carla_waypoint_types {
+  module srv {
+    module dds_ {
+    //&verbatim(language="comment", text=
+    //  " Copyright (c) 2020 Intel Corporation." "\n"
+    //  "" "\n"
+    //  " This work is licensed under the terms of the MIT license." "\n"
+    //  " For a copy, see <https://opensource.org/licenses/MIT>.")
+    struct GetWaypoint_Request_ {
+      geometry_msgs::msg::dds_::Point_ location;
+    };
+    struct GetWaypoint_Response_ {
+      carla_waypoint_types::msg::dds_::CarlaWaypoint_ waypoint;
+    };
+    };
+  };
+};

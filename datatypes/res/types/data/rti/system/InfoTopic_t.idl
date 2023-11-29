@@ -1,0 +1,30 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef INFOTOPIC_IDL
+#define INFOTOPIC_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/physics/Time_t.idl"
+
+module dds {
+    module system {
+
+        /**
+        * Data type for Map-related work: requests and data
+        */
+        struct InfoTopic : base::Entity  {
+            physics::Time_integer timestamp;
+            string<1024> data;
+        };
+    };
+};
+
+#endif /* INFOTOPIC_IDL */

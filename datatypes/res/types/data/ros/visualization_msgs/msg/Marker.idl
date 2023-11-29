@@ -1,0 +1,70 @@
+/* 
+ * Copyright 2012-2018 Open Source Robotics Foundation 
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ * 
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ */ 
+
+#ifndef __visualization_msgs__msg__Marker__idl
+#define __visualization_msgs__msg__Marker__idl
+
+#include "res/types/data/ros/geometry_msgs/msg/Pose.idl"
+#include "res/types/data/ros/builtin_interfaces/msg/Duration.idl"
+#include "res/types/data/ros/geometry_msgs/msg/Point.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+#include "res/types/data/ros/geometry_msgs/msg/Vector3.idl"
+#include "res/types/data/ros/std_msgs/msg/ColorRGBA.idl"
+
+module visualization_msgs {
+  module msg {
+    module dds_ {
+      module Marker_Constants {
+        const int32 ARROW_ = 0;
+        const int32 CUBE_ = 1;
+        const int32 SPHERE_ = 2;
+        const int32 CYLINDER_ = 3;
+        const int32 LINE_STRIP_ = 4;
+        const int32 LINE_LIST_ = 5;
+        const int32 CUBE_LIST_ = 6;
+        const int32 SPHERE_LIST_ = 7;
+        const int32 POINTS_ = 8;
+        const int32 TEXT_VIEW_FACING_ = 9;
+        const int32 MESH_RESOURCE_ = 10;
+        const int32 TRIANGLE_LIST_ = 11;
+        const int32 ADD_ = 0;
+        const int32 MODIFY_ = 0;
+        const int32 DELETE_ = 2;
+        const int32 DELETEALL_ = 3;
+      };
+      @appendable struct Marker_ {
+        std_msgs::msg::dds_::Header_ header;
+        string ns;
+        int32 id;
+        int32 type;
+        int32 action;
+        geometry_msgs::msg::dds_::Pose_ pose;
+        geometry_msgs::msg::dds_::Vector3_ scale;
+        std_msgs::msg::dds_::ColorRGBA_ color;
+        builtin_interfaces::msg::dds_::Duration_ lifetime;
+        boolean frame_locked;
+        sequence<geometry_msgs::msg::dds_::Point_> points;
+        sequence<std_msgs::msg::dds_::ColorRGBA_> colors;
+        string text;
+        string mesh_resource;
+        boolean mesh_use_embedded_materials;
+      };
+    };
+  };
+};
+
+
+#endif // __visualization_msgs__msg__Marker__idl

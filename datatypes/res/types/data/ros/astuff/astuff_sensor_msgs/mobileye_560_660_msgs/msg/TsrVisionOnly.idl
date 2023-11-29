@@ -1,0 +1,36 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/TsrVisionOnly.msg
+// generated code does not contain a copyright notice
+
+#ifndef __TSRVISIONONLY_IDL__
+#define __TSRVISIONONLY_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    struct TsrVisionOnly_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 vision_only_sign_type_display1;
+
+      uint8 vision_only_supplementary_sign_type_display1;
+
+      uint8 vision_only_sign_type_display2;
+
+      uint8 vision_only_supplementary_sign_type_display2;
+
+      uint8 vision_only_sign_type_display3;
+
+      uint8 vision_only_supplementary_sign_type_display3;
+
+      uint8 vision_only_sign_type_display4;
+
+      uint8 vision_only_supplementary_sign_type_display4;
+    };
+  };
+};
+};
+
+
+#endif /* __TSRVISIONONLY_IDL__ */

@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from neobotix_usboard_msgs/msg/SensorData.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SENSORDATA_IDL__
+#define __SENSORDATA_IDL__
+
+
+module neobotix_usboard_msgs {
+  module msg { module dds_ {
+    //&verbatim (language="comment", text=
+    //  " Message file for SensorData")
+    struct SensorData_ {
+      //&verbatim (language="comment", text=        " cm")
+      uint8 distance;
+
+      boolean warn;
+
+      boolean alarm;
+
+      boolean active;
+    };
+  };
+};
+};
+
+
+#endif /* __SENSORDATA_IDL__ */

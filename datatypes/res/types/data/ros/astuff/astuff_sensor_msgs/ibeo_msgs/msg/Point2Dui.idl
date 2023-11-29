@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Point2Dui.msg
+// generated code does not contain a copyright notice
+
+#ifndef __POINT2DUI_IDL__
+#define __POINT2DUI_IDL__
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct Point2Dui_ {
+      uint16 x;
+
+      uint16 y;
+    };
+  };
+};
+};
+#endif  // __POINT2DUI_IDL__

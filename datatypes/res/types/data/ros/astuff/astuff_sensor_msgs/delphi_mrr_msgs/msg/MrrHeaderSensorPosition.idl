@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrHeaderSensorPosition.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRHEADERSENSORPOSITION_IDL__
+#define __MRRHEADERSENSORPOSITION_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrHeaderSensorPosition_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean can_sensor_polarity;
+
+      float can_sensor_lat_offset;
+
+      float can_sensor_long_offset;
+
+      float can_sensor_hangle_offset;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRHEADERSENSORPOSITION_IDL__ */

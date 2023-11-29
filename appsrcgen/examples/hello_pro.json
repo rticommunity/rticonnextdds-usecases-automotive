@@ -1,0 +1,35 @@
+{
+  "dest-path": "../hello_pro",
+  "app-list": [
+    {
+      "appname": "helloProPub",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "HelloTopic",
+          "typename": "charMessage",
+          "typepath": "basictypes::",
+          "typefile": "res/types/data/my_types/hello/txtmsg",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "helloProSub",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "HelloTopic",
+          "typename": "charMessage",
+          "typepath": "basictypes::",
+          "typefile": "res/types/data/my_types/hello/txtmsg",
+          "pubsub": "sub",
+          "code": "DRListener"
+        }
+      ]
+    }
+  ]
+}

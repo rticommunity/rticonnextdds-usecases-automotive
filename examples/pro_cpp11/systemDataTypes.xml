@@ -1,0 +1,520 @@
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://community.rti.com/schema/6.1.1/rti_dds_profiles.xsd">
+  <types>
+  <module name="dds">
+  <module name="base">
+    <typedef name="Boolean" type="boolean" />
+    <typedef name="Byte" type="byte" />
+    <typedef name="Char8" type="char8" />
+    <typedef name="Char16" type="char16" />
+    <typedef name="Int16" type="int16" />
+    <typedef name="UInt16" type="uint16" />
+    <typedef name="Int32" type="int32" />
+    <typedef name="UInt32" type="uint32" />
+    <typedef name="Int64" type="int64" />
+    <typedef name="UInt64" type="uint64" />
+    <typedef name="Float32" type="float32" />
+    <typedef name="Float64" type="float64" />
+    <typedef name="Float128" type="float128" />
+    <const name="MAXLEN4" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="4" />
+    <const name="MAXLEN8" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="8" />
+    <const name="MAXLEN16" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="16" />
+    <const name="MAXLEN32" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="32" />
+    <const name="MAXLEN64" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="64" />
+    <const name="MAXLEN128" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="128" />
+    <const name="MAXLEN256" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="256" />
+    <const name="MAXLEN512" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="512" />
+    <const name="MAXLEN1024" type="nonBasic" nonBasicTypeName="dds::base::Int32" value="1024" />
+    <typedef name="String4" stringMaxLength="dds::base::MAXLEN4" type="string" />
+    <typedef name="String8" stringMaxLength="dds::base::MAXLEN8" type="string" />
+    <typedef name="String16" stringMaxLength="dds::base::MAXLEN16" type="string" />
+    <typedef name="String32" stringMaxLength="dds::base::MAXLEN32" type="string" />
+    <typedef name="String64" stringMaxLength="dds::base::MAXLEN64" type="string" />
+    <typedef name="String128" stringMaxLength="dds::base::MAXLEN128" type="string" />
+    <typedef name="String256" stringMaxLength="dds::base::MAXLEN256" type="string" />
+    <typedef name="StringBuf4" type="char8" arrayDimensions="(dds::base::MAXLEN4)" />
+    <typedef name="StringBuf8" type="char8" arrayDimensions="(dds::base::MAXLEN8)" />
+    <typedef name="StringBuf16" type="char8" arrayDimensions="(dds::base::MAXLEN16)" />
+    <typedef name="StringBuf32" type="char8" arrayDimensions="(dds::base::MAXLEN32)" />
+    <typedef name="StringBuf64" type="char8" arrayDimensions="(dds::base::MAXLEN64)" />
+    <typedef name="StringBuf128" type="char8" arrayDimensions="(dds::base::MAXLEN128)" />
+    <typedef name="StringBuf256" type="char8" arrayDimensions="(dds::base::MAXLEN256)" />
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Vector3_real" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="z" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="base">
+    <typedef name="Id" type="nonBasic" nonBasicTypeName="dds::base::UInt32" />
+    <enum name="EntityId">
+      <enumerator name="OBJECT" />
+      <enumerator name="KIND" />
+    </enum> 
+    <const name="ID_DIMENSIONS" type="nonBasic" nonBasicTypeName="dds::base::UInt16" value="2" />
+    <struct name="Entity" nested="true">
+      <member name="id" type="nonBasic" nonBasicTypeName="dds::base::Id" arrayDimensions="(dds::base::ID_DIMENSIONS)" key="true" />
+    </struct>
+    <struct name="EntityRef" nested="true">
+      <member name="id" type="nonBasic" nonBasicTypeName="dds::base::Id" arrayDimensions="(dds::base::ID_DIMENSIONS)" />
+    </struct>
+    <struct name="EntityInfo" baseType="dds::base::Entity">
+      <member name="name" type="nonBasic" nonBasicTypeName="dds::base::String256" optional="true" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Point3D_integer" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+      <member name="z" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+    </struct>
+    <struct name="Point3D_float" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+      <member name="z" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+    </struct>
+    <struct name="Point3D_real" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="z" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Quaternion_real" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="z" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="w" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Time_integer" extensibility="final" nested="true">
+      <member name="sec" type="nonBasic" nonBasicTypeName="dds::base::UInt32" />
+      <member name="nanosec" type="nonBasic" nonBasicTypeName="dds::base::UInt32" />
+    </struct>
+    <typedef name="Time_real" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <enum name="FrameOfReferenceKind">
+      <enumerator name="FRAME_UNKNOWN" />
+      <enumerator name="FRAME_NONE" />
+      <enumerator name="FRAME_ERROR" />
+      <enumerator name="FRAME_GLOBAL" />
+      <enumerator name="FRAME_EGOCENTER" />
+      <enumerator name="FRAME_LIDAR_TOP" />
+      <enumerator name="FRAME_LIDAR_FRONT" />
+      <enumerator name="FRAME_LIDAR_BACK" />
+      <enumerator name="FRAME_LIDAR_RIGHT" />
+      <enumerator name="FRAME_LIDAR_LEFT" />
+      <enumerator name="FRAME_RADAR_FRONT" />
+      <enumerator name="FRAME_RADAR_REAR" />
+      <enumerator name="FRAME_MAX" />
+    </enum> 
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Point2D_integer" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+    </struct>
+    <struct name="Point2D_float" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+    </struct>
+    <struct name="Point2D_real" extensibility="final" nested="true">
+      <member name="x" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      <member name="y" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Velocity3_real" extensibility="final" nested="true">
+      <member name="linear" type="nonBasic" nonBasicTypeName="dds::physics::Vector3_real" />
+      <member name="angular" type="nonBasic" nonBasicTypeName="dds::physics::Vector3_real" />
+    </struct>
+    <struct name="Velocity3_with_covariance_real" baseType="dds::physics::Velocity3_real" extensibility="final">
+      <member name="covariance" type="nonBasic" nonBasicTypeName="dds::base::Float64" arrayDimensions="36" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Pose3D_real">
+      <member name="position" type="nonBasic" nonBasicTypeName="dds::physics::Point3D_real" />
+      <member name="orientation" type="nonBasic" nonBasicTypeName="dds::physics::Quaternion_real" />
+    </struct>
+    <struct name="Pose3D_with_covariance_real" baseType="dds::physics::Pose3D_real">
+      <member name="covariance" type="nonBasic" nonBasicTypeName="dds::base::Float64" arrayDimensions="36" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="sensing">
+    <module name="pointcloud">
+      <typedef name="PulseReturnBitset" type="nonBasic" nonBasicTypeName="dds::base::Byte" />
+      <struct name="PointDataRecord" baseType="dds::physics::Point3D_integer" extensibility="final" nested="true">
+        <member name="intensity" type="nonBasic" nonBasicTypeName="dds::base::UInt16" />
+        <member name="pulse_return" type="nonBasic" nonBasicTypeName="dds::sensing::pointcloud::PulseReturnBitset" />
+        <member name="classification" type="nonBasic" nonBasicTypeName="dds::base::UInt16" />
+        <member name="scan_angle_rank" type="nonBasic" nonBasicTypeName="dds::base::UInt16" />
+        <member name="user_data" type="nonBasic" nonBasicTypeName="dds::base::Byte" />
+        <member name="point_source_id" type="nonBasic" nonBasicTypeName="dds::base::UInt16" />
+        <member name="gps_time" type="nonBasic" nonBasicTypeName="dds::physics::Time_real" />
+      </struct>
+      <const name="MAX_POINT_DATA_RECORDS" type="nonBasic" nonBasicTypeName="dds::base::Int16" value="4*1024" />
+      <struct name="PointCloud" nested="true">
+        <member name="scale" type="nonBasic" nonBasicTypeName="dds::physics::Point3D_real" />
+        <member name="offset" type="nonBasic" nonBasicTypeName="dds::physics::Point3D_real" />
+        <member name="max" type="nonBasic" nonBasicTypeName="dds::physics::Point3D_real" />
+        <member name="min" type="nonBasic" nonBasicTypeName="dds::physics::Point3D_real" />
+        <member name="point_return_count" type="nonBasic" nonBasicTypeName="dds::base::UInt64" arrayDimensions="15" />
+        <member name="point" sequenceMaxLength="dds::sensing::pointcloud::MAX_POINT_DATA_RECORDS" type="nonBasic" nonBasicTypeName="dds::sensing::pointcloud::PointDataRecord" />
+      </struct>
+    </module>
+  </module>
+</module>
+<module name="dds">
+  <module name="sensing">
+    <module name="image">
+      <enum name="Format">
+        <enumerator name="MONO8" />
+        <enumerator name="MONO16" />
+        <enumerator name="RGB8" />
+        <enumerator name="RGB16" />
+        <enumerator name="YUV8" />
+        <enumerator name="YUV16" />
+      </enum> 
+      <const name="MAX_WIDTH" type="nonBasic" nonBasicTypeName="dds::base::UInt16" value="640" />
+      <const name="MAX_HEIGHT" type="nonBasic" nonBasicTypeName="dds::base::UInt16" value="480" />
+      <const name="MAX_CHANNELS" type="nonBasic" nonBasicTypeName="dds::base::UInt16" value="3" />
+      <const name="MAX_DEPTH" type="nonBasic" nonBasicTypeName="dds::base::UInt16" value="1" />
+      <typedef name="PixelSeq" sequenceMaxLength="dds::sensing::image::MAX_WIDTH*dds::sensing::image::MAX_HEIGHT*dds::sensing::image::MAX_CHANNELS*dds::sensing::image::MAX_DEPTH" type="nonBasic" nonBasicTypeName="dds::base::Byte" />
+      <struct name="Image" nested="true">
+        <member name="format" type="nonBasic" nonBasicTypeName="dds::sensing::image::Format" />
+        <member name="height" type="nonBasic" nonBasicTypeName="dds::base::UInt16" />
+        <member name="width" type="nonBasic" nonBasicTypeName="dds::base::UInt16" />
+        <member name="width_step" type="nonBasic" nonBasicTypeName="dds::base::UInt16" />
+        <member name="pixel" type="nonBasic" nonBasicTypeName="dds::sensing::image::PixelSeq" />
+      </struct>
+    </module>
+  </module>
+</module>
+<module name="dds">
+  <module name="base">
+    <enum name="PrimitiveKind">
+      <enumerator name="UNKNOWN" />
+      <enumerator name="BOOLEAN" />
+      <enumerator name="BYTE" />
+      <enumerator name="CHAR8" />
+      <enumerator name="CHAR16" />
+      <enumerator name="INT8" />
+      <enumerator name="INT16" />
+      <enumerator name="INT32" />
+      <enumerator name="INT64" />
+      <enumerator name="UINT8" />
+      <enumerator name="UINT16" />
+      <enumerator name="UINT32" />
+      <enumerator name="UINT64" />
+      <enumerator name="FLOAT32" />
+      <enumerator name="FLOAT64" />
+      <enumerator name="FLOAT128" />
+      <enumerator name="STRING4" />
+      <enumerator name="STRING8" />
+      <enumerator name="STRING16" />
+      <enumerator name="STRING32" />
+      <enumerator name="STRING64" />
+      <enumerator name="STRING128" />
+      <enumerator name="STRING256" />
+    </enum> 
+    <union name="Variant32" nested="true">
+<discriminator type="nonBasic" nonBasicTypeName="dds::base::PrimitiveKind" />
+<case>
+      <caseDiscriminator value="(dds::base::BOOLEAN)" />
+<member name="boolean_v" type="nonBasic" nonBasicTypeName="dds::base::Boolean" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::CHAR8)" />
+<member name="char8_v" type="nonBasic" nonBasicTypeName="dds::base::Char8" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::CHAR16)" />
+<member name="char16_v" type="nonBasic" nonBasicTypeName="dds::base::Char16" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::INT32)" />
+<member name="int32_v" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::UINT32)" />
+<member name="uint32_v" type="nonBasic" nonBasicTypeName="dds::base::UInt32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::FLOAT32)" />
+<member name="float32_v" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::STRING4)" />
+<member name="strbuf4_v" type="nonBasic" nonBasicTypeName="dds::base::StringBuf4" />
+</case>
+<case>
+      <caseDiscriminator value="default" />
+<member name="invalid_v" type="nonBasic" nonBasicTypeName="dds::base::Byte" />
+</case>
+    </union>
+    <union name="Variant64" nested="true">
+<discriminator type="nonBasic" nonBasicTypeName="dds::base::PrimitiveKind" />
+<case>
+      <caseDiscriminator value="(dds::base::BOOLEAN)" />
+<member name="boolean_v" type="nonBasic" nonBasicTypeName="dds::base::Boolean" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::CHAR8)" />
+<member name="char8_v" type="nonBasic" nonBasicTypeName="dds::base::Char8" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::CHAR16)" />
+<member name="char16_v" type="nonBasic" nonBasicTypeName="dds::base::Char16" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::INT32)" />
+<member name="int32_v" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::UINT32)" />
+<member name="uint32_v" type="nonBasic" nonBasicTypeName="dds::base::UInt32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::INT64)" />
+<member name="int64_v" type="nonBasic" nonBasicTypeName="dds::base::Int64" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::UINT64)" />
+<member name="uint64_v" type="nonBasic" nonBasicTypeName="dds::base::UInt64" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::FLOAT32)" />
+<member name="float32_v" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::FLOAT64)" />
+<member name="float64_v" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::STRING8)" />
+<member name="strbuf8_v" type="nonBasic" nonBasicTypeName="dds::base::StringBuf8" />
+</case>
+<case>
+      <caseDiscriminator value="default" />
+<member name="invalid_v" type="nonBasic" nonBasicTypeName="dds::base::Byte" />
+</case>
+    </union>
+    <union name="Variant128" nested="true">
+<discriminator type="nonBasic" nonBasicTypeName="dds::base::PrimitiveKind" />
+<case>
+      <caseDiscriminator value="(dds::base::BOOLEAN)" />
+<member name="boolean_v" type="nonBasic" nonBasicTypeName="dds::base::Boolean" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::CHAR8)" />
+<member name="char8_v" type="nonBasic" nonBasicTypeName="dds::base::Char8" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::CHAR16)" />
+<member name="char16_v" type="nonBasic" nonBasicTypeName="dds::base::Char16" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::INT32)" />
+<member name="int32_v" type="nonBasic" nonBasicTypeName="dds::base::Int32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::UINT32)" />
+<member name="uint32_v" type="nonBasic" nonBasicTypeName="dds::base::UInt32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::INT64)" />
+<member name="int64_v" type="nonBasic" nonBasicTypeName="dds::base::Int64" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::UINT64)" />
+<member name="uint64_v" type="nonBasic" nonBasicTypeName="dds::base::UInt64" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::FLOAT32)" />
+<member name="float32_v" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::FLOAT64)" />
+<member name="float64_v" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::FLOAT128)" />
+<member name="float128_v" type="nonBasic" nonBasicTypeName="dds::base::Float128" />
+</case>
+<case>
+      <caseDiscriminator value="(dds::base::STRING16)" />
+<member name="strbuf16_v" type="nonBasic" nonBasicTypeName="dds::base::StringBuf16" />
+</case>
+<case>
+      <caseDiscriminator value="default" />
+<member name="invalid_v" type="nonBasic" nonBasicTypeName="dds::base::Byte" />
+</case>
+    </union>
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="Acceleration3_real" extensibility="final" nested="true">
+      <member name="linear" type="nonBasic" nonBasicTypeName="dds::physics::Vector3_real" />
+      <member name="angular" type="nonBasic" nonBasicTypeName="dds::physics::Vector3_real" />
+    </struct>
+    <struct name="Acceleration3_with_covariance_real" baseType="dds::physics::Acceleration3_real" extensibility="final">
+      <member name="covariance" type="nonBasic" nonBasicTypeName="dds::base::Float64" arrayDimensions="36" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="physics">
+    <struct name="PathPoint_real">
+      <member name="position" type="nonBasic" nonBasicTypeName="dds::physics::Point3D_real" />
+      <member name="velocity" type="nonBasic" nonBasicTypeName="dds::physics::Velocity3_real" />
+    </struct>
+    <struct name="Path_real" baseType="dds::base::Entity">
+      <member name="frame" type="nonBasic" nonBasicTypeName="dds::physics::FrameOfReferenceKind" />
+      <member name="timestamp" type="nonBasic" nonBasicTypeName="dds::physics::Time_integer" />
+      <member name="path_points" sequenceMaxLength="16" type="nonBasic" nonBasicTypeName="dds::physics::PathPoint_real" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="perception">
+    <struct name="Polygon2D_height_float">
+      <member name="outline" sequenceMaxLength="16" type="nonBasic" nonBasicTypeName="dds::physics::Point2D_float" />
+      <member name="height_min" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+      <member name="height_max" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="sensing">
+    <struct name="Lidar" baseType="dds::base::Entity">
+      <member name="pointcloud" type="nonBasic" nonBasicTypeName="dds::sensing::pointcloud::PointCloud" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="sensing">
+    <struct name="Camera" baseType="dds::base::Entity">
+      <member name="image" type="nonBasic" nonBasicTypeName="dds::sensing::image::Image" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="perception">
+    <struct name="TrajectoryPoint">
+      <member name="time_since_start" type="nonBasic" nonBasicTypeName="dds::physics::Time_integer" optional="true" />
+      <member name="pose" type="nonBasic" nonBasicTypeName="dds::physics::Pose3D_real" optional="true" />
+      <member name="velocity" type="nonBasic" nonBasicTypeName="dds::physics::Point2D_float" optional="true" />
+      <member name="acceleration" type="nonBasic" nonBasicTypeName="dds::physics::Point2D_float" optional="true" />
+      <member name="heading_rate" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+      <member name="wheel_angle" type="nonBasic" nonBasicTypeName="dds::base::Float32" arrayDimensions="2" />
+    </struct>
+    <struct name="Trajectory" baseType="dds::base::Entity">
+      <member name="points" sequenceMaxLength="16" type="nonBasic" nonBasicTypeName="dds::perception::TrajectoryPoint" optional="true" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="planning">
+    <struct name="MapData" baseType="dds::base::Entity">
+      <member name="seq_id" type="nonBasic" nonBasicTypeName="dds::base::UInt32" />
+      <member name="timestamp" type="nonBasic" nonBasicTypeName="dds::physics::Time_integer" />
+      <member name="data" stringMaxLength="1024" type="string" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="perception">
+    <enum name="ObjectKind">
+      <enumerator name="OBJECT_UNKNOWN" />
+      <enumerator name="OBJECT_PEDESTRIAN" />
+      <enumerator name="OBJECT_BIKE" />
+      <enumerator name="OBJECT_CAR" />
+      <enumerator name="OBJECT_TRUCK" />
+      <enumerator name="OBJECT_BARRIER" />
+    </enum> 
+    <struct name="BaseObject">
+      <member name="id" type="nonBasic" nonBasicTypeName="dds::base::Variant128" />
+      <member name="probability" type="nonBasic" nonBasicTypeName="dds::base::Float32" />
+      <member name="classification" type="nonBasic" nonBasicTypeName="dds::perception::ObjectKind" />
+      <member name="shape" type="nonBasic" nonBasicTypeName="dds::perception::Polygon2D_height_float" />
+      <member name="pose" type="nonBasic" nonBasicTypeName="dds::physics::Pose3D_real" />
+      <member name="velocity" type="nonBasic" nonBasicTypeName="dds::physics::Velocity3_real" optional="true" />
+      <member name="acceleration" type="nonBasic" nonBasicTypeName="dds::physics::Acceleration3_real" optional="true" />
+      <member name="path" sequenceMaxLength="16" type="nonBasic" nonBasicTypeName="dds::physics::PathPoint_real" optional="true" />
+      <member name="frame" type="nonBasic" nonBasicTypeName="dds::physics::FrameOfReferenceKind" optional="true" />
+      <member name="timestamp" type="nonBasic" nonBasicTypeName="dds::physics::Time_integer" optional="true" />
+    </struct>
+    <typedef name="uint8_t" type="byte" />
+    <struct name="ObjectsDetected" baseType="dds::base::Entity">
+      <member name="test" type="nonBasic" nonBasicTypeName="dds::perception::uint8_t" />
+      <member name="frame" type="nonBasic" nonBasicTypeName="dds::physics::FrameOfReferenceKind" />
+      <member name="timestamp" type="nonBasic" nonBasicTypeName="dds::physics::Time_integer" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="sensing">
+    <module name="gnss">
+      <struct name="Basic" baseType="dds::base::Entity">
+        <member name="utc_seconds" type="nonBasic" nonBasicTypeName="dds::base::UInt64" />
+        <member name="lat" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+        <member name="lon" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+        <member name="alt" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+      </struct>
+    </module>
+  </module>
+</module>
+<module name="dds">
+  <module name="sensing">
+    <module name="imu">
+      <struct name="Imu_real" baseType="dds::base::Entity">
+        <member name="orientation" type="nonBasic" nonBasicTypeName="dds::physics::Quaternion_real" />
+        <member name="angular_velocity" type="nonBasic" nonBasicTypeName="dds::physics::Vector3_real" />
+        <member name="linear_acceleration" type="nonBasic" nonBasicTypeName="dds::physics::Vector3_real" />
+      </struct>
+    </module>
+  </module>
+</module>
+<module name="dds">
+  <module name="sensing">
+    <struct name="Compass" baseType="dds::base::Entity">
+      <member name="utc_seconds" type="nonBasic" nonBasicTypeName="dds::base::UInt64" />
+      <member name="heading" type="nonBasic" nonBasicTypeName="dds::base::Float64" />
+    </struct>
+  </module>
+</module>
+<module name="dds">
+  <module name="system">
+    <struct name="StatusTopic" baseType="dds::base::Entity">
+      <member name="timestamp" type="nonBasic" nonBasicTypeName="dds::physics::Time_integer" />
+      <member name="data" stringMaxLength="1024" type="string" />
+    </struct>
+  </module>
+</module>
+</types>
+</dds>

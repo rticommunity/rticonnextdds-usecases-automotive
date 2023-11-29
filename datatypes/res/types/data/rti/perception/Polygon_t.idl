@@ -1,0 +1,31 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef POLYGON_IDL
+#define POLYGON_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+#include "res/types/data/rti/physics/Point2D_t.idl"
+
+module dds {
+    module perception {
+       
+        /**
+        * This describes the 2d outline of an object + height(min and max)
+        */
+        struct Polygon2D_height_float  {
+            sequence<physics::Point2D_float, 16> outline;
+            base::Float32 height_min;
+            base::Float32 height_max;
+        };
+    };
+};
+
+#endif /* POLYGON_IDL */

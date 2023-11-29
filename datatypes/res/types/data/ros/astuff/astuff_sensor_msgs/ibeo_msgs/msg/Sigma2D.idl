@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Sigma2D.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SIGMA2D_IDL__
+#define __SIGMA2D_IDL__
+
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct Sigma2D_ {
+      uint16 sigma_x;
+
+      uint16 sigma_y;
+    };
+  };
+};
+};
+
+
+#endif /* __SIGMA2D_IDL__ */

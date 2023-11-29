@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from derived_object_msgs/msg/ObjectWithCovarianceArray.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBJECTWITHCOVARIANCEARRAY_IDL__
+#define __OBJECTWITHCOVARIANCEARRAY_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/derived_object_msgs/msg/ObjectWithCovariance.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module derived_object_msgs {
+  module msg { module dds_ {
+    struct ObjectWithCovarianceArray_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      sequence<derived_object_msgs::msg::dds_::ObjectWithCovariance_> objects;
+    };
+  };
+};
+};
+
+
+#endif /* __OBJECTWITHCOVARIANCEARRAY_IDL__ */

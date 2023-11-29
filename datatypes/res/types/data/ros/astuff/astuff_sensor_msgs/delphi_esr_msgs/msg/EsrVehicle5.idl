@@ -1,0 +1,38 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrVehicle5.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRVEHICLE5_IDL__
+#define __ESRVEHICLE5_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrVehicle5_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      int8 oversteer_understeer;
+
+      boolean yaw_rate_bias_shift;
+
+      float beamwidth_vert;
+
+      float funnel_offset_left;
+
+      float funnel_offset_right;
+
+      float cw_blockage_threshold;
+
+      uint16 distance_rear_axle;
+
+      uint16 wheelbase;
+
+      float steering_gear_ratio;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRVEHICLE5_IDL__ */

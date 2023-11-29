@@ -1,0 +1,105 @@
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
+PROJECT(stimAndPrint_app C)
+
+ADD_DEFINITIONS()
+LINK_DIRECTORIES()
+
+SET(TYPEFILES_BASE_DIR /home/rti/devl/automotive/examples/bitbucket/rticonnextdds-usecases-automotive)
+SET(TYPEFILES_LIB_DEBUG_DIR ${TYPEFILES_BASE_DIR}/datatypes/build/micro2cert/x64Linux4gcc7.3.0_certprofile/Debug/)
+SET(TYPEFILES_LIB_RELEASE_DIR ${TYPEFILES_BASE_DIR}/datatypes/build/micro2cert/x64Linux4gcc7.3.0_certprofile/Release/)
+SET(TYPEFILES_INCLUDE_DIR ${TYPEFILES_BASE_DIR}/datatypes/build/micro2cert/generated/C/)
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR} ${TYPEFILES_INCLUDE_DIR})
+SET(SOURCE_EXTENSION c)
+SET(RTI_CERT 1)
+
+IF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    SET(PLATFORM_LIBS dl nsl m pthread rt)
+ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+    SET(PLATFORM_LIBS dl m pthread )
+ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+    SET(PLATFORM_LIBS netapi32.lib advapi32.lib user32.lib winmm.lib WS2_32.lib)
+ENDIF()
+
+IF(DEFINED ENV{RTIMEHOME})
+    SET(RTIDDSGEN $ENV{RTIMEHOME}/rtiddsgen/scripts/rtiddsgen)
+ELSE()
+    MESSAGE(FATAL_ERROR "RTIMEHOME (env var) is not set (this points to your RTI Connext Micro installation path)")
+ENDIF()
+
+IF(DEFINED ENV{RTIME_TARGET_NAME})
+    SET(RTIME_TARGET_NAME $ENV{RTIME_TARGET_NAME})
+ELSE()
+    MESSAGE(FATAL_ERROR "RTIME_TARGET_NAME (env var) is not set (this indicates the Connext build target type)")
+ENDIF()
+
+SET_PROPERTY(GLOBAL PROPERTY RULE_MESSAGES OFF)
+SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../build/${RTIME_TARGET_NAME})
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../build/${RTIME_TARGET_NAME})
+SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../build/${RTIME_TARGET_NAME})
+
+IF (CMAKE_GENERATOR MATCHES "Visual Studio")
+    #Visual studio needs to run commands using 'call'if there is more than one dependency
+    SET(COMMAND_PREFIX call)
+    SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:libc.lib" CACHE INTERNAL "CMAKE_EXE_LINKER_FLAGS" FORCE)
+    ADD_DEFINITIONS(-D_CRT_SECURE_NO_WARNINGS)
+ELSE()
+    SET(COMMAND_PREFIX)
+ENDIF()
+
+SET(RTI_LIB_PREFIX rti_me)
+SET(RTI_LIB_SUFFIX)
+
+IF (NOT (DEFINED RTI_SHARED_LIB))
+    IF (${CMAKE_BUILD_TYPE} MATCHES "[Rr]elease")
+        SET(RTI_LIB_SUFFIX "z")
+        SET(RTI_DEBUG_BUILD FALSE)
+        ADD_DEFINITIONS(-DNDEBUG)
+        SET(AD_TYPES_LIB_PATH ${TYPEFILES_LIB_RELEASE_DIR})
+        SET(AD_TYPES_LIBS "libC_micro2cert_types_lib.a")
+    ELSE()
+        SET(RTI_LIB_SUFFIX "zd")
+        SET(RTI_DEBUG_BUILD TRUE)
+        SET(AD_TYPES_LIB_PATH ${TYPEFILES_LIB_DEBUG_DIR})
+        SET(AD_TYPES_LIBS "libC_micro2cert_types_lib.a")
+    ENDIF()
+ELSE()
+    IF (${CMAKE_BUILD_TYPE} MATCHES "[Rr]elease")
+        SET(RTI_LIB_SUFFIX "")
+        SET(RTI_DEBUG_BUILD FALSE)
+        ADD_DEFINITIONS(-DNDEBUG)
+        SET(AD_TYPES_LIB_PATH ${TYPEFILES_LIB_RELEASE_DIR})
+        SET(AD_TYPES_LIBS "libC_micro2cert_types_lib.a")
+    ELSE()
+        SET(RTI_LIB_SUFFIX "d")
+        SET(RTI_DEBUG_BUILD TRUE)
+        SET(AD_TYPES_LIB_PATH ${TYPEFILES_LIB_DEBUG_DIR})
+        SET(AD_TYPES_LIBS "libC_micro2cert_types_lib.a")
+    ENDIF()
+ENDIF()
+
+IF (${RTI_CERT})
+    SET(MICRO_C_LIBS rti_me${RTI_LIB_SUFFIX})
+ELSE()
+    SET(MICRO_C_LIBS rti_me_rhsm${RTI_LIB_SUFFIX}
+                     rti_me_whsm${RTI_LIB_SUFFIX}
+                     rti_me_discdpse${RTI_LIB_SUFFIX}
+                     rti_me_discdpde${RTI_LIB_SUFFIX}
+                     rti_me${RTI_LIB_SUFFIX}
+                     )
+ENDIF()
+
+INCLUDE_DIRECTORIES($ENV{RTIMEHOME}/include $ENV{RTIMEHOME}/include/rti_me)
+LINK_DIRECTORIES($ENV{RTIMEHOME}/lib/${RTIME_TARGET_NAME} ${AD_TYPES_LIB_PATH})
+
+# MESSAGE("RTIME_TARGET_NAME = ${RTIME_TARGET_NAME}")
+# MESSAGE("MICRO_C_LIBS = ${MICRO_C_LIBS}")
+# MESSAGE("AD_TYPES_LIB_PATH = ${AD_TYPES_LIB_PATH}")
+# MESSAGE("RTI_CERT = ${RTI_CERT}")
+
+ADD_EXECUTABLE(stimAndPrint
+               ${CMAKE_CURRENT_SOURCE_DIR}/stimAndPrint_main.${SOURCE_EXTENSION}
+               ${CMAKE_CURRENT_SOURCE_DIR}/stimAndPrint_dp.${SOURCE_EXTENSION}
+               )
+TARGET_COMPILE_DEFINITIONS(stimAndPrint PUBLIC RTI_CERT=1)
+TARGET_LINK_LIBRARIES(stimAndPrint  ${AD_TYPES_LIBS} ${MICRO_C_LIBS} ${PLATFORM_LIBS})

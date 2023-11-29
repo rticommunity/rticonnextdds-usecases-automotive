@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/MotorCurrentRpt.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MOTORCURRENTRPT_IDL__
+#define __MOTORCURRENTRPT_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct MotorCurrentRpt_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      //&verbatim (language="comment", text=
+      //  " The current motor current in mA.")
+      uint16 motor_current;
+    };
+  };
+};
+};
+
+
+#endif /* __MOTORCURRENTRPT_IDL__ */

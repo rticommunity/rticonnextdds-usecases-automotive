@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrStatus3.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRSTATUS3_IDL__
+#define __ESRSTATUS3_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrStatus3_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint8 interface_version;
+
+      uint8 hw_version;
+
+      string sw_version_host;
+
+      string serial_num;
+
+      uint8 sw_version_pld;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRSTATUS3_IDL__ */

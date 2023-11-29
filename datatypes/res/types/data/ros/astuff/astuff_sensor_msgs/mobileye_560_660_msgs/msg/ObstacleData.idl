@@ -1,0 +1,104 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/ObstacleData.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBSTACLEDATA_IDL__
+#define __OBSTACLEDATA_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    module ObstacleData_Constants {
+      const uint8 BLINKER_INFO_UNAVAILABLE = 0;
+      const uint8 BLINKER_INFO_OFF = 1;
+      const uint8 BLINKER_INFO_LEFT = 2;
+      const uint8 BLINKER_INFO_RIGHT = 3;
+      const uint8 BLINKER_INFO_BOTH = 4;
+      const uint8 CUT_IN_AND_OUT_UNDEFINED = 0;
+      const uint8 CUT_IN_AND_OUT_IN_HOST_LANE = 1;
+      const uint8 CUT_IN_AND_OUT_OUT_HOST_LANE = 2;
+      const uint8 CUT_IN_AND_OUT_CUT_IN = 3;
+      const uint8 CUT_IN_AND_OUT_CUT_OUT = 4;
+      const uint8 OBSTACLE_TYPE_VEHICLE = 0;
+      const uint8 OBSTACLE_TYPE_TRUCK = 1;
+      const uint8 OBSTACLE_TYPE_BIKE = 2;
+      const uint8 OBSTACLE_TYPE_PED = 3;
+      const uint8 OBSTACLE_TYPE_BICYCLE = 4;
+      const uint8 OBSTACLE_STATUS_UNDEFINED = 0;
+      const uint8 OBSTACLE_STATUS_STANDING = 1;
+      const uint8 OBSTACLE_STATUS_STOPPED = 2;
+      const uint8 OBSTACLE_STATUS_MOVING = 3;
+      const uint8 OBSTACLE_STATUS_ONCOMING = 4;
+      const uint8 OBSTACLE_STATUS_PARKED = 5;
+      const uint8 OBSTACLE_VALID_INVALID = 0;
+      const uint8 OBSTACLE_VALID_NEW = 1;
+      const uint8 OBSTACLE_VALID_OLDER = 2;
+      const uint8 OBSTACLE_LANE_NOT_ASSIGNED = 0;
+      const uint8 OBSTACLE_LANE_EGO_LANE = 1;
+      const uint8 OBSTACLE_LANE_NEXT_LANE = 2;
+      const uint8 OBSTACLE_LANE_INVALID = 3;
+      const uint8 RADAR_MATCH_CONFIDENCE_NO_MATCH = 0;
+      const uint8 RADAR_MATCH_CONFIDENCE_MULTI_MATCH = 1;
+      const uint8 RADAR_MATCH_CONFIDENCE_BOUNDED_LOW = 2;
+      const uint8 RADAR_MATCH_CONFIDENCE_BOUNDED_MED = 3;
+      const uint8 RADAR_MATCH_CONFIDENCE_BOUNDED_HIGH = 4;
+      const uint8 RADAR_MATCH_CONFIDENCE_HIGH = 5;
+    };
+    struct ObstacleData_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 obstacle_id;
+
+      double obstacle_pos_x;
+
+      double obstacle_pos_y;
+
+      uint8 blinker_info;
+
+      uint8 cut_in_and_out;
+
+      double obstacle_rel_vel_x;
+
+      uint8 obstacle_type;
+
+      uint8 obstacle_status;
+
+      boolean obstacle_brake_lights;
+
+      uint8 obstacle_valid;
+
+      float obstacle_length;
+
+      float obstacle_width;
+
+      uint16 obstacle_age;
+
+      uint8 obstacle_lane;
+
+      boolean cipv_flag;
+
+      float radar_pos_x;
+
+      float radar_vel_x;
+
+      uint8 radar_match_confidence;
+
+      uint16 matched_radar_id;
+
+      float obstacle_angle_rate;
+
+      double obstacle_scale_change;
+
+      float object_accel_x;
+
+      boolean obstacle_replaced;
+
+      float obstacle_angle;
+    };
+  };
+};
+};
+
+
+#endif /* __OBSTACLEDATA_IDL__ */

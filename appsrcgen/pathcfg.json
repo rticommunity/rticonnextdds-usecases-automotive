@@ -1,0 +1,66 @@
+{
+  "notes": "Edit these paths and filenames to match your build system",
+  "path-base": "../../..",
+  "launch-script": "templates/m2_template_run-demo.sh",  
+  "cmake-top": "templates/m2_c_cmake_top_template.txt",
+  "type-paths": {
+    "micro2": {
+      "C": {
+        "src-templ": [ "templates/m2_c_template_main.c", "templates/m2_c_template_dp.c", "templates/m2_c_template_dp.h" ],
+        "cmake-templ": "templates/m2_c_cmake_template.txt",
+        "header-path": "${PATH_BASE}/datatypes/build/micro2/generated/C/",
+        "lib-path-debug": "${PATH_BASE}/datatypes/build/micro2/x64Linux4gcc7.3.0/Debug/",
+        "lib-name-debug": "libC_micro2_types_lib.a",
+        "lib-path-release": "${PATH_BASE}/datatypes/build/micro2/x64Linux4gcc7.3.0/Release/",
+        "lib-name-release": "libC_micro2_types_lib.a"
+      },
+      "C-cert": {
+        "src-templ": [ "templates/m2_c_cert_template_main.c", "templates/m2_c_cert_template_dp.c", "templates/m2_c_cert_template_dp.h" ],
+        "cmake-templ": "templates/m2_c_cert_cmake_template.txt",
+        "header-path": "${PATH_BASE}/datatypes/build/micro2cert/generated/C/",
+        "lib-path-debug": "${PATH_BASE}/datatypes/build/micro2cert/x64Linux4gcc7.3.0/Debug/",
+        "lib-name-debug": "libC_micro2cert_types_lib.a",
+        "lib-path-release": "${PATH_BASE}/datatypes/build/micro2cert/x64Linux4gcc7.3.0/Release/",
+        "lib-name-release": "libC_micro2cert_types_lib.a"
+      },
+      "C++": {
+        "src-templ": [ "templates/m2_cpp_template_main.cxx", "templates/m2_cpp_template_dp.cxx", "templates/m2_cpp_template_dp.h" ],
+        "cmake-templ": "templates/m2_cpp_cmake_template.txt",
+        "header-path": "${PATH_BASE}/datatypes/build/micro2/generated/C++/",
+        "lib-path-debug": "${PATH_BASE}/datatypes/build/micro2/x64Linux4gcc7.3.0/Debug/",
+        "lib-name-debug": "libC++_micro2_types_lib.a",
+        "lib-path-release": "${PATH_BASE}/datatypes/build/micro2/x64Linux4gcc7.3.0/Release/",
+        "lib-name-release": "libC++_micro2_types_lib.a"
+      }
+    },
+    "pro": {
+      "C": {
+        "src-templ": [ "templates/pro_c_template_main.c" ],
+        "cmake-templ": "templates/pro_c_cmake_template.txt",
+        "header-path": "${PATH_BASE}/datatypes/build/pro/generated/C/",
+        "lib-path-debug": "${PATH_BASE}/datatypes/build/pro/x64Linux4gcc7.3.0/Debug/",
+        "lib-name-debug": "libC_pro_types_lib.a",
+        "lib-path-release": "${PATH_BASE}/datatypes/build/pro/x64Linux4gcc7.3.0/Release/",
+        "lib-name-release": "libC_pro_types_lib.a"
+      },
+      "C++": {
+        "src-templ": [ "templates/pro_cpp_template_main.cxx" ],
+        "cmake-templ": "templates/pro_cpp_cmake_template.txt",
+        "header-path": "${PATH_BASE}/datatypes/build/pro/generated/C++/",
+        "lib-path-debug": "${PATH_BASE}/datatypes/build/pro/x64Linux4gcc7.3.0/Debug/",
+        "lib-name-debug": "libC++_pro_types_lib.a",
+        "lib-path-release": "${PATH_BASE}/datatypes/build/pro/x64Linux4gcc7.3.0/Release/",
+        "lib-name-release": "libC++_pro_types_lib.a"
+      },
+      "C++11": {
+        "src-templ": [ "templates/pro_cpp11_template_main.cxx" ],
+        "cmake-templ": "templates/pro_cpp11_cmake_template.txt",
+        "header-path": "${PATH_BASE}/datatypes/build/pro/generated/C++11/",
+        "lib-path-debug": "${PATH_BASE}/datatypes/build/pro/x64Linux4gcc7.3.0/Debug/",
+        "lib-name-debug": "libC++11_pro_types_lib.a",
+        "lib-path-release": "${PATH_BASE}/datatypes/build/pro/x64Linux4gcc7.3.0/Release/",
+        "lib-name-release": "libC++11_pro_types_lib.a"
+      }
+    }
+  }
+}

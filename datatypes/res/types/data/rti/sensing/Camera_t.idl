@@ -1,0 +1,24 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef CAMERA_IDL
+#define CAMERA_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/sensing/Image_t.idl"
+
+module dds {
+    module sensing {
+        struct Camera : base::Entity {
+            image::Image image; 
+        };
+    };
+};
+
+#endif /* CAMERA_IDL */

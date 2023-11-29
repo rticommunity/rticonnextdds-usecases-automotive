@@ -1,0 +1,36 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrStatus9.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRSTATUS9_IDL__
+#define __ESRSTATUS9_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrStatus9_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint16 avg_pwr_cwblkg;
+
+      float sideslip_angle;
+
+      uint8 serial_num_3rd_byte;
+
+      uint8 water_spray_target_id;
+
+      float filtered_xohp_acc_cipv;
+
+      uint8 path_id_acc_2;
+
+      uint8 path_id_acc_3;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRSTATUS9_IDL__ */

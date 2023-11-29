@@ -1,0 +1,165 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef VARIANT_IDL
+#define VARIANT_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+
+module dds {
+    module base {
+        
+        /**********************************************************************
+        * Kind of Primitive Types 
+        */
+        enum PrimitiveKind { 
+            PK_UNKNOWN,
+
+            /* Boolean Type: TRUE or FALSE */
+            PK_BOOLEAN,
+
+            /* Byte Type (opaque) */
+            PK_BYTE,
+
+            /* Character Types */
+            PK_CHAR8, PK_CHAR16,
+
+            /* Integer Types */
+             PK_INT8,  PK_INT16,  PK_INT32,  PK_INT64, 
+            PK_UINT8, PK_UINT16, PK_UINT32, PK_UINT64,
+
+            /* Real Types */
+            PK_FLOAT32, PK_FLOAT64, PK_FLOAT128,
+
+            /* String Types */
+            PK_STRING4, PK_STRING8, PK_STRING16, PK_STRING32, PK_STRING64, PK_STRING128, PK_STRING256
+        };
+
+
+        /**********************************************************************
+        * Variant32 - can hold any one of primitive type variant, upto 4 bytes
+        *           - fixed length
+        */
+        @nested
+        union Variant32 switch (base::PrimitiveKind) {
+
+        case base::PK_BOOLEAN:
+            base::Boolean boolean_v; 
+        
+        case base::PK_CHAR8:
+            base::Char8 char8_v;
+        
+        case base::PK_CHAR16:
+            base::Char16 char16_v;
+
+        case base::PK_INT32:
+            base::Int32 int32_v;
+        
+        case base::PK_UINT32:
+            base::UInt32 uint32_v;
+        
+        case base::PK_FLOAT32:
+            base::Float32 float32_v;
+        
+        case base::PK_STRING4:
+            base::StringBuf4 strbuf4_v;
+
+        default:
+            base::Byte invalid_v;
+        };
+         
+        /**********************************************************************
+        * Variant64 - can hold any one of primitive type variant, upto 8 bytes 
+        *           - fixed length
+        */
+        @nested
+        union Variant64 switch (base::PrimitiveKind) {
+
+        case base::PK_BOOLEAN:
+            base::Boolean boolean_v; 
+        
+        case base::PK_CHAR8:
+            base::Char8 char8_v;
+        
+        case base::PK_CHAR16:
+            base::Char16 char16_v;
+
+        case base::PK_INT32:
+            base::Int32 int32_v;
+        
+        case base::PK_UINT32:
+            base::UInt32 uint32_v;
+        
+        case base::PK_INT64:
+            base::Int64 int64_v;
+        
+        case base::PK_UINT64:
+            base::UInt64 uint64_v;
+        
+        case base::PK_FLOAT32:
+            base::Float32 float32_v;
+        
+        case base::PK_FLOAT64:
+            base::Float64 float64_v;
+        
+        case base::PK_STRING8:
+            base::StringBuf8 strbuf8_v;
+
+        default:
+            base::Byte invalid_v;
+        };
+          
+        /**********************************************************************
+        * Variant128 - can hold any one of primitive type variant, upto 16 bytes 
+        *            - fixed length
+        */
+        @nested
+        union Variant128 switch (base::PrimitiveKind) {
+
+        case base::PK_BOOLEAN:
+            base::Boolean boolean_v; 
+        
+        case base::PK_CHAR8:
+            base::Char8 char8_v;
+        
+        case base::PK_CHAR16:
+            base::Char16 char16_v;
+
+        case base::PK_INT32:
+            base::Int32 int32_v;
+        
+        case base::PK_UINT32:
+            base::UInt32 uint32_v;
+        
+        case base::PK_INT64:
+            base::Int64 int64_v;
+        
+        case base::PK_UINT64:
+            base::UInt64 uint64_v;
+        
+        case base::PK_FLOAT32:
+            base::Float32 float32_v;
+        
+        case base::PK_FLOAT64:
+            base::Float64 float64_v;
+
+        case base::PK_FLOAT128:
+            base::Float128 float128_v;
+        
+        case base::PK_STRING16:
+            base::StringBuf16 strbuf16_v;
+
+        default:
+            base::Byte invalid_v;
+        };
+     };
+};
+
+#endif /* VARIANT_IDL */

@@ -1,0 +1,256 @@
+{
+  "dest-path": "../examples/pro_c",
+  "app-list": [
+    {
+      "appname": "perception",
+      "connext": "pro",
+      "language": "C",
+      "topics": [
+        {
+          "topicname": "lidarPoints",
+          "typename": "Lidar",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Lidar_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "cameraView",
+          "typename": "Camera",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Camera_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoPose",
+          "typename": "Pose3D_real",
+          "typepath": "dds::physics::",
+          "typefile": "res/types/data/rti/physics/Pose3D_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "mapData",
+          "typename": "MapData",
+          "typepath": "dds::planning::",
+          "typefile": "res/types/data/rti/planning/Maps_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "localization",
+      "connext": "pro",
+      "language": "C",
+      "topics": [
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "gnssPosition",
+          "typename": "Basic",
+          "typepath": "dds::sensing::gnss::",
+          "typefile": "res/types/data/rti/sensing/Gnss_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoPose",
+          "typename": "Pose3D_real",
+          "typepath": "dds::physics::",
+          "typefile": "res/types/data/rti/physics/Pose3D_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "egoMotion",
+      "connext": "pro",
+      "language": "C",
+      "topics": [
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "gnssPosition",
+          "typename": "Basic",
+          "typepath": "dds::sensing::gnss::",
+          "typefile": "res/types/data/rti/sensing/Gnss_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "imuData",
+          "typename": "Imu_real",
+          "typepath": "dds::sensing::imu::",
+          "typefile": "res/types/data/rti/sensing/Imu_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "compass",
+          "typename": "Compass",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Compass_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "sceneEval",
+      "connext": "pro",
+      "language": "C",
+      "topics": [
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "mapData",
+          "typename": "MapData",
+          "typepath": "dds::planning::",
+          "typefile": "res/types/data/rti/planning/Maps_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoPose",
+          "typename": "Pose3D_real",
+          "typepath": "dds::physics::",
+          "typefile": "res/types/data/rti/physics/Pose3D_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoStatus",
+          "typename": "StatusTopic",
+          "typepath": "dds::system::",
+          "typefile": "res/types/data/rti/system/StatusTopic_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "stimAndPrint",
+      "connext": "pro",
+      "language": "C",
+      "topics": [
+        {
+          "topicname": "lidarPoints",
+          "typename": "Lidar",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Lidar_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "cameraView",
+          "typename": "Camera",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Camera_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "imuData",
+          "typename": "Imu_real",
+          "typepath": "dds::sensing::imu::",
+          "typefile": "res/types/data/rti/sensing/Imu_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "compass",
+          "typename": "Compass",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Compass_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "gnssPosition",
+          "typename": "Basic",
+          "typepath": "dds::sensing::gnss::",
+          "typefile": "res/types/data/rti/sensing/Gnss_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "mapData",
+          "typename": "MapData",
+          "typepath": "dds::planning::",
+          "typefile": "res/types/data/rti/planning/Maps_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "egoStatus",
+          "typename": "StatusTopic",
+          "typepath": "dds::system::",
+          "typefile": "res/types/data/rti/system/StatusTopic_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        }
+      ]
+    }
+  ]
+}

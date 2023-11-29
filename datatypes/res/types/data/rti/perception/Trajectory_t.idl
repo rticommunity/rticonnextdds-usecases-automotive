@@ -1,0 +1,55 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef TRAJECTORY_IDL
+#define TRAJECTORY_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/physics/Time_t.idl"
+#include "res/types/data/rti/physics/Pose3D_t.idl"
+#include "res/types/data/rti/physics/Point2D_t.idl"
+
+module dds {
+    module perception {
+
+        /**
+        * Trajectory as a point in a sequence
+        */
+        struct TrajectoryPoint {
+            /* time offset in sequence */
+            physics::Time_integer time_since_start;
+            
+            /* pose of object */
+            physics::Pose3D_real pose;
+            
+            /* velocity (2D: lateral and longitudinal) */
+            physics::Point2D_float velocity;
+
+            /* acceleration (2D) */
+            physics::Point2D_float acceleration;
+
+            /* Z rotation rate */
+            base::Float32 heading_rate;
+            
+            /* wheel angle relative to body */
+            base::Float32 wheel_angle[2];
+        };
+
+        /**
+        * Trajectory of an object at a point in time
+        */
+        struct Trajectory : base::Entity  {
+            sequence<perception::TrajectoryPoint, 16> points;
+        };
+
+    };
+};
+
+#endif /* TRAJECTORY_IDL */

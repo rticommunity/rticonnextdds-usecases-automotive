@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ResolutionInfo.msg
+// generated code does not contain a copyright notice
+
+#ifndef __RESOLUTIONINFO_IDL__
+#define __RESOLUTIONINFO_IDL__
+
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct ResolutionInfo_ {
+      float resolution_start_angle;
+
+      float resolution;
+    };
+  };
+};
+};
+
+
+#endif /* __RESOLUTIONINFO_IDL__ */

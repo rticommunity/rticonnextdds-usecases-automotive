@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from neobotix_usboard_msgs/msg/Command.msg
+// generated code does not contain a copyright notice
+
+#ifndef __COMMAND_IDL__
+#define __COMMAND_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module neobotix_usboard_msgs {
+  module msg { module dds_ {
+    //&verbatim (language="comment", text=
+    //  " Message file for Command")
+    struct Command_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 command;
+
+      uint64 command_data;
+
+      uint8 set_num;
+
+      uint8 paraset_byte6;
+
+      uint8 paraset_byte5;
+
+      uint8 paraset_byte4;
+
+      uint8 paraset_byte3;
+
+      uint8 paraset_byte2;
+
+      uint8 paraset_byte1;
+
+      uint8 set_active_9to16;
+
+      uint8 set_active_1to8;
+    };
+  };
+};
+};
+
+
+#endif /* __COMMAND_IDL__ */

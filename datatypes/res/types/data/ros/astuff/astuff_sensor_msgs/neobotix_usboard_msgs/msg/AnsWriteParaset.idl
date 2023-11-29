@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from neobotix_usboard_msgs/msg/AnsWriteParaset.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ANSWRITEPARASET_IDL__
+#define __ANSWRITEPARASET_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module neobotix_usboard_msgs {
+  module msg { module dds_ {
+    //&verbatim (language="comment", text=
+    //  " Message file for AnsWriteParaset")
+    struct AnsWriteParaset_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 command;
+
+      uint8 paramset_cksum_low_byte;
+
+      uint8 paramset_cksum_high_byte;
+    };
+  };
+};
+};
+
+
+#endif /* __ANSWRITEPARASET_IDL__ */

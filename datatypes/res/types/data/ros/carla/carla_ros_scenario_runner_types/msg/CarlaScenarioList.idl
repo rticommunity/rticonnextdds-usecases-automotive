@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from carla_ros_scenario_runner_types/msg/CarlaScenarioList.msg
+// generated code does not contain a copyright notice
+
+#include "res/types/data/ros/carla/carla_ros_scenario_runner_types/msg/CarlaScenario.idl"
+
+module carla_ros_scenario_runner_types {
+  module msg {
+    module dds_ {
+    //&verbatim(language="comment", text=
+    //  " Copyright (c) 2020 Intel Corporation." "\n"
+    //  "" "\n"
+    //  " This work is licensed under the terms of the MIT license." "\n"
+    //  " For a copy, see <https://opensource.org/licenses/MIT>.")
+    struct CarlaScenarioList_ {
+      sequence<carla_ros_scenario_runner_types::msg::dds_::CarlaScenario_> scenarios;
+    };
+    };
+  };
+};

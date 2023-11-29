@@ -1,0 +1,48 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrStatus2.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRSTATUS2_IDL__
+#define __ESRSTATUS2_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrStatus2_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint8 maximum_tracks_ack;
+
+      uint8 rolling_count_2;
+
+      boolean overheat_error;
+
+      boolean range_perf_error;
+
+      boolean internal_error;
+
+      boolean xcvr_operational;
+
+      boolean raw_data_mode;
+
+      uint16 steering_angle_ack;
+
+      int8 temperature;
+
+      float veh_spd_comp_factor;
+
+      uint8 grouping_mode;
+
+      float yaw_rate_bias;
+
+      string sw_version_dsp;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRSTATUS2_IDL__ */

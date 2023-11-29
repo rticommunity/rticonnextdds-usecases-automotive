@@ -1,0 +1,97 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ErrorWarning.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ERRORWARNING_IDL__
+#define __ERRORWARNING_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct ErrorWarning_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      boolean err_internal_error;
+
+      boolean err_motor_1_fault;
+
+      boolean err_buffer_error_xmt_incomplete;
+
+      boolean err_buffer_error_overflow;
+
+      boolean err_apd_over_temperature;
+
+      boolean err_apd_under_temperature;
+
+      boolean err_apd_temperature_sensor_defect;
+
+      boolean err_motor_2_fault;
+
+      boolean err_motor_3_fault;
+
+      boolean err_motor_4_fault;
+
+      boolean err_motor_5_fault;
+
+      boolean err_int_no_scan_data;
+
+      boolean err_int_communication_error;
+
+      boolean err_int_incorrect_scan_data;
+
+      boolean err_config_fpga_not_configurable;
+
+      boolean err_config_incorrect_config_data;
+
+      boolean err_config_contains_incorrect_params;
+
+      boolean err_timeout_data_processing;
+
+      boolean err_timeout_env_model_computation_reset;
+
+      boolean wrn_int_communication_error;
+
+      boolean wrn_low_temperature;
+
+      boolean wrn_high_temperature;
+
+      boolean wrn_int_motor_1;
+
+      boolean wrn_sync_error;
+
+      boolean wrn_laser_1_start_pulse_missing;
+
+      boolean wrn_laser_2_start_pulse_missing;
+
+      boolean wrn_can_interface_blocked;
+
+      boolean wrn_eth_interface_blocked;
+
+      boolean wrn_incorrect_can_data_rcvd;
+
+      boolean wrn_int_incorrect_scan_data;
+
+      boolean wrn_eth_unkwn_incomplete_data;
+
+      boolean wrn_incorrect_or_forbidden_cmd_rcvd;
+
+      boolean wrn_memory_access_failure;
+
+      boolean wrn_int_overflow;
+
+      boolean wrn_ego_motion_data_missing;
+
+      boolean wrn_incorrect_mounting_params;
+
+      boolean wrn_no_obj_comp_due_to_scan_freq;
+    };
+  };
+};
+};
+
+
+#endif /* __ERRORWARNING_IDL__ */

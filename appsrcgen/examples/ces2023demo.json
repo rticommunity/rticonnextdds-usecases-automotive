@@ -1,0 +1,389 @@
+{
+  "dest-path": "../examples",
+  "app-list": [
+    {
+      "appname": "carlaTestApp",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "rt/carla/ego_vehicle/objects",
+          "typename": "ObjectArray_",
+          "typepath": "derived_object_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/astuff/astuff_sensor_msgs/derived_object_msgs/msg/ObjectArray",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/lane_invasion",
+          "typename": "CarlaLaneInvasionEvent_",
+          "typepath": "carla_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/carla/carla_msgs/msg/CarlaLaneInvasionEvent",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/imu",
+          "typename": "Imu_",
+          "typepath": "sensor_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/sensor_msgs/msg/Imu",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/gnss",
+          "typename": "NavSatFix_",
+          "typepath": "sensor_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/sensor_msgs/msg/NavSatFix",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/collision",
+          "typename": "CarlaCollisionEvent_",
+          "typepath": "carla_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/carla/carla_msgs/msg/CarlaCollisionEvent",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/lidar",
+          "typename": "PointCloud2_",
+          "typepath": "sensor_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/sensor_msgs/msg/PointCloud2",
+          "pubsub": "sub",
+          "code": "DRListener"
+        }
+      ]
+    },
+    {
+      "appname": "powertrainApp",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "rt/carla/ego_vehicle/lidar",
+          "typename": "PointCloud2_",
+          "typepath": "sensor_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/sensor_msgs/msg/PointCloud2",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "PowertrainInfo",
+          "typename": "PowertrainInfo",
+          "typepath": "covesa::Vehicle::Powertrain::",
+          "typefile": "res/types/data/covesa/Powertrain/Powertrain",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "ElectricMotorInfo",
+          "typename": "ElectricMotorInfo",
+          "typepath": "covesa::Vehicle::Powertrain::ElectricMotor::",
+          "typefile": "res/types/data/covesa/Powertrain/Powertrain",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "TractionBatteryInfo",
+          "typename": "TractionBatteryInfo",
+          "typepath": "covesa::Vehicle::Powertrain::TractionBattery::",
+          "typefile": "res/types/data/covesa/Powertrain/Powertrain",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "ChargingInfo",
+          "typename": "ChargingInfo",
+          "typepath": "covesa::Vehicle::Powertrain::TractionBattery::Charging::",
+          "typefile": "res/types/data/covesa/Powertrain/Powertrain",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "DCDCState",
+          "typename": "DCDCState",
+          "typepath": "covesa::Vehicle::Powertrain::TractionBattery::DCDC::",
+          "typefile": "res/types/data/covesa/Powertrain/Powertrain",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "vehicleApp",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "VehicleInfo",
+          "typename": "VehicleInfo",
+          "typepath": "covesa::Vehicle::",
+          "typefile": "res/types/data/covesa/Vehicle/Vehicle",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "VehicleState",
+          "typename": "VehicleState",
+          "typepath": "covesa::Vehicle::",
+          "typefile": "res/types/data/covesa/Vehicle/Vehicle",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "ExteriorState",
+          "typename": "ExteriorState",
+          "typepath": "covesa::Vehicle::Exterior::",
+          "typefile": "res/types/data/covesa/Vehicle/Vehicle",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "bodyApp",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "BodyInfo",
+          "typename": "BodyInfo",
+          "typepath": "covesa::Vehicle::Body::",
+          "typefile": "res/types/data/covesa/Body/Body",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "BodyState",
+          "typename": "BodyState",
+          "typepath": "covesa::Vehicle::Body::",
+          "typefile": "res/types/data/covesa/Body/Body",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "WiperState",
+          "typename": "WiperState",
+          "typepath": "covesa::Vehicle::Body::Windshield::Wiping::",
+          "typefile": "res/types/data/covesa/Body/Body",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "WindshieldState",
+          "typename": "WindshieldState",
+          "typepath": "covesa::Vehicle::Body::Windshield::",
+          "typefile": "res/types/data/covesa/Body/Body",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "BodyLightsInfo",
+          "typename": "LightInfo",
+          "typepath": "covesa::Vehicle::Body::Lights::",
+          "typefile": "res/types/data/covesa/Body/Body",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "perception",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "covesaTest",
+          "typename": "VehicleInfo",
+          "typepath": "covesa::Vehicle::",
+          "typefile": "res/types/data/covesa/Vehicle/Vehicle",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "lidarPoints",
+          "typename": "Lidar",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Lidar_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "cameraView",
+          "typename": "Camera",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Camera_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoPose",
+          "typename": "Pose3D_real",
+          "typepath": "dds::physics::",
+          "typefile": "res/types/data/rti/physics/Pose3D_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "mapData",
+          "typename": "MapData",
+          "typepath": "dds::planning::",
+          "typefile": "res/types/data/rti/planning/Maps_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "localization",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "gnssPosition",
+          "typename": "Basic",
+          "typepath": "dds::sensing::gnss::",
+          "typefile": "res/types/data/rti/sensing/Gnss_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoPose",
+          "typename": "Pose3D_real",
+          "typepath": "dds::physics::",
+          "typefile": "res/types/data/rti/physics/Pose3D_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "egoMotion",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "gnssPosition",
+          "typename": "Basic",
+          "typepath": "dds::sensing::gnss::",
+          "typefile": "res/types/data/rti/sensing/Gnss_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "imuData",
+          "typename": "Imu_real",
+          "typepath": "dds::sensing::imu::",
+          "typefile": "res/types/data/rti/sensing/Imu_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "compass",
+          "typename": "Compass",
+          "typepath": "dds::sensing::",
+          "typefile": "res/types/data/rti/sensing/Compass_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "sceneEval",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "detectedObjects",
+          "typename": "ObjectsDetected",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Object_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "mapData",
+          "typename": "MapData",
+          "typepath": "dds::planning::",
+          "typefile": "res/types/data/rti/planning/Maps_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoMotion",
+          "typename": "Trajectory",
+          "typepath": "dds::perception::",
+          "typefile": "res/types/data/rti/perception/Trajectory_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoPose",
+          "typename": "Pose3D_real",
+          "typepath": "dds::physics::",
+          "typefile": "res/types/data/rti/physics/Pose3D_t",
+          "pubsub": "sub",
+          "code": "DRListener"
+        },
+        {
+          "topicname": "egoStatus",
+          "typename": "StatusTopic",
+          "typepath": "dds::system::",
+          "typefile": "res/types/data/rti/system/StatusTopic_t",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    }
+  ]
+}

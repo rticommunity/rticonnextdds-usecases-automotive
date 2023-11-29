@@ -1,0 +1,40 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef FRAME_IDL
+#define FRAME_IDL
+
+module dds {
+    module physics {
+        /* enum of frame of reference */
+        enum FrameOfReferenceKind {
+            FRAME_UNKNOWN,
+            FRAME_NONE,
+            FRAME_ERROR,
+            /* coordinates are using a global (GNSS) frame of reference */
+            FRAME_GLOBAL,
+            /* coordinates are based on ego vehicle center */
+            FRAME_EGOCENTER,
+            /* lidar frames of reference */
+            FRAME_LIDAR_TOP,
+            FRAME_LIDAR_FRONT,
+            FRAME_LIDAR_BACK,
+            FRAME_LIDAR_RIGHT,
+            FRAME_LIDAR_LEFT,
+            /* radar frames of reference */
+            FRAME_RADAR_FRONT,
+            FRAME_RADAR_REAR,
+            /* extend and modify as needed */
+            FRAME_MAX
+        };
+    };
+
+    /* ToDo: add a sequence/array to hold the transforms for each frame (relative to ego center) */
+};
+#endif /* FRAME_IDL */

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/SoftwareRevisionRpt.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SOFTWAREREVISIONRPT_IDL__
+#define __SOFTWAREREVISIONRPT_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct SoftwareRevisionRpt_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 software_version_0;
+
+      uint8 software_version_1;
+
+      uint8 software_version_2;
+
+      uint8 software_day;
+
+      uint16 software_month_year;
+    };
+  };
+};
+};
+
+
+#endif /* __SOFTWAREREVISIONRPT_IDL__ */

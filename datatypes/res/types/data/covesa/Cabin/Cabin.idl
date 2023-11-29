@@ -1,0 +1,408 @@
+#ifndef __CABIN_IDL__
+#define __CABIN_IDL__
+
+#include "res/types/data/covesa/base/entity.idl"
+
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Cabin {
+            struct CabinInfo {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                octet DoorCount; // attribute:Number of doors in vehicle.
+                octet DriverPosition; // attribute:The position of the driver seat in row 1.
+                octet SeatRowCount; // attribute:Number of seat rows in vehicle.
+                sequence<octet,32> SeatPosCount; // attribute:Number of seats across each row from the front to the rear.
+            };
+        };
+    };
+};
+};
+// file: Cabin/Cabin.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module RearShade {
+            module _SwitchValues_M {
+                enum _SwitchValues{REAR_SHADE_SWITCH_INACTIVE,REAR_SHADE_SWITCH_CLOSE,REAR_SHADE_SWITCH_OPEN,REAR_SHADE_SWITCH_ONE_SHOT_CLOSE,REAR_SHADE_SWITCH_ONE_SHOT_OPEN};
+            };
+            struct RearShade {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                octet Position; // actuator:Position of window blind. 0 = Fully retracted. 100 = Fully deployed.
+                Vehicle::Cabin::RearShade::_SwitchValues_M::_SwitchValues _Switch;
+            };
+        };
+    };
+};
+};
+// file: Cabin/Cabin.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module HVAC {
+            module HVAC {
+                struct HVAC {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    boolean IsRecirculationActive; // actuator:Is recirculation active.
+                    boolean IsFrontDefrosterActive; // actuator:Is front defroster active.
+                    boolean IsRearDefrosterActive; // actuator:Is rear defroster active.
+                    boolean IsAirConditioningActive; // actuator:Is Air conditioning active.
+                    float AmbientAirTemperature; // sensor:Ambient air temperature inside the vehicle.
+                };
+            };
+        };
+    };
+};
+};
+// INSTANCES: ['Row[1,4]', ['Left', 'Right']], len: 2
+// INSTANCES: [['Left', 'Right']], len: 1
+// file: Cabin/SingleHVACStation.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module HVAC {
+            module Station {
+                module AirDistributionValues_M {
+                    enum AirDistributionValues{AIR_DISTRIBUTIONUP,AIR_DISTRIBUTIONMIDDLE,AIR_DISTRIBUTION_DOWN};
+                };
+                struct StationInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    octet FanSpeed; // actuator:Fan Speed, 0 = off. 100 = max
+                    octet Temperature; // actuator:Temperature
+                    Vehicle::Cabin::HVAC::Station::AirDistributionValues_M::AirDistributionValues AirDistribution;
+                };
+            };
+        };
+    };
+};
+};
+// file: Infotainment.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Infotainment {
+            module Media {
+                module ActionValues_M {
+                    enum ActionValues{MEDIA_ACTION_UNKNOWN,MEDIA_ACTION_STOP,MEDIA_ACTION_PLAY,MEDIA_ACTION_FAST_FORWARD,MEDIA_ACTION_FAST_BACKWARD,MEDIA_ACTION_SKIP_FORWARD,MEDIA_ACTION_SKIP_BACKWARD};
+                };
+                struct MediaInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    string<1024> DeclinedURI; // sensor:URI of suggested media that was declined
+                    string<1024> SelectedURI; // actuator:URI of suggested media that was selected
+                    octet Volume; // actuator:Current Media Volume
+                    Vehicle::Cabin::Infotainment::Media::ActionValues_M::ActionValues Action;
+                };
+            };
+        };
+    };
+};
+};
+// file: Infotainment.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Infotainment {
+            module Media {
+                module Played {
+                    module SourceValues_M {
+                        enum SourceValues{MEDIA_SOURCE_UNKNOWN,MEDIA_SOURCE_SIRIUS_XM,MEDIA_SOURCE_AM,MEDIA_SOURCE_FM,MEDIA_SOURCE_DAB,MEDIA_SOURCE_TV,MEDIA_SOURCE_CD,MEDIA_SOURCE_DVD,MEDIA_SOURCE_AUX,MEDIA_SOURCE_USB,MEDIA_SOURCE_DISK,MEDIA_SOURCE_BLUETOOTH,MEDIA_SOURCE_INTERNET,MEDIA_SOURCE_VOICE,MEDIA_SOURCE_BEEP};
+                    };
+                    struct PlayedInfo {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        string<128> Artist; // sensor:Name of artist being played
+                        string<128> Album; // sensor:Name of album being played
+                        string<128> Track; // sensor:Name of track being played
+                        string<1024> URI; // sensor:User Resource associated with the media
+                        Vehicle::Cabin::Infotainment::Media::Played::SourceValues_M::SourceValues Source;
+                    };
+                };
+            };
+        };
+    };
+};
+};
+// file: Infotainment.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Infotainment {
+            module Navigation {
+                module DestinationSet {
+                    struct DestinationSet {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        double Latitude; // actuator:Latitude of destination in WGS 84 geodetic coordinates.
+                        double Longitude; // actuator:Longitude of destination in WGS 84 geodetic coordinates.
+                    };
+                };
+            };
+        };
+    };
+};
+};
+// file: Infotainment.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Infotainment {
+            module HMI {
+                module DateFormatValues_M {
+                    enum DateFormatValues{DATE_FORMAT_YYYY_MM_DD,DATE_FORMAT_DD_MM_YYYY,DATE_FORMAT_MM_DD_YYYY,DATE_FORMAT_YY_MM_DD,DATE_FORMAT_DD_MM_YY,DATE_FORMAT_MM_DD_YY};
+                };
+                module TimeFormatValues_M {
+                    enum TimeFormatValues{TIME_FORMAT_HR_12,TIME_FORMAT_HR_24};
+                };
+                module DistanceUnitValues_M {
+                    enum DistanceUnitValues{DISTANCE_UNIT_MILES,DISTANCE_UNIT_KILOMETERS};
+                };
+                module FuelEconomyUnitsValues_M {
+                    enum FuelEconomyUnitsValues{FUEL_ECONOMY_UNIT_MPG_UK,FUEL_ECONOMY_UNIT_MPG_US,FUEL_ECONOMY_UNIT_MILES_PER_LITER,FUEL_ECONOMY_UNIT_KILOMETERS_PER_LITER,FUEL_ECONOMY_UNIT_LITERS_PER_100_KILOMETERS};
+                };
+                module EVEconomyUnitsValues_M {
+                    enum EVEconomyUnitsValues{EV_ECONOMY_UNIT_MILES_PER_KILOWATT_HOUR,EV_ECONOMY_UNIT_KILOMETERS_PER_KILOWATT_HOUR,EV_ECONOMY_UNIT_KILOWATT_HOURS_PER_100_MILES,EV_ECONOMY_UNIT_KILOWATT_HOURS_PER_100_KILOMETERS,EV_ECONOMY_UNIT_WATT_HOURS_PER_MILE,EV_ECONOMY_UNIT_WATT_HOURS_PER_KILOMETER};
+                };
+                module TemperatureUnitValues_M {
+                    enum TemperatureUnitValues{TEMPERATURE_UNIT_C,TEMPERATURE_UNIT_F};
+                };
+                module DayNightModeValues_M {
+                    enum DayNightModeValues{DAY_NIGHT_MODE_DAY,DAY_NIGHT_MODE_NIGHT};
+                };
+                struct HMIInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    string<128> CurrentLanguage; // sensor:ISO 639-1 standard language code for the current HMI
+                    Vehicle::Cabin::Infotainment::HMI::DateFormatValues_M::DateFormatValues DateFormat;
+                    Vehicle::Cabin::Infotainment::HMI::TimeFormatValues_M::TimeFormatValues TimeFormat;
+                    Vehicle::Cabin::Infotainment::HMI::DistanceUnitValues_M::DistanceUnitValues DistanceUnit;
+                    Vehicle::Cabin::Infotainment::HMI::FuelEconomyUnitsValues_M::FuelEconomyUnitsValues FuelEconomyUnits;
+                    Vehicle::Cabin::Infotainment::HMI::EVEconomyUnitsValues_M::EVEconomyUnitsValues EVEconomyUnits;
+                    Vehicle::Cabin::Infotainment::HMI::TemperatureUnitValues_M::TemperatureUnitValues TemperatureUnit;
+                    Vehicle::Cabin::Infotainment::HMI::DayNightModeValues_M::DayNightModeValues DayNightMode;
+                };
+            };
+        };
+    };
+};
+};
+// file: Cabin/Cabin.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Sunroof {
+            module _SwitchValues_M {
+                enum _SwitchValues{SUNROOF_SWITCH_INACTIVE,SUNROOF_SWITCH_CLOSE,SUNROOF_SWITCH_OPEN,SUNROOF_SWITCH_ONE_SHOT_CLOSE,SUNROOF_SWITCH_ONE_SHOT_OPEN,SUNROOF_SWITCH_TILT_UP,SUNROOF_SWITCH_TILT_DOWN};
+            };
+            struct SunroofInfo {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                octet Position; // sensor:Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.
+                Vehicle::Cabin::Sunroof::_SwitchValues_M::_SwitchValues _Switch;
+            };
+            struct ShadeInfo {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                octet Position; // actuator:Position of window blind. 0 = Fully retracted. 100 = Fully deployed.
+                Vehicle::Cabin::Sunroof::_SwitchValues_M::_SwitchValues _Switch;
+            };
+        };
+    };
+};
+};
+// file: Cabin/Cabin.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module RearviewMirror {
+            struct RearviewMirrorInfo {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                octet DimmingLevel; // actuator:Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.
+            };
+        };
+    };
+};
+};
+// file: Cabin/Cabin.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Lights {
+            module Lights {
+                struct Lights {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    boolean IsGloveBoxOn; // actuator:Is glove box light on
+                    boolean IsTrunkOn; // actuator:Is trunk light light on
+                    boolean IsDomeOn; // actuator:Is central dome light light on
+                    octet AmbientLight; // sensor:How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
+                    octet LightIntensity; // sensor:Intensity of the interior lights. 0 = Off. 100 = Full brightness.
+                };
+            };
+        };
+    };
+};
+};
+// INSTANCES: Row[1,4], len: 8
+// file: Cabin/InteriorLights.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Lights {
+            module Spotlight {
+                    struct SpotlightState {
+                        // EntityIdentity has a KEY field
+                        covesa::base::EntityIdentity entity;
+                        boolean IsSharedOn; // sensor:Is a shared light across a specific row on
+                        boolean IsLeftOn; // actuator:Is light on the left side switched on
+                        boolean IsRightOn; // actuator:Is light on the right side switched on
+                    };
+            };
+        };
+    };
+};
+};
+// INSTANCES: ['Row[1,2]', ['Left', 'Right']], len: 2
+// INSTANCES: [['Left', 'Right']], len: 1
+// file: Cabin/SingleDoor.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Door {
+            struct DoorState {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                boolean IsOpen; // actuator:Is door open or closed
+                boolean IsLocked; // actuator:Is door locked or unlocked. True = Locked. False = Unlocked.
+                boolean IsChildLockActive; // sensor:Is door child lock engaged. True = Engaged. False = Disengaged.
+            };
+        };
+    };
+};
+};
+// file: SingleDoor.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Door {
+            module Window {
+                module _SwitchValues_M {
+                    enum _SwitchValues{DOOR_WINDOW_SWITCH_INACTIVE,DOOR_WINDOW_SWITCH_CLOSE,DOOR_WINDOW_SWITCH_OPEN,DOOR_WINDOW_SWITCH_ONE_SHOT_CLOSE,DOOR_WINDOW_SWITCH_ONE_SHOT_OPEN};
+                };
+                struct WindowInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    boolean IsOpen; // sensor:Is window open or closed?
+                    octet Position; // sensor:Window position. 0 = Fully closed 100 = Fully opened.
+                    boolean IsChildLockEngaged; // sensor:Is window child lock engaged. True = Engaged. False = Disengaged.
+                    Vehicle::Cabin::Door::Window::_SwitchValues_M::_SwitchValues _Switch;
+                };
+            };
+        };
+    };
+};
+};
+// file: SingleDoor.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Door {
+            module Shade {
+                module _SwitchValues_M {
+                    enum _SwitchValues{DOOR_SHADE_SWITCH_INACTIVE,DOOR_SHADE_SWITCH_CLOSE,DOOR_SHADE_SWITCH_OPEN,DOOR_SHADE_SWITCH_ONE_SHOT_CLOSE,DOOR_SHADE_SWITCH_ONE_SHOT_OPEN};
+                };
+                struct ShadeInfo {
+                    // EntityIdentity has a KEY field
+                    covesa::base::EntityIdentity entity;
+                    octet Position; // actuator:Position of window blind. 0 = Fully retracted. 100 = Fully deployed.
+                    Vehicle::Cabin::Door::Shade::_SwitchValues_M::_SwitchValues _Switch;
+                };
+            };
+        };
+    };
+};
+};
+// INSTANCES: ['Row[1,2]', 'Pos[1,3]'], len: 2
+// INSTANCES: [['Pos1', 'Pos2', 'Pos3']], len: 1
+// file: Cabin/SingleSeat.vspec
+module covesa {
+module Vehicle {
+    module Cabin {
+        module Seat {
+            module Occupant {
+                struct Identifier {
+                    string<64> Subject; // sensor:Subject for the authentication of the occupant. E.g. UserID 7331677.
+                    string<256> Issuer; // sensor:Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.
+                };
+            };
+            module Backrest {
+                struct LumbarStatus {
+                    float Support; // actuator:Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+                    octet Height; // actuator:Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.
+                };
+                struct SideBolsterStatus {
+                    float Support; // actuator:Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+                };
+                struct BackrestStatus {
+                    float Recline; // actuator:Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.
+                    Vehicle::Cabin::Seat::Backrest::SideBolsterStatus SideBolster;
+                    Vehicle::Cabin::Seat::Backrest::LumbarStatus Lumbar;
+                };
+            };
+            struct SeatBaseStatus {
+                unsigned short Position; // actuator:Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.
+                unsigned short Height; // actuator:Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.
+                float Tilt; // actuator:Tilting of seat (seating and backrest) relative to vehicle x-axis. 0 = seat bottom is flat, seat bottom and vehicle x-axis are parallel. Positive degrees = seat tilted backwards, seat x-axis tilted upward, seat z-axis is tilted backward.
+                unsigned short Length; // actuator:Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).
+            };
+            struct HeadrestStatus {
+                octet Height; // actuator:Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.
+                float Angle; // actuator:Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.
+            };
+            struct AirbagStatus {
+                boolean IsDeployed; // sensor:Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
+            };
+
+            struct SeatStatus {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                // FIXME: needs a timestamp
+                boolean IsOccupied; // sensor:Does the seat have a passenger in it.
+                boolean IsBelted; // sensor:Is the belt engaged.
+                octet Heating; // actuator:Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.
+                octet Massage; // actuator:Seat massage level. 0 = off. 100 = max massage.
+                Vehicle::Cabin::Seat::SeatBaseStatus SeatBase;
+                Vehicle::Cabin::Seat::Backrest::BackrestStatus BackRest;
+                Vehicle::Cabin::Seat::HeadrestStatus Headrest;
+                Vehicle::Cabin::Seat::AirbagStatus Airbag;
+            };
+            struct incr_decr {
+                boolean IsIncreaseEngaged;
+                boolean IsDecreaseEngaged;
+            };
+            struct SeatControl {
+                // EntityIdentity has a KEY field
+                covesa::base::EntityIdentity entity;
+                incr_decr Warmer;
+                incr_decr Massage;
+                incr_decr BaseForward;
+                incr_decr BaseUpward;
+                incr_decr BaseExtension;
+                incr_decr BaseTiltForward;
+                incr_decr BackrestReclineForward;
+                incr_decr BackrestLumbarSupport;
+                incr_decr BackrestLumberMoveUpward;
+                incr_decr BackrestSideBolsterSupport;
+                incr_decr HeadrestUpward;
+                incr_decr HeadrestForward;
+            };
+        };
+    };
+};
+};
+#endif  // __CABIN_IDL__

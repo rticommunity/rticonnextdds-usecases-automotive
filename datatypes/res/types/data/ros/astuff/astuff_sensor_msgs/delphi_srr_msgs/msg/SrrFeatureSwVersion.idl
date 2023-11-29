@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_srr_msgs/msg/SrrFeatureSwVersion.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SRRFEATURESWVERSION_IDL__
+#define __SRRFEATURESWVERSION_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_srr_msgs {
+  module msg { module dds_ {
+    //&verbatim (language="comment", text=
+    //  " Message file for srr_feature_sw_version")
+    struct SrrFeatureSwVersion_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 lcma_sw_version;
+
+      uint8 cta_sw_version;
+    };
+  };
+};
+};
+
+
+#endif /* __SRRFEATURESWVERSION_IDL__ */
