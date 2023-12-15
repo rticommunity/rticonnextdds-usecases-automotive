@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrHeaderInformationDetections.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRHEADERINFORMATIONDETECTIONS_IDL__
+#define __MRRHEADERINFORMATIONDETECTIONS_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrHeaderInformationDetections_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 can_align_updates_done;
+
+      uint16 can_scan_index;
+
+      uint8 can_number_of_det;
+
+      uint8 can_look_id;
+
+      uint16 can_look_index;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRHEADERINFORMATIONDETECTIONS_IDL__ */

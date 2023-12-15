@@ -1,0 +1,68 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/AwsDisplay.msg
+// generated code does not contain a copyright notice
+
+#ifndef __AWSDISPLAY_IDL__
+#define __AWSDISPLAY_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    module AwsDisplay_Constants {
+      const uint8 SOUND_SILENT = 0;
+      const uint8 SOUND_LDWL = 1;
+      const uint8 SOUND_LDWR = 2;
+      const uint8 SOUND_FAR_HW = 3;
+      const uint8 SOUND_NEAR_HW = 4;
+      const uint8 SOUND_SOFT_FCW = 5;
+      const uint8 SOUND_HARD_FCW = 6;
+      const uint8 SOUND_RESERVED = 7;
+      const uint8 HEADWAY_LEVEL_OFF = 0;
+      const uint8 HEADWAY_LEVEL_GREEN = 1;
+      const uint8 HEADWAY_LEVEL_ORANGE = 2;
+      const uint8 HEADWAY_LEVEL_RED = 3;
+    };
+    struct AwsDisplay_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean suppress_sound;
+
+      boolean night_time;
+
+      boolean dusk_time;
+
+      uint8 sound_type;
+
+      boolean headway_valid;
+
+      float headway_measurement;
+
+      boolean lanes_on;
+
+      boolean left_ldw_on;
+
+      boolean right_ldw_on;
+
+      boolean fcw_on;
+
+      boolean left_crossing;
+
+      boolean right_crossing;
+
+      boolean maintenance;
+
+      boolean failsafe;
+
+      boolean ped_fcw;
+
+      boolean ped_in_dz;
+
+      uint8 headway_warning_level;
+    };
+  };
+};
+};
+
+
+#endif /* __AWSDISPLAY_IDL__ */

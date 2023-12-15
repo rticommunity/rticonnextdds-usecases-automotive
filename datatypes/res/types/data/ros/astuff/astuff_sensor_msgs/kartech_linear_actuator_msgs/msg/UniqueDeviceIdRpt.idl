@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/UniqueDeviceIdRpt.msg
+// generated code does not contain a copyright notice
+
+#ifndef __UNIQUEDEVICEIDRPT_IDL__
+#define __UNIQUEDEVICEIDRPT_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct UniqueDeviceIdRpt_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      //&verbatim (language="comment", text=
+      //  " The first six bytes of the unique ID of this actuator.")
+      uint64 actuator_id_first_6;
+
+      //&verbatim (language="comment", text=
+      //  " The last six bytes of the unique ID of this actuator.")
+      uint64 actuator_id_last_6;
+    };
+  };
+};
+};
+
+
+#endif /* __UNIQUEDEVICEIDRPT_IDL__ */

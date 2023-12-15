@@ -1,0 +1,60 @@
+{
+  "dest-path": "../examples",
+  "app-list": [
+    {
+      "appname": "carlaSensors",
+      "connext": "pro",
+      "language": "C++11",
+      "topics": [
+        {
+          "topicname": "rt/carla/ego_vehicle/objects",
+          "typename": "ObjectArray_",
+          "typepath": "derived_object_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/astuff/astuff_sensor_msgs/derived_object_msgs/msg/ObjectArray",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/lane_invasion",
+          "typename": "CarlaLaneInvasionEvent_",
+          "typepath": "carla_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/carla/carla_msgs/msg/CarlaLaneInvasionEvent",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/imu",
+          "typename": "Imu_",
+          "typepath": "sensor_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/sensor_msgs/msg/Imu",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/gnss",
+          "typename": "NavSatFix_",
+          "typepath": "sensor_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/sensor_msgs/msg/NavSatFix",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/collision",
+          "typename": "CarlaCollisionEvent_",
+          "typepath": "carla_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/carla/carla_msgs/msg/CarlaCollisionEvent",
+          "pubsub": "pub",
+          "code": "DWListener"
+        },
+        {
+          "topicname": "rt/carla/ego_vehicle/lidar",
+          "typename": "PointCloud2_",
+          "typepath": "sensor_msgs::msg::dds_::",
+          "typefile": "res/types/data/ros/sensor_msgs/msg/PointCloud2",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrVehicle2.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRVEHICLE2_IDL__
+#define __ESRVEHICLE2_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrVehicle2_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 scan_index_ack;
+
+      boolean use_angle_misalignment;
+
+      boolean clear_faults;
+
+      int8 high_yaw_angle;
+
+      boolean mr_only_transmit;
+
+      boolean lr_only_transmit;
+
+      float angle_misalignment;
+
+      float lateral_mounting_offset;
+
+      boolean radar_cmd_radiate;
+
+      boolean blockage_disable;
+
+      uint8 maximum_tracks;
+
+      uint8 turn_signal_status;
+
+      boolean vehicle_speed_validity;
+
+      boolean mmr_upside_down;
+
+      uint8 grouping_mode;
+
+      boolean wiper_status;
+
+      boolean raw_data_enable;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRVEHICLE2_IDL__ */

@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/PositionReachErrorTimeConfigCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __POSITIONREACHERRORTIMECONFIGCMD_IDL__
+#define __POSITIONREACHERRORTIMECONFIGCMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct PositionReachErrorTimeConfigCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      //&verbatim (language="comment", text=
+      //  " Time that actuator needs to be stalled before cycling motor output in ms. Default is 3000ms.")
+      uint16 position_reach_error_time;
+    };
+  };
+};
+};
+
+
+#endif /* __POSITIONREACHERRORTIMECONFIGCMD_IDL__ */

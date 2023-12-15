@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Size2D.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SIZE2D_IDL__
+#define __SIZE2D_IDL__
+
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct Size2D_ {
+      uint16 size_x;
+
+      uint16 size_y;
+    };
+  };
+};
+};
+
+
+#endif /* __SIZE2D_IDL__ */

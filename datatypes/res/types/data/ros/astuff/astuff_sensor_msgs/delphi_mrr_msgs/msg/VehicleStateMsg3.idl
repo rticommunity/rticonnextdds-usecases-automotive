@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/VehicleStateMsg3.msg
+// generated code does not contain a copyright notice
+
+#ifndef __VEHICLESTATEMSG3_IDL__
+#define __VEHICLESTATEMSG3_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct VehicleStateMsg3_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean yaw_rate_reference_valid;
+
+      float yaw_rate_reference;
+
+      uint8 can_veh_long_accel_qf;
+
+      float can_veh_long_accel;
+    };
+  };
+};
+};
+
+
+#endif /* __VEHICLESTATEMSG3_IDL__ */

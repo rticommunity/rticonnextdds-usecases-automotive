@@ -1,0 +1,37 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ScheduledReportRatesReq.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SCHEDULEDREPORTRATESREQ_IDL__
+#define __SCHEDULEDREPORTRATESREQ_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/kartech_linear_actuator_msgs/msg/ReportIndex.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct ScheduledReportRatesReq_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      kartech_linear_actuator_msgs::msg::dds_::ReportIndex_ index_1;
+
+      //&verbatim (language="comment", text=
+      //  " How often to publish the requested report in ms.")
+      uint16 index_1_report_time;
+
+      //&verbatim (language="comment", text=
+      //  " If this is set to REPORT_NONE_INDEX then only the first index will be reported.")
+      kartech_linear_actuator_msgs::msg::dds_::ReportIndex_ index_2;
+
+      //&verbatim (language="comment", text=
+      //  " Ignored if index_2 is set to REPORT_NONE_INDEX.")
+      uint16 index_2_report_time;
+    };
+  };
+};
+};
+
+
+#endif /* __SCHEDULEDREPORTRATESREQ_IDL__ */

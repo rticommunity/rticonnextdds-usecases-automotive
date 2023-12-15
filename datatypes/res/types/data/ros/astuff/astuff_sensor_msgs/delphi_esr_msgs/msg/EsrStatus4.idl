@@ -1,0 +1,48 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrStatus4.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRSTATUS4_IDL__
+#define __ESRSTATUS4_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrStatus4_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      boolean truck_target_det;
+
+      boolean lr_only_grating_lobe_det;
+
+      boolean sidelobe_blockage;
+
+      boolean partial_blockage;
+
+      uint8 mr_lr_mode;
+
+      uint8 rolling_count_3;
+
+      uint8 path_id_acc;
+
+      uint8 path_id_cmbb_move;
+
+      uint8 path_id_cmbb_stat;
+
+      uint8 path_id_fcw_move;
+
+      uint8 path_id_fcw_stat;
+
+      float auto_align_angle;
+
+      uint8 path_id_acc_stat;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRSTATUS4_IDL__ */

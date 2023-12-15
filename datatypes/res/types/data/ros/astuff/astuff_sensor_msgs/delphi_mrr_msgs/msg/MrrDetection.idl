@@ -1,0 +1,42 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrDetection.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRDETECTION_IDL__
+#define __MRRDETECTION_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrDetection_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 detection_id;
+
+      uint8 confid_azimuth;
+
+      boolean super_res_target;
+
+      boolean nd_target;
+
+      boolean host_veh_clutter;
+
+      boolean valid_level;
+
+      float azimuth;
+
+      float range;
+
+      float range_rate;
+
+      int8 amplitude;
+
+      uint8 index_2lsb;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRDETECTION_IDL__ */

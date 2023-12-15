@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ScanPoint2208.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SCANPOINT2208_IDL__
+#define __SCANPOINT2208_IDL__
+
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct ScanPoint2208_ {
+      uint8 echo;
+
+      uint8 layer;
+
+      boolean transparent_point;
+
+      boolean clutter_atmospheric;
+
+      boolean ground;
+
+      boolean dirt;
+
+      int16 horizontal_angle;
+
+      uint16 radial_distance;
+
+      uint16 echo_pulse_width;
+    };
+  };
+};
+};
+
+
+#endif /* __SCANPOINT2208_IDL__ */

@@ -1,0 +1,54 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/CameraImage.msg
+// generated code does not contain a copyright notice
+
+#ifndef __CAMERAIMAGE_IDL__
+#define __CAMERAIMAGE_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/MountingPositionF.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    module CameraImage_Constants {
+      const uint16 JPEG = 0;
+      const uint16 MJPEG = 1;
+      const uint16 GRAY8 = 2;
+      const uint16 YUV420 = 3;
+      const uint16 YUV422 = 4;
+    };
+    struct CameraImage_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      uint16 image_format;
+
+      uint32 us_since_power_on;
+
+      builtin_interfaces::msg::dds_::Time_ timestamp;
+
+      uint8 device_id;
+
+      ibeo_msgs::msg::dds_::MountingPositionF_ mounting_position;
+
+      double horizontal_opening_angle;
+
+      double vertical_opening_angle;
+
+      uint16 image_width;
+
+      uint16 image_height;
+
+      uint32 compressed_size;
+
+      sequence<uint8> image_buffer;
+    };
+  };
+};
+};
+
+
+#endif /* __CAMERAIMAGE_IDL__ */

@@ -1,0 +1,22 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef __TXTMSG_IDL__
+#define __TXTMSG_IDL__
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+
+module basictypes {
+    struct charMessage {
+        dds::base::String32 message;
+    };
+};
+
+#endif /* __TXTMSG_IDL__ */

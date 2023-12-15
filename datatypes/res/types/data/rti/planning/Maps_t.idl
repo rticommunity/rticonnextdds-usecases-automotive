@@ -1,0 +1,31 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef MAPS_IDL
+#define MAPS_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/physics/Time_t.idl"
+
+module dds {
+    module planning {
+
+        /**
+        * Data type for Map-related work: requests and data
+        */
+        struct MapData : base::Entity  {
+            base::UInt32 seq_id;
+            physics::Time_integer timestamp;
+            string<1024> data;
+        };
+    };
+};
+
+#endif /* MAPS_IDL */

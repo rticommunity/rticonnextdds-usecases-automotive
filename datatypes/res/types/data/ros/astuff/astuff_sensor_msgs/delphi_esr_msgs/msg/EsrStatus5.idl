@@ -1,0 +1,38 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrStatus5.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRSTATUS5_IDL__
+#define __ESRSTATUS5_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrStatus5_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint8 swbatt_a2d;
+
+      uint8 ignp_a2d;
+
+      uint8 temp1_a2d;
+
+      uint8 temp2_a2d;
+
+      uint8 supply_5va_a2d;
+
+      uint8 supply_5vdx_a2d;
+
+      uint8 supply_3p3v_a2d;
+
+      uint8 supply_10v_a2d;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRSTATUS5_IDL__ */

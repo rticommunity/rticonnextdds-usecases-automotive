@@ -1,0 +1,36 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrStatusTempVolt.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRSTATUSTEMPVOLT_IDL__
+#define __MRRSTATUSTEMPVOLT_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrStatusTempVolt_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      float can_batt_volts;
+
+      float can_1_25_v;
+
+      float can_5_v;
+
+      float can_3_3_v_raw;
+
+      float can_3_3_v_dac;
+
+      int8 can_mmic_temp1;
+
+      int8 can_processor_thermistor;
+
+      int8 can_processor_temp1;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRSTATUSTEMPVOLT_IDL__ */

@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Velocity2D.msg
+// generated code does not contain a copyright notice
+
+#ifndef __VELOCITY2D_IDL__
+#define __VELOCITY2D_IDL__
+
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct Velocity2D_ {
+      int16 velocity_x;
+
+      int16 velocity_y;
+    };
+  };
+};
+};
+
+
+#endif /* __VELOCITY2D_IDL__ */

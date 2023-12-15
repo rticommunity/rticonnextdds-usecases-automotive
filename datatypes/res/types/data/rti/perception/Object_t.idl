@@ -1,0 +1,87 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef OBJECT_IDL
+#define OBJECT_IDL
+
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/base/Variants_t.idl"
+#include "res/types/data/rti/physics/Pose3D_t.idl"
+#include "res/types/data/rti/physics/Velocity_t.idl"
+#include "res/types/data/rti/physics/Acceleration_t.idl"
+#include "res/types/data/rti/physics/Time_t.idl"
+#include "res/types/data/rti/physics/Frame_t.idl"
+#include "res/types/data/rti/physics/Path_t.idl"
+#include "res/types/data/rti/perception/Polygon_t.idl"
+
+module dds {
+    module perception {
+       
+        /**
+        * ObjectKind - valid values for object classification
+        */
+        enum ObjectKind {
+            OBJECT_UNKNOWN,
+            OBJECT_PEDESTRIAN,
+            OBJECT_BIKE,
+            OBJECT_CAR,
+            OBJECT_TRUCK,
+            OBJECT_BARRIER
+        };
+
+        /**
+        * BaseObject Definition - base structure of objects (detected, tracked, predicted, mapped)
+        */
+        struct BaseObject  {
+            /* ID / enumerator for this object (16 bytes) */
+            base::Variant128 id;
+
+            /* Probability of existence / correct classification / motion? (0 to 1.0) */
+            base::Float32 probability;
+
+            /* Object classification: what this object is */
+            ObjectKind classification;
+
+            /* Object shape (2D polygon extruded to height) */
+            Polygon2D_height_float shape;
+
+            /* Center point (pose) of object (position & orientation), with optional covariants */
+            physics::Pose3D_real pose;
+
+            /* Velocity of object (linear & angular), with optional covariants */
+            physics::Velocity3_real velocity;
+
+            /* Acceleration of object (linear & angular), with optional covariants */
+            physics::Acceleration3_real acceleration;
+
+            /* Predicted (or historical?) path  */
+            sequence<physics::PathPoint_real, 16> path;
+
+            /* Optional timestamp and reference frame for this object */
+            @optional
+            physics::FrameOfReferenceKind frame;
+            @optional
+            physics::Time_integer timestamp;
+
+        };
+
+        /**
+        * ObjectsDetected - container of objects detected by perception system
+        */
+        struct ObjectsDetected : base::Entity {
+            physics::FrameOfReferenceKind frame;
+            physics::Time_integer timestamp;
+            sequence<BaseObject, 16> objects;
+        };
+
+    };
+};
+
+#endif /* OBJECT_IDL */

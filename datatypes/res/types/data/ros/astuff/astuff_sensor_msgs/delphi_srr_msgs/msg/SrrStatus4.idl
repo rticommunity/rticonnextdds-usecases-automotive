@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_srr_msgs/msg/SrrStatus4.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SRRSTATUS4_IDL__
+#define __SRRSTATUS4_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_srr_msgs {
+  module msg { module dds_ {
+    //&verbatim (language="comment", text=
+    //  " Message file for srr_status4")
+    struct SrrStatus4_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 can_tx_sw_version_host;
+
+      uint8 can_tx_path_id_blis_ignore;
+
+      uint8 can_tx_path_id_blis;
+
+      float can_tx_angle_misalignment;
+
+      float can_tx_auto_align_angle;
+    };
+  };
+};
+};
+
+
+#endif /* __SRRSTATUS4_IDL__ */

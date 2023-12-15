@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ConfigureOutputsKpKiCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __CONFIGUREOUTPUTSKPKICMD_IDL__
+#define __CONFIGUREOUTPUTSKPKICMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct ConfigureOutputsKpKiCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      //&verbatim (language="comment", text=
+      //  " The proportial term of the closed-loop control. Default is 1000.")
+      uint16 kp;
+
+      //&verbatim (language="comment", text=
+      //  " The integral term of the closed-loop control. Default is 1000.")
+      uint16 ki;
+    };
+  };
+};
+};
+
+
+#endif /* __CONFIGUREOUTPUTSKPKICMD_IDL__ */

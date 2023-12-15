@@ -1,0 +1,52 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/HostVehicleState2805.msg
+// generated code does not contain a copyright notice
+
+#ifndef __HOSTVEHICLESTATE2805_IDL__
+#define __HOSTVEHICLESTATE2805_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct HostVehicleState2805_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      builtin_interfaces::msg::dds_::Time_ timestamp;
+
+      uint16 scan_number;
+
+      uint16 error_flags;
+
+      double longitudinal_velocity;
+
+      double steering_wheel_angle;
+
+      double front_wheel_angle;
+
+      int32 x_position;
+
+      int32 y_position;
+
+      int16 course_angle;
+
+      uint16 time_difference;
+
+      int16 x_difference;
+
+      int16 y_difference;
+
+      int16 heading_difference;
+
+      int16 current_yaw_rate;
+    };
+  };
+};
+};
+
+
+#endif /* __HOSTVEHICLESTATE2805_IDL__ */

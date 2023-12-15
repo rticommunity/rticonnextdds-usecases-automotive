@@ -1,0 +1,68 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Object2225.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBJECT2225_IDL__
+#define __OBJECT2225_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/Point2Df.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    module Object2225_Constants {
+      const uint8 UNCLASSIFIED = 0;
+      const uint8 UNKNOWN_SMALL = 1;
+      const uint8 UNKNOWN_BIG = 2;
+      const uint8 PEDESTRIAN = 3;
+      const uint8 BIKE = 4;
+      const uint8 CAR = 5;
+      const uint8 TRUCK = 6;
+    };
+    struct Object2225_ {
+      uint16 id;
+
+      uint32 age;
+
+      builtin_interfaces::msg::dds_::Time_ timestamp;
+
+      uint16 hidden_status_age;
+
+      uint8 classification;
+
+      uint8 classification_certainty;
+
+      uint32 classification_age;
+
+      ibeo_msgs::msg::dds_::Point2Df_ bounding_box_center;
+
+      ibeo_msgs::msg::dds_::Point2Df_ bounding_box_size;
+
+      ibeo_msgs::msg::dds_::Point2Df_ object_box_center;
+
+      ibeo_msgs::msg::dds_::Point2Df_ object_box_center_sigma;
+
+      ibeo_msgs::msg::dds_::Point2Df_ object_box_size;
+
+      float yaw_angle;
+
+      ibeo_msgs::msg::dds_::Point2Df_ relative_velocity;
+
+      ibeo_msgs::msg::dds_::Point2Df_ relative_velocity_sigma;
+
+      ibeo_msgs::msg::dds_::Point2Df_ absolute_velocity;
+
+      ibeo_msgs::msg::dds_::Point2Df_ absolute_velocity_sigma;
+
+      uint8 number_of_contour_points;
+
+      uint8 closest_point_index;
+
+      sequence<ibeo_msgs::msg::dds_::Point2Df_> contour_point_list;
+    };
+  };
+};
+};
+
+
+#endif /* __OBJECT2225_IDL__ */

@@ -1,0 +1,101 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef CAN_IDL
+#define CAN_IDL
+ 
+#include "res/types/data/rti/base/Variants_t.idl"
+#include "res/types/data/rti/base/Entity_t.idl"
+#include "res/types/data/rti/physics/Time_t.idl"
+
+module dds {
+    module can {
+
+        /**********************************************************************
+        * Raw CAN Frame (opaque blob to DDS)
+        */
+        // From the Linux kernel in include/linux/can.h
+        //
+        // /**
+        //  * struct can_frame - basic CAN frame structure
+        //  * @can_id:  CAN ID of the frame and CAN_*_FLAG flags
+        //  * @can_dlc: frame payload length in byte (0 .. 8) aka data length code
+        //  *           N.B. the DLC field from ISO 11898-1 Chapter 8.4.2.3 has a 
+        //              1:1 mapping of the 'data length code' to the real payload
+        //              length
+        //  * @__pad:   padding
+        //  * @__res0:  reserved / padding
+        //  * @__res1:  reserved / padding
+        //  * @data:    CAN frame payload (up to 8 byte)
+        //  */
+        // struct can_frame {
+        //     canid_t can_id;  /* 32 bit CAN_ID + EFF/RTR/ERR flags */
+        //     __u8    can_dlc; /* frame payload length in byte (0 .. 8) */
+        //     __u8    __pad;   /* padding */
+        //     __u8    __res0;  /* reserved / padding */
+        //     __u8    __res1;  /* reserved / padding */
+        //     __u8    data[8] __attribute__((aligned(8)));
+        // };
+        struct CANFrame {
+            base::Id can_id;    // 32 bit CAN_ID + EFF/RTR/ERR flags
+            base::Byte can_dlc;      // frame payload length in byte (0 .. 8)
+            base::Byte data[8];      // data payload
+        };
+
+
+
+
+        /**********************************************************************
+        * Structured CAN Data
+        */ 
+        
+        /* CAN Signal Data 
+            - Payload with different variants of primitive datatypes values 
+            - Fixed length, to be memory efficient 
+        */
+        typedef base::Variant64 CANData;
+
+
+        /* CAN Signal Data-Object 
+           - Use Streaming.* QosProfile if values update periodically
+             - may use batching if needed
+           - Use Status QosProfile if values update upon change
+        */
+        struct CANSignal : base::Entity {
+            CANData data;  // signal data payload 
+
+            @optional      // ommited for signals not originating on a CAN bus
+            physics::Time_integer timestamp; // CAN bus signal timestamp
+        };
+
+        /* CANSignalInfo, a.k.a DBC: CANFrame <---mapping---> CANSignal
+           - Descriptive info that doesn't need to be sent with every update
+           - Maps a CANFrame to a CANSignal datatype, and vice-versa 
+           - Equivalent to a DBC file
+           - Specifies the translation used to apply identifying names, scaling, 
+             offsets, and defining information, to data transmitted within 
+             a CAN frame. For any given CAN ID, identify some or all of the data 
+             within the CAN frame. 
+             - The data in a CAN frame can be broken up into eight one-byte values, 
+               sixty-four one-bit values, one sixty-four bit value, 
+               or any combination of these
+             - The CANSignalInfo can be used to identify, scale, and offset the 
+               data represented by any or all of these values.
+           - Use Configuration QosProfile, to share only at startup, typically
+            - for example, could be configuration loaded from Persistent Service
+        */
+        struct CANSignalInfo : base::EntityInfo {
+            // Additional relevant CAN database (DBC) entries go here:
+            base::PrimitiveKind kind; // sufficient to interpret a CANFrame 
+        };
+    };
+};
+
+#endif /* CAN_IDL */

@@ -1,0 +1,29 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef VELOCITY_IDL
+#define VELOCITY_IDL
+
+#include "res/types/data/rti/physics/Vector_t.idl"
+
+module dds {
+    module physics {
+        /* linear and angular velocity in free space */
+        @nested @final
+        struct Velocity3_real {
+            Vector3_real linear;
+            Vector3_real angular;
+        };
+        
+        struct Velocity3_with_covariance_real : Velocity3_real {
+            base::Float64 covariance[36];
+        };
+    };
+};
+#endif /* VELOCITY_IDL */

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from derived_object_msgs/msg/LaneModels.msg
+// generated code does not contain a copyright notice
+
+#ifndef __LANEMODELS_IDL__
+#define __LANEMODELS_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/derived_object_msgs/msg/Lane.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module derived_object_msgs {
+  module msg { module dds_ {
+    //&verbatim (language="comment", text=
+    //  " Lane Models Message" "\n"
+    //  " Contains multiple lanes detected by the sensor")
+    struct LaneModels_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      derived_object_msgs::msg::dds_::Lane_ left_lane;
+
+      derived_object_msgs::msg::dds_::Lane_ right_lane;
+
+      sequence<derived_object_msgs::msg::dds_::Lane_> additional_lanes;
+    };
+  };
+};
+};
+
+
+#endif /* __LANEMODELS_IDL__ */

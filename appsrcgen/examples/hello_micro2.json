@@ -1,0 +1,35 @@
+{
+  "dest-path": "../hello_micro2",
+  "app-list": [
+    {
+      "appname": "helloMicro2Pub",
+      "connext": "micro2",
+      "language": "C",
+      "topics": [
+        {
+          "topicname": "HelloTopic",
+          "typename": "charMessage",
+          "typepath": "basictypes::",
+          "typefile": "res/types/data/my_types/hello/txtmsg",
+          "pubsub": "pub",
+          "code": "DWListener"
+        }
+      ]
+    },
+    {
+      "appname": "helloMicro2Sub",
+      "connext": "micro2",
+      "language": "C",
+      "topics": [
+        {
+          "topicname": "HelloTopic",
+          "typename": "charMessage",
+          "typepath": "basictypes::",
+          "typefile": "res/types/data/my_types/hello/txtmsg",
+          "pubsub": "sub",
+          "code": "DRListener"
+        }
+      ]
+    }
+  ]
+}

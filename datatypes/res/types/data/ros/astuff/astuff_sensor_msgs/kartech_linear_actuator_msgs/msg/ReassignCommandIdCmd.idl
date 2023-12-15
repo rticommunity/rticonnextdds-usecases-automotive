@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ReassignCommandIdCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __REASSIGNCOMMANDIDCMD_IDL__
+#define __REASSIGNCOMMANDIDCMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct ReassignCommandIdCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      //&verbatim (language="comment", text=
+      //  " The index of the user-defined command ID (1-4) to change.")
+      uint8 command_id_index;
+
+      //&verbatim (language="comment", text=
+      //  " The new user-defined command ID to set. 0xFFFEXX and 0xFF00XX are reserved." "\n"
+      //  " Setting this to 0xFFFFFFFF will change the disable_default_command_id flag without affecting any others.")
+      uint32 user_command_id;
+
+      //&verbatim (language="comment", text=
+      //  " Disables (true) or enables (false) the default command ID.")
+      boolean disable_default_command_id;
+    };
+  };
+};
+};
+
+
+#endif /* __REASSIGNCOMMANDIDCMD_IDL__ */

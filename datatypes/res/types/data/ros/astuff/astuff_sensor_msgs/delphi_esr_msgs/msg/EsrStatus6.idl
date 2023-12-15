@@ -1,0 +1,48 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrStatus6.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRSTATUS6_IDL__
+#define __ESRSTATUS6_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrStatus6_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint8 supply_1p8v_a2d;
+
+      uint8 supply_n5v_a2d;
+
+      uint8 wave_diff_a2d;
+
+      uint8 sw_version_dsp_3rd_byte;
+
+      boolean vertical_align_updated;
+
+      uint8 system_power_mode;
+
+      boolean found_target;
+
+      boolean recommend_unconverge;
+
+      uint8 factory_align_status_1;
+
+      uint8 factory_align_status_2;
+
+      float factory_misalignment;
+
+      uint8 serv_align_updates_done;
+
+      float vertical_misalignment;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRSTATUS6_IDL__ */

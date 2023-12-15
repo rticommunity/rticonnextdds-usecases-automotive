@@ -1,0 +1,104 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Object2270.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBJECT2270_IDL__
+#define __OBJECT2270_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/Point2Di.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    module Object2270_Constants {
+      const uint8 CENTER_OF_GRAVITY = 0;
+      const uint8 TOP_FRONT_LEFT_CORNER = 1;
+      const uint8 TOP_FRONT_RIGHT_CORNER = 2;
+      const uint8 BOTTOM_REAR_RIGHT_CORNER = 3;
+      const uint8 BOTTOM_REAR_LEFT_CORNER = 4;
+      const uint8 CENTER_OF_TOP_FRONT_EDGE = 5;
+      const uint8 CENTER_OF_RIGHT_EDGE = 6;
+      const uint8 CENTER_OF_BOTTOM_REAR_EDGE = 7;
+      const uint8 CENTER_OF_LEFT_EDGE = 8;
+      const uint8 BOX_CENTER = 9;
+      const uint8 INVALID = 255;
+      const uint8 UNCLASSIFIED = 0;
+      const uint8 UNKNOWN_SMALL = 1;
+      const uint8 UNKNOWN_BIG = 2;
+      const uint8 PEDESTRIAN = 3;
+      const uint8 BIKE = 4;
+      const uint8 CAR = 5;
+      const uint8 TRUCK = 6;
+      const uint8 OVER_DRIVABLE = 10;
+      const uint8 UNDER_DRIVABLE = 11;
+      const uint8 DYNAMIC_MODEL = 0;
+      const uint8 STATIC_MODEL = 1;
+    };
+    struct Object2270_ {
+      uint16 id;
+
+      uint16 age;
+
+      uint16 prediction_age;
+
+      uint16 relative_moment_of_measurement;
+
+      uint8 reference_point_location;
+
+      int16 reference_point_position_x;
+
+      int16 reference_point_position_y;
+
+      uint16 reference_point_position_sigma_x;
+
+      uint16 reference_point_position_sigma_y;
+
+      int16 contour_points_cog_x;
+
+      int16 contour_points_cog_y;
+
+      uint16 object_box_length;
+
+      uint16 object_box_width;
+
+      int16 object_box_orientation_angle;
+
+      int16 object_box_orientation_angle_sigma;
+
+      int16 absolute_velocity_x;
+
+      int16 absolute_velocity_y;
+
+      uint16 absolute_velocity_sigma_x;
+
+      uint16 absolute_velocity_sigma_y;
+
+      int16 relative_velocity_x;
+
+      int16 relative_velocity_y;
+
+      uint16 relative_velocity_sigma_x;
+
+      uint16 relative_velocity_sigma_y;
+
+      uint8 classification;
+
+      uint8 tracking_model;
+
+      boolean mobile_detected;
+
+      boolean track_valid;
+
+      uint16 classification_age;
+
+      uint16 classification_confidence;
+
+      uint16 number_of_contour_points;
+
+      sequence<ibeo_msgs::msg::dds_::Point2Di_> contour_point_list;
+    };
+  };
+};
+};
+
+
+#endif /* __OBJECT2270_IDL__ */

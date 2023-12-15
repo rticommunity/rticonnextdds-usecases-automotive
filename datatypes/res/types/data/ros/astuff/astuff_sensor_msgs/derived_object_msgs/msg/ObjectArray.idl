@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from derived_object_msgs/msg/ObjectArray.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBJECTARRAY_IDL__
+#define __OBJECTARRAY_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/derived_object_msgs/msg/Object.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module derived_object_msgs {
+  module msg { module dds_ {
+    struct ObjectArray_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      sequence<derived_object_msgs::msg::dds_::Object_> objects;
+    };
+  };
+};
+};
+
+
+#endif /* __OBJECTARRAY_IDL__ */

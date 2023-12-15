@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ConfigureOutputsKdFreqDeadbandCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __CONFIGUREOUTPUTSKDFREQDEADBANDCMD_IDL__
+#define __CONFIGUREOUTPUTSKDFREQDEADBANDCMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct ConfigureOutputsKdFreqDeadbandCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      //&verbatim (language="comment", text=
+      //  " The differential term of the closed-loop control. Default is 10.")
+      uint16 kd;
+
+      //&verbatim (language="comment", text=
+      //  " The frequency of closed-loop corrections in Hz. The default is 60Hz.")
+      uint8 closed_loop_freq;
+
+      //&verbatim (language="comment", text=
+      //  " The size of the dead-band for error correction in units of 0.001\". The default is 0.05\"")
+      double error_dead_band;
+    };
+  };
+};
+};
+
+
+#endif /* __CONFIGUREOUTPUTSKDFREQDEADBANDCMD_IDL__ */

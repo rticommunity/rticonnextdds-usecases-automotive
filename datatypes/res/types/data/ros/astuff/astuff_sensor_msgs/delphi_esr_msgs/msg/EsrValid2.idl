@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrValid2.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRVALID2_IDL__
+#define __ESRVALID2_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrValid2_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint8 mr_sn;
+
+      float mr_range;
+
+      float mr_range_rate;
+
+      float mr_angle;
+
+      int8 mr_power;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRVALID2_IDL__ */

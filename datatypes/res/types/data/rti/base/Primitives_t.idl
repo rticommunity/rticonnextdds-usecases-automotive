@@ -1,0 +1,94 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef PRIMITIVES_IDL
+#define PRIMITIVES_IDL
+
+module dds {
+    module base {
+
+        /**********************************************************************
+         * Booolean
+         */
+        typedef boolean Boolean;
+
+        /**********************************************************************
+         * Byte 
+         */
+        typedef octet Byte; 
+
+        /**********************************************************************
+         * Char
+         */
+        typedef char  Char8;
+        typedef wchar Char16;
+
+        /**********************************************************************
+         * Integers
+         */
+        // typedef int8                    Int8;   // not supported
+        // typedef uint8                   UInt8;  // not supported
+        typedef short                   Int16;
+        typedef unsigned short          UInt16;
+        typedef long                    Int32;
+        typedef unsigned long           UInt32;
+        typedef long long               Int64;
+        typedef unsigned long long      UInt64;
+
+        /**********************************************************************
+         * Floating Point Numbers
+         */
+        typedef float       Float32;   /* IEEE single precision */
+        typedef double      Float64;   /* IEEE double precision */
+        typedef long double Float128;  /* IEEE double-extended floating-point */
+
+
+
+        /**********************************************************************
+         * Lengths
+         */
+        const Int32 MAXLEN4     = 4;
+        const Int32 MAXLEN8     = 8;
+        const Int32 MAXLEN16    = 16;
+        const Int32 MAXLEN32    = 32;
+        const Int32 MAXLEN64    = 64;
+        const Int32 MAXLEN128   = 128;
+        const Int32 MAXLEN256   = 256;
+        const Int32 MAXLEN512   = 512;
+        const Int32 MAXLEN1024  = 1024;
+
+
+ 
+        /**********************************************************************
+        * Strings
+        */
+
+        /* Variable Length Strings (immutable) */
+        typedef string<MAXLEN4>   String4;
+        typedef string<MAXLEN8>   String8;
+        typedef string<MAXLEN16>  String16;
+        typedef string<MAXLEN32>  String32;
+        typedef string<MAXLEN64>  String64;
+        typedef string<MAXLEN128> String128;
+        typedef string<MAXLEN256> String256;
+     
+        /* Fixed Length String Buffers (mutable) */
+        typedef char StringBuf4[MAXLEN4];
+        typedef char StringBuf8[MAXLEN8];
+        typedef char StringBuf16[MAXLEN16];
+        typedef char StringBuf32[MAXLEN32];
+        typedef char StringBuf64[MAXLEN64];
+        typedef char StringBuf128[MAXLEN128];
+        typedef char StringBuf256[MAXLEN256];
+
+    };
+};
+
+#endif /* PRIMITIVES_IDL */

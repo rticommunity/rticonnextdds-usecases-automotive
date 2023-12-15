@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrTrackMotionPowerGroup.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRTRACKMOTIONPOWERGROUP_IDL__
+#define __ESRTRACKMOTIONPOWERGROUP_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/delphi_esr_msgs/msg/EsrTrackMotionPowerTrack.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrTrackMotionPowerGroup_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      string canmsg;
+
+      uint8 rolling_count_2;
+
+      uint8 can_id_group;
+
+      sequence<delphi_esr_msgs::msg::dds_::EsrTrackMotionPowerTrack_> tracks;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRTRACKMOTIONPOWERGROUP_IDL__ */

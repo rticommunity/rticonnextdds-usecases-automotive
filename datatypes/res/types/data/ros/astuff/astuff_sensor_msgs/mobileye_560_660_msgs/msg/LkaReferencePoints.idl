@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/LkaReferencePoints.msg
+// generated code does not contain a copyright notice
+
+#ifndef __LKAREFERENCEPOINTS_IDL__
+#define __LKAREFERENCEPOINTS_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    struct LkaReferencePoints_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      double ref_point_1_position;
+
+      double ref_point_1_distance;
+
+      boolean ref_point_1_validity;
+
+      double ref_point_2_position;
+
+      double ref_point_2_distance;
+
+      boolean ref_point_2_validity;
+    };
+  };
+};
+};
+
+
+#endif /* __LKAREFERENCEPOINTS_IDL__ */

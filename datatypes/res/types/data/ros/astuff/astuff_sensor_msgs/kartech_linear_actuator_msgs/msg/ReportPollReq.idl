@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/ReportPollReq.msg
+// generated code does not contain a copyright notice
+
+#ifndef __REPORTPOLLREQ_IDL__
+#define __REPORTPOLLREQ_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/kartech_linear_actuator_msgs/msg/ReportIndex.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct ReportPollReq_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      //&verbatim (language="comment", text=
+      //  " The indicies of the reports that you would like to receive. Up to 6 may be requested at a time.")
+      sequence<kartech_linear_actuator_msgs::msg::dds_::ReportIndex_> report_indices;
+    };
+  };
+};
+};
+
+
+#endif /* __REPORTPOLLREQ_IDL__ */

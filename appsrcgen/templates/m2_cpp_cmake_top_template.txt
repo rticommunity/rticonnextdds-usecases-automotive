@@ -1,0 +1,4 @@
+cmake_minimum_required(VERSION 3.14)
+PROJECT(ad_example)
+
+add_subdirectory("src/{{Repl:AppName}}")

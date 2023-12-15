@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrControlMsgFR.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRCONTROLMSGFR_IDL__
+#define __MRRCONTROLMSGFR_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrControlMsgFR_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 can_sensitivity_profile_select;
+
+      uint16 can_stop_frequency_frml;
+
+      uint16 can_stop_frequency_frll;
+
+      float can_prp_factor_frml;
+
+      float can_prp_factor_frll;
+
+      uint8 can_desired_sweep_bw_frml;
+
+      uint8 can_desired_sweep_bw_frll;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRCONTROLMSGFR_IDL__ */

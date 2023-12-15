@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/Point2Df.msg
+// generated code does not contain a copyright notice
+
+#ifndef __POINT2DF_IDL__
+#define __POINT2DF_IDL__
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct Point2Df_ {
+      float x;
+
+      float y;
+    };
+  };
+};
+};
+
+#endif /* __POINT2DF_IDL__ */

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrHeaderAlignmentState.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRHEADERALIGNMENTSTATE_IDL__
+#define __MRRHEADERALIGNMENTSTATE_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrHeaderAlignmentState_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 can_auto_align_hangle_qf;
+
+      uint8 can_alignment_status;
+
+      uint8 can_alignment_state;
+
+      float can_auto_align_hangle_ref;
+
+      float can_auto_align_hangle;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRHEADERALIGNMENTSTATE_IDL__ */

@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrHeaderSensorCoverage.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRHEADERSENSORCOVERAGE_IDL__
+#define __MRRHEADERSENSORCOVERAGE_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrHeaderSensorCoverage_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 can_sensor_fov_hor;
+
+      int8 can_doppler_coverage;
+
+      uint8 can_range_coverage;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRHEADERSENSORCOVERAGE_IDL__ */

@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrStatusCanVersion.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRSTATUSCANVERSION_IDL__
+#define __MRRSTATUSCANVERSION_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrStatusCanVersion_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 can_usc_section_compatibility;
+
+      uint8 can_pcan_minor_mrr;
+
+      uint8 can_pcan_major_mrr;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRSTATUSCANVERSION_IDL__ */

@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/IbeoDataHeader.msg
+// generated code does not contain a copyright notice
+
+#ifndef __IBEODATAHEADER_IDL__
+#define __IBEODATAHEADER_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct IbeoDataHeader_ {
+      uint32 previous_message_size;
+
+      uint32 message_size;
+
+      uint8 device_id;
+
+      uint16 data_type_id;
+
+      builtin_interfaces::msg::dds_::Time_ stamp;
+    };
+  };
+};
+};
+
+
+#endif /* __IBEODATAHEADER_IDL__ */

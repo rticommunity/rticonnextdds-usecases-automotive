@@ -1,0 +1,14 @@
+// common-use data types for COVESA on DDS
+#ifndef __ENTITY_IDL__
+#define __ENTITY_IDL__
+
+module covesa {
+    module base {
+        struct EntityIdentity {
+            @key
+            string<32> id;
+            string<32> uuid;
+        };
+    };
+};
+#endif  // __ENTITY_IDL__

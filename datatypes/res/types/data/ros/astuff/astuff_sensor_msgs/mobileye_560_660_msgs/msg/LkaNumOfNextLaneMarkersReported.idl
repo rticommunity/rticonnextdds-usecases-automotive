@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from mobileye_560_660_msgs/msg/LkaNumOfNextLaneMarkersReported.msg
+// generated code does not contain a copyright notice
+
+#ifndef __LKANUMOFNEXTLANEMARKERSREPORTED_IDL__
+#define __LKANUMOFNEXTLANEMARKERSREPORTED_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module mobileye_560_660_msgs {
+  module msg { module dds_ {
+    struct LkaNumOfNextLaneMarkersReported_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint16 num_of_next_lane_markers_reported;
+    };
+  };
+};
+};
+
+
+#endif /* __LKANUMOFNEXTLANEMARKERSREPORTED_IDL__ */

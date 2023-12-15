@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/ObjectData2271.msg
+// generated code does not contain a copyright notice
+
+#ifndef __OBJECTDATA2271_IDL__
+#define __OBJECTDATA2271_IDL__
+
+#include "res/types/data/ros/builtin_interfaces/msg/Time.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/IbeoDataHeader.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/Object2271.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct ObjectData2271_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      ibeo_msgs::msg::dds_::IbeoDataHeader_ ibeo_header;
+
+      builtin_interfaces::msg::dds_::Time_ start_scan_timestamp;
+
+      uint16 scan_number;
+
+      uint16 number_of_objects;
+
+      sequence<ibeo_msgs::msg::dds_::Object2271_> object_list;
+    };
+  };
+};
+};
+
+
+#endif /* __OBJECTDATA2271_IDL__ */

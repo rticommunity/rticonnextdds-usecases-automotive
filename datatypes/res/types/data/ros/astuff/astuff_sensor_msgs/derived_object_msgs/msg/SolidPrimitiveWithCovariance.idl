@@ -1,0 +1,50 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from derived_object_msgs/msg/SolidPrimitiveWithCovariance.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SOLIDPRIMITIVEWITHCOVARIANCE_IDL__
+#define __SOLIDPRIMITIVEWITHCOVARIANCE_IDL__
+
+
+module derived_object_msgs {
+  module msg { module dds_ {
+    module SolidPrimitiveWithCovariance_Constants {
+      const uint8 BOX = 1;
+      const uint8 SPHERE = 2;
+      const uint8 CYLINDER = 3;
+      const uint8 CONE = 4;
+      const uint8 BOX_X = 0;
+      const uint8 BOX_Y = 1;
+      const uint8 BOX_Z = 2;
+      const uint8 SPHERE_RADIUS = 0;
+      const uint8 CYLINDER_HEIGHT = 0;
+      const uint8 CYLINDER_RADIUS = 1;
+      const uint8 CONE_HEIGHT = 0;
+      const uint8 CONE_RADIUS = 1;
+    };
+    //&verbatim (language="comment", text=
+    //  " Define box, sphere, cylinder, cone" "\n"
+    //  " All shapes are defined to have their bounding boxes centered around 0,0,0." "\n"
+    //  " This message based on shape_msgs/SolidPrimitive")
+    struct SolidPrimitiveWithCovariance_ {
+      //&verbatim (language="comment", text=
+      //  " The type of the shape")
+      uint8 type;
+
+      //&verbatim (language="comment", text=
+      //  " The dimensions of the shape")
+      sequence<double> dimensions;
+
+      //&verbatim (language="comment", text=
+      //  " Row-major representation of the covariance matrix associated with the shape." "\n"
+      //  " For the BOX type, this should be a 3x3 matrix defining the uncertainty of the X, Y, and Z measurements." "\n"
+      //  " For the SPHERE type, this should contain only one value for the radius." "\n"
+      //  " For the CYLINDER and CONE types, this will be a 2x2 matrix defining the uncertainty of the HEIGHT and RADIUS measurements.")
+      sequence<double> covariance;
+    };
+  };
+};
+};
+
+
+#endif /* __SOLIDPRIMITIVEWITHCOVARIANCE_IDL__ */

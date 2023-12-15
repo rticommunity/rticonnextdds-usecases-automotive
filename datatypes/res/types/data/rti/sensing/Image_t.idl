@@ -1,0 +1,80 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef IMAGE_IDL
+#define IMAGE_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+
+module dds {
+    module sensing {
+        module image {   
+            /* Format 
+             *    Specify the pixel depth, channels, channel order 
+             */
+            enum Format {
+                MONO8,   //  8-bit greyscale
+                MONO16,  // 16-bit greyscale
+
+                RGB8,    //  8-bit color RGB
+                RGB16,   // 16-bit color RGB
+
+                YUV8,    //  8-bit color YUV
+                YUV16    //  8-bit color YUV
+
+                // add more formats as needed
+            };
+
+
+            /* Max Image Content Size */
+            const base::UInt16 MAX_WIDTH    = 640;
+            const base::UInt16 MAX_HEIGHT   = 480;
+            const base::UInt16 MAX_CHANNELS = 3;// e.g. 3 for RGB or YUV + 1 alpha
+            const base::UInt16 MAX_DEPTH    = 1;// pixel depth in bytes (eg 1 byte)
+
+            typedef sequence<base::Byte, 
+                            MAX_WIDTH * MAX_HEIGHT * MAX_CHANNELS * MAX_DEPTH> 
+                    PixelSeq;
+
+
+            @nested 
+            struct Image {
+                Format format;             // format of the image
+
+                base::UInt16 height;       // # of rows
+                base::UInt16 width;        // # of columns
+
+                /* width_step: the row length in bytes
+                 *      depth * channels * width  +  packing_for_encoding
+                 * e.g: 
+                 *     MONO8:  width_step = 1 * 1 * width = width
+                 *     RGB8 :  width_step = 1 * 3 * width = width * 3
+                 */
+                base::UInt16 width_step;
+
+                /* content 
+                 *       pixel.length = width_step * height
+                 *
+                 * e.g.: pixel at (x, y) begins at:
+                 *
+                 *          pixel[y*width_step + x*channels]
+                 *
+                 * assuming that the top-left corner is at (0, 0), and
+                 * x-axis increases to the right and the y-axis increases down
+                 *
+                 * NOTE: the layout is designed to be compatible with OpenCV 
+                 *       image processing library
+                 */
+                PixelSeq pixel;
+            };
+        };
+    };
+};
+
+#endif /* IMAGE_IDL */

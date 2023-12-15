@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from kartech_linear_actuator_msgs/msg/PriorityConfigCmd.msg
+// generated code does not contain a copyright notice
+
+#ifndef __PRIORITYCONFIGCMD_IDL__
+#define __PRIORITYCONFIGCMD_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module kartech_linear_actuator_msgs {
+  module msg { module dds_ {
+    struct PriorityConfigCmd_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean confirm;
+
+      //&verbatim (language="comment", text=
+      //  " Priority values for different types of reports. Lower value = higher priority.")
+      uint8 handshake_priority;
+
+      uint8 auto_reply_priority;
+
+      uint8 scheduled_priority;
+
+      uint8 polled_priority;
+    };
+  };
+};
+};
+
+
+#endif /* __PRIORITYCONFIGCMD_IDL__ */

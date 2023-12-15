@@ -1,0 +1,58 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_srr_msgs/msg/SrrStatus2.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SRRSTATUS2_IDL__
+#define __SRRSTATUS2_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_srr_msgs {
+  module msg { module dds_ {
+    module SrrStatus2_Constants {
+      const uint8 CAN_TX_ALIGNMENT_STATUS_UNKNOWN = 0;
+      const uint8 CAN_TX_ALIGNMENT_STATUS_CONVERGED = 1;
+      const uint8 CAN_TX_ALIGNMENT_STATUS_FAILED = 2;
+      const uint8 CAN_TX_ALIGNMENT_STATUS_RESERVED = 3;
+    };
+    //&verbatim (language="comment", text=
+    //  " Message file for srr_status2")
+    struct SrrStatus2_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 can_tx_alignment_status;
+
+      boolean can_tx_comm_error;
+
+      boolean can_tx_steering_angle_sign;
+
+      float can_tx_yaw_rate_bias;
+
+      float can_tx_veh_spd_comp_factor;
+
+      uint16 can_tx_sw_version_dsp;
+
+      //&verbatim (language="comment", text=
+      //  " degc")
+      int16 can_tx_temperature;
+
+      boolean can_tx_range_perf_error;
+
+      boolean can_tx_overheat_error;
+
+      boolean can_tx_internal_error;
+
+      boolean can_tx_xcvr_operational;
+
+      //&verbatim (language="comment", text=
+      //  " deg")
+      uint16 can_tx_steering_angle;
+
+      uint8 can_tx_rolling_count_2;
+    };
+  };
+};
+};
+
+
+#endif /* __SRRSTATUS2_IDL__ */

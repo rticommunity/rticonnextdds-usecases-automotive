@@ -1,0 +1,70 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+
+#ifndef ENTITY_IDL
+#define ENTITY_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+
+module dds {
+    module base {
+
+        /**
+        * An Id dimension
+        */
+        typedef UInt32 Id;
+
+        /**
+        * Id Dimensions
+        */
+        enum EntityId { 
+            OBJECT,                 // Dimension: Entity Object
+            KIND                    // Dimension: Entity Kind 
+        };
+
+        /**
+        * Number of identity dimensions
+        */
+        const UInt16 ID_DIMENSIONS = 2; 
+        
+        /**
+        * Entity Definition - base struct of ALL entities
+        */
+        @nested
+        struct Entity {
+            @key      
+            Id id[ID_DIMENSIONS];   // Entity Instance
+        };
+
+
+        /**
+        * Entity Reference - used to refer to an entity
+        *   The reference should be define in a manner consistent with the
+        *   identification scheme used
+        */
+        @nested
+        struct EntityRef {
+            Id id[ID_DIMENSIONS];
+        };
+
+
+
+        /**
+        * Entity Info - descriptive information about an entity
+        */
+        struct EntityInfo : Entity {
+            @optional
+            String256 name;
+        };
+
+    };
+};
+
+#endif /* ENTITY_IDL */

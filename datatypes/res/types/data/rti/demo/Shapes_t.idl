@@ -1,0 +1,88 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+/*
+         Shapes - Datatypes, Databus, and Service Interface Name Constants
+*/
+#ifndef SHAPES_IDL
+#define SHAPES_IDL
+
+module Shapes {
+
+    /*************************************************************************
+    * Datatypes
+    */
+    module data {
+
+        struct ShapeType {
+            @key // identifies the instance (a.k.a data-object)
+                string<128> color; 
+
+            long x;
+            long y;
+            long shapesize; 
+        };
+
+        enum ShapeFillKind {
+            SOLID_FILL,
+            TRANSPARENT_FILL,
+            HORIZONTAL_HATCH_FILL,
+            VERTICAL_HATCH_FILL
+        };
+
+        struct ShapeTypeExtended : ShapeType {
+            ShapeFillKind fillKind;
+            float angle;
+        };
+    };
+
+    /*************************************************************************
+     * Databus - DDS-XML Interface String Constants, for use in code
+     */
+    module bus {
+
+        module registered_type {
+            const string ShapeType      = "ShapeType";
+        };
+
+        module topic {
+            const string Square         = "Square";
+            const string Circle         = "Circle";
+            const string Triangle       = "Triangle";
+        }; 
+    };
+
+    /*************************************************************************
+    * Service Interfaces - DDS-XML Interface Name Constants, for use in code
+    */
+    module svc {
+        module Pub {
+            const string participant    = "Shapes_svc::Pub";
+            module writer {
+                const string Shape      = "outputs::Shape_writer";
+            };
+        };
+        module Sub {
+            const string participant    = "Shapes_svc::Sub";
+            module reader {
+                const string Shape      = "inputs::Shape_reader";
+            };
+        };
+        module PubSub {
+            const string participant    = "Shapes_svc::PubSub";
+            module reader {
+                const string Shape      = "inputs::Shape_reader";
+            };
+            module writer {
+                const string Shape      = "outputs::Shape_writer";
+            };
+        };
+    };
+};
+#endif /* SHAPES_IDL */

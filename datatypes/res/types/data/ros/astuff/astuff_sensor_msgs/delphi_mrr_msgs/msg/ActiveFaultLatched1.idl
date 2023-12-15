@@ -1,0 +1,148 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/ActiveFaultLatched1.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ACTIVEFAULTLATCHED1_IDL__
+#define __ACTIVEFAULTLATCHED1_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct ActiveFaultLatched1_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean active_flt_latched_byte7_bit7;
+
+      boolean active_flt_latched_byte7_bit6;
+
+      boolean active_flt_latched_byte7_bit5;
+
+      boolean active_flt_latched_byte7_bit4;
+
+      boolean arm_to_dsp_chksum_fault;
+
+      boolean dsp_to_arm_chksum_fault;
+
+      boolean host_to_arm_chksum_fault;
+
+      boolean arm_to_host_chksum_fault;
+
+      boolean loop_bw_out_of_range;
+
+      boolean dsp_overrun_fault;
+
+      boolean active_flt_latched_byte6_bit5;
+
+      boolean tuning_sensitivity_fault;
+
+      boolean saturated_tuning_freq_fault;
+
+      boolean local_osc_power_fault;
+
+      boolean transmitter_power_fault;
+
+      boolean active_flt_latched_byte6_bit0;
+
+      boolean active_flt_latched_byte5_bit7;
+
+      boolean active_flt_latched_byte5_bit6;
+
+      boolean xcvr_device_spi_fault;
+
+      boolean freq_synthesizer_spi_fault;
+
+      boolean analog_converter_devic_spi_fault;
+
+      boolean side_lobe_blockage;
+
+      boolean active_flt_latched_byte5_bit1;
+
+      boolean mnr_blocked;
+
+      boolean ecu_temp_high_fault;
+
+      boolean transmitter_temp_high_fault;
+
+      boolean alignment_routine_failed_fault;
+
+      boolean unreasonable_radar_data;
+
+      boolean microprocessor_temp_high_fault;
+
+      boolean vertical_alignment_out_of_range;
+
+      boolean horizontal_alignment_out_of_range;
+
+      boolean factory_alignment_mode;
+
+      boolean battery_low_fault;
+
+      boolean battery_high_fault;
+
+      boolean v_1p25_supply_out_of_range;
+
+      boolean active_flt_latched_byte3_bit4;
+
+      boolean thermistor_out_of_range;
+
+      boolean v_3p3_dac_supply_out_of_range;
+
+      boolean v_3p3_raw_supply_out_of_range;
+
+      boolean v_5_supply_out_of_range;
+
+      boolean transmitter_id_fault;
+
+      boolean active_flt_latched_byte2_bit6;
+
+      boolean active_flt_latched_byte2_bit5;
+
+      boolean active_flt_latched_byte2_bit4;
+
+      boolean active_flt_latched_byte2_bit3;
+
+      boolean active_flt_latched_byte2_bit2;
+
+      boolean pcan_missing_msg_fault;
+
+      boolean pcan_bus_off;
+
+      boolean active_flt_latched_byte1_bit7;
+
+      boolean active_flt_latched_byte1_bit6;
+
+      boolean instruction_set_check_fault;
+
+      boolean stack_overflow_fault;
+
+      boolean watchdog_fault;
+
+      boolean pll_lock_fault;
+
+      boolean active_flt_latched_byte1_bit1;
+
+      boolean ram_memory_test_fault;
+
+      boolean usc_validation_fault;
+
+      boolean active_flt_latched_byte0_bit6;
+
+      boolean active_flt_latched_byte0_bit5;
+
+      boolean active_flt_latched_byte0_bit4;
+
+      boolean active_flt_latched_byte0_bit3;
+
+      boolean keep_alive_checksum_fault;
+
+      boolean program_calibration_flash_checksum;
+
+      boolean application_flash_checksum_fault;
+    };
+  };
+};
+};
+
+
+#endif /* __ACTIVEFAULTLATCHED1_IDL__ */

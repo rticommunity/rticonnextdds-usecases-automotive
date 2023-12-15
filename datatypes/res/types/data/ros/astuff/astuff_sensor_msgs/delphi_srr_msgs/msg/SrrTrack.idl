@@ -1,0 +1,50 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_srr_msgs/msg/SrrTrack.msg
+// generated code does not contain a copyright notice
+
+#ifndef __SRRTRACK_IDL__
+#define __SRRTRACK_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_srr_msgs {
+  module msg { module dds_ {
+    module SrrTrack_Constants {
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_SUSPECT_DETECTION = 0;
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_LEVEL_1 = 1;
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_LEVEL_2 = 2;
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_LEVEL_3 = 3;
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_LEVEL_4 = 4;
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_LEVEL_5 = 5;
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_LEVEL_6 = 6;
+      const uint8 CAN_TX_DETECT_VALID_LEVEL_LEVEL_7 = 7;
+      const boolean CAN_TX_DETECT_STATUS_NO_DATA = FALSE;
+      const boolean CAN_TX_DETECT_STATUS_VALID_DATA_PRESENT = TRUE;
+    };
+    //&verbatim (language="comment", text=
+    //  " Message file for srr_track")
+    struct SrrTrack_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      uint8 can_tx_detect_valid_level;
+
+      boolean can_tx_detect_status;
+
+      //&verbatim (language="comment", text=        " m/s")
+      float can_tx_detect_range_rate;
+
+      //&verbatim (language="comment", text=        " m")
+      float can_tx_detect_range;
+
+      //&verbatim (language="comment", text=        " deg")
+      float can_tx_detect_angle;
+
+      //&verbatim (language="comment", text=        " dbsm")
+      float can_tx_detect_amplitude;
+    };
+  };
+};
+};
+
+
+#endif /* __SRRTRACK_IDL__ */

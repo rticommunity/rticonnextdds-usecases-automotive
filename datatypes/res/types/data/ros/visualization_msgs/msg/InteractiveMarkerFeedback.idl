@@ -1,0 +1,51 @@
+/* 
+ * Copyright 2012-2018 Open Source Robotics Foundation 
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ * 
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ */ 
+
+#ifndef __visualization_msgs__msg__InteractiveMarkerFeedback__idl
+#define __visualization_msgs__msg__InteractiveMarkerFeedback__idl
+
+#include "res/types/data/ros/geometry_msgs/msg/Point.idl"
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+#include "res/types/data/ros/geometry_msgs/msg/Pose.idl"
+
+module visualization_msgs {
+  module msg {
+    module dds_ {
+      module InteractiveMarkerFeedback_Constants {
+        const octet KEEP_ALIVE_ = 0;
+        const octet POSE_UPDATE_ = 1;
+        const octet MENU_SELECT_ = 2;
+        const octet BUTTON_CLICK_ = 3;
+        const octet MOUSE_DOWN_ = 4;
+        const octet MOUSE_UP_ = 5;
+      };
+      @appendable struct InteractiveMarkerFeedback_ {
+        std_msgs::msg::dds_::Header_ header;
+        string client_id;
+        string marker_name;
+        string control_name;
+        octet event_type;
+        geometry_msgs::msg::dds_::Pose_ pose;
+        uint32 menu_entry_id;
+        geometry_msgs::msg::dds_::Point_ mouse_point;
+        boolean mouse_point_valid;
+      };
+    };
+  };
+};
+
+
+#endif // __visualization_msgs__msg__InteractiveMarkerFeedback__idl

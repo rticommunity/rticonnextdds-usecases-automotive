@@ -1,0 +1,29 @@
+/******************************************************************************
+  (c) 2022 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef GNSS_IDL
+#define GNSS_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+#include "res/types/data/rti/base/Entity_t.idl"
+
+module dds {
+    module sensing {
+        module gnss {
+            struct Basic : base::Entity {
+                base::UInt64 utc_seconds; 
+                base::Float64 lat; 
+                base::Float64 lon; 
+                base::Float64 alt; 
+            };
+        };
+    };
+};
+
+#endif /* GNSS_IDL */

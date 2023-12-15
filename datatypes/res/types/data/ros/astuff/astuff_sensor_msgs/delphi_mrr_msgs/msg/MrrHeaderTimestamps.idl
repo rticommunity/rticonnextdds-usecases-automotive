@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_mrr_msgs/msg/MrrHeaderTimestamps.msg
+// generated code does not contain a copyright notice
+
+#ifndef __MRRHEADERTIMESTAMPS_IDL__
+#define __MRRHEADERTIMESTAMPS_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_mrr_msgs {
+  module msg { module dds_ {
+    struct MrrHeaderTimestamps_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      float can_det_time_since_meas;
+
+      float can_sensor_time_stamp;
+    };
+  };
+};
+};
+
+
+#endif /* __MRRHEADERTIMESTAMPS_IDL__ */

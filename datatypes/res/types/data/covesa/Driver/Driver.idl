@@ -1,0 +1,27 @@
+#ifndef __DRIVER_IDL__
+#define __DRIVER_IDL__
+
+#include "res/types/data/covesa/base/entity.idl"
+
+module covesa {
+module Vehicle {
+    module Driver {
+        struct DriverInfo {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            float DistractionLevel; // sensor:Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.
+            boolean IsEyesOnRoad; // sensor:Has driver the eyes on road or not?
+            float AttentiveProbability; // sensor:Probability of attentiveness of the driver.
+            float FatigueLevel; // sensor:Fatigueness level of driver. Evaluated by multiple factors like trip time, behaviour of steering, eye status.
+            unsigned short HeartRate; // sensor:Heart rate of the driver.
+        };
+        struct IdentifierInfo {
+            // EntityIdentity has a KEY field
+            covesa::base::EntityIdentity entity;
+            string<64> Subject; // sensor:Subject for the authentication of the occupant. E.g. UserID 7331677.
+            string<256> Issuer; // sensor:Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.
+        };
+    };
+};
+};
+#endif  // __DRIVER_IDL__

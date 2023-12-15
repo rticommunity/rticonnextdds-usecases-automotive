@@ -1,0 +1,26 @@
+/******************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef VECTOR_IDL
+#define VECTOR_IDL
+
+#include "res/types/data/rti/base/Primitives_t.idl"
+
+module dds {
+    module physics {
+        /* vector in free space */
+        @nested @final
+        struct Vector3_real {
+            base::Float64 x;
+            base::Float64 y;
+            base::Float64 z;
+        };
+    };
+};
+#endif /* VECTOR_IDL */

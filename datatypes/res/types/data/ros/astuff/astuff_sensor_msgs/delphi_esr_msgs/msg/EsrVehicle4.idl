@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from delphi_esr_msgs/msg/EsrVehicle4.msg
+// generated code does not contain a copyright notice
+
+#ifndef __ESRVEHICLE4_IDL__
+#define __ESRVEHICLE4_IDL__
+
+#include "res/types/data/ros/std_msgs/msg/Header.idl"
+
+module delphi_esr_msgs {
+  module msg { module dds_ {
+    struct EsrVehicle4_ {
+      std_msgs::msg::dds_::Header_ header;
+
+      boolean fac_align_cmd_1;
+
+      boolean fac_align_cmd_2;
+
+      uint8 fac_align_max_nt;
+
+      uint8 fac_align_samp_req;
+
+      int8 fac_tgt_mtg_offset;
+
+      int8 fac_tgt_mtg_space_hor;
+
+      int8 fac_tgt_mtg_space_ver;
+
+      float fac_tgt_range_1;
+
+      float fac_tgt_range_r2m;
+
+      float fac_tgt_range_m2t;
+    };
+  };
+};
+};
+
+
+#endif /* __ESRVEHICLE4_IDL__ */

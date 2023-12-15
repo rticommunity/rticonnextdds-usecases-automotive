@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ibeo_msgs/msg/UntrackedProperties.msg
+// generated code does not contain a copyright notice
+
+#ifndef __UNTRACKEDPROPERTIES_IDL__
+#define __UNTRACKEDPROPERTIES_IDL__
+
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/ContourPointSigma.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/Point2Di.idl"
+#include "res/types/data/ros/astuff/astuff_sensor_msgs/ibeo_msgs/msg/Point2Dui.idl"
+
+module ibeo_msgs {
+  module msg { module dds_ {
+    struct UntrackedProperties_ {
+      uint16 relative_time_of_measurement;
+
+      ibeo_msgs::msg::dds_::Point2Di_ position_closest_point;
+
+      ibeo_msgs::msg::dds_::Point2Di_ object_box_size;
+
+      ibeo_msgs::msg::dds_::Point2Dui_ object_box_size_sigma;
+
+      int16 object_box_orientation;
+
+      uint16 object_box_orientation_sigma;
+
+      ibeo_msgs::msg::dds_::Point2Di_ tracking_point_coordinate;
+
+      ibeo_msgs::msg::dds_::Point2Dui_ tracking_point_coordinate_sigma;
+
+      uint8 number_of_contour_points;
+
+      sequence<ibeo_msgs::msg::dds_::ContourPointSigma_> contour_point_list;
+    };
+  };
+};
+};
+
+
+#endif /* __UNTRACKEDPROPERTIES_IDL__ */
