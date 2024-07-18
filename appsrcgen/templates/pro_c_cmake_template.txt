@@ -11,7 +11,7 @@ endif()
 set(CMAKE_MODULE_PATH ${NDDSHOME}/resource/cmake)
 
 cmake_policy(SET CMP0057 NEW)
-find_package(RTIConnextDDS EXACT "6.1" REQUIRED)
+find_package(RTIConnextDDS REQUIRED)
 
 IF(DEFINED ENV{CONNEXTDDS_ARCH})
     SET(CONNEXTDDS_ARCH $ENV{CONNEXTDDS_ARCH})
